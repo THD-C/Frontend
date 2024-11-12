@@ -1,5 +1,5 @@
-# THD-C - Frontend (UI)
-Warstwa prezentacji aplikacji [THD-C](https://github.com/THD-C)
+# THD(C) - Frontend (UI)
+Warstwa prezentacji aplikacji [THD(C)](https://github.com/THD-C)
 
 ## Spis treści
 1. [Przygotowania](#przygotowania)
