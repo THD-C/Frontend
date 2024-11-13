@@ -33,6 +33,7 @@
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.css",
+              "src/styles/devextreme/dx.material.light.css",
               "src/styles/styles.scss"
             ],
             "scripts": [
@@ -96,7 +97,8 @@
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/styles.scss"
+              "src/styles/devextreme/dx.material.light.css",
+              "src/styles/styles.scss"
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",

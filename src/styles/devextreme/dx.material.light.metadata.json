@@ -1,0 +1,26 @@
+{
+  "items": [
+    {
+      "key": "$base-border-radius",
+      "value": "4px"
+    },
+    {
+      "key": "$button-success-bg",
+      "value": "rgba(8, 170, 84, 1)"
+    },
+    {
+      "key": "$button-default-bg",
+      "value": "rgba(156, 39, 176, 1)"
+    },
+    {
+      "key": "$base-success",
+      "value": "rgba(8, 170, 84, 1)"
+    }
+  ],
+  "baseTheme": "material.purple.light",
+  "outputColorScheme": "light",
+  "makeSwatch": false,
+  "version": "24.1.7",
+  "widgets": [],
+  "removeExternalResources": false
+}
