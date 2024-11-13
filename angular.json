@@ -36,7 +36,8 @@
               "src/styles/styles.scss"
             ],
             "scripts": [
-              "node_modules/bootstrap/dist/js/bootstrap.bundle.js"
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.js",
+              "node_modules/jszip/dist/jszip.js"
             ]
           },
           "configurations": {
@@ -99,6 +100,7 @@
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+              "node_modules/jszip/dist/jszip.min.js"
             ]
           }
         }
