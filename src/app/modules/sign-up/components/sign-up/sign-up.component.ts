@@ -7,6 +7,7 @@ import { SignUpRequest } from './sign-up.model';
 import { passwordButtonOptions } from './sign-up.config';
 
 import { validatePassword } from '../../../../shared/validators/password-strength.validator';
+import { UserService } from '../../../../services/user/user.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -15,19 +16,20 @@ import { validatePassword } from '../../../../shared/validators/password-strengt
 })
 export class SignUpComponent {
 
+  constructor(private readonly userService: UserService) {
+  }
+
   passwordMode: TextBoxType = 'password';
   newUser: SignUpRequest = {
     id: 0,
     username: '',
     email: '',
     password: '',
-    confirm: '',
     user_detail_id: 0,
   };
   passwordErrors: string[] = [];
 
   get showPasswordErrors(): boolean {
-    console.log('this.passwordErrors',this.passwordErrors);
     return this.passwordErrors.length > 0;
   }
 
@@ -46,6 +48,12 @@ export class SignUpComponent {
   async submit(clickEvent: ClickEvent): Promise<void> {
     clickEvent.event?.preventDefault();
     clickEvent.event?.stopImmediatePropagation();
+
+    try {
+      await this.userService.register(this.newUser);
+    } catch(e) {
+
+    }
   }
 
 }

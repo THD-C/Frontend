@@ -2,11 +2,15 @@ import { HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { NotificationsService } from 'angular2-notifications';
 import { ObservableInput, throwError } from 'rxjs';
+import { ApiError } from '../../shared/models/error.model';
+import { errors } from './base.errors';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BaseService {
+
+  errors: ApiError = errors;
 
   static readonly notificationOverride = {
     timeOut: 9000,
@@ -14,10 +18,12 @@ export class BaseService {
 
   readonly defaultError = {
     title: 'Error',
-    message: 'Unknown error occurred. Refresh page and try again.'
+    code: 'internal_server_error',
   };
 
-  constructor(protected readonly notificationsService: NotificationsService) { }
+  constructor(
+    protected readonly notificationsService: NotificationsService,
+  ) { }
   
   generateParams(filters?: unknown): HttpParams {
     let params = new HttpParams();
@@ -46,7 +52,8 @@ export class BaseService {
       return throwError(() => new Error('Unauthorized call. Please, sign in'));
     }
 
-    const message = error.error ?? this.defaultError.message;
+    const code = error.error.detail ?? this.defaultError.code;
+    const message = this.errors[code];
     this.notificationsService.error(
       this.defaultError.title,
       message,

@@ -1,3 +1,3 @@
 export const environment = {
-  apiUrl: 'grpc://localhost:8000'
+  apiUrl: 'http://localhost:8000/api'
 };
