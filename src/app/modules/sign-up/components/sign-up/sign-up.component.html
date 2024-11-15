@@ -1,1 +1,46 @@
-<p>sign-up works!</p>
+<div class="container-xl px-4 mt-4 d-flex justify-content-center align-items-center flex-column vw-100 vh-100 bg-white">
+  <div class="card shadow-lg p-3 pb-0">
+    <a [routerLink]="['/home']" routerLinkActive="active" class="d-flex justify-content-center">
+      <img class="rounded-circle my-4" src="https://avatars.githubusercontent.com/u/184000843?s=200&v=4" alt="TODO: App logo with manifest">
+    </a>
+    <h4 class="card-header fw-bold border-0 text-center fs-4">Try <span class="text-decoration-underline">for free</span> now!</h4>
+    <form class="card-body row g-4">
+      <dx-text-box [(value)]="newUser.username" label="Username" labelMode="floating">
+        <dx-validator>
+          <dxi-validation-rule type="required">
+          </dxi-validation-rule>
+        </dx-validator>
+      </dx-text-box>
+      <dx-text-box mode="email" [(value)]="newUser.email" label="E-mail" labelMode="floating">
+        <dx-validator>
+          <dxi-validation-rule type="required">
+          </dxi-validation-rule>
+        </dx-validator>
+      </dx-text-box>
+      <dx-text-box [mode]="passwordMode" [(value)]="newUser.password" label="Password" labelMode="floating">
+        <dx-validator>
+          <dxi-validation-rule type="required">
+          </dxi-validation-rule>
+
+          <dxi-validation-rule type="custom" [validationCallback]="validatePassword.bind(this)" message="Password does not conform rules">
+          </dxi-validation-rule>
+        </dx-validator>
+        <dxi-button name="password" [options]="passwordButtonOptions"></dxi-button>
+      </dx-text-box>
+      @if (showPasswordErrors) {
+        <small class="ps-0 mt-2">
+          <ul class="text-danger ps-3">
+            @for (error of passwordErrors; track error) {
+              <li class="mt-2">{{ error }}</li>
+            }
+          </ul>
+        </small>
+      }
+
+      <dx-button class="col-lg-auto col ms-auto" type="default" [useSubmitBehavior]="true" (onClick)="submit($event)" text="Sign up"></dx-button>
+    </form>
+  </div>
+  <div class="mt-2">
+    If you already have account <a href="/login" routerLinkActive="active">log in</a> instead
+  </div>
+</div>
