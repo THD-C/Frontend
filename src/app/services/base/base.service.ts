@@ -52,7 +52,7 @@ export class BaseService {
       return throwError(() => new Error('Unauthorized call. Please, sign in'));
     }
 
-    const code = error.error.detail ?? this.defaultError.code;
+    const code = error.error?.detail ?? this.defaultError.code;
     const message = this.errors[code];
     this.notificationsService.error(
       this.defaultError.title,

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { JwtHelperService } from '@auth0/angular-jwt';
 import { catchError, firstValueFrom, Observable } from 'rxjs';
 import { NotificationsService } from 'angular2-notifications';
 
@@ -27,10 +28,52 @@ export class AuthService extends BaseService {
    */
   static readonly localStorageSessionKey: string = 'session';
 
+  /**
+   * Checks whether use is authenticated or not.
+   */
+  get isAuthenticated(): boolean {
+    return this.session !== undefined;
+  }
+
+  /**
+   * Checks whether token is expired.
+   */
+  get isTokenExpired(): boolean {
+    if (this.isAuthenticated) {
+      return this.jwtHelperService.isTokenExpired(this.session?.accessToken ?? '');
+    }
+
+    return false;
+  }
+
+  /**
+   * Provides {@link Session} if exists.
+   */
+  get session(): Session | undefined {
+    const session = localStorage.getItem(AuthService.localStorageSessionKey) ?? '';
+    if (session) {
+      return JSON.parse(session) as Session;
+    }
+
+    return undefined;
+  }
+
+  /**
+   * Credentials to authenticate a user with a server.
+   */
+  get authorizationHeaderValue(): string {
+    if (this.session) {
+      return `${this.session?.authScheme} ${this.session?.accessToken}`;
+    }
+
+    return '';
+  }
+
   constructor(
     private readonly httpClient: HttpClient,
     protected override readonly notificationsService: NotificationsService,
     private readonly routerExtended: RouterExtendedService,
+    private readonly jwtHelperService: JwtHelperService,
   ) {
     super(notificationsService);
     this.errors = { ...this.errors, ...userErrors };
@@ -64,7 +107,7 @@ export class AuthService extends BaseService {
   /**
    * Signs out user. Removes all session related data.
    */
-  signOut(): void {
+  logout(): void {
     this.clearSession();
     this.routerExtended.navigateToHome();
   }
