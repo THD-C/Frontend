@@ -1,11 +1,5 @@
-import { AuthScheme } from '../../../../shared/models/auth-scheme.model';
+import { AuthScheme, Session } from '../../../../shared/models/auth.model';
 import { User } from '../../../../shared/models/user.model';
 
 export type RegisterRequest = User;
-export type RegisterResponse = {
-  accessToken: string;
-  authScheme: AuthScheme;
-  email: string;
-  username: string;
-  id: number;
-}
+export type RegisterResponse = Session;
