@@ -3,23 +3,24 @@ import { ValidationCallbackData } from 'devextreme/common';
 import { ClickEvent } from 'devextreme/ui/button';
 import { TextBoxType } from 'devextreme/ui/text_box';
 
-import { RegisterRequest } from './register.model';
-import { passwordButtonOptions } from './register.config';
+import { SignUpRequest } from './sign-up.model';
+import { passwordButtonOptions } from './sign-up.config';
 
 import { validatePassword } from '../../../../shared/validators/password-strength.validator';
 import { AuthService } from '../../../../services/user/auth.service';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrl: './register.component.scss'
+  selector: 'app-sign-up',
+  templateUrl: './sign-up.component.html',
+  styleUrl: './sign-up.component.scss'
 })
-export class RegisterComponent {
+export class SignUpComponent {
 
-  constructor(private readonly authService: AuthService) {}
+  constructor(private readonly userService: AuthService) {
+  }
 
   passwordMode: TextBoxType = 'password';
-  newUser: RegisterRequest = {
+  newUser: SignUpRequest = {
     id: 0,
     username: '',
     email: '',
@@ -45,8 +46,11 @@ export class RegisterComponent {
   }
 
   async submit(clickEvent: ClickEvent): Promise<void> {
+    clickEvent.event?.preventDefault();
+    clickEvent.event?.stopImmediatePropagation();
+
     try {
-      await this.authService.register(this.newUser);
+      await this.userService.register(this.newUser);
     } catch(e) {
 
     }
