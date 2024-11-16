@@ -7,9 +7,9 @@ import { DxTextBoxModule } from 'devextreme-angular/ui/text-box';
 import { DxButtonModule } from 'devextreme-angular/ui/button';
 import { DxValidatorModule } from 'devextreme-angular/ui/validator';
 
-import { routes } from './sign-up.routes';
+import { routes } from './register.routes';
 
-import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { RegisterComponent } from './components/register/register.component';
 
 
 @NgModule({
@@ -17,7 +17,7 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
     provideRouter(routes),
   ],
   declarations: [
-    SignUpComponent,
+    RegisterComponent,
   ],
   imports: [
     CommonModule,
@@ -29,4 +29,4 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
     DxValidatorModule,
   ],
 })
-export class SignUpModule { }
+export class RegisterModule { }

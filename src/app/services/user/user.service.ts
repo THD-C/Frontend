@@ -4,7 +4,7 @@ import { catchError, firstValueFrom } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { BaseService } from '../base/base.service';
 import { NotificationsService } from 'angular2-notifications';
-import { SignUpRequest } from '../../modules/sign-up/components/sign-up/sign-up.model';
+import { RegisterRequest } from '../../modules/register/components/register/register.model';
 import { errors as userErrors } from './user.errors';
 
 @Injectable({
@@ -25,7 +25,7 @@ export class UserService extends BaseService {
     this.errors = { ...this.errors, ...userErrors };
   }
 
-  async register(newUser: SignUpRequest): Promise<void> {
+  async register(newUser: RegisterRequest): Promise<void> {
     const request = this.httpClient.post<void>(
       `${environment.apiUrl}/${this.baseResource}/register`,
       { ...newUser }
