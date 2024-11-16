@@ -1,11 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, firstValueFrom, Observable } from 'rxjs';
-import { environment } from '../../../environments/environment';
-import { BaseService } from '../base/base.service';
 import { NotificationsService } from 'angular2-notifications';
-import { RegisterRequest, RegisterResponse } from '../../modules/register/components/register/register.model';
+
+import { environment } from '../../../environments/environment';
+
+import { BaseService } from '../base/base.service';
+import { RouterExtendedService } from '../router-extended/router-extended.service';
+
 import { errors as userErrors } from './auth.errors';
+import { RegisterRequest, RegisterResponse } from '../../modules/register/components/register/register.model';
 import { Session } from '../../shared/models/auth.model';
 
 @Injectable({
@@ -26,6 +30,7 @@ export class AuthService extends BaseService {
   constructor(
     private readonly httpClient: HttpClient,
     protected override readonly notificationsService: NotificationsService,
+    private readonly routerExtended: RouterExtendedService,
   ) {
     super(notificationsService);
     this.errors = { ...this.errors, ...userErrors };
@@ -46,19 +51,22 @@ export class AuthService extends BaseService {
   }
 
   /**
-   * Handles request
-   * @param request The request from {@link register}
+   * Handles request.
+   * @param request The request from {@link register}.
    */
   private async handleAuthRequest(request: Observable<void | RegisterResponse>): Promise<void> {
     const response = await firstValueFrom(request);
     this.saveSession(response as Session);
+
+    this.routerExtended.navigateToPreviousUrl();
   }
 
   /**
-   * Signs out user.
+   * Signs out user. Removes all session related data.
    */
   signOut(): void {
     this.clearSession();
+    this.routerExtended.navigateToHome();
   }
 
   /**
