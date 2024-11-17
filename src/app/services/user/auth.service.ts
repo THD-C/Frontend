@@ -33,7 +33,7 @@ export class AuthService extends BaseService {
    */
   get isAuthenticated(): boolean {
     return this.session !== undefined;
-  }
+  }    
 
   /**
    * Checks whether token is expired.
@@ -102,6 +102,15 @@ export class AuthService extends BaseService {
     this.saveSession(response as Session);
 
     this.routerExtended.navigateToPreviousUrl();
+  }
+
+  async secured(): Promise<void> {
+    const request = this.httpClient.post<void>(
+      `${environment.apiUrl}/${this.baseAuthPath}/secured`,
+      {}
+    ).pipe(catchError(this.catchCustomError.bind(this)));
+
+    await firstValueFrom(request);
   }
 
   /**
