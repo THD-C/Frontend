@@ -1,0 +1,9 @@
+services:
+  Frontend:
+    build:
+      dockerfile: Dockerfile
+    image: thd/frontend
+    container_name: THD_Frontend
+    restart: unless-stopped
+    ports:
+      - 80:80
