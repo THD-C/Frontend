@@ -104,15 +104,6 @@ export class AuthService extends BaseService {
     this.routerExtended.navigateToPreviousUrl();
   }
 
-  async secured(): Promise<void> {
-    const request = this.httpClient.post<void>(
-      `${environment.apiUrl}/${this.baseAuthPath}/secured`,
-      {}
-    ).pipe(catchError(this.catchCustomError.bind(this)));
-
-    await firstValueFrom(request);
-  }
-
   /**
    * Signs out user. Removes all session related data.
    */
