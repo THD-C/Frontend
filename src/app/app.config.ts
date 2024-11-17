@@ -1,6 +1,7 @@
 import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 import { JwtModule } from '@auth0/angular-jwt';
 
 import { SimpleNotificationsModule } from 'angular2-notifications';
@@ -16,6 +17,7 @@ export const appConfig: ApplicationConfig = {
     importProvidersFrom(
       SimpleNotificationsModule.forRoot(),
       JwtModule.forRoot({}),
+      CommonModule,
     ),
     provideHttpClient(
       withInterceptors([jwtInterceptor]),

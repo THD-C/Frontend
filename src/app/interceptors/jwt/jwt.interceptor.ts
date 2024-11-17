@@ -1,5 +1,6 @@
 import { HttpEvent, HttpHandlerFn, HttpInterceptorFn, HttpRequest } from '@angular/common/http';
 import { inject } from '@angular/core';
+import { Location } from '@angular/common';
 import { Observable } from 'rxjs';
 
 import { AuthService } from '../../services/user/auth.service';
@@ -25,7 +26,7 @@ function handleRequest(req: HttpRequest<unknown>, next: HttpHandlerFn): Observab
 
   if (auth.isTokenExpired) {
     auth.logout();
-    router.navigateToLogin(location.toString());
+    router.navigateToLogin(location.path());
   }
 
   req = req.clone({
