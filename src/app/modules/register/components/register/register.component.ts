@@ -37,7 +37,7 @@ export class RegisterComponent {
 
   get isFormValid(): boolean {
     return this.registerRequest.username.length > 0
-      && this.txtEmail.isValid
+      && this.txtEmail?.isValid
       && validatePassword(this.registerRequest.password).length === 0;
   }
 

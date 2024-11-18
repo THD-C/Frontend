@@ -5,7 +5,7 @@
     </a>
     <h4 class="card-header fw-bold border-0 text-center fs-4">Welcome back! <i class="dx-icon-heart"></i></h4>
     <form class="card-body row g-4" (click)="$event.preventDefault()">
-      <dx-text-box mode="email" [(value)]="loginRequest.email" label="E-mail" labelMode="floating">
+      <dx-text-box mode="email" [(value)]="loginRequest.email" label="E-mail" labelMode="floating" #txtEmail>
         <dx-validator>
           <dxi-validation-rule type="required">
           </dxi-validation-rule>
