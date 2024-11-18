@@ -28,6 +28,13 @@ export class RegisterComponent {
     username: '',
     email: '',
     password: '',
+    name: '1',
+    surname: '1',
+    street: '1',
+    building: '1',
+    city: '1',
+    postal_code: '1',
+    country: '1'
   };
   passwordErrors: string[] = [];
 
@@ -58,7 +65,6 @@ export class RegisterComponent {
     try {
       await this.authService.register(this.registerRequest);
     } catch(e) {
-
     }
   }
 
