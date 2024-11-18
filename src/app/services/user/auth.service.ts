@@ -86,7 +86,6 @@ export class AuthService extends BaseService {
    * Currently user can provide only credentials (email, username, password).
    */
   async register(registerRequest: RegisterRequest): Promise<void> {
-    console.log('registerRequest', registerRequest);
     const request = this.httpClient.post<RegisterResponse>(
       `${environment.apiUrl}/${this.baseAuthPath}/register`,
       { ...registerRequest }
