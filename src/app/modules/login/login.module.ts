@@ -2,13 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { provideRouter, RouterModule } from '@angular/router';
 
-import { DxTextBoxModule } from 'devextreme-angular/ui/text-box';
 import { DxButtonModule } from 'devextreme-angular/ui/button';
+import { DxTextBoxModule } from 'devextreme-angular/ui/text-box';
 import { DxValidatorModule } from 'devextreme-angular/ui/validator';
 
-import { routes } from './register.routes';
-
-import { RegisterComponent } from './components/register/register.component';
+import { routes } from './login.routes';
+import { LoginComponent } from './components/login/login.component';
 
 
 @NgModule({
@@ -16,7 +15,7 @@ import { RegisterComponent } from './components/register/register.component';
     provideRouter(routes),
   ],
   declarations: [
-    RegisterComponent,
+    LoginComponent,
   ],
   imports: [
     CommonModule,
@@ -24,7 +23,7 @@ import { RegisterComponent } from './components/register/register.component';
 
     DxTextBoxModule,
     DxButtonModule,
-    DxValidatorModule,
+    DxValidatorModule
   ],
 })
-export class RegisterModule { }
+export class LoginModule { }

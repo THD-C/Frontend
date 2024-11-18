@@ -1,8 +1,8 @@
 import { Session } from '../../../../shared/models/auth.model';
 
-export type RegisterRequest = {
-  username: string;
+export type LoginRequest = {
   email: string;
   password: string;
 }
-export type RegisterResponse = Session;
+
+export type LoginResponse = Session;
