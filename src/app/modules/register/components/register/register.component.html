@@ -1,48 +1,23 @@
 <div class="container-xl px-4 mt-4 d-flex justify-content-center align-items-center flex-column vw-100 vh-100 bg-white">
-  <div class="card shadow-lg p-3 pb-0">
+  <form class="card shadow-lg p-3 pb-0">
     <a [routerLink]="['/']" routerLinkActive="active" class="d-flex justify-content-center">
       <img class="rounded-circle my-4" src="https://avatars.githubusercontent.com/u/184000843?s=200&v=4" alt="TODO: App logo with manifest">
     </a>
-    <h4 class="card-header fw-bold border-0 text-center fs-4">Try <span class="text-decoration-underline">for free</span> now!</h4>
-    <form class="card-body row g-4" (click)="$event.preventDefault()">
-      <dx-text-box [(value)]="registerRequest.username" label="Username" labelMode="floating">
-        <dx-validator>
-          <dxi-validation-rule type="required">
-          </dxi-validation-rule>
-        </dx-validator>
-      </dx-text-box>
-      <dx-text-box mode="email" [(value)]="registerRequest.email" label="E-mail" labelMode="floating" #txtEmail>
-        <dx-validator>
-          <dxi-validation-rule type="required">
-          </dxi-validation-rule>
-          <dxi-validation-rule type="email">
-          </dxi-validation-rule>
-        </dx-validator>
-      </dx-text-box>
-      <dx-text-box [mode]="passwordMode" [(value)]="registerRequest.password" label="Password" labelMode="floating">
-        <dx-validator>
-          <dxi-validation-rule type="required">
-          </dxi-validation-rule>
+    
+    @if (currentStep === RegisterStep.Credentials) {
+      <app-register-credentials [registerRequest]="registerRequest" (onNextStepClicked)="handleNextStepClick()" />
+    }
+    
+    @if (currentStep === RegisterStep.PersonalData) {
+      <app-register-personal-data [registerRequest]="registerRequest" (onPreviousStepClicked)="handlePreviousStepClick()" (onNextStepClicked)="handleNextStepClick()" />
+    }
 
-          <dxi-validation-rule type="custom" [validationCallback]="validatePassword.bind(this)" message="Password does not conform rules">
-          </dxi-validation-rule>
-        </dx-validator>
-        <dxi-button name="password" [options]="passwordButtonOptions"></dxi-button>
-      </dx-text-box>
-      @if (showPasswordErrors) {
-        <small class="ps-0 mt-2">
-          <ul class="text-danger ps-3">
-            @for (error of passwordErrors; track error) {
-              <li class="mt-2">{{ error }}</li>
-            }
-          </ul>
-        </small>
-      }
+    @if (currentStep === RegisterStep.Address) {
+      <app-register-address [registerRequest]="registerRequest" (onPreviousStepClicked)="handlePreviousStepClick()" (onNextStepClicked)="submit()" />
+    }
 
-      <dx-button class="col-lg-auto col ms-auto" type="default" [useSubmitBehavior]="true" (onClick)="submit()" text="Register"></dx-button>
-    </form>
-  </div>
+  </form>
   <div class="mt-2">
-    If you already have account <a href="/login" routerLinkActive="active">log in</a> instead
+    If you already have account <a [routerLink]="['/login']" routerLinkActive="active">log in</a> instead
   </div>
 </div>

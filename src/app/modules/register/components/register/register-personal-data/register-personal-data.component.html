@@ -1,0 +1,18 @@
+<h4 class="card-header fw-bold border-0 text-center fs-4">Fill up your personal data (Step 2 of 3)</h4>
+<div class="card-body row g-4">
+  <dx-text-box [(value)]="registerRequest().name" label="Name" labelMode="floating">
+    <dx-validator>
+      <dxi-validation-rule type="required">
+      </dxi-validation-rule>
+    </dx-validator>
+  </dx-text-box>
+  <dx-text-box [(value)]="registerRequest().surname" label="Surname" labelMode="floating">
+    <dx-validator>
+      <dxi-validation-rule type="required">
+      </dxi-validation-rule>
+    </dx-validator>
+  </dx-text-box>
+
+  <dx-button class="col-lg-auto col me-auto" [useSubmitBehavior]="false" (onClick)="goPreviousStep()" text="Previous step" icon="chevronprev"></dx-button>
+  <dx-button class="col-lg-auto col ms-auto" type="default" [useSubmitBehavior]="false" (onClick)="goNextStep()" text="Next step" icon="chevronprev" [rtlEnabled]="true"></dx-button>
+</div>
