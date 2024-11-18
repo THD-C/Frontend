@@ -5,13 +5,13 @@
     </a>
     <h4 class="card-header fw-bold border-0 text-center fs-4">Try <span class="text-decoration-underline">for free</span> now!</h4>
     <form class="card-body row g-4" (click)="$event.preventDefault()">
-      <dx-text-box [(value)]="newUser.username" label="Username" labelMode="floating">
+      <dx-text-box [(value)]="registerRequest.username" label="Username" labelMode="floating">
         <dx-validator>
           <dxi-validation-rule type="required">
           </dxi-validation-rule>
         </dx-validator>
       </dx-text-box>
-      <dx-text-box mode="email" [(value)]="newUser.email" label="E-mail" labelMode="floating" #txtEmail>
+      <dx-text-box mode="email" [(value)]="registerRequest.email" label="E-mail" labelMode="floating" #txtEmail>
         <dx-validator>
           <dxi-validation-rule type="required">
           </dxi-validation-rule>
@@ -19,7 +19,7 @@
           </dxi-validation-rule>
         </dx-validator>
       </dx-text-box>
-      <dx-text-box [mode]="passwordMode" [(value)]="newUser.password" label="Password" labelMode="floating">
+      <dx-text-box [mode]="passwordMode" [(value)]="registerRequest.password" label="Password" labelMode="floating">
         <dx-validator>
           <dxi-validation-rule type="required">
           </dxi-validation-rule>

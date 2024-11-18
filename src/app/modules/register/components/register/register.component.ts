@@ -24,7 +24,7 @@ export class RegisterComponent {
   };
 
   passwordMode: TextBoxType = 'password';
-  newUser: RegisterRequest = {
+  registerRequest: RegisterRequest = {
     id: 0,
     username: '',
     email: '',
@@ -38,9 +38,9 @@ export class RegisterComponent {
   }
 
   get isFormValid(): boolean {
-    return this.newUser.username.length > 0
+    return this.registerRequest.username.length > 0
       && this.txtEmail.isValid
-      && validatePassword(this.newUser.password).length === 0;
+      && validatePassword(this.registerRequest.password).length === 0;
   }
 
   @ViewChild('txtEmail') txtEmail!: DxTextBoxComponent;
@@ -58,7 +58,7 @@ export class RegisterComponent {
     }
 
     try {
-      await this.authService.register(this.newUser);
+      await this.authService.register(this.registerRequest);
     } catch(e) {
 
     }

@@ -1,0 +1,30 @@
+<div class="container-xl px-4 mt-4 d-flex justify-content-center align-items-center flex-column vw-100 vh-100 bg-white">
+  <div class="card shadow-lg p-3 pb-0">
+    <a [routerLink]="['/']" routerLinkActive="active" class="d-flex justify-content-center">
+      <img class="rounded-circle my-4" src="https://avatars.githubusercontent.com/u/184000843?s=200&v=4" alt="TODO: App logo with manifest">
+    </a>
+    <h4 class="card-header fw-bold border-0 text-center fs-4">Welcome back! <i class="dx-icon-heart"></i></h4>
+    <form class="card-body row g-4" (click)="$event.preventDefault()">
+      <dx-text-box mode="email" [(value)]="loginRequest.email" label="E-mail" labelMode="floating">
+        <dx-validator>
+          <dxi-validation-rule type="required">
+          </dxi-validation-rule>
+          <dxi-validation-rule type="email">
+          </dxi-validation-rule>
+        </dx-validator>
+      </dx-text-box>
+      <dx-text-box [mode]="passwordMode" [(value)]="loginRequest.password" label="Password" labelMode="floating">
+        <dx-validator>
+          <dxi-validation-rule type="required">
+          </dxi-validation-rule>
+        </dx-validator>
+        <dxi-button name="password" [options]="passwordButtonOptions"></dxi-button>
+      </dx-text-box>
+
+      <dx-button class="col-lg-auto col ms-auto" type="default" [useSubmitBehavior]="true" (onClick)="submit()" text="Log in"></dx-button>
+    </form>
+  </div>
+  <div class="mt-2">
+    Don't have account? <a href="/register" routerLinkActive="active">Register</a>
+  </div>
+</div>
