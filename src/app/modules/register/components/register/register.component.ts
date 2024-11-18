@@ -25,11 +25,9 @@ export class RegisterComponent {
 
   passwordMode: TextBoxType = 'password';
   registerRequest: RegisterRequest = {
-    id: 0,
     username: '',
     email: '',
     password: '',
-    user_detail_id: 0,
   };
   passwordErrors: string[] = [];
 

@@ -12,6 +12,7 @@ import { RouterExtendedService } from '../router-extended/router-extended.servic
 import { errors as userErrors } from './auth.errors';
 import { RegisterRequest, RegisterResponse } from '../../modules/register/components/register/register.model';
 import { Session } from '../../shared/models/auth.model';
+import { LoginRequest, LoginResponse } from '../../modules/login/components/login/login.model';
 
 @Injectable({
   providedIn: 'root'
@@ -81,13 +82,26 @@ export class AuthService extends BaseService {
 
   /**
    * Makes a request call to the API for registration purposes.
-   * @param newUser New user's data provided during registration.
+   * @param registerRequest New user's data provided during registration.
    * Currently user can provide only credentials (email, username, password).
    */
-  async register(newUser: RegisterRequest): Promise<void> {
+  async register(registerRequest: RegisterRequest): Promise<void> {
     const request = this.httpClient.post<RegisterResponse>(
       `${environment.apiUrl}/${this.baseAuthPath}/register`,
-      { ...newUser }
+      { ...registerRequest }
+    ).pipe(catchError(this.catchCustomError.bind(this)));
+
+    await this.handleAuthRequest(request);
+  }
+
+  /**
+   * Makes a request call to the API for authentication purposes.
+   * @param loginRequest User's credentials provided during log in.
+   */
+  async login(loginRequest: LoginRequest): Promise<void> {
+    const request = this.httpClient.post<LoginResponse>(
+      `${environment.apiUrl}/${this.baseAuthPath}/login`,
+      { ...loginRequest }
     ).pipe(catchError(this.catchCustomError.bind(this)));
 
     await this.handleAuthRequest(request);

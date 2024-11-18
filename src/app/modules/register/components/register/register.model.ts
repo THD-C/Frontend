@@ -1,5 +1,8 @@
-import { AuthScheme, Session } from '../../../../shared/models/auth.model';
-import { User } from '../../../../shared/models/user.model';
+import { Session } from '../../../../shared/models/auth.model';
 
-export type RegisterRequest = User;
+export type RegisterRequest = {
+  username: string;
+  email: string;
+  password: string;
+}
 export type RegisterResponse = Session;

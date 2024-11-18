@@ -26,18 +26,12 @@ export class LoginComponent {
   };
   passwordErrors: string[] = [];
 
-  get showPasswordErrors(): boolean {
-    return this.passwordErrors.length > 0;
-  }
-
   constructor(private readonly authService: AuthService) {}
 
   async submit(): Promise<void> {
-    console.log(this.loginRequest);
     try {
-      // await this.authService.login(this.loginRequest);
+       await this.authService.login(this.loginRequest);
     } catch(e) {
-
     }
   }
 }
