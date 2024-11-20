@@ -19,11 +19,11 @@ export class RegisterComponent {
   currentStep: RegisterStep = RegisterStep.Credentials;
 
   registerRequest: RegisterRequest = {
-    username: 'asdf',
-    email: 'e@e.cs',
-    password: 'Test!123',
-    name: 'asdf',
-    surname: 'asdf',
+    username: '',
+    email: '',
+    password: '',
+    name: '',
+    surname: '',
     street: '',
     building: '',
     city: '',
