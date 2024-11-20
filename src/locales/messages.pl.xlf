@@ -17,6 +17,13 @@
           <context context-type="sourcefile">src/app/modules/login/components/login/login.component.html</context>
           <context context-type="linenumber">26,28</context>
         </context-group>
+      </trans-unit><trans-unit id="register.If-you-already-have-account-log-in-instead" datatype="html">
+        <source> If you already have account <x id="START_LINK" ctype="x-a" equiv-text="&lt;a [routerLink]=&quot;['/login']&quot; routerLinkActive=&quot;active&quot;>"/>log in<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a>"/> instead </source>
+        <target> Jeśli masz już konto <x id="START_LINK" ctype="x-a" equiv-text="&lt;a [routerLink]=&quot;['/login']&quot; routerLinkActive=&quot;active&quot;>"/>zaloguj się<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a>"/> </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/register/components/register/register.component.html</context>
+          <context context-type="linenumber">21,23</context>
+        </context-group>
       </trans-unit></body>
   </file>
 </xliff>
