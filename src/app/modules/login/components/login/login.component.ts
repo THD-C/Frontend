@@ -1,9 +1,10 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, viewChild, ViewChild } from '@angular/core';
 import { TextBoxType } from 'devextreme/ui/text_box';
 import { DxTextBoxComponent } from 'devextreme-angular/ui/text-box';
 import { AuthService } from '../../../../services/user/auth.service';
 import { LoginRequest } from './login.model';
 import { passwordButtonOptions } from './login.config';
+import { ClickEvent } from 'devextreme/ui/button';
 
 @Component({
   selector: 'app-login',
@@ -21,17 +22,17 @@ export class LoginComponent {
 
   passwordMode: TextBoxType = 'password';
   loginRequest: LoginRequest = {
-    email: '',
+    login: '',
     password: '',
   };
   passwordErrors: string[] = [];
 
   get isFormValid(): boolean {
-    return this.txtEmail?.isValid
+    return this.loginRequest.login.length > 0
       && this.loginRequest.password.length > 0;
   }
 
-  @ViewChild('txtEmail') txtEmail!: DxTextBoxComponent;
+  txtEmail = viewChild.required<DxTextBoxComponent>('txtEmail');
 
   constructor(private readonly authService: AuthService) {}
 

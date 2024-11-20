@@ -1,4 +1,4 @@
-import { Component, input, output, signal, viewChild } from '@angular/core';
+import { AfterViewInit, Component, input, output, signal, viewChild } from '@angular/core';
 import { ValidationCallbackData } from 'devextreme/common';
 import { TextBoxType } from 'devextreme/ui/text_box';
 import { DxTextBoxComponent } from 'devextreme-angular/ui/text-box';
@@ -14,7 +14,7 @@ import { validatePassword } from '../../../../../shared/validators/password-stre
   templateUrl: './register-credentials.component.html',
   styleUrl: './register-credentials.component.scss'
 })
-export class RegisterCredentialsComponent {
+export class RegisterCredentialsComponent implements AfterViewInit {
 
   registerRequest = input.required<RegisterRequest>();
   onNextStepClicked = output<void>();
@@ -40,6 +40,11 @@ export class RegisterCredentialsComponent {
   }
 
   private txtEmail = viewChild.required<DxTextBoxComponent>('txtEmail');
+  private txtUsername = viewChild<DxTextBoxComponent>('txtUsername');
+
+  ngAfterViewInit(): void {
+    this.txtUsername()?.instance.focus();
+  }
 
   protected validatePassword(callbackData: ValidationCallbackData): boolean {
     this.passwordErrors = validatePassword(callbackData.value);
