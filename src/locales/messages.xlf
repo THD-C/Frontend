@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="login.Welcome-back" datatype="html">
+        <source>Welcome back!</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/login/components/login/login.component.html</context>
+          <context context-type="linenumber">6,7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="login.Dont-have-account" datatype="html">
+        <source> Don't have account? <x id="START_LINK" ctype="x-a" equiv-text="&lt;a [routerLink]=&quot;['/register']&quot; routerLinkActive=&quot;active&quot;>"/>Register<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a>"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/login/components/login/login.component.html</context>
+          <context context-type="linenumber">26,28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.Country" datatype="html">
+        <source>Country</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/register/components/register/register-address/register-address.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.City" datatype="html">
+        <source>City</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/register/components/register/register-address/register-address.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.Postal-code" datatype="html">
+        <source>Postal code</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/register/components/register/register-address/register-address.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.Street" datatype="html">
+        <source>Street</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/register/components/register/register-address/register-address.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.Building" datatype="html">
+        <source>Building</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/register/components/register/register-address/register-address.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.Previous-step" datatype="html">
+        <source>Previous step</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/register/components/register/register-address/register-address.component.html</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/register/components/register/register-personal-data/register-personal-data.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.Register" datatype="html">
+        <source>Register</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/register/components/register/register-address/register-address.component.html</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.Try-for-free-now-step-1-of-3" datatype="html">
+        <source>Try <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-decoration-underline&quot;>"/>for free<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/> now! (Step 1 of 3)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/register/components/register/register-credentials/register-credentials.component.html</context>
+          <context context-type="linenumber">1,2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.Username" datatype="html">
+        <source>Username</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/register/components/register/register-credentials/register-credentials.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.Email" datatype="html">
+        <source>E-mail</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/register/components/register/register-credentials/register-credentials.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.Password" datatype="html">
+        <source>Password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/register/components/register/register-credentials/register-credentials.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.Next-step" datatype="html">
+        <source>Next step</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/register/components/register/register-credentials/register-credentials.component.html</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/register/components/register/register-personal-data/register-personal-data.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.Name" datatype="html">
+        <source>Name</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/register/components/register/register-personal-data/register-personal-data.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.Surname" datatype="html">
+        <source>Surname</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/register/components/register/register-personal-data/register-personal-data.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.If-you-already-have-account-log-in-instead" datatype="html">
+        <source> If you already have account <x id="START_LINK" ctype="x-a" equiv-text="&lt;a [routerLink]=&quot;['/login']&quot; routerLinkActive=&quot;active&quot;>"/>log in<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a>"/> instead </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/register/components/register/register.component.html</context>
+          <context context-type="linenumber">21,23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="password-strength-validator.Password-must-contain-at-least-1-lower-case-character" datatype="html">
+        <source>Password must contain at least 1 lower case character</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/validators/password-strength.validator.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="password-strength-validator.Password-must-contain-at-least-1-upper-case-character" datatype="html">
+        <source>Password must contain at least 1 upper case character</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/validators/password-strength.validator.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="password-strength-validator.Password-must-contain-at-least-1-digit" datatype="html">
+        <source>Password must contain at least 1 digit</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/validators/password-strength.validator.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="password-strength-validator.Password-must-contain-at-least-1-special-character" datatype="html">
+        <source>Password must contain at least 1 special character</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/validators/password-strength.validator.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="password-strength-validator.Password-must-be-at-least-8-characters-long" datatype="html">
+        <source>Password must be at least 8 characters long</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/validators/password-strength.validator.ts</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

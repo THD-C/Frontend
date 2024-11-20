@@ -13,6 +13,13 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "en": "src/locales/messages.en.xlf",
+          "pl": "src/locales/messages.pl.xlf"
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",
@@ -21,10 +28,17 @@
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
-              "zone.js"
+              "zone.js",
+              "@angular/localize/init"
             ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
+            "i18nMissingTranslation": "error",
+            "i18nDuplicateTranslation": "warning",
+            "localize": [
+              "en",
+              "pl"
+            ],
             "assets": [
               {
                 "glob": "**/*",
@@ -39,7 +53,7 @@
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.bundle.js",
               "node_modules/jszip/dist/jszip.js"
-            ]
+            ]            
           },
           "configurations": {
             "production": {
@@ -91,7 +105,8 @@
           "options": {
             "polyfills": [
               "zone.js",
-              "zone.js/testing"
+              "zone.js/testing",
+              "@angular/localize/init"
             ],
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",

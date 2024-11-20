@@ -1,7 +1,7 @@
 <h4 class="card-header fw-bold border-0 text-center fs-4">Fill up your address (Step 3 of 3)</h4>
 <div class="card-body row g-4 gx-0 gx-lg-4">
   <div class="col-lg-6 col-12 p-0 p-lg-2 ps-lg-0">
-    <dx-text-box [(value)]="registerRequest().country" label="Country" labelMode="floating" validationMessageMode="always">
+    <dx-text-box [(value)]="registerRequest().country" label="Country" i18n-label="@@register.Country" labelMode="floating" validationMessageMode="always">
       <dx-validator>
         <dxi-validation-rule type="required">
         </dxi-validation-rule>
@@ -9,7 +9,7 @@
     </dx-text-box>
   </div>
   <div class="col-lg-6 col-12 p-0 pe-lg-0 p-lg-2">
-    <dx-text-box [(value)]="registerRequest().city" label="City" labelMode="floating" validationMessageMode="always">
+    <dx-text-box [(value)]="registerRequest().city" label="City" i18n-label="@@register.City" labelMode="floating" validationMessageMode="always">
       <dx-validator>
         <dxi-validation-rule type="required">
         </dxi-validation-rule>
@@ -17,7 +17,7 @@
     </dx-text-box>
   </div>
   <div class="col-lg-4 col-12 p-0 ps-lg-0 p-lg-2">
-    <dx-text-box [(value)]="registerRequest().postal_code" label="Postal code" labelMode="floating" validationMessageMode="always">
+    <dx-text-box [(value)]="registerRequest().postal_code" label="Postal code" i18n-label="@@register.Postal-code" labelMode="floating" validationMessageMode="always">
       <dx-validator>
         <dxi-validation-rule type="required">
         </dxi-validation-rule>
@@ -25,7 +25,7 @@
     </dx-text-box>
   </div>
   <div class="col-lg-4 col-12 p-0 p-lg-2">
-    <dx-text-box [(value)]="registerRequest().street" label="Street" labelMode="floating" validationMessageMode="always">
+    <dx-text-box [(value)]="registerRequest().street" label="Street" i18n-label="@@register.Street" labelMode="floating" validationMessageMode="always">
       <dx-validator>
         <dxi-validation-rule type="required">
         </dxi-validation-rule>
@@ -33,7 +33,7 @@
     </dx-text-box>
   </div>
   <div class="col-lg-4 col-12 p-0 pe-lg-0 p-lg-2">
-    <dx-text-box [(value)]="registerRequest().building" label="Building" labelMode="floating" validationMessageMode="always">
+    <dx-text-box [(value)]="registerRequest().building" label="Building" i18n-label="@@register.Building" labelMode="floating" validationMessageMode="always">
       <dx-validator>
         <dxi-validation-rule type="required">
         </dxi-validation-rule>
@@ -41,6 +41,6 @@
     </dx-text-box>
   </div>
 
-  <dx-button class="col-lg-auto col me-auto" [useSubmitBehavior]="false" (onClick)="goPreviousStep()" text="Previous step" icon="chevronprev"></dx-button>
-  <dx-button class="col-lg-auto col ms-auto" type="default" [useSubmitBehavior]="false" (onClick)="goNextStep()" text="Register"></dx-button>
+  <dx-button class="col-lg-auto col me-auto" [useSubmitBehavior]="false" (onClick)="goPreviousStep()" text="Previous step" i18n-text="@@register.Previous-step" icon="chevronprev"></dx-button>
+  <dx-button class="col-lg-auto col ms-auto" type="default" [useSubmitBehavior]="false" (onClick)="goNextStep()" text="Register" i18n-text="@@register.Register"></dx-button>
 </div>
