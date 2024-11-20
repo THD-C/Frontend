@@ -3,7 +3,7 @@
     <a [routerLink]="['/']" routerLinkActive="active" class="d-flex justify-content-center">
       <img class="rounded-circle my-4" src="https://avatars.githubusercontent.com/u/184000843?s=200&v=4" alt="TODO: App logo with manifest">
     </a>
-    <h4 class="card-header fw-bold border-0 text-center fs-4">Welcome back!</h4>
+    <h4 class="card-header fw-bold border-0 text-center fs-4" i18n="@@login.Welcome-back">Welcome back!</h4>
     <form class="card-body row g-4" (submit)="$event.preventDefault(); $event.stopImmediatePropagation()">
       <dx-text-box [(value)]="loginRequest.login" label="E-mail or username" labelMode="floating" #txtEmail validationMessageMode="always">
         <dx-validator>

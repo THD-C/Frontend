@@ -1,53 +1,68 @@
 # THD(C) - Frontend (UI)
+
 Warstwa prezentacji aplikacji [THD(C)](https://github.com/THD-C)
 
 ## Spis treści
+
 1. [Przygotowania](#przygotowania)
 2. [Uruchomienie](#uruchomienie)
 3. [Wytyczne](#wytyczne)
 4. [Komendy Angular CLI](#komendy-angular-cli)
-5. [Dostępne komendy aplikacji](#dostępne-komendy-aplikacji)
+5. [Dodawanie nowego tłumaczenia](#dodawanie-nowego-tłumaczenia)
+6. [Dostępne komendy aplikacji](#dostępne-komendy-aplikacji)
 
 ## Przygotowania
+
 Przed rozpoczęciem prac należy zainstalować narzędzie [nvm](https://github.com/nvm-sh/nvm) - menedżer do zarządzania wersjami **Node.js** lub [nvm-windows](https://github.com/nvm-sh/nvm) jeśli używasz systemu operacyjnego Windows.
 Przy pomocy ww. narzędzia pobieramy [Node.js](https://nodejs.org/en/download/) w wersji **20.11.1 (LTS)**, który domyślnie instaluje również [npm](https://www.npmjs.com/) w wersji **10.2.4**:
+
 ```bash
 nvm install 20.11.1
 ```
 
-Następnie aktulizujemy [npm](https://www.npmjs.com/) do wersji **10.5.0**:
+Następnie aktulizujemy [npm](https://www.npmjs.com/) do wersji **10.9.0**:
+
 ```bash
-npm install -g npm@10.5.0
+npm install -g npm@10.9.0
 ```
 
 Możemy teraz zainstalować wszystkie dependencje w projekcie. Otwórz terminal i przejdź do katalogu, w którym znajduje się aktualnie przeglądany plik [README.md](./README.md) i uruchom komendę:
+
 ```bash
 npm install
 ```
 
 ## Uruchomienie
-Otwórz terminal, przejdź do [głównego katalogu](./) projektu np. `C:/Projects/TravelNest/TravelNestUI/` lub `/home/projects/TravelNest/TravelNestUI` a następnie uruchom polecenie:
+
+Otwórz terminal, przejdź do [głównego katalogu](./) projektu np. `C:/Projects/THD-C/Frontend/` lub `/home/projects/THD-C/Frontend` a następnie uruchom polecenie:
+
 ```bash
 npm start
 ```
 
 > :warning: Na systemie operacyjnym Windows możesz napotkać poniższy błąd:
->```bash
->File C:\path\to\project\ cannot be loaded because running scripts is disabled on this system. For more information, see 
->about_Execution_Policies at https:/go.microsoft.com/fwlink/?LinkID=135170.
->At line:1 char:1
->+ ~~~~~
+>
+> ```bash
+> File C:\path\to\project\ cannot be loaded because running scripts is disabled on this system. For more information, see
+> about_Execution_Policies at https:/go.microsoft.com/fwlink/?LinkID=135170.
+> At line:1 char:1
+> + ~~~~~
 >    + CategoryInfo          : SecurityError: (:) [], PSSecurityException
 >    + FullyQualifiedErrorId : UnauthorizedAccess
->```
->W takim przypadku uruchom PowerShell jako administrator i wykonaj polecenie:
->```powershell
->Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
->```
->zmiana `ExecutionPolicy` na `RemoteSigned` pozwala na pobranie i uruchomienie skryptów, które mają podpis cyfrowy. Warto mieć to na uwadze. Nierekomendowane jest ustawianie wartości na `Unrestricted`!
+> ```
+>
+> W takim przypadku uruchom PowerShell jako administrator i wykonaj polecenie:
+>
+> ```powershell
+> Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
+> ```
+>
+> zmiana `ExecutionPolicy` na `RemoteSigned` pozwala na pobranie i uruchomienie skryptów, które mają podpis cyfrowy. Warto mieć to na uwadze. Nierekomendowane jest ustawianie wartości na `Unrestricted`!
 
 ## Wytyczne
+
 Co do strukturyzowania katalogów zaleca się, aby elementy Angular'owe przechowywać w grupach tj.:
+
 - [Moduły](#moduł) w katalogu -> `/src/app/modules/`,
 - [Serwisy](#serwis) w katalogu -> `/src/app/services/`,
 - [Strażników](#strażnik) w katalogu -> `/src/app/guards/`,
@@ -60,65 +75,82 @@ Co do strukturyzowania katalogów zaleca się, aby elementy Angular'owe przechow
 W przypadku plików związanych z modelami danych w [komponencie](#komponent) (czyli pliki `<nazwa-modelu>.model.ts`) przechowywać w katalogu [komponentu](#komponent).
 
 Jeśli w [komponencie](#komponent) pojawią się metody lub pola, które odpowiadają za konfigurację kontrolki, to należy je wydelegować do osobnego pliku w katalogu [komponentu](#komponent) o nazwie `<nazwa-komponentu>.config.ts` np.
+
 ```typescript
 export const showMore: boolean = true;
 
 export const displayFormat = (data: any) => {
   return `${data} PLN`;
-}
+};
 ```
 
 ## Komendy Angular CLI
+
 > :warning: Upewnij się, że Terminal wskazuje na [główny katalog](./) projektu (czyli tam gdzie znajduje się aktualnie czytany plik)!
 
 > :information_source: Domyślnie generator wskazuje na ścieżkę `./src/app`. Warto mieć to na uwadze!
 
 ### Moduł
+
 Skupia, przechowuje, wyodrębnia pewną część logiki aplikacji. Najczęściej będzie tworzone w momencie dodawania kompletnie nowego widoku np. `/home`, `/user`, `/admin` etc.
 
 Tworzenie:
+
 ```bash
 ng generate module modules/<module-name>
 ```
+
 skrócony zapis:
+
 ```bash
 ng g m modules/<module-name>
 ```
 
 ### Komponent
+
 Jest to część widoku, który wykonaliśmy od 0 samodzielnie i zawiera logikę biznesową lub custom'owy element/kontrolka, np. `<tn-time-picker></tn-time-picker>`.
 Komendy CLI oparte są na [wytycznych](#wytyczne). Dobrze, aby się z nimi zapoznać.
 
 Tworzenie:
+
 ```bash
 ng generate component --standalone=false modules/<module-name>/components/<component-name>
 ```
+
 skrócony zapis:
+
 ```bash
 ng g c --standalone=false modules/<module-name>/components/<component-name>
 ```
+
 Parametr `--standalone=false` generuje komponent, który jest zależny od modułu.
 Komponent będzie można użyć tylko gdy zostanie zadeklarowany w module np.
+
 ```typescript
 @NgModule({
-  declarations: [YourComponent]
+  declarations: [YourComponent],
 })
-export class YourModule { }
+export class YourModule {}
 ```
 
 ### Serwis
+
 Zapewnia modularyzację, wstrzykiwanie zależności (dependency injection). W nim powinno być zawarte wszystko co **nie jest** związane z logiką biznesową czyli obsługa żądań HTTP do API, manipulacja danymi w session/local storage'u.
 
 Tworzenie:
+
 ```bash
 ng generate service <service-name>
 ```
+
 skrócony zapis:
+
 ```bash
 ng g s <service-name>
 ```
 
 ### "Rura"
+
 Formatuje dane do pewnej postaci. Przykład:
 
 w komponencie mamy pole `amount = 100`,
@@ -126,47 +158,103 @@ które potrzebujemy sformatować do postaci `100.00`. Możemy to uzyskać przy u
 `{{ amount | number:'1-2.2' }}`. Wartość pola `amount` zostaje przesłane do formatora `number`, który na widoku pokazuje `100.00`.
 
 Tworzenie:
+
 ```bash
 ng generate pipe <pipe-name>
 ```
+
 skrócony zapis:
+
 ```bash
 ng g p <pipe-name>
 ```
 
 ### Dyrektywa
+
 Pozwala na nałożenie na elementy w DOM'ie pewnych dodatkowych funkcjonalności, styli itp.
 
 Tworzenie:
+
 ```bash
 ng generate directive <directive-name>
 ```
+
 skrócony zapis:
+
 ```bash
 ng g d <directive-name>
 ```
 
 ### Strażnik
+
 Pośrednik, który wykonuje się w momencie wejścia na dany widok. Dzięki temu można zabezpieczyć pewne widoki administracyjne przed zwykłymi użytkownikami.
 
 Tworzenie:
+
 ```bash
 ng generate guard <guard-name>
 ```
+
 skrócony zapis:
+
 ```bash
 ng g g <guard-name>
 ```
 
 ### Inne
+
 Angular CLI ma jeszcze inne opcje jak tworzenie klasy, interfejsu, enum'a.
 `ng generate class|interface|enum`
 
+## Tłumaczenia
+
+Gdy w aplikacji będziemy chcieli dorzucić kolejne tłumaczenia aplikacji do poszczególnych należy dodać:
+
+- w [xliffmerge.json](xliffmerge.json) w tablicy `xliffmergeOptions:languages` dorzucić własny identyfikator języka:
+
+```json
+{
+  "xliffmergeOptions": {
+    (...)
+    "defaultLanguage": "en",
+    "languages": ["en", "pl", "<twoj_jezyk>"],
+    (...)
+  }
+}
+```
+
+- w [angular.json](angular.json) w sekcji `projects:Frontend:i18n` dorzucić ścieżkę do kolejnej wersji językowej:
+
+```json
+  "projects": {
+    "Frontend": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "en": "src/locales/messages.en.xlf",
+          "pl": "src/locales/messages.pl.xlf",
+          "<twoj_jezyk>": "src/locales/messages.<twoj_jezyk>.xlf"
+        }
+      }
+      (...)
+```
+
 ## Dostępne komendy aplikacji
-|  Komenda  | Opis |
-|:--------:|------:|
-| `npm start` | Uruchamia lokalny serwer deweloperski na [localhost:4200](http://localhost:4200). Jeśli chcesz uruchomić serwer lokalny na innym porcie to w [angular.json](/angular.json) w sekcji `projects.TravelNestUI.architect.serve.options` podmień wartość pola `port` a następnie uruchom komendę |
-| `npm run build` | Kompiluje projekt aplikacji i wygenerowane pliki wrzuca do katalogu [dist/](dist/) |
-| `npm run test` | Uruchamia lokalne testy jednostkowe przy wykorzystaniu [Karma](https://karma-runner.github.io) |
-| `npm run watch` | Uruchamia lokalny serwer na podstawie zbudowanej paczki plików w katalogu [dist/](dist/) |
-| `npm run lint` | Uruchamia linter'a, który sprawdza poprawność kodu na podstawie reguł ustalonych w [.eslintrc.json](/.eslintrc.json) |
+
+|      Komenda      |                                                                                                                                                                                                                                                                                                                                                                                                       Opis |
+| :---------------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|    `npm start`    |                                                                                                                Uruchamia lokalny serwer deweloperski na [localhost:4200](http://localhost:4200). Jeśli chcesz uruchomić serwer lokalny na innym porcie to w [angular.json](/angular.json) w sekcji `projects.TravelNestUI.architect.serve.options` podmień wartość pola `port` a następnie uruchom komendę |
+|  `npm run build`  |                                                                                                                                                                                                                                                                                                                         Kompiluje projekt aplikacji i wygenerowane pliki wrzuca do katalogu [dist/](dist/) |
+|  `npm run test`   |                                                                                                                                                                                                                                                                                                             Uruchamia lokalne testy jednostkowe przy wykorzystaniu [Karma](https://karma-runner.github.io) |
+|  `npm run watch`  |                                                                                                                                                                                                                                                                                                                   Uruchamia lokalny serwer na podstawie zbudowanej paczki plików w katalogu [dist/](dist/) |
+|  `npm run lint`   |                                                                                                                                                                                                                                                                                       Uruchamia linter'a, który sprawdza poprawność kodu na podstawie reguł ustalonych w [.eslintrc.json](/.eslintrc.json) |
+| `npm run extract` | Generuje tłumaczenia. Najpierw tworzy plik [messages.xlf](/src/locales/messages.xlf), na podstawie którego generowane są osobne tłumaczenie m.in w języku polskim ([messages.pl.xlf](/src/locales/messages.pl.xlf)) oraz angielski ([messages.en.xlf](/src/locales/messages.en.xlf) - DOMYŚLNY!) Po puszczenie komendy tagi `<target state="new"/>` należy uzupełnić poprawnym tłumaczeniem w danym języku |
