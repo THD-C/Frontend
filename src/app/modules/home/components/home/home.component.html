@@ -3,11 +3,11 @@
 <div class="w-100">
   <div class="p-0 mb-5 row gy-5 gx-0 d-flex align-items-center justify-content-evenly vh-100 p-5">
     <div class="col-lg-4 col-12">
-      <h1 i18n="@@home." class="fw-bold">Crypto trading <span class="text-primary">without liabilities</span>!</h1>
-      <h4 i18n="@@home." class="mt-4"><span class="fw-bold">Improve</span> trading skills, <span class="fw-bold">explore</span> crypto stocks, expand your knowledge and beyond that!</h4>
+      <h1 i18n="@@home.Crypto-trading-without-liabilities" class="fw-bold">Crypto trading <span class="text-primary">without liabilities</span>!</h1>
+      <h4 i18n="@@home.Improve-trading-skills-explore-crypto-stocks-expand-your-knowledge-and-beyond-that" class="mt-4"><span class="fw-bold">Improve</span> trading skills, <span class="fw-bold">explore</span> crypto stocks, expand your knowledge and beyond that!</h4>
       <div class="row g-0 mt-4">
-        <dx-button class="col-lg-auto col-12" [routerLink]="['/register']" type="default" text="Try for free!"></dx-button>
-        <dx-button class="col-lg-auto col-12 ms-2" [routerLink]="['/stock']" type="normal" text="Check stock"></dx-button>
+        <dx-button class="col-lg-auto col-12" [routerLink]="['/register']" type="default" text="Try for free!" i18n-text="@@home.Try-for-free"></dx-button>
+        <dx-button class="col-lg-auto col-12 ms-2" [routerLink]="['/stock']" type="normal" text="Check stock" i18n-text="@@home.Check-stock"></dx-button>
       </div>
     </div>
     <div class="col-lg-4 col-12">
@@ -30,283 +30,73 @@
             <dxo-format type="currency" [precision]="0"> </dxo-format>
           </dxo-label>
         </dxi-value-axis>
-        <dxo-argument-axis [workdaysOnly]="true">
+        <dxo-argument-axis [workdaysOnly]="false">
           <dxo-label format="shortDate"></dxo-label>
         </dxo-argument-axis>
-        <dxo-export [enabled]="true"></dxo-export>
         <dxo-tooltip
           [enabled]="true"
           location="edge"
-          [customizeTooltip]="customizeTooltip"
-        >
+          [customizeTooltip]="customizeTooltip">
         </dxo-tooltip>
       </dx-chart>
     </div>
   </div>
   
-  <div class="container-xxl bg-white p-0">
-    <div class="container-xxl py-5" id="rooms">
-      <div class="container">
-        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-          <h6 class="text-center text-primary text-uppercase">
-            <span class="section-title position-relative fw-bold">Our rooms</span>
-          </h6>
-          <h1 class="mb-5">Explore our <span class="text-primary text-uppercase fw-bold">Rooms</span></h1>
-        </div>
-        <div class="row g-4">
-        </div>
-      </div>
-    </div>
-    <div class="container-xxl py-5 px-0 wow zoomIn" data-wow-delay="0.1s">
-      <div class="row g-0">
-        <div class="col-md-6 bg-dark d-flex align-items-center position-relative rounded-start">
-          <div class="p-5">
-            <h6 class="text-start text-white text-uppercase mb-3">
-              <span class="section-title position-relative fw-bold text-start">Luxury <span
-                  class="text-info">Underwater</span> Living</span>
-            </h6>
-            <h1 class="display-4 fw-bold text-white mb-4">Discover A Brand Luxurious <span
-                class="text-info">Underwater</span> Hotel</h1>
-            <p class="text-white mb-4">
-              Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam
-              et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet
-            </p>
-            <a href="/home#rooms" class="btn btn-light py-md-3 px-md-5 me-3">Our rooms</a>
-            <a href="#" class="btn btn-primary py-md-3 px-md-5">Book a room</a>
-          </div>
-        </div>
-        <div class="col-md-6 position-relative">
-          <div class="video rounded-end">
-            <button type="button"
-              class="btn btn-primary d-block top-50 start-50 rounded-circle position-absolute translate-middle btn-play"
-              data-bs-toggle="modal" data-src="https://www.youtube.com/embed/cIkKEN8lZX4?si=PK4mudU-PDBHs_-O"
-              data-bs-target="#videoModal">
-              <i
-                class="z-1 d-block position-absolute top-50 start-50 translate-middle bi bi-play-fill fs-1 z-index-3"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content rounded-0">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Youtube Video</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <div class="ratio ratio-16x9">
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/cIkKEN8lZX4?si=PK4mudU-PDBHs_-O"
-                title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container-xxl py-5" id="services">
-      <div class="container">
-        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-          <h6 class="text-center text-primary text-uppercase">
-            <span class="section-title position-relative fw-bold">Our services</span>
-          </h6>
-          <h1 class="mb-5">Explore our <span class="text-primary text-uppercase fw-bold">Services</span></h1>
-        </div>
-        <div class="row g-4">
-          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-            <a class="service-item rounded text-decoration-none" href="#">
-              <div class="service-icon mx-auto bg-transparent border rounded p-1">
-                <div class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
-                  <i class="bi bi-hospital-fill text-primary fs-1"></i>
-                </div>
-              </div>
-              <h5 class="mb-3 mt-4 text-black fw-bold">Rooms &amp; Appartment</h5>
-              <p class="text-body mb-0">
-                Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam
-                sed stet lorem.
-              </p>
-            </a>
-          </div>
-          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
-            <a class="service-item rounded text-decoration-none" href="#">
-              <div class="service-icon mx-auto bg-transparent border rounded p-1">
-                <div class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
-                  <i class="bi bi-cup-hot-fill text-primary fs-1"></i>
-                </div>
-              </div>
-              <h5 class="mb-3 mt-4 text-black fw-bold">Food &amp; Restaurant</h5>
-              <p class="text-body mb-0">
-                Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam
-                sed stet lorem.
-              </p>
-            </a>
-          </div>
-          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-            <a class="service-item rounded text-decoration-none" href="#">
-              <div class="service-icon mx-auto bg-transparent border rounded p-1">
-                <div class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
-                  <i class="bi bi-sunglasses text-primary fs-1"></i>
-                </div>
-              </div>
-              <h5 class="mb-3 mt-4 text-black fw-bold">Spa &amp; Fitness</h5>
-              <p class="text-body mb-0">
-                Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam
-                sed stet lorem.
-              </p>
-            </a>
-          </div>
-          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
-            <a class="service-item rounded text-decoration-none" href="#">
-              <div class="service-icon mx-auto bg-transparent border rounded p-1">
-                <div class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
-                  <i class="bi bi-joystick text-primary fs-1"></i>
-                </div>
-              </div>
-              <h5 class="mb-3 mt-4 text-black fw-bold">Sports &amp; Gaming</h5>
-              <p class="text-body mb-0">
-                Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam
-                sed stet lorem.
-              </p>
-            </a>
-          </div>
-          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-            <a class="service-item rounded text-decoration-none" href="#">
-              <div class="service-icon mx-auto bg-transparent border rounded p-1">
-                <div class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
-                  <i class="bi bi-calendar-event-fill text-primary fs-1"></i>
-                </div>
-              </div>
-              <h5 class="mb-3 mt-4 text-black fw-bold">Event &amp; Party</h5>
-              <p class="text-body mb-0">
-                Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam
-                sed stet lorem.
-              </p>
-            </a>
-          </div>
-          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
-            <a class="service-item rounded text-decoration-none" href="#">
-              <div class="service-icon mx-auto bg-transparent border rounded p-1">
-                <div class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
-                  <i class="bi bi-bicycle text-primary fs-1"></i>
-                </div>
-              </div>
-              <h5 class="mb-3 mt-4 text-black fw-bold">GYM &amp; Yoga</h5>
-              <p class="text-body mb-0">
-                Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam
-                sed stet lorem.
-              </p>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container-xxl testimonial my-5 pt-4 pb-2 bg-dark wow zoomIn rounded" data-wow-delay="0.1s">
-      <div class="container">
-        
-      </div>
-    </div>
+  <div class="p-0 mb-5 row gy-5 gx-0 d-flex align-items-center justify-content-center vh-100 p-5">
     <div class="container-xxl py-5">
       <div class="container">
-        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-          <h6 class="text-center text-primary text-uppercase">
-            <span class="section-title position-relative fw-bold">Our team</span>
+        <div class="text-center wow fadeInUp">
+          <h6 class="text-center">
+            <span class="section-title position-relative fw-bold" i18n="@@home.We-offer-free-tool">We offer <span class="text-primary text-decoration-underline"> free</span> tool</span>
           </h6>
-          <h1 class="mb-5">Explore our <span class="text-primary text-uppercase fw-bold">Staffs</span></h1>
-        </div>
-        <div class="row g-4">
-          <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-            <div class="rounded shadow overflow-hidden">
-              <div class="position-relative">
-                <img class="img-fluid" src="assets/imgs/staffs/1.jpg" alt="John Est">
-                <div class="position-absolute start-50 top-100 translate-middle d-flex align-items-center">
-                  <a class="btn btn-square btn-primary mx-1" href="#">
-                    <i class="bi bi-facebook"></i>
-                  </a>
-                  <a class="btn btn-square btn-primary mx-1" href="#">
-                    <i class="bi bi-twitter"></i>
-                  </a>
-                  <a class="btn btn-square btn-primary mx-1" href="#">
-                    <i class="bi bi-instagram"></i>
-                  </a>
-                </div>
-              </div>
-              <div class="text-center p-4 mt-3">
-                <h5 class="fw-bold mb-0">John Est</h5>
-                <small>CEO & Co-Founder</small>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-            <div class="rounded shadow overflow-hidden">
-              <div class="position-relative">
-                <img class="img-fluid" src="assets/imgs/staffs/2.jpg" alt="Joe Johnson">
-                <div class="position-absolute start-50 top-100 translate-middle d-flex align-items-center">
-                  <a class="btn btn-square btn-primary mx-1" href="#">
-                    <i class="bi bi-facebook"></i>
-                  </a>
-                  <a class="btn btn-square btn-primary mx-1" href="#">
-                    <i class="bi bi-twitter"></i>
-                  </a>
-                  <a class="btn btn-square btn-primary mx-1" href="#">
-                    <i class="bi bi-instagram"></i>
-                  </a>
-                </div>
-              </div>
-              <div class="text-center p-4 mt-3">
-                <h5 class="fw-bold mb-0">Joe Johnson</h5>
-                <small>Customer experience</small>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-            <div class="rounded shadow overflow-hidden">
-              <div class="position-relative">
-                <img class="img-fluid" src="assets/imgs/staffs/3.jpg" alt="Mark Zig">
-                <div class="position-absolute start-50 top-100 translate-middle d-flex align-items-center">
-                  <a class="btn btn-square btn-primary mx-1" href="#">
-                    <i class="bi bi-facebook"></i>
-                  </a>
-                  <a class="btn btn-square btn-primary mx-1" href="#">
-                    <i class="bi bi-twitter"></i>
-                  </a>
-                  <a class="btn btn-square btn-primary mx-1" href="#">
-                    <i class="bi bi-instagram"></i>
-                  </a>
-                </div>
-              </div>
-              <div class="text-center p-4 mt-3">
-                <h5 class="fw-bold mb-0">Mark Zig</h5>
-                <small>Receptionist</small>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
-            <div class="rounded shadow overflow-hidden">
-              <div class="position-relative">
-                <img class="img-fluid" src="assets/imgs/staffs/4.jpg" alt="Tom Holand">
-                <div class="position-absolute start-50 top-100 translate-middle d-flex align-items-center">
-                  <a class="btn btn-square btn-primary mx-1" href="#">
-                    <i class="bi bi-facebook"></i>
-                  </a>
-                  <a class="btn btn-square btn-primary mx-1" href="#">
-                    <i class="bi bi-twitter"></i>
-                  </a>
-                  <a class="btn btn-square btn-primary mx-1" href="#">
-                    <i class="bi bi-instagram"></i>
-                  </a>
-                </div>
-              </div>
-              <div class="text-center p-4 mt-3">
-                <h5 class="fw-bold mb-0">Tom Holand</h5>
-                <small>Bearer</small>
-              </div>
-            </div>
-          </div>
+          <h2 class="mb-5" i18n="@@home.You-get-skills">You get <span class="text-primary text-uppercase fw-bold">skills</span></h2>
         </div>
       </div>
     </div>
+    <div class="container-xxl px-0 zoomIn col-lg-4 col-12 bg-dark d-flex align-items-center rounded">
+      <div class="p-5">
+        <h6 class="text-start text-white text-uppercase mb-3">
+          <span class="section-title fw-bold text-start" i18n="@@home.It-s-your-time-to-crash-the-market">It's your time to <span class="text-primary">crash</span> the crypto market!</span>
+        </h6>
+        <h3 class="display-4 fw-bold text-white mb-4" i18n="@@home.Discover-the-marktt-and-make-a-move">Discover the crypto world and make a <span class="text-primary text-decoration-underline">move</span></h3>
+        <p class="text-white mb-4 lh-lg">
+          Everyday we improve our app so you can educate with ease. We support up to 50+ different cryptocurrencies like Bitcoin (BTC), Ethereum (ETH), Tether (USDT), BNB (BNB), Solana (SOL), USD Coin (USDC), XRP (XRP), Dogecoin (DOGE) and many more!
+        </p>
+        <dx-button [routerLink]="['/stock']" type="default" text="Explore crypto" i18n-text="@@home.Explore-crypto"></dx-button>
+        <dx-button class="ms-2" [routerLink]="['/register']" type="normal" text="Try for free" i18n-text="@@home.Try-for-free"></dx-button>
+      </div>
+    </div>
+    
+    <div class="container-xxl px-0 zoomIn col-lg-4 col-12 d-flex align-items-center rounded">
+      <dx-chart palette="Violet" [dataSource]="cryptoStockPrices" class="w-100">
+        <dxi-series
+          *ngFor="let crypto of cryptosInfo"
+          [valueField]="crypto.value"
+          [name]="crypto.name">
+        </dxi-series>
+        <dxo-legend itemTextPosition="left"></dxo-legend>
+        <dxi-value-axis [tickInterval]="1">
+          <dxo-title text="US dollars"></dxo-title>
+          <dxo-label>
+            <dxo-format type="currency" [precision]="6"></dxo-format>
+          </dxo-label>
+        </dxi-value-axis>
+        <dxo-argument-axis [workdaysOnly]="false" [aggregateByCategory]="true">
+          <dxo-label format="shortDate"></dxo-label>
+        </dxo-argument-axis>
+        <dxo-common-series-settings argumentField="date" type="line">
+        </dxo-common-series-settings>
+        <dxo-legend
+          verticalAlignment="bottom"
+          horizontalAlignment="center"
+          itemTextPosition="bottom">
+        </dxo-legend>
+        <dxo-margin [bottom]="20"></dxo-margin>
+        <dxo-title text="Common cryptocurrencies stock prices"></dxo-title>
+        <dxo-tooltip [enabled]="true"></dxo-tooltip>
+      </dx-chart>
+    </div>
+
     <div class="container-xxl py-5" id="about">
       <div class="container">
         <div class="row g-5 align-items-center">
@@ -318,7 +108,7 @@
             <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos.
               Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
             <div class="row g-3 pb-4">
-              <div class="col-sm-4 wow fadeIn" data-wow-delay="0.1s">
+              <div class="col-sm-4 wow fadeIn">
                 <div class="border rounded p-1">
                   <div class="border rounded text-center p-4">
                     <i class="bi bi-hospital-fill text-primary mb-2 fs-1"></i>
@@ -327,7 +117,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-sm-4 wow fadeIn" data-wow-delay="0.3s">
+              <div class="col-sm-4 wow fadeIn">
                 <div class="border rounded p-1">
                   <div class="border rounded text-center p-4">
                     <i class="bi bi-people-fill text-primary mb-2 fs-1"></i>
@@ -336,7 +126,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-sm-4 wow fadeIn" data-wow-delay="0.5s">
+              <div class="col-sm-4 wow fadeIn">
                 <div class="border rounded p-1">
                   <div class="border rounded text-center p-4">
                     <i class="bi bi-person-hearts text-primary mb-2 fs-1"></i>
@@ -351,19 +141,19 @@
           <div class="col-lg-6">
             <div class="row g-3">
               <div class="col-6 text-end"><img src="assets/imgs/rooms/3/1.jpg" alt="Room 3"
-                  class="img-fluid rounded w-75 wow zoomIn" style="margin-top:25%;" data-wow-delay="0.1s"></div>
+                  class="img-fluid rounded w-75 wow zoomIn" style="margin-top:25%;">
               <div class="col-6 text-start"><img src="assets/imgs/rooms/4/1.jpg" alt="Room 4"
-                  class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.3s"></div>
+                  class="img-fluid rounded w-100 wow zoomIn">
               <div class="col-6 text-end"><img src="assets/imgs/rooms/5/1.jpg" alt="Room 5"
-                  class="img-fluid rounded w-50 wow zoomIn" data-wow-delay="0.5s"></div>
+                  class="img-fluid rounded w-50 wow zoomIn">
               <div class="col-6 text-start"><img src="assets/imgs/rooms/6/1.jpg" alt="Room 6"
-                  class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.7s"></div>
+                  class="img-fluid rounded w-75 wow zoomIn">
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="container newsletter mt-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container newsletter mt-5 wow fadeIn">
       <div class="row justify-content-center">
         <div class="col-lg-10 border rounded p-1">
           <div class="border rounded text-center p-1">
@@ -379,7 +169,7 @@
         </div>
       </div>
     </div>
-    <footer class="container-fluid bg-dark text-light footer wow fadeIn" data-wow-delay="0.1s" id="contact">
+    <footer class="container-fluid bg-dark text-light footer wow fadeIn">
       <div class="container pb-5">
         <div class="row g-5">
           <div class="col-md-6 col-lg-4">
@@ -468,7 +258,3 @@
     </footer>
   </div>
 </div>
-
-<a href="/home#" class="btn btn-lg btn-primary btn-lg-square position-fixed bottom-0 end-0 me-2 mb-2">
-  <i class="dx-icon-arrowup"></i>
-</a>

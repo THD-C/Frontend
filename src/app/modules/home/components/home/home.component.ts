@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { appName } from '../../../../app.config';
-import { greenCandleColor, redCandleColor, StockPrice, stockPrices } from './home.model';
+import { CryptoInfo as CryptoInfo, greenCandleColor, redCandleColor, StockPrice, stockPrices, cryptosInfo, cryptoStockPrices, CryptoStockPrice } from './home.model';
 
 @Component({
   selector: 'app-home',
@@ -13,6 +13,11 @@ export class HomeComponent {
   protected readonly redCandleColor = redCandleColor;
   protected readonly appName = appName;
   stockPrices: StockPrice[] = stockPrices;
+
+  cryptosInfo: CryptoInfo[] = cryptosInfo;
+
+  cryptoStockPrices: CryptoStockPrice[] = cryptoStockPrices;
+
 
   customizeTooltip(arg: any) {
     return {

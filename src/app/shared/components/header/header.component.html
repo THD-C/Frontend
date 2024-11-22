@@ -1,12 +1,12 @@
 <div class="container-fluid px-0 fixed-top bg-body bg-opacity-75 p-3 px-5">
   <div class="row gx-0">
-    <div class="col-lg-4 d-none d-lg-block">
+    <div class="col-lg-3 d-none d-lg-block">
       <a [routerLink]="['/home']" routerLinkActive="active"
-        class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
-        <img class="rounded-circle" src="https://avatars.githubusercontent.com/u/184000843?s=200&v=4" [alt]="appName" />
+        class="navbar-brand w-100 m-0 p-0 d-flex align-items-center justify-content-center">
+        <img class="rounded-circle" src="https://avatars.githubusercontent.com/u/184000843?s=100&v=4" [alt]="appName" />
       </a>
     </div>
-    <div class="col-lg-8">
+    <div class="col-lg-9">
       <nav class="navbar navbar-expand-lg p-3 p-lg-0 h-100 ms-auto">
         <a [routerLink]="['/home']" routerLinkActive="active"
           class="navbar-brand w-100 h-100 m-0 p-0 d-flex d-lg-none align-items-center justify-content-center">
@@ -16,14 +16,16 @@
         </dx-button>
         <div class="collapse navbar-collapse justify-content-evenly align-items-center ms-auto" id="navbarCollapse">
           <div class="navbar-nav py-0 fw-bold text-uppercase">
-            <a [routerLink]="['/home']"
+            <a [routerLink]="['/home']" routerLinkActive="active"
               class="nav-item nav-link text-black" i18n="@@header.Home">Home</a>
-            <a [routerLink]="['/stock']"
+            <a [routerLink]="['/stock']" routerLinkActive="active"
               class="nav-item nav-link text-black" i18n="@@header.Stock">Stock</a>
-            <a [routerLink]="['/blog']"
+            <a [routerLink]="['/blog']" routerLinkActive="active"
               class="nav-item nav-link text-black" i18n="@@header.Blog">Blog</a>
-            <a [routerLink]="['/about']"
+            <a [routerLink]="['/about']" routerLinkActive="active"
               class="nav-item nav-link text-black" i18n="@@header.About">About</a>
+            <a [routerLink]="['/faqs']" routerLinkActive="active"
+              class="nav-item nav-link text-black" i18n="@@header.FAQs">FAQs</a>
           </div>
           <div class="d-flex justify-content-center">
             @if (authService.isAuthenticated === false) {

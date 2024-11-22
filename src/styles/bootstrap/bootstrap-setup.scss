@@ -8,12 +8,6 @@
   @extend .fw-bold;
 }
 
-a.nav-item.nav-link {
-  &.active {
-    color: $custom-primary !important;
-  }
-}
-
 $cursors: pointer;
 
 @each $cursor in $cursors {
@@ -58,4 +52,11 @@ $border-width-customs: (
 
 .fs-7 {
   font-size: 0.75rem;
+}
+
+a.nav-item.nav-link {
+  &.active {
+    color: $custom-primary !important;
+    border-bottom: $border-width-custom-1 solid $custom-primary;
+  }
 }
