@@ -6,6 +6,7 @@ import { provideRouter, RouterLink, RouterModule } from '@angular/router';
 import { DxChartModule } from 'devextreme-angular/ui/chart';
 import { DxButtonModule } from 'devextreme-angular/ui/button';
 import { DxSelectBoxModule } from 'devextreme-angular/ui/select-box';
+import { DxTextBoxModule } from 'devextreme-angular/ui/text-box';
 
 import { routes } from './home.routes';
 
@@ -29,6 +30,7 @@ import { HeaderComponent } from '../../shared/components/header/header.component
     DxChartModule,
     DxButtonModule,
     DxSelectBoxModule,
+    DxTextBoxModule,
 
     HeaderComponent,
   ]

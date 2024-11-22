@@ -42,18 +42,18 @@
     </div>
   </div>
   
-  <div class="p-0 mb-5 row gy-5 gx-0 d-flex align-items-center justify-content-center vh-100 p-5">
+  <div class="p-0 mb-5 row gy-5 gx-0 d-flex align-items-center justify-content-center vh-75 p-5">
     <div class="container-xxl py-5">
       <div class="container">
-        <div class="text-center wow fadeInUp">
+        <div class="text-center fadeInUp">
           <h6 class="text-center">
             <span class="section-title position-relative fw-bold" i18n="@@home.We-offer-free-tool">We offer <span class="text-primary text-decoration-underline"> free</span> tool</span>
           </h6>
-          <h2 class="mb-5" i18n="@@home.You-get-skills">You get <span class="text-primary text-uppercase fw-bold">skills</span></h2>
+          <h2 class="mb-0" i18n="@@home.You-get-skills">You get <span class="text-primary text-uppercase fw-bold">skills</span></h2>
         </div>
       </div>
     </div>
-    <div class="container-xxl px-0 zoomIn col-lg-4 col-12 bg-dark d-flex align-items-center rounded">
+    <div class="container-xxl px-0 zoomIn col-lg-4 col-12 bg-dark d-flex align-items-center rounded shadow">
       <div class="p-5">
         <h6 class="text-start text-white text-uppercase mb-3">
           <span class="section-title fw-bold text-start" i18n="@@home.It-s-your-time-to-crash-the-market">It's your time to <span class="text-primary">crash</span> the crypto market!</span>
@@ -96,165 +96,137 @@
         <dxo-tooltip [enabled]="true"></dxo-tooltip>
       </dx-chart>
     </div>
-
-    <div class="container-xxl py-5" id="about">
-      <div class="container">
-        <div class="row g-5 align-items-center">
-          <div class="col-lg-6">
-            <h6 class="text-start text-primary text-uppercase">
-              <span class="section-title position-relative fw-bold text-start">About us</span>
-            </h6>
-            <h1 class="mb-4">Welcome to <span class="text-primary text-uppercase fw-bold">{{ appName }}</span></h1>
-            <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos.
-              Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-            <div class="row g-3 pb-4">
-              <div class="col-sm-4 wow fadeIn">
-                <div class="border rounded p-1">
-                  <div class="border rounded text-center p-4">
-                    <i class="bi bi-hospital-fill text-primary mb-2 fs-1"></i>
-                    <h2 class="mb-1" data-toggle="counter-up">10</h2>
-                    <p class="mb-0">Rooms</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-4 wow fadeIn">
-                <div class="border rounded p-1">
-                  <div class="border rounded text-center p-4">
-                    <i class="bi bi-people-fill text-primary mb-2 fs-1"></i>
-                    <h2 class="mb-1" data-toggle="counter-up">30</h2>
-                    <p class="mb-0">Staffs</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-4 wow fadeIn">
-                <div class="border rounded p-1">
-                  <div class="border rounded text-center p-4">
-                    <i class="bi bi-person-hearts text-primary mb-2 fs-1"></i>
-                    <h2 class="mb-1" data-toggle="counter-up">10000</h2>
-                    <p class="mb-0">Clients</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <a class="btn btn-primary py-md-3 px-md-5 mt-2" href="#">Explore more</a>
-          </div>
-          <div class="col-lg-6">
-            <div class="row g-3">
-              <div class="col-6 text-end"><img src="assets/imgs/rooms/3/1.jpg" alt="Room 3"
-                  class="img-fluid rounded w-75 wow zoomIn" style="margin-top:25%;">
-              <div class="col-6 text-start"><img src="assets/imgs/rooms/4/1.jpg" alt="Room 4"
-                  class="img-fluid rounded w-100 wow zoomIn">
-              <div class="col-6 text-end"><img src="assets/imgs/rooms/5/1.jpg" alt="Room 5"
-                  class="img-fluid rounded w-50 wow zoomIn">
-              <div class="col-6 text-start"><img src="assets/imgs/rooms/6/1.jpg" alt="Room 6"
-                  class="img-fluid rounded w-75 wow zoomIn">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container newsletter mt-5 wow fadeIn">
-      <div class="row justify-content-center">
-        <div class="col-lg-10 border rounded p-1">
-          <div class="border rounded text-center p-1">
-            <div class="bg-white rounded text-center p-5">
-              <h4 class="mb-4">Subscribe our <span class="text-primary text-uppercase fw-bold">Newsletter</span></h4>
-              <div class="position-relative mx-auto" style="max-width:400px;">
-                <input class="form-control w-100 py-3 ps-4 pe-5" type="text" placeholder="Enter your email">
-                <button type="button"
-                  class="btn btn-primary py-2 px-3 position-absolute top-0 end-0 mt-2 me-2">Submit</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <footer class="container-fluid bg-dark text-light footer wow fadeIn">
-      <div class="container pb-5">
-        <div class="row g-5">
-          <div class="col-md-6 col-lg-4">
-            <h6 class="text-start text-primary text-uppercase mb-4 fw-bold">
-              <span class="section-title position-relative fw-bold text-start">Contact</span>
-            </h6>
-            <div class="d-flex pt-2">
-              <a class="btn btn-outline-primary" href="#">
-                <i class="bi bi-twitter"></i>
-              </a>
-              <a class="btn btn-outline-primary ms-2" href="#">
-                <i class="bi bi-facebook"></i>
-              </a>
-              <a class="btn btn-outline-primary ms-2" href="#">
-                <i class="bi bi-youtube"></i>
-              </a>
-              <a class="btn btn-outline-primary ms-2" href="#">
-                <i class="bi bi-linkedin"></i>
-              </a>
-            </div>
-          </div>
-          <div class="col-lg-8 col-md-12">
-            <div class="row gy-5 g-4">
-              <div class="col-md-6 d-flex flex-column">
-                <h6 class="text-start text-primary text-uppercase mb-4 fw-bold">
-                  <span class="section-title position-relative fw-bold text-start">Company</span>
-                </h6>
-                <a class="text-decoration-none ps-0 text-white mt-2" href="#"><i
-                    class="bi bi-chevron-right me-2"></i>About
-                  us</a>
-                <a class="text-decoration-none ps-0 text-white mt-2" href="#"><i
-                    class="bi bi-chevron-right me-2"></i>Contact
-                  us</a>
-                <a class="text-decoration-none ps-0 text-white mt-2" href="#"><i
-                    class="bi bi-chevron-right me-2"></i>Privacy
-                  policy</a>
-                <a class="text-decoration-none ps-0 text-white mt-2" href="#"><i
-                    class="bi bi-chevron-right me-2"></i>Terms
-                  &amp;
-                  Condition</a>
-                <a class="text-decoration-none ps-0 text-white mt-2" href="#"><i
-                    class="bi bi-chevron-right me-2"></i>Support</a>
-              </div>
-              <div class="col-md-6 d-flex flex-column">
-                <h6 class="text-start text-primary text-uppercase mb-4 fw-bold">
-                  <span class="section-title position-relative fw-bold text-start">Services</span>
-                </h6>
-                <a class="text-decoration-none ps-0 text-white mt-2" href="#"><i class="bi bi-chevron-right me-2"></i>Food
-                  &amp;
-                  Restaurant</a>
-                <a class="text-decoration-none ps-0 text-white mt-2" href="#"><i class="bi bi-chevron-right me-2"></i>Spa
-                  &amp;
-                  Fitness</a>
-                <a class="text-decoration-none ps-0 text-white mt-2" href="#"><i
-                    class="bi bi-chevron-right me-2"></i>Sports
-                  &amp; Gaming</a>
-                <a class="text-decoration-none ps-0 text-white mt-2" href="#"><i
-                    class="bi bi-chevron-right me-2"></i>Event
-                  &amp;
-                  Party</a>
-                <a class="text-decoration-none ps-0 text-white mt-2" href="#"><i class="bi bi-chevron-right me-2"></i>GYM
-                  &amp;
-                  Yoga</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="container py-3 border-top border-gray">
-        <div class="copyright">
-          <div class="row">
-            <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-              &copy; <a class="text-white" href="#">{{ appName }}</a>, All Rights Reserved
-            </div>
-            <div class="col-md-6 text-center text-md-end">
-              <div class="footer-menu">
-                <a href="#" class="text-decoration-none border-end border-gray text-white pe-3">Home</a>
-                <a href="#" class="text-decoration-none border-end border-gray text-white px-3">Cookies</a>
-                <a href="#" class="text-decoration-none border-end border-gray text-white px-3">Help</a>
-                <a href="#" class="text-decoration-none text-white ps-3">FAQs</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
   </div>
+  
+  <div class="p-0 mb-5 row gy-5 gx-0 d-flex align-items-center justify-content-center vh-75 p-5 bg-light">
+    <div class="container-xxl px-0">
+      <h6 class="fw-bold text-center">Join our community of <span class="text-primary">{{ appName }}ers</span></h6>
+      <h2 class="mb-4 text-center">with <span class="text-primary fw-bold">10 000 daily</span> active users</h2>
+    </div>
+    <div class="container-xxl px-0 zoomIn col-lg-4 col-12 bg-white d-flex align-items-center rounded border shadow">
+      <div class="p-5">
+        <h3 class="display-4 fw-bold mb-4" i18n="@@home.Discover-the-marktt-and-make-a-move">It's your time to show up!</h3>
+        <p class="mb-4 lh-lg">In just 1 year the community has grown to <span class="text-primary fw-bold">100 000</span> users whereas <span class="text-primary fw-bold">10 000</span> of them uses the app daily.<br/>So... Why don't you try it yourself for free!</p>
+        <dx-button [routerLink]="['/register']" type="default" text="Join community" i18n="@@home.Join-community"></dx-button>
+      </div>
+    </div>
+    <div class="container-xxl px-0 zoomIn col-lg-4 col-12 bg-white d-flex align-items-center">
+      <dx-chart palette="Violet" [dataSource]="usersGrowth" class="w-100">
+        <dxi-series valueField="value" name="Number of users"></dxi-series>
+        <dxo-legend itemTextPosition="left"></dxo-legend>
+        <dxo-argument-axis [valueMarginsEnabled]="false"></dxo-argument-axis>
+        <dxo-common-series-settings argumentField="month" type="area"></dxo-common-series-settings>
+        <dxo-legend
+          verticalAlignment="bottom"
+          horizontalAlignment="center"
+          itemTextPosition="bottom">
+        </dxo-legend>
+        <dxo-margin [bottom]="20"></dxo-margin>
+        <dxo-title text="Users growth"></dxo-title>
+      </dx-chart>
+    </div>
+  </div>
+  <div class="container newsletter mt-5 wow fadeIn">
+    <div class="row justify-content-center">
+      <div class="col-lg-10 border rounded p-1">
+        <div class="border rounded text-center p-1">
+          <div class="bg-white rounded text-center p-5">
+            <h4 class="mb-4">Subscribe our <span class="text-primary text-uppercase fw-bold">Newsletter</span></h4>
+            <div class="position-relative mx-auto" style="max-width:400px;">
+              <dx-text-box label="Enter your e-mail" i18n="@@home.Enter-your-email">
+                <dxi-button [options]="{ type: 'default', text: 'Submit' }"></dxi-button>
+              </dx-text-box>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="container-fluid bg-dark text-light footer wow fadeIn">
+    <div class="container pb-5">
+      <div class="row g-5">
+        <div class="col-md-6 col-lg-4">
+          <h6 class="text-start text-primary text-uppercase mb-4 fw-bold">
+            <span class="section-title position-relative fw-bold text-start">Contact</span>
+          </h6>
+          <div class="d-flex pt-2">
+            <a class="btn btn-outline-primary" href="#">
+              <i class="bi bi-twitter"></i>
+            </a>
+            <a class="btn btn-outline-primary ms-2" href="#">
+              <i class="bi bi-facebook"></i>
+            </a>
+            <a class="btn btn-outline-primary ms-2" href="#">
+              <i class="bi bi-youtube"></i>
+            </a>
+            <a class="btn btn-outline-primary ms-2" href="#">
+              <i class="bi bi-linkedin"></i>
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-8 col-md-12">
+          <div class="row gy-5 g-4">
+            <div class="col-md-6 d-flex flex-column">
+              <h6 class="text-start text-primary text-uppercase mb-4 fw-bold">
+                <span class="section-title position-relative fw-bold text-start">Company</span>
+              </h6>
+              <a class="text-decoration-none ps-0 text-white mt-2" href="#"><i
+                  class="bi bi-chevron-right me-2"></i>About
+                us</a>
+              <a class="text-decoration-none ps-0 text-white mt-2" href="#"><i
+                  class="bi bi-chevron-right me-2"></i>Contact
+                us</a>
+              <a class="text-decoration-none ps-0 text-white mt-2" href="#"><i
+                  class="bi bi-chevron-right me-2"></i>Privacy
+                policy</a>
+              <a class="text-decoration-none ps-0 text-white mt-2" href="#"><i
+                  class="bi bi-chevron-right me-2"></i>Terms
+                &amp;
+                Condition</a>
+              <a class="text-decoration-none ps-0 text-white mt-2" href="#"><i
+                  class="bi bi-chevron-right me-2"></i>Support</a>
+            </div>
+            <div class="col-md-6 d-flex flex-column">
+              <h6 class="text-start text-primary text-uppercase mb-4 fw-bold">
+                <span class="section-title position-relative fw-bold text-start">Services</span>
+              </h6>
+              <a class="text-decoration-none ps-0 text-white mt-2" href="#"><i class="bi bi-chevron-right me-2"></i>Food
+                &amp;
+                Restaurant</a>
+              <a class="text-decoration-none ps-0 text-white mt-2" href="#"><i class="bi bi-chevron-right me-2"></i>Spa
+                &amp;
+                Fitness</a>
+              <a class="text-decoration-none ps-0 text-white mt-2" href="#"><i
+                  class="bi bi-chevron-right me-2"></i>Sports
+                &amp; Gaming</a>
+              <a class="text-decoration-none ps-0 text-white mt-2" href="#"><i
+                  class="bi bi-chevron-right me-2"></i>Event
+                &amp;
+                Party</a>
+              <a class="text-decoration-none ps-0 text-white mt-2" href="#"><i class="bi bi-chevron-right me-2"></i>GYM
+                &amp;
+                Yoga</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container py-3 border-top border-gray">
+      <div class="copyright">
+        <div class="row">
+          <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+            &copy; <a class="text-white" href="#">{{ appName }}</a>, All Rights Reserved
+          </div>
+          <div class="col-md-6 text-center text-md-end">
+            <div class="footer-menu">
+              <a href="#" class="text-decoration-none border-end border-gray text-white pe-3">Home</a>
+              <a href="#" class="text-decoration-none border-end border-gray text-white px-3">Cookies</a>
+              <a href="#" class="text-decoration-none border-end border-gray text-white px-3">Help</a>
+              <a href="#" class="text-decoration-none text-white ps-3">FAQs</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
 </div>

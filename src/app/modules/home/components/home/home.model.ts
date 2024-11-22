@@ -202,3 +202,24 @@ export const cryptoStockPrices: CryptoStockPrice[] = [
   { btc: 990, eth: 3700, doge: 0.106, date: new Date('2024-02-27') },
   { btc: 41600, eth: 3725, doge: 0.107, date: new Date('2024-02-28') },
 ];
+
+export type UserGrowth = {
+  month: number;
+  value: number;
+}
+
+export const usersGrowth: UserGrowth[] = [
+  { month: 1, value: 15553 },
+  { month: 2, value: 20754 },
+  { month: 3, value: 25909 },
+  { month: 4, value: 31532 },
+  { month: 5, value: 40772 },
+  { month: 6, value: 49470 },
+  { month: 7, value: 55156 },
+  { month: 8, value: 60786 },
+  { month: 9, value: 65236 },
+  { month: 10, value: 75958 },
+  { month: 11, value: 85356 },
+  { month: 12, value: 101253 }
+];
+
