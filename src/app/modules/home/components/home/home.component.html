@@ -1,7 +1,7 @@
 <app-header></app-header>
 
 <div class="w-100">
-  <div class="p-0 mb-5 row gy-5 gx-0 d-flex align-items-center justify-content-evenly vh-100 p-5">
+  <div class="p-0 row gy-5 gx-0 d-flex align-items-center justify-content-evenly vh-100 p-5 pb-0">
     <div class="col-lg-4 col-12">
       <h1 i18n="@@home.Crypto-trading-without-liabilities" class="fw-bold">Crypto trading <span class="text-primary">without liabilities</span>!</h1>
       <h4 i18n="@@home.Improve-trading-skills-explore-crypto-stocks-expand-your-knowledge-and-beyond-that" class="mt-4"><span class="fw-bold">Improve</span> trading skills, <span class="fw-bold">explore</span> crypto stocks, expand your knowledge and beyond that!</h4>
@@ -11,7 +11,7 @@
       </div>
     </div>
     <div class="col-lg-4 col-12">
-      <dx-chart id="chart" title="Stock Price" i18n-title="@@home.Stock-price" [dataSource]="stockPrices">
+      <dx-chart id="chart" title="DogeCoin (DOGE) stock price" i18n-title="@@home.DogeCoin-DOGE-stock-price" [dataSource]="stockPrices">
         <dxi-series
           [color]="greenCandleColor"
           name="DogeCoin"
@@ -23,7 +23,7 @@
         </dxi-series>
         <dxo-common-series-settings argumentField="date" type="candlestick">
         </dxo-common-series-settings>
-        <dxo-legend itemTextPosition="left"></dxo-legend>
+        <dxo-legend [visible]="false"></dxo-legend>
         <dxi-value-axis [tickInterval]="1">
           <dxo-title text="US dollars"></dxo-title>
           <dxo-label>
@@ -132,9 +132,9 @@
         <div class="border rounded text-center p-1">
           <div class="bg-white rounded text-center p-5">
             <h4 class="mb-4">Subscribe our <span class="text-primary text-uppercase fw-bold">Newsletter</span></h4>
-            <div class="position-relative mx-auto" style="max-width:400px;">
-              <dx-text-box label="Enter your e-mail" i18n="@@home.Enter-your-email">
-                <dxi-button [options]="{ type: 'default', text: 'Submit' }"></dxi-button>
+            <div class="mx-auto" style="max-width:400px;">
+              <dx-text-box label="Enter your e-mail" i18n="@@home.Enter-your-email" class="w-100">
+                <dxi-button name="submit" [options]="{ type: 'default', text: 'Submit' }"></dxi-button>
               </dx-text-box>
             </div>
           </div>
