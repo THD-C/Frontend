@@ -126,14 +126,14 @@
       </dx-chart>
     </div>
   </div>
-  <div class="container newsletter mt-5 wow fadeIn">
+  <div class="container newsletter my-5 fadeIn">
     <div class="row justify-content-center">
       <div class="col-lg-10 border rounded p-1">
         <div class="border rounded text-center p-1">
           <div class="bg-white rounded text-center p-5">
-            <h4 class="mb-4">Subscribe our <span class="text-primary text-uppercase fw-bold">Newsletter</span></h4>
+            <h4 class="mb-4" i18n="@@home.Subscribe-our-Newsletter">Subscribe our <span class="text-primary text-uppercase fw-bold">Newsletter</span></h4>
             <div class="mx-auto" style="max-width:400px;">
-              <dx-text-box label="Enter your e-mail" i18n="@@home.Enter-your-email" class="w-100">
+              <dx-text-box label="Enter your e-mail" i18n="@@home.Enter-your-e-mail" class="w-100">
                 <dxi-button name="submit" [options]="{ type: 'default', text: 'Submit' }"></dxi-button>
               </dx-text-box>
             </div>
@@ -142,91 +142,22 @@
       </div>
     </div>
   </div>
-  <footer class="container-fluid bg-dark text-light footer wow fadeIn">
-    <div class="container pb-5">
-      <div class="row g-5">
-        <div class="col-md-6 col-lg-4">
-          <h6 class="text-start text-primary text-uppercase mb-4 fw-bold">
-            <span class="section-title position-relative fw-bold text-start">Contact</span>
-          </h6>
-          <div class="d-flex pt-2">
-            <a class="btn btn-outline-primary" href="#">
-              <i class="bi bi-twitter"></i>
-            </a>
-            <a class="btn btn-outline-primary ms-2" href="#">
-              <i class="bi bi-facebook"></i>
-            </a>
-            <a class="btn btn-outline-primary ms-2" href="#">
-              <i class="bi bi-youtube"></i>
-            </a>
-            <a class="btn btn-outline-primary ms-2" href="#">
-              <i class="bi bi-linkedin"></i>
-            </a>
-          </div>
-        </div>
-        <div class="col-lg-8 col-md-12">
-          <div class="row gy-5 g-4">
-            <div class="col-md-6 d-flex flex-column">
-              <h6 class="text-start text-primary text-uppercase mb-4 fw-bold">
-                <span class="section-title position-relative fw-bold text-start">Company</span>
-              </h6>
-              <a class="text-decoration-none ps-0 text-white mt-2" href="#"><i
-                  class="bi bi-chevron-right me-2"></i>About
-                us</a>
-              <a class="text-decoration-none ps-0 text-white mt-2" href="#"><i
-                  class="bi bi-chevron-right me-2"></i>Contact
-                us</a>
-              <a class="text-decoration-none ps-0 text-white mt-2" href="#"><i
-                  class="bi bi-chevron-right me-2"></i>Privacy
-                policy</a>
-              <a class="text-decoration-none ps-0 text-white mt-2" href="#"><i
-                  class="bi bi-chevron-right me-2"></i>Terms
-                &amp;
-                Condition</a>
-              <a class="text-decoration-none ps-0 text-white mt-2" href="#"><i
-                  class="bi bi-chevron-right me-2"></i>Support</a>
-            </div>
-            <div class="col-md-6 d-flex flex-column">
-              <h6 class="text-start text-primary text-uppercase mb-4 fw-bold">
-                <span class="section-title position-relative fw-bold text-start">Services</span>
-              </h6>
-              <a class="text-decoration-none ps-0 text-white mt-2" href="#"><i class="bi bi-chevron-right me-2"></i>Food
-                &amp;
-                Restaurant</a>
-              <a class="text-decoration-none ps-0 text-white mt-2" href="#"><i class="bi bi-chevron-right me-2"></i>Spa
-                &amp;
-                Fitness</a>
-              <a class="text-decoration-none ps-0 text-white mt-2" href="#"><i
-                  class="bi bi-chevron-right me-2"></i>Sports
-                &amp; Gaming</a>
-              <a class="text-decoration-none ps-0 text-white mt-2" href="#"><i
-                  class="bi bi-chevron-right me-2"></i>Event
-                &amp;
-                Party</a>
-              <a class="text-decoration-none ps-0 text-white mt-2" href="#"><i class="bi bi-chevron-right me-2"></i>GYM
-                &amp;
-                Yoga</a>
-            </div>
-          </div>
-        </div>
-      </div>
+
+  <footer class="container-fluid bg-dark text-light fadeIn row p-5 d-flex align-items-center">
+    <div class="col text-end">
+      <a href="#" class="pe-2">X (Twitter)</a>
+      <a href="#" class="pe-2">Reddit</a>
+      <a href="#" class="pe-2">LinkedIn</a>
+      <a href="#">Facebook</a>
     </div>
-    <div class="container py-3 border-top border-gray">
-      <div class="copyright">
-        <div class="row">
-          <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-            &copy; <a class="text-white" href="#">{{ appName }}</a>, All Rights Reserved
-          </div>
-          <div class="col-md-6 text-center text-md-end">
-            <div class="footer-menu">
-              <a href="#" class="text-decoration-none border-end border-gray text-white pe-3">Home</a>
-              <a href="#" class="text-decoration-none border-end border-gray text-white px-3">Cookies</a>
-              <a href="#" class="text-decoration-none border-end border-gray text-white px-3">Help</a>
-              <a href="#" class="text-decoration-none text-white ps-3">FAQs</a>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="col-auto text-center">
+      &copy; <a class="text-white" href="#">{{ appName }}</a>, All Rights Reserved
+    </div>
+    <div class="col text-start">
+      <a href="#" class="text-decoration-none border-end border-gray text-white pe-3">Home</a>
+      <a href="#" class="text-decoration-none border-end border-gray text-white px-3">Cookies</a>
+      <a href="#" class="text-decoration-none border-end border-gray text-white px-3">Help</a>
+      <a href="#" class="text-decoration-none text-white ps-3">FAQs</a>
     </div>
   </footer>
 </div>
