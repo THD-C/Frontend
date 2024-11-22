@@ -11,4 +11,13 @@ export const routes: Routes = [
     path: 'login',
     loadChildren: () => import('./modules/login/login.module').then(m => m.LoginModule),
   },
+  {
+    title: 'Welcome to the THD(C) the world\'s best online tool for training cryptocurrencies trading | THD(C)',
+    path: 'home',
+    loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule),
+  },
+  {
+    path: '**',
+    redirectTo: 'home',
+  },
 ];

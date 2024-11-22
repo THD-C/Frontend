@@ -129,6 +129,220 @@
           <context context-type="sourcefile">src/app/modules/register/components/register/register-personal-data/register-personal-data.component.html</context>
           <context context-type="linenumber">9</context>
         </context-group>
+      </trans-unit><trans-unit id="home.Crypto-trading-without-liabilities" datatype="html">
+        <source>Crypto trading <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary&quot;>"/>without liabilities<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/>!</source><target state="final">Crypto trading <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary&quot;>"/>without liabilities<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/>!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
+          <context context-type="linenumber">6,7</context>
+        </context-group>
+      </trans-unit><trans-unit id="home.Improve-trading-skills-explore-crypto-stocks-expand-your-knowledge-and-beyond-that" datatype="html">
+        <source><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;fw-bold&quot;>"/>Improve<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/> trading skills, <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;fw-bold&quot;>"/>explore<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/> crypto stocks, expand your knowledge and beyond that!</source><target state="final"><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;fw-bold&quot;>"/>Improve<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/> trading skills, <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;fw-bold&quot;>"/>explore<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/> crypto stocks, expand your knowledge and beyond that!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
+          <context context-type="linenumber">7,8</context>
+        </context-group>
+      </trans-unit><trans-unit id="home.Try-for-free" datatype="html">
+        <source>Try for free!</source><target state="final">Try for free!</target>
+        
+        
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context><context context-type="linenumber">66</context></context-group></trans-unit><trans-unit id="home.Check-stock" datatype="html">
+        <source>Check stock</source><target state="final">Check stock</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit><trans-unit id="home.DogeCoin-DOGE-stock-price" datatype="html">
+        <source>DogeCoin (DOGE) stock price</source><target state="final">DogeCoin (DOGE) stock price</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit><trans-unit id="home.We-offer-free-tool" datatype="html">
+        <source>We offer <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary text-decoration-underline&quot;>"/> free<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/> tool</source><target state="final">We offer <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary text-decoration-underline&quot;>"/> free<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/> tool</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
+          <context context-type="linenumber">50,51</context>
+        </context-group>
+      </trans-unit><trans-unit id="home.You-get-skills" datatype="html">
+        <source>You get <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary text-uppercase fw-bold&quot;>"/>skills<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/></source><target state="final">You get <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary text-uppercase fw-bold&quot;>"/>skills<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
+          <context context-type="linenumber">52,53</context>
+        </context-group>
+      </trans-unit><trans-unit id="home.It-s-your-time-to-crash-the-market" datatype="html">
+        <source>It's your time to <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary&quot;>"/>crash<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/> the crypto market!</source><target state="final">It's your time to <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary&quot;>"/>crash<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/> the crypto market!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
+          <context context-type="linenumber">59,60</context>
+        </context-group>
+      </trans-unit><trans-unit id="home.Everyday-we-improve-our-app-so-you-can-educate-with-ease_We-support-up-to-50-different-cryptocurrencies" datatype="html">
+        <source> Everyday we improve our app so you can educate with ease. We support up to 50+ different cryptocurrencies like Bitcoin (BTC), Ethereum (ETH), Tether (USDT), BNB (BNB), Solana (SOL), USD Coin (USDC), XRP (XRP), Dogecoin (DOGE) and many more! </source><target state="final"> Everyday we improve our app so you can educate with ease. We support up to 50+ different cryptocurrencies like Bitcoin (BTC), Ethereum (ETH), Tether (USDT), BNB (BNB), Solana (SOL), USD Coin (USDC), XRP (XRP), Dogecoin (DOGE) and many more! </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
+          <context context-type="linenumber">63,65</context>
+        </context-group>
+      </trans-unit><trans-unit id="home.Explore-crypto" datatype="html">
+        <source>Explore crypto</source><target state="final">Explore crypto</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
+          <context context-type="linenumber">65</context>
+        </context-group>
+      </trans-unit><trans-unit id="home.Join-our-community-ers" datatype="html">
+        <source>Join our community of <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary&quot;>"/><x id="INTERPOLATION" equiv-text="{{ appName }}"/>ers<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/></source><target state="final">Join our community of <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary&quot;>"/><x id="INTERPOLATION" equiv-text="{{ appName }}"/>ers<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
+          <context context-type="linenumber">103,104</context>
+        </context-group>
+      </trans-unit><trans-unit id="home.with-10000-daily-active-users" datatype="html">
+        <source>with <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary fw-bold&quot;>"/>10 000 daily<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/> active users</source><target state="final">with <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary fw-bold&quot;>"/>10 000 daily<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/> active users</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
+          <context context-type="linenumber">104,105</context>
+        </context-group>
+      </trans-unit><trans-unit id="home.In-just-1-year-the-community-has-grown-to" datatype="html">
+        <source>In just 1 year the community has grown to <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary fw-bold&quot;>"/>100 000<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/> users whereas <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary fw-bold&quot;>"/>10 000<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/> of them uses the app daily.<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/>"/>So... Why don't you try it yourself for free!</source><target state="final">In just 1 year the community has grown to <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary fw-bold&quot;>"/>100 000<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/> users whereas <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary fw-bold&quot;>"/>10 000<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/> of them uses the app daily.<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/>"/>So... Why don't you try it yourself for free!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
+          <context context-type="linenumber">109,110</context>
+        </context-group>
+      </trans-unit><trans-unit id="home.Number-of-users" datatype="html">
+        <source>Number of users</source><target state="final">Number of users</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
+          <context context-type="linenumber">115</context>
+        </context-group>
+      </trans-unit><trans-unit id="home.Subscribe-our-Newsletter" datatype="html">
+        <source>Subscribe our <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary text-uppercase fw-bold&quot;>"/>Newsletter<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/></source><target state="final">Subscribe our <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary text-uppercase fw-bold&quot;>"/>Newsletter<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
+          <context context-type="linenumber">134,135</context>
+        </context-group>
+      </trans-unit><trans-unit id="home.Enter-your-e-mail" datatype="html">
+        <source><x id="START_TAG_DXI_BUTTON" ctype="x-dxi_button" equiv-text="&lt;dxi-button name=&quot;submit&quot; [options]=&quot;newsletterButtonOptions&quot;>"/><x id="CLOSE_TAG_DXI_BUTTON" ctype="x-dxi_button" equiv-text="&lt;/dxi-button>"/></source><target state="final"><x id="START_TAG_DXI_BUTTON" ctype="x-dxi_button" equiv-text="&lt;dxi-button name=&quot;submit&quot; [options]=&quot;newsletterButtonOptions&quot;>"/><x id="CLOSE_TAG_DXI_BUTTON" ctype="x-dxi_button" equiv-text="&lt;/dxi-button>"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
+          <context context-type="linenumber">137,138</context>
+        </context-group>
+      </trans-unit><trans-unit id="home.All-Rights-Reserved" datatype="html">
+        <source>All Rights Reserved</source><target state="final">All Rights Reserved</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
+          <context context-type="linenumber">154,156</context>
+        </context-group>
+      </trans-unit><trans-unit id="home.Home" datatype="html">
+        <source>Home</source><target state="final">Home</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
+          <context context-type="linenumber">157,158</context>
+        </context-group>
+      </trans-unit><trans-unit id="home.Cookies" datatype="html">
+        <source>Cookies</source><target state="final">Cookies</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
+          <context context-type="linenumber">158,159</context>
+        </context-group>
+      </trans-unit><trans-unit id="home.Help" datatype="html">
+        <source>Help</source><target state="final">Help</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
+          <context context-type="linenumber">159,160</context>
+        </context-group>
+      </trans-unit><trans-unit id="login.E-mail-or-username" datatype="html">
+        <source>E-mail or username</source><target state="final">E-mail or username</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/login/components/login/login.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit><trans-unit id="login.Password" datatype="html">
+        <source>Password</source><target state="final">Password</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/login/components/login/login.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit><trans-unit id="login.Log-in" datatype="html">
+        <source>Log in</source><target state="final">Log in</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/login/components/login/login.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit><trans-unit id="header.Home" datatype="html">
+        <source>Home</source><target state="final">Home</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
+          <context context-type="linenumber">20,21</context>
+        </context-group>
+      </trans-unit><trans-unit id="header.Stock" datatype="html">
+        <source>Stock</source><target state="final">Stock</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
+          <context context-type="linenumber">22,23</context>
+        </context-group>
+      </trans-unit><trans-unit id="header.Blog" datatype="html">
+        <source>Blog</source><target state="final">Blog</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
+          <context context-type="linenumber">24,25</context>
+        </context-group>
+      </trans-unit><trans-unit id="header.About" datatype="html">
+        <source>About</source><target state="final">About</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
+          <context context-type="linenumber">26,27</context>
+        </context-group>
+      </trans-unit><trans-unit id="header.FAQs" datatype="html">
+        <source>FAQs</source><target state="final">FAQs</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
+          <context context-type="linenumber">28,30</context>
+        </context-group>
+      </trans-unit><trans-unit id="header.Log-in" datatype="html">
+        <source>Log in</source><target state="final">Log in</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit><trans-unit id="header.Try-for-free" datatype="html">
+        <source>Try for free</source><target state="final">Try for free</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit><trans-unit id="header.Profile" datatype="html">
+        <source>Profile</source><target state="final">Profile</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+      </trans-unit><trans-unit id="header.Log-out" datatype="html">
+        <source>Log out</source><target state="final">Log out</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
+          <context context-type="linenumber">47</context>
+        </context-group>
+      </trans-unit><trans-unit id="home.Discover-the-market-and-make-a-move" datatype="html">
+        <source>Discover the crypto world and make a <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary text-decoration-underline&quot;>"/>move<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/></source><target state="final">Discover the crypto world and make a <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary text-decoration-underline&quot;>"/>move<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
+          <context context-type="linenumber">61,62</context>
+        </context-group>
+      </trans-unit><trans-unit id="home.It-s-your-time-to-show-up" datatype="html">
+        <source>It's your time to show up!</source><target state="final">It's your time to show up!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
+          <context context-type="linenumber">108,109</context>
+        </context-group>
+      </trans-unit><trans-unit id="home.Submit" datatype="html">
+        <source>Submit</source><target state="final">Submit</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/components/home/home.config.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit><trans-unit id="home.Try-for-free_" datatype="html">
+        <source>Try for free!</source><target state="final">Try for free!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
       </trans-unit></body>
   </file>
 </xliff>
