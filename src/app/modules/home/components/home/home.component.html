@@ -6,7 +6,7 @@
       <h1 i18n="@@home.Crypto-trading-without-liabilities" class="fw-bold">Crypto trading <span class="text-primary">without liabilities</span>!</h1>
       <h4 i18n="@@home.Improve-trading-skills-explore-crypto-stocks-expand-your-knowledge-and-beyond-that" class="mt-4"><span class="fw-bold">Improve</span> trading skills, <span class="fw-bold">explore</span> crypto stocks, expand your knowledge and beyond that!</h4>
       <div class="row g-0 mt-4">
-        <dx-button class="col-lg-auto col-12" [routerLink]="['/register']" type="default" text="Try for free!" i18n-text="@@home.Try-for-free"></dx-button>
+        <dx-button class="col-lg-auto col-12" [routerLink]="['/register']" type="default" text="Try for free!" i18n-text="@@home.Try-for-free_"></dx-button>
         <dx-button class="col-lg-auto col-12 ms-2" [routerLink]="['/stock']" type="normal" text="Check stock" i18n-text="@@home.Check-stock"></dx-button>
       </div>
     </div>
@@ -58,8 +58,8 @@
         <h6 class="text-start text-white text-uppercase mb-3">
           <span class="section-title fw-bold text-start" i18n="@@home.It-s-your-time-to-crash-the-market">It's your time to <span class="text-primary">crash</span> the crypto market!</span>
         </h6>
-        <h3 class="display-4 fw-bold text-white mb-4" i18n="@@home.Discover-the-marktt-and-make-a-move">Discover the crypto world and make a <span class="text-primary text-decoration-underline">move</span></h3>
-        <p class="text-white mb-4 lh-lg">
+        <h3 class="display-4 fw-bold text-white mb-4" i18n="@@home.Discover-the-market-and-make-a-move">Discover the crypto world and make a <span class="text-primary text-decoration-underline">move</span></h3>
+        <p class="text-white mb-4 lh-lg" i18n="@@home.Everyday-we-improve-our-app-so-you-can-educate-with-ease_We-support-up-to-50-different-cryptocurrencies">
           Everyday we improve our app so you can educate with ease. We support up to 50+ different cryptocurrencies like Bitcoin (BTC), Ethereum (ETH), Tether (USDT), BNB (BNB), Solana (SOL), USD Coin (USDC), XRP (XRP), Dogecoin (DOGE) and many more!
         </p>
         <dx-button [routerLink]="['/stock']" type="default" text="Explore crypto" i18n-text="@@home.Explore-crypto"></dx-button>
@@ -100,19 +100,19 @@
   
   <div class="p-0 mb-5 row gy-5 gx-0 d-flex align-items-center justify-content-center vh-75 p-5 bg-light">
     <div class="container-xxl px-0">
-      <h6 class="fw-bold text-center">Join our community of <span class="text-primary">{{ appName }}ers</span></h6>
-      <h2 class="mb-4 text-center">with <span class="text-primary fw-bold">10 000 daily</span> active users</h2>
+      <h6 class="fw-bold text-center" i18n="@@home.Join-our-community-ers">Join our community of <span class="text-primary">{{ appName }}ers</span></h6>
+      <h2 class="mb-4 text-center" i18n="@@home.with-10000-daily-active-users">with <span class="text-primary fw-bold">10 000 daily</span> active users</h2>
     </div>
     <div class="container-xxl px-0 zoomIn col-lg-4 col-12 bg-white d-flex align-items-center rounded border shadow">
       <div class="p-5">
-        <h3 class="display-4 fw-bold mb-4" i18n="@@home.Discover-the-marktt-and-make-a-move">It's your time to show up!</h3>
-        <p class="mb-4 lh-lg">In just 1 year the community has grown to <span class="text-primary fw-bold">100 000</span> users whereas <span class="text-primary fw-bold">10 000</span> of them uses the app daily.<br/>So... Why don't you try it yourself for free!</p>
+        <h3 class="display-4 fw-bold mb-4" i18n="@@home.It-s-your-time-to-show-up">It's your time to show up!</h3>
+        <p class="mb-4 lh-lg" i18n="@@home.In-just-1-year-the-community-has-grown-to">In just 1 year the community has grown to <span class="text-primary fw-bold">100 000</span> users whereas <span class="text-primary fw-bold">10 000</span> of them uses the app daily.<br/>So... Why don't you try it yourself for free!</p>
         <dx-button [routerLink]="['/register']" type="default" text="Join community" i18n="@@home.Join-community"></dx-button>
       </div>
     </div>
     <div class="container-xxl px-0 zoomIn col-lg-4 col-12 bg-white d-flex align-items-center">
       <dx-chart palette="Violet" [dataSource]="usersGrowth" class="w-100">
-        <dxi-series valueField="value" name="Number of users"></dxi-series>
+        <dxi-series valueField="value" name="Number of users" i18n-name="@@home.Number-of-users"></dxi-series>
         <dxo-legend itemTextPosition="left"></dxo-legend>
         <dxo-argument-axis [valueMarginsEnabled]="false"></dxo-argument-axis>
         <dxo-common-series-settings argumentField="month" type="area"></dxo-common-series-settings>
@@ -134,7 +134,7 @@
             <h4 class="mb-4" i18n="@@home.Subscribe-our-Newsletter">Subscribe our <span class="text-primary text-uppercase fw-bold">Newsletter</span></h4>
             <div class="mx-auto" style="max-width:400px;">
               <dx-text-box label="Enter your e-mail" i18n="@@home.Enter-your-e-mail" class="w-100">
-                <dxi-button name="submit" [options]="{ type: 'default', text: 'Submit' }"></dxi-button>
+                <dxi-button name="submit" [options]="newsletterButtonOptions"></dxi-button>
               </dx-text-box>
             </div>
           </div>
@@ -151,12 +151,12 @@
       <a href="#">Facebook</a>
     </div>
     <div class="col-auto text-center">
-      &copy; <a class="text-white" href="#">{{ appName }}</a>, All Rights Reserved
+      &copy; <a class="text-white" href="#">{{ appName }}</a>, <span i18n="@@home.All-Rights-Reserved">All Rights Reserved</span>
     </div>
     <div class="col text-start">
-      <a href="#" class="text-decoration-none border-end border-gray text-white pe-3">Home</a>
-      <a href="#" class="text-decoration-none border-end border-gray text-white px-3">Cookies</a>
-      <a href="#" class="text-decoration-none border-end border-gray text-white px-3">Help</a>
+      <a href="#" class="text-decoration-none border-end border-gray text-white pe-3" i18n="@@home.Home">Home</a>
+      <a href="#" class="text-decoration-none border-end border-gray text-white px-3" i18n="@@home.Cookies">Cookies</a>
+      <a href="#" class="text-decoration-none border-end border-gray text-white px-3" i18n="@@home.Help">Help</a>
       <a href="#" class="text-decoration-none text-white ps-3">FAQs</a>
     </div>
   </footer>
