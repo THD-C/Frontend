@@ -152,13 +152,15 @@
           <context context-type="linenumber">9</context>
         </context-group>
       </trans-unit><trans-unit id="home.Crypto-trading-without-liabilities" datatype="html">
-        <source>Crypto trading <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary&quot;>"/>without liabilities<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/>!</source><target state="new"/>
+        <source>Crypto trading <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary&quot;>"/>without liabilities<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/>!</source>
+        <target>Handel krypto <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary&quot;>"/>bez zobowiązań<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/>!</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
           <context context-type="linenumber">6,7</context>
         </context-group>
       </trans-unit><trans-unit id="home.Improve-trading-skills-explore-crypto-stocks-expand-your-knowledge-and-beyond-that" datatype="html">
-        <source><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;fw-bold&quot;>"/>Improve<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/> trading skills, <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;fw-bold&quot;>"/>explore<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/> crypto stocks, expand your knowledge and beyond that!</source><target state="new"/>
+        <source><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;fw-bold&quot;>"/>Improve<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/> trading skills, <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;fw-bold&quot;>"/>explore<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/> crypto stocks, expand your knowledge and beyond that!</source>
+        <target><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;fw-bold&quot;>"/>Zwiększ<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/> umiejętności w handlu kryptowalutami, <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;fw-bold&quot;>"/>eksploruj<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/> świat kryptowalut, poszerzaj wiedzę i nie tylko!</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
           <context context-type="linenumber">7,8</context>
@@ -225,7 +227,8 @@
           <context context-type="linenumber">103,104</context>
         </context-group>
       </trans-unit><trans-unit id="home.with-10000-daily-active-users" datatype="html">
-        <source>with <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary fw-bold&quot;>"/>10 000 daily<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/> active users</source><target state="new"/>
+        <source>with <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary fw-bold&quot;>"/>10 000 daily<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/> active users</source>
+        <target>z <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary fw-bold&quot;>"/>10 000 dziennie<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/> aktywnych użytkowników</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
           <context context-type="linenumber">104,105</context>
@@ -243,20 +246,6 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
           <context context-type="linenumber">115</context>
-        </context-group>
-      </trans-unit><trans-unit id="home.Subscribe-our-Newsletter" datatype="html">
-        <source>Subscribe our <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary text-uppercase fw-bold&quot;>"/>Newsletter<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/></source>
-        <target>Zasubskrybuj nasz <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary text-uppercase fw-bold&quot;>"/>Newsletter<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/></target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
-          <context context-type="linenumber">134,135</context>
-        </context-group>
-      </trans-unit><trans-unit id="home.Enter-your-e-mail" datatype="html">
-        <source><x id="START_TAG_DXI_BUTTON" ctype="x-dxi_button" equiv-text="&lt;dxi-button name=&quot;submit&quot; [options]=&quot;newsletterButtonOptions&quot;>"/><x id="CLOSE_TAG_DXI_BUTTON" ctype="x-dxi_button" equiv-text="&lt;/dxi-button>"/></source>
-        <target><x id="START_TAG_DXI_BUTTON" ctype="x-dxi_button" equiv-text="&lt;dxi-button name=&quot;submit&quot; [options]=&quot;newsletterButtonOptions&quot;>"/><x id="CLOSE_TAG_DXI_BUTTON" ctype="x-dxi_button" equiv-text="&lt;/dxi-button>"/></target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
-          <context context-type="linenumber">137,138</context>
         </context-group>
       </trans-unit><trans-unit id="home.All-Rights-Reserved" datatype="html">
         <source>All Rights Reserved</source>
@@ -278,13 +267,6 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
           <context context-type="linenumber">158,159</context>
-        </context-group>
-      </trans-unit><trans-unit id="home.Help" datatype="html">
-        <source>Help</source>
-        <target>Pomoc</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
-          <context context-type="linenumber">159,160</context>
         </context-group>
       </trans-unit><trans-unit id="login.E-mail-or-username" datatype="html">
         <source>E-mail or username</source>
@@ -310,67 +292,40 @@
       </trans-unit><trans-unit id="header.Home" datatype="html">
         <source>Home</source>
         <target>Strona główna</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
-          <context context-type="linenumber">20,21</context>
-        </context-group>
-      </trans-unit><trans-unit id="header.Stock" datatype="html">
+        
+      <context-group purpose="location"><context context-type="sourcefile">src/app/shared/components/header/header.component.html</context><context context-type="linenumber">16</context></context-group></trans-unit><trans-unit id="header.Stock" datatype="html">
         <source>Stock</source>
         <target>Giełda</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
-          <context context-type="linenumber">22,23</context>
-        </context-group>
-      </trans-unit><trans-unit id="header.Blog" datatype="html">
+        
+      <context-group purpose="location"><context context-type="sourcefile">src/app/shared/components/header/header.component.html</context><context context-type="linenumber">18</context></context-group></trans-unit><trans-unit id="header.Blog" datatype="html">
         <source>Blog</source>
         <target>Blog</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
-          <context context-type="linenumber">24,25</context>
-        </context-group>
-      </trans-unit><trans-unit id="header.About" datatype="html">
+        
+      <context-group purpose="location"><context context-type="sourcefile">src/app/shared/components/header/header.component.html</context><context context-type="linenumber">20</context></context-group></trans-unit><trans-unit id="header.About" datatype="html">
         <source>About</source>
         <target>O nas</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
-          <context context-type="linenumber">26,27</context>
-        </context-group>
-      </trans-unit><trans-unit id="header.FAQs" datatype="html">
+        
+      <context-group purpose="location"><context context-type="sourcefile">src/app/shared/components/header/header.component.html</context><context context-type="linenumber">22</context></context-group></trans-unit><trans-unit id="header.FAQs" datatype="html">
         <source>FAQs</source>
         <target>FAQs</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
-          <context context-type="linenumber">28,30</context>
-        </context-group>
-      </trans-unit><trans-unit id="header.Log-in" datatype="html">
+        
+      <context-group purpose="location"><context context-type="sourcefile">src/app/shared/components/header/header.component.html</context><context context-type="linenumber">24</context></context-group></trans-unit><trans-unit id="header.Log-in" datatype="html">
         <source>Log in</source>
         <target>Zaloguj się</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
-          <context context-type="linenumber">32</context>
-        </context-group>
-      </trans-unit><trans-unit id="header.Try-for-free" datatype="html">
+        
+      <context-group purpose="location"><context context-type="sourcefile">src/app/shared/components/header/header.component.html</context><context context-type="linenumber">28</context></context-group></trans-unit><trans-unit id="header.Try-for-free" datatype="html">
         <source>Try for free</source>
         <target>Wypróbuj za darmo</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
-          <context context-type="linenumber">33</context>
-        </context-group>
-      </trans-unit><trans-unit id="header.Profile" datatype="html">
+        
+      <context-group purpose="location"><context context-type="sourcefile">src/app/shared/components/header/header.component.html</context><context context-type="linenumber">29</context></context-group></trans-unit><trans-unit id="header.Profile" datatype="html">
         <source>Profile</source>
         <target>Profil</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
-          <context context-type="linenumber">40</context>
-        </context-group>
-      </trans-unit><trans-unit id="header.Log-out" datatype="html">
+        
+      <context-group purpose="location"><context context-type="sourcefile">src/app/shared/components/header/header.component.html</context><context context-type="linenumber">36</context></context-group></trans-unit><trans-unit id="header.Log-out" datatype="html">
         <source>Log out</source>
         <target>Zaloguj się</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
-          <context context-type="linenumber">47</context>
-        </context-group>
-      </trans-unit><trans-unit id="home.Discover-the-market-and-make-a-move" datatype="html">
+        
+      <context-group purpose="location"><context context-type="sourcefile">src/app/shared/components/header/header.component.html</context><context context-type="linenumber">43</context></context-group></trans-unit><trans-unit id="home.Discover-the-market-and-make-a-move" datatype="html">
         <source>Discover the crypto world and make a <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary text-decoration-underline&quot;>"/>move<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/></source>
         <target>Odkryj świat krypto i wykonaj swój pierwszy <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary text-decoration-underline&quot;>"/>krok<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/></target>
         <context-group purpose="location">
@@ -397,6 +352,13 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
           <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit><trans-unit id="home.Common-cryptocurrencies-stock-prices" datatype="html">
+        <source>Common cryptocurrencies stock prices</source>
+        <target>Ceny najpopularniejszych kryptowalut</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
+          <context context-type="linenumber">95</context>
         </context-group>
       </trans-unit></body>
   </file>

@@ -9,9 +9,6 @@ import { DxValidatorModule } from 'devextreme-angular/ui/validator';
 import { routes } from './register.routes';
 
 import { RegisterComponent } from './components/register/register.component';
-import { RegisterAddressComponent } from './components/register/register-address/register-address.component';
-import { RegisterPersonalDataComponent } from './components/register/register-personal-data/register-personal-data.component';
-import { RegisterCredentialsComponent } from './components/register/register-credentials/register-credentials.component';
 
 
 @NgModule({
@@ -20,9 +17,6 @@ import { RegisterCredentialsComponent } from './components/register/register-cre
   ],
   declarations: [
     RegisterComponent,
-    RegisterCredentialsComponent,
-    RegisterPersonalDataComponent,
-    RegisterAddressComponent,
   ],
   imports: [
     CommonModule,

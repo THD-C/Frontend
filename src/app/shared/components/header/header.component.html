@@ -1,20 +1,16 @@
-<div class="container-fluid px-0 fixed-top bg-body bg-opacity-75 p-3 px-5">
+<div class="container-fluid px-0 fixed-top bg-body p-3 px-5 shadow-sm">
   <div class="row gx-0">
-    <div class="col-lg-3 d-none d-lg-block">
+    <div class="col-auto col-lg-3">
       <a [routerLink]="['/home']" routerLinkActive="active"
         class="navbar-brand w-100 m-0 p-0 d-flex align-items-center justify-content-center">
-        <img class="rounded-circle" src="https://avatars.githubusercontent.com/u/184000843?s=100&v=4" [alt]="appName" />
+        <img class="rounded-circle" src="assets/icons/icon-96x96.png" [alt]="appName" />
       </a>
     </div>
-    <div class="col-lg-9">
-      <nav class="navbar navbar-expand-lg p-3 p-lg-0 h-100 ms-auto">
-        <a [routerLink]="['/home']" routerLinkActive="active"
-          class="navbar-brand w-100 h-100 m-0 p-0 d-flex d-lg-none align-items-center justify-content-center">
-          <img class="w-25 rounded-circle" src="https://avatars.githubusercontent.com/u/184000843?s=200&v=4" [alt]="appName" />
-        </a>
-        <dx-button class="navbar-toggler rounded ms-auto p-0" stylingMode="outlined" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" icon="menu">
+    <div class="col-auto col-lg-9 ms-auto">
+      <nav class="navbar navbar-expand-lg p-3 p-lg-0 h-100 ms-auto w-auto">
+        <dx-button class="navbar-toggler rounded ms-auto p-0" type="normal" stylingMode="outlined" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" icon="menu">
         </dx-button>
-        <div class="collapse navbar-collapse justify-content-evenly align-items-center ms-auto" id="navbarCollapse">
+        <div class="collapse navbar-collapse justify-content-evenly align-items-center ms-auto position-lg-fixed end-0" id="navbarCollapse">
           <div class="navbar-nav py-0 fw-bold text-uppercase">
             <a [routerLink]="['/home']" routerLinkActive="active"
               class="nav-item nav-link text-black" i18n="@@header.Home">Home</a>
@@ -27,24 +23,24 @@
             <a [routerLink]="['/faqs']" routerLinkActive="active"
               class="nav-item nav-link text-black" i18n="@@header.FAQs">FAQs</a>
           </div>
-          <div class="d-flex justify-content-center">
+          <div>
             @if (authService.isAuthenticated === false) {
               <dx-button class="me-2" type="normal" [routerLink]="['/login']" text="Log in" i18n-text="@@header.Log-in"></dx-button>
               <dx-button type="default" [routerLink]="['/register']" text="Try for free" i18n-text="@@header.Try-for-free"></dx-button>
             } @else {
               <div class="dropdown">
-                <dx-button type="normal" stylingMode="text" class="dropdown-toggle" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false" icon="user">
+                <dx-button type="normal" hint="Profile" i18n="@@home.Profile" stylingMode="outlined" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false" icon="user">
                 </dx-button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
                   <li>
-                    <dx-button class="w-100 h-100" [routerLink]="['/profile']" class="dropdown-item" text="Profile" i18n-text="@@header.Profile">
+                    <dx-button class="h-100" type="normal" stylingMode="text" class="dropdown-item" [routerLink]="['/profile']" text="Profile" i18n-text="@@header.Profile">
                     </dx-button>
                   </li>
                   <li>
                     <hr class="dropdown-divider">
                   </li>
                   <li>
-                    <dx-button class="w-100 h-100" type="normal" class="dropdown-item" href="#" (click)="authService.logout()" text="Log out" i18n-text="@@header.Log-out">
+                    <dx-button class="w-100 h-100" type="normal" stylingMode="text" class="dropdown-item" href="#" (click)="authService.logout()" text="Log out" i18n-text="@@header.Log-out">
                     </dx-button>
                   </li>
                 </ul>

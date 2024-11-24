@@ -1,17 +1,17 @@
 <app-header></app-header>
 
 <div class="w-100">
-  <div class="p-0 row gy-5 gx-0 d-flex align-items-center justify-content-evenly vh-100 p-5 pb-0">
+  <div class="p-0 row gy-5 gx-0 d-flex align-items-center justify-content-evenly min-vh-100 p-5 pb-0">
     <div class="col-lg-4 col-12">
-      <h1 i18n="@@home.Crypto-trading-without-liabilities" class="fw-bold">Crypto trading <span class="text-primary">without liabilities</span>!</h1>
+      <h1 i18n="@@home.Crypto-trading-without-liabilities" class="fw-bold">Crypto trading <span class="text-primary"><span class="text-decoration-underline">without</span> liabilities</span>!</h1>
       <h4 i18n="@@home.Improve-trading-skills-explore-crypto-stocks-expand-your-knowledge-and-beyond-that" class="mt-4"><span class="fw-bold">Improve</span> trading skills, <span class="fw-bold">explore</span> crypto stocks, expand your knowledge and beyond that!</h4>
-      <div class="row g-0 mt-4">
+      <div class="row g-0 mt-5">
         <dx-button class="col-lg-auto col-12" [routerLink]="['/register']" type="default" text="Try for free!" i18n-text="@@home.Try-for-free_"></dx-button>
-        <dx-button class="col-lg-auto col-12 ms-2" [routerLink]="['/stock']" type="normal" text="Check stock" i18n-text="@@home.Check-stock"></dx-button>
+        <dx-button class="col-lg-auto col-12 ms-lg-2" [routerLink]="['/stock']" type="normal" text="Check stock" i18n-text="@@home.Check-stock"></dx-button>
       </div>
     </div>
     <div class="col-lg-4 col-12">
-      <dx-chart id="chart" title="DogeCoin (DOGE) stock price" i18n-title="@@home.DogeCoin-DOGE-stock-price" [dataSource]="stockPrices">
+      <dx-chart class="w-100" title="DogeCoin (DOGE) stock price" i18n-title="@@home.DogeCoin-DOGE-stock-price" [dataSource]="stockPrices">
         <dxi-series
           [color]="greenCandleColor"
           name="DogeCoin"
@@ -42,7 +42,7 @@
     </div>
   </div>
   
-  <div class="p-0 mb-5 row gy-5 gx-0 d-flex align-items-center justify-content-center vh-100 p-5">
+  <div class="p-0 mb-5 row gy-5 gx-0 d-flex align-items-center justify-content-center min-vh-100 p-5 bg-light">
     <div class="container-xxl py-5">
       <div class="container">
         <div class="text-center fadeInUp">
@@ -92,13 +92,13 @@
           itemTextPosition="bottom">
         </dxo-legend>
         <dxo-margin [bottom]="20"></dxo-margin>
-        <dxo-title text="Common cryptocurrencies stock prices"></dxo-title>
+        <dxo-title text="Common cryptocurrencies stock prices" i18n-text="@@home.Common-cryptocurrencies-stock-prices"></dxo-title>
         <dxo-tooltip [enabled]="true"></dxo-tooltip>
       </dx-chart>
     </div>
   </div>
   
-  <div class="p-0 mb-5 row gy-5 gx-0 d-flex align-items-center justify-content-center vh-100 p-5 bg-light">
+  <div class="p-0 row gy-5 gx-0 d-flex align-items-center justify-content-center min-vh-100 p-5">
     <div class="container-xxl px-0">
       <h6 class="fw-bold text-center" i18n="@@home.Join-our-community-ers">Join our community of <span class="text-primary">{{ appName }}ers</span></h6>
       <h2 class="mb-4 text-center" i18n="@@home.with-10000-daily-active-users">with <span class="text-primary fw-bold">10 000 daily</span> active users</h2>
@@ -152,9 +152,6 @@
     </div>
     <div class="col-auto text-center">
       &copy; <a [routerLink]="['/home']" class="text-white">{{ appName }}</a>, <span i18n="@@home.All-Rights-Reserved">All Rights Reserved</span>
-    </div>
-    <div class="col text-start">
-      &copy; <a class="text-white" href="#">{{ appName }}</a>, <span i18n="@@home.All-Rights-Reserved">All Rights Reserved</span>
     </div>
     <div class="col text-start">
       <a [routerLink]="['/home']" class="text-decoration-none border-end border-gray text-white pe-3" i18n="@@home.Home">Home</a>
