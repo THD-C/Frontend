@@ -211,18 +211,6 @@
           <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
           <context context-type="linenumber">115</context>
         </context-group>
-      </trans-unit><trans-unit id="home.Subscribe-our-Newsletter" datatype="html">
-        <source>Subscribe our <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary text-uppercase fw-bold&quot;>"/>Newsletter<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/></source><target state="final">Subscribe our <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary text-uppercase fw-bold&quot;>"/>Newsletter<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/></target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
-          <context context-type="linenumber">134,135</context>
-        </context-group>
-      </trans-unit><trans-unit id="home.Enter-your-e-mail" datatype="html">
-        <source><x id="START_TAG_DXI_BUTTON" ctype="x-dxi_button" equiv-text="&lt;dxi-button name=&quot;submit&quot; [options]=&quot;newsletterButtonOptions&quot;>"/><x id="CLOSE_TAG_DXI_BUTTON" ctype="x-dxi_button" equiv-text="&lt;/dxi-button>"/></source><target state="final"><x id="START_TAG_DXI_BUTTON" ctype="x-dxi_button" equiv-text="&lt;dxi-button name=&quot;submit&quot; [options]=&quot;newsletterButtonOptions&quot;>"/><x id="CLOSE_TAG_DXI_BUTTON" ctype="x-dxi_button" equiv-text="&lt;/dxi-button>"/></target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
-          <context context-type="linenumber">137,138</context>
-        </context-group>
       </trans-unit><trans-unit id="home.All-Rights-Reserved" datatype="html">
         <source>All Rights Reserved</source><target state="final">All Rights Reserved</target>
         <context-group purpose="location">
@@ -240,12 +228,6 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
           <context context-type="linenumber">158,159</context>
-        </context-group>
-      </trans-unit><trans-unit id="home.Help" datatype="html">
-        <source>Help</source><target state="final">Help</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
-          <context context-type="linenumber">159,160</context>
         </context-group>
       </trans-unit><trans-unit id="login.E-mail-or-username" datatype="html">
         <source>E-mail or username</source><target state="final">E-mail or username</target>
