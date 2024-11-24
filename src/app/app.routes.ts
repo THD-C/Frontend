@@ -17,6 +17,11 @@ export const routes: Routes = [
     loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule),
   },
   {
+    title: 'Account details | THD(C)',
+    path: 'profile',
+    loadChildren: () => import('./modules/profile/profile.module').then(m => m.ProfileModule),
+  },
+  {
     path: '**',
     redirectTo: 'home',
   },

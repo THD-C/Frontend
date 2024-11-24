@@ -29,7 +29,7 @@
               <dx-button type="default" [routerLink]="['/register']" text="Try for free" i18n-text="@@header.Try-for-free"></dx-button>
             } @else {
               <div class="dropdown">
-                <dx-button type="normal" hint="Profile" i18n="@@home.Profile" stylingMode="outlined" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false" icon="user">
+                <dx-button [type]="btnCollapseProfileType" hint="Profile" i18n="@@home.Profile" stylingMode="outlined" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false" icon="user">
                 </dx-button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
                   <li>
