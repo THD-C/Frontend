@@ -1,12 +1,9 @@
-import { Component, viewChild } from '@angular/core';
-import { ValidationCallbackData } from 'devextreme/common';
-import { TextBoxType } from 'devextreme/ui/text_box';
-import { DxTextBoxComponent } from 'devextreme-angular/ui/text-box';
+import { Component } from '@angular/core';
 
 import { nextStepsMap, previousStepsMap, RegisterRequest, RegisterStep } from './register.model';
 
-import { validatePassword } from '../../../../shared/validators/password-strength.validator';
 import { AuthService } from '../../../../services/user/auth.service';
+import { appName } from '../../../../app.config';
 
 @Component({
   selector: 'app-register',
@@ -15,6 +12,7 @@ import { AuthService } from '../../../../services/user/auth.service';
 })
 export class RegisterComponent {
 
+  readonly appName = appName;
   readonly RegisterStep = RegisterStep;
   currentStep: RegisterStep = RegisterStep.Credentials;
 

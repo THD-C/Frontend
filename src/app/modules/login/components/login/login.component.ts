@@ -1,10 +1,10 @@
-import { Component, viewChild, ViewChild } from '@angular/core';
+import { Component, viewChild } from '@angular/core';
 import { TextBoxType } from 'devextreme/ui/text_box';
 import { DxTextBoxComponent } from 'devextreme-angular/ui/text-box';
 import { AuthService } from '../../../../services/user/auth.service';
 import { LoginRequest } from './login.model';
 import { passwordButtonOptions } from './login.config';
-import { ClickEvent } from 'devextreme/ui/button';
+import { appName } from '../../../../app.config';
 
 @Component({
   selector: 'app-login',
@@ -13,6 +13,7 @@ import { ClickEvent } from 'devextreme/ui/button';
 })
 export class LoginComponent {
 
+  readonly appName = appName;
   readonly passwordButtonOptions = {
     ...passwordButtonOptions,
     onClick: () => {
