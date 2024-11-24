@@ -1,22 +1,48 @@
 <div class="container-xl px-4 mt-4 d-flex justify-content-center align-items-center flex-column vw-100 vh-100 bg-white">
-  <form class="card shadow-lg p-3 pb-0" (submit)="$event.preventDefault(); $event.stopImmediatePropagation()">
+  <div class="card">
     <a [routerLink]="['/']" routerLinkActive="active" class="d-flex justify-content-center">
       <img class="rounded-circle my-4" src="assets/icons/icon-192x192.png" [alt]="appName">
     </a>
+    <h4 class="card-header fw-bold border-0 text-center fs-4 bg-body" i18n="@@register.Try-for-free-now-step-1-of-3">Try for <span class="text-decoration-underline text-primary">free</span>!</h4>
+    <form class="card-body row gy-4 gx-0" (submit)="$event.preventDefault(); $event.stopImmediatePropagation()">
+      <dx-text-box [(value)]="registerRequest.username" label="Username" i18n-label="@@register.Username" labelMode="floating" #txtUsername validationMessageMode="always">
+        <dx-validator>
+          <dxi-validation-rule type="required">
+          </dxi-validation-rule>
+        </dx-validator>
+      </dx-text-box>
+      <dx-text-box mode="email" [(value)]="registerRequest.email" label="E-mail" i18n-label="@@register.Email" labelMode="floating" #txtEmail validationMessageMode="always">
+        <dx-validator>
+          <dxi-validation-rule type="required">
+          </dxi-validation-rule>
     
-    @if (currentStep === RegisterStep.Credentials) {
-      <app-register-credentials [registerRequest]="registerRequest" (onNextStepClicked)="handleNextStepClick()" />
-    }
+          <dxi-validation-rule type="email">
+          </dxi-validation-rule>
+        </dx-validator>
+      </dx-text-box>
+      <dx-text-box [mode]="passwordMode" [(value)]="registerRequest.password" label="Password" i18n-label="@@register.Password" labelMode="floating" validationMessageMode="always">
+        <dx-validator>
+          <dxi-validation-rule type="required">
+          </dxi-validation-rule>
     
-    @if (currentStep === RegisterStep.PersonalData) {
-      <app-register-personal-data [registerRequest]="registerRequest" (onPreviousStepClicked)="handlePreviousStepClick()" (onNextStepClicked)="handleNextStepClick()" />
-    }
-
-    @if (currentStep === RegisterStep.Address) {
-      <app-register-address [registerRequest]="registerRequest" (onPreviousStepClicked)="handlePreviousStepClick()" (onNextStepClicked)="submit()" />
-    }
-
-  </form>
+          <dxi-validation-rule type="custom" [validationCallback]="validatePassword.bind(this)" message="Password does not conform rules" i18n-label="@@register.Password-does-not-conform-rules">
+          </dxi-validation-rule>
+        </dx-validator>
+        <dxi-button name="password" [options]="passwordButtonOptions"></dxi-button>
+      </dx-text-box>
+      @if (showPasswordErrors) {
+        <small class="ps-0 mt-4">
+          <ul class="text-danger ps-3">
+            @for (error of passwordErrors; track error) {
+              <li class="mt-2">{{ error }}</li>
+            }
+          </ul>
+        </small>
+      }
+    
+      <dx-button class="col-lg-auto col ms-auto" type="default" [useSubmitBehavior]="true" (onClick)="submit()" text="Register" i18n-text="@@register.Register"></dx-button>
+    </form>
+  </div>
   <div class="mt-2" i18n="@@register.If-you-already-have-account-log-in-instead">
     If you already have account <a [routerLink]="['/login']" routerLinkActive="active">log in</a> instead
   </div>
