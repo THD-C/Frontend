@@ -4,7 +4,7 @@ import { ValidationCallbackData } from 'devextreme/common';
 import { TextBoxType } from 'devextreme/ui/text_box';
 import { DxTextBoxComponent } from 'devextreme-angular/ui/text-box';
 
-import { AuthService } from '../../../../services/user/auth.service';
+import { AuthService } from '../../../../services/auth/auth.service';
 import { validatePassword } from '../../../../shared/validators/password-strength.validator';
 import { passwordButtonOptions } from './register.config';
 import { appName } from '../../../../app.config';

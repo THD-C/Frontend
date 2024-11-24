@@ -1,7 +1,7 @@
-import { Component, viewChild } from '@angular/core';
+import { AfterViewInit, Component, viewChild } from '@angular/core';
 import { TextBoxType } from 'devextreme/ui/text_box';
 import { DxTextBoxComponent } from 'devextreme-angular/ui/text-box';
-import { AuthService } from '../../../../services/user/auth.service';
+import { AuthService } from '../../../../services/auth/auth.service';
 import { LoginRequest } from './login.model';
 import { passwordButtonOptions } from './login.config';
 import { appName } from '../../../../app.config';
@@ -11,7 +11,7 @@ import { appName } from '../../../../app.config';
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
-export class LoginComponent {
+export class LoginComponent implements AfterViewInit {
 
   readonly appName = appName;
   readonly passwordButtonOptions = {
@@ -36,6 +36,10 @@ export class LoginComponent {
   txtEmail = viewChild.required<DxTextBoxComponent>('txtEmail');
 
   constructor(private readonly authService: AuthService) {}
+
+  ngAfterViewInit(): void {
+    this.txtEmail()?.instance.focus();
+  }
 
   async submit(): Promise<void> {
     if (this.isFormValid === false) {

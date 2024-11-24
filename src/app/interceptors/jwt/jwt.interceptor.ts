@@ -3,7 +3,7 @@ import { inject } from '@angular/core';
 import { Location } from '@angular/common';
 import { Observable } from 'rxjs';
 
-import { AuthService } from '../../services/user/auth.service';
+import { AuthService } from '../../services/auth/auth.service';
 import { RouterExtendedService } from '../../services/router-extended/router-extended.service';
 
 /**

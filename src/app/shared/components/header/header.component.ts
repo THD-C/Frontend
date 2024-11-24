@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterModule } from '@angular/router';
 import { appName } from '../../../app.config';
-import { AuthService } from '../../../services/user/auth.service';
+import { AuthService } from '../../../services/auth/auth.service';
 
 import { DxButtonModule } from 'devextreme-angular/ui/button';
 
