@@ -33,18 +33,18 @@
               <dx-button type="default" [routerLink]="['/register']" text="Try for free" i18n-text="@@header.Try-for-free"></dx-button>
             } @else {
               <div class="dropdown">
-                <dx-button type="normal" stylingMode="text" class="dropdown-toggle" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false" icon="user">
+                <dx-button type="normal" hint="Profile" i18n="@@home.Profile" stylingMode="outlined" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false" icon="user">
                 </dx-button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
                   <li>
-                    <dx-button class="w-100 h-100" [routerLink]="['/profile']" class="dropdown-item" text="Profile" i18n-text="@@header.Profile">
+                    <dx-button class="h-100" type="normal" stylingMode="text" class="dropdown-item" [routerLink]="['/profile']" text="Profile" i18n-text="@@header.Profile">
                     </dx-button>
                   </li>
                   <li>
                     <hr class="dropdown-divider">
                   </li>
                   <li>
-                    <dx-button class="w-100 h-100" type="normal" class="dropdown-item" href="#" (click)="authService.logout()" text="Log out" i18n-text="@@header.Log-out">
+                    <dx-button class="w-100 h-100" type="normal" stylingMode="text" class="dropdown-item" href="#" (click)="authService.logout()" text="Log out" i18n-text="@@header.Log-out">
                     </dx-button>
                   </li>
                 </ul>
