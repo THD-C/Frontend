@@ -9,7 +9,7 @@ import { environment } from '../../../environments/environment';
 import { BaseService } from '../base/base.service';
 import { RouterExtendedService } from '../router-extended/router-extended.service';
 
-import { errors as userErrors } from './auth.errors';
+import { errors } from './auth.errors';
 import { RegisterRequest, RegisterResponse } from '../../modules/register/components/register/register.model';
 import { Session } from '../../shared/models/auth.model';
 import { LoginRequest, LoginResponse } from '../../modules/login/components/login/login.model';
@@ -77,7 +77,7 @@ export class AuthService extends BaseService {
     private readonly jwtHelperService: JwtHelperService,
   ) {
     super(notificationsService);
-    this.errors = { ...this.errors, ...userErrors };
+    this.errors = { ...this.errors, ...errors };
   }
 
   /**

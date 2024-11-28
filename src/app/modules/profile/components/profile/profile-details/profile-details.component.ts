@@ -5,6 +5,7 @@ import { validatePassword } from '../../../../../shared/validators/password-stre
 import { ValidationCallbackData } from 'devextreme/common';
 import { passwordButtonOptions } from './profile-details.config';
 import { NotificationsService } from 'angular2-notifications';
+import { UsersService } from '../../../../../services/users/users.service';
 
 @Component({
   selector: 'app-profile-details',
@@ -67,7 +68,10 @@ export class ProfileDetailsComponent {
       && this.profileDetails.country.length > 0;
   }
 
-  constructor(private readonly notifications: NotificationsService) { }
+  constructor(
+    private readonly notifications: NotificationsService,
+    private readonly usersService: UsersService,
+  ) { }
 
   protected validateNewPassword(callbackData: ValidationCallbackData): boolean {
     if (callbackData.value.length === 0) {
@@ -82,14 +86,14 @@ export class ProfileDetailsComponent {
     if (this.isFormValid === false) {
       this.notifications.error(
         $localize`:@@profile-details.Error:Error`,
-        $localize`:@@profile-details.Missing-form-data-Fill-the-form:Missing form data. Fill the form`,
+        $localize`:@@profile-details.Can-not-update-profile-details-Missing-data-Check-the-form-and-try-again:Can not update profile details. Missing data. Check the form and try again`,
       );
 
       return;
     }
 
     try {
-      //await this.userService.(this.profileDetails);
+      await this.usersService.updateProfileDetails(this.profileDetails);
     } catch(e) {
     }
   }
