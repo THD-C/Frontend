@@ -6,6 +6,7 @@ import { DxTabsModule } from 'devextreme-angular/ui/tabs';
 import { DxTextBoxModule } from 'devextreme-angular/ui/text-box';
 import { DxValidatorModule } from 'devextreme-angular/ui/validator';
 import { DxButtonModule } from 'devextreme-angular/ui/button';
+import { DxScrollViewModule } from 'devextreme-angular/ui/scroll-view';
 
 import { routes } from './profile.routes';
 import { HeaderComponent } from '../../shared/components/header/header.component';
@@ -30,6 +31,7 @@ import { ProfileDetailsComponent } from './components/profile/profile-details/pr
     DxTextBoxModule,
     DxValidatorModule,
     DxButtonModule,
+    DxScrollViewModule,
   ]
 })
 export class ProfileModule { }

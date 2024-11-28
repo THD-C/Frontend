@@ -11,6 +11,8 @@ export const tabsRouterMap: Map<number, string[]> = new Map([
 export type UpdateProfileDetailsRequest = {
   username: string;
   email: string;
+  current_password: string;
+  new_password: string;
   name: string;
   surname: string;
   street: string;

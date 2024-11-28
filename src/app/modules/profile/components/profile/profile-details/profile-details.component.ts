@@ -15,6 +15,8 @@ export class ProfileDetailsComponent {
   profileDetails: UpdateProfileDetailsRequest = {
     username: '',
     email: '',
+    current_password: '',
+    new_password: '',
     name: '',
     surname: '',
     street: '',

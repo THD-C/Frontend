@@ -1,15 +1,15 @@
 <app-header />
 
-<div class="min-vh-100 d-flex align-items-center justify-content-center flex-column bg-light">
+<div class="min-vh-100 d-flex align-items-center justify-content-center flex-column bg-light p-2 mt-5">
   <dx-tabs
-    class="w-auto rounded-top shadow overflow-hidden"
+    class="w-auto rounded-top shadow overflow-hidden position-sticky"
     iconPosition="start"
     [selectedIndex]="0"
     (selectedIndexChange)="onTabIndexSelectionChanged($event)"
     [dataSource]="tabs">
   </dx-tabs>
 
-  <div class="card shadow p-5 border-primary">
+  <dx-scroll-view class="card shadow p-3 border-primary" width="90vw" height="75vh" [useNative]="false" [scrollByContent]="true" [scrollByThumb]="true">
     <router-outlet />
-  </div>
+  </dx-scroll-view>
 </div>
