@@ -191,117 +191,200 @@
           <context context-type="linenumber">26,28</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="register.Country" datatype="html">
-        <source>Country</source>
+      <trans-unit id="profile-details.Identity" datatype="html">
+        <source>Identity</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/register/components/register/register-address/register-address.component.html</context>
+          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-details/profile-details.component.html</context>
+          <context context-type="linenumber">2,3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile-details.Username" datatype="html">
+        <source>Username</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-details/profile-details.component.html</context>
           <context context-type="linenumber">4</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="register.City" datatype="html">
-        <source>City</source>
+      <trans-unit id="profile-details.E-mail" datatype="html">
+        <source>E-mail</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/register/components/register/register-address/register-address.component.html</context>
+          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-details/profile-details.component.html</context>
           <context context-type="linenumber">12</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="register.Postal-code" datatype="html">
+      <trans-unit id="profile-details.Personal" datatype="html">
+        <source>Personal</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-details/profile-details.component.html</context>
+          <context context-type="linenumber">23,24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile-details.Name" datatype="html">
+        <source>Name</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-details/profile-details.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile-details.Surname" datatype="html">
+        <source>Surname</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-details/profile-details.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile-details.Address" datatype="html">
+        <source>Address</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-details/profile-details.component.html</context>
+          <context context-type="linenumber">41,42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile-details.Country" datatype="html">
+        <source>Country</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-details/profile-details.component.html</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile-details.City" datatype="html">
+        <source>City</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-details/profile-details.component.html</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile-details.Postal-code" datatype="html">
         <source>Postal code</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/register/components/register/register-address/register-address.component.html</context>
-          <context context-type="linenumber">20</context>
+          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-details/profile-details.component.html</context>
+          <context context-type="linenumber">59</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="register.Street" datatype="html">
+      <trans-unit id="profile-details.Street" datatype="html">
         <source>Street</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/register/components/register/register-address/register-address.component.html</context>
-          <context context-type="linenumber">28</context>
+          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-details/profile-details.component.html</context>
+          <context context-type="linenumber">67</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="register.Building" datatype="html">
+      <trans-unit id="profile-details.Building" datatype="html">
         <source>Building</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/register/components/register/register-address/register-address.component.html</context>
-          <context context-type="linenumber">36</context>
+          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-details/profile-details.component.html</context>
+          <context context-type="linenumber">75</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="register.Previous-step" datatype="html">
-        <source>Previous step</source>
+      <trans-unit id="profile-details.Current-password" datatype="html">
+        <source>Current password</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/register/components/register/register-address/register-address.component.html</context>
-          <context context-type="linenumber">44</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/register/components/register/register-personal-data/register-personal-data.component.html</context>
-          <context context-type="linenumber">16</context>
+          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-details/profile-details.component.html</context>
+          <context context-type="linenumber">85</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="register.Register" datatype="html">
-        <source>Register</source>
+      <trans-unit id="profile-details.New-password" datatype="html">
+        <source>New password</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/register/components/register/register-address/register-address.component.html</context>
-          <context context-type="linenumber">45</context>
+          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-details/profile-details.component.html</context>
+          <context context-type="linenumber">90</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile-details.Save" datatype="html">
+        <source>Save</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-details/profile-details.component.html</context>
+          <context context-type="linenumber">108</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile-details.Error" datatype="html">
+        <source>Error</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-details/profile-details.component.ts</context>
+          <context context-type="linenumber">92</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile-details.Can-not-update-profile-details-Missing-data-Check-the-form-and-try-again" datatype="html">
+        <source>Can not update profile details. Missing data. Check the form and try again</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-details/profile-details.component.ts</context>
+          <context context-type="linenumber">93</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile.Details" datatype="html">
+        <source>Details</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile.config.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile.Wallets" datatype="html">
+        <source>Wallets</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile.config.ts</context>
+          <context context-type="linenumber">9</context>
         </context-group>
       </trans-unit>
       <trans-unit id="register.Try-for-free-now-step-1-of-3" datatype="html">
-        <source>Try <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-decoration-underline&quot;>"/>for free<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/> now! (Step 1 of 3)</source>
+        <source>Try for <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-decoration-underline text-primary&quot;>"/>free<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/>!</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/register/components/register/register-credentials/register-credentials.component.html</context>
-          <context context-type="linenumber">1,2</context>
+          <context context-type="sourcefile">src/app/modules/register/components/register/register.component.html</context>
+          <context context-type="linenumber">6,7</context>
         </context-group>
       </trans-unit>
       <trans-unit id="register.Username" datatype="html">
         <source>Username</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/register/components/register/register-credentials/register-credentials.component.html</context>
-          <context context-type="linenumber">3</context>
+          <context context-type="sourcefile">src/app/modules/register/components/register/register.component.html</context>
+          <context context-type="linenumber">8</context>
         </context-group>
       </trans-unit>
       <trans-unit id="register.Email" datatype="html">
         <source>E-mail</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/register/components/register/register-credentials/register-credentials.component.html</context>
-          <context context-type="linenumber">9</context>
+          <context context-type="sourcefile">src/app/modules/register/components/register/register.component.html</context>
+          <context context-type="linenumber">14</context>
         </context-group>
       </trans-unit>
       <trans-unit id="register.Password" datatype="html">
         <source>Password</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/register/components/register/register-credentials/register-credentials.component.html</context>
-          <context context-type="linenumber">18</context>
+          <context context-type="sourcefile">src/app/modules/register/components/register/register.component.html</context>
+          <context context-type="linenumber">23</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="register.Next-step" datatype="html">
-        <source>Next step</source>
+      <trans-unit id="register.Register" datatype="html">
+        <source>Register</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/register/components/register/register-credentials/register-credentials.component.html</context>
-          <context context-type="linenumber">38</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/register/components/register/register-personal-data/register-personal-data.component.html</context>
-          <context context-type="linenumber">17</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="register.Name" datatype="html">
-        <source>Name</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/register/components/register/register-personal-data/register-personal-data.component.html</context>
-          <context context-type="linenumber">3</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="register.Surname" datatype="html">
-        <source>Surname</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/register/components/register/register-personal-data/register-personal-data.component.html</context>
-          <context context-type="linenumber">9</context>
+          <context context-type="sourcefile">src/app/modules/register/components/register/register.component.html</context>
+          <context context-type="linenumber">43</context>
         </context-group>
       </trans-unit>
       <trans-unit id="register.If-you-already-have-account-log-in-instead" datatype="html">
         <source> If you already have account <x id="START_LINK" ctype="x-a" equiv-text="&lt;a [routerLink]=&quot;['/login']&quot; routerLinkActive=&quot;active&quot;>"/>log in<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a>"/> instead </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/register/components/register/register.component.html</context>
-          <context context-type="linenumber">21,23</context>
+          <context context-type="linenumber">47,49</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="auth-errors.E-mail-or-username-already-occupied" datatype="html">
+        <source>E-mail or username already occupied</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/auth/auth.errors.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="auth-erros.Credentials-are-invalid-Please-try-again-or-create-account" datatype="html">
+        <source>Credentials are invalid. Please try again or create account</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/auth/auth.errors.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="users-errors.Invalid-current-password" datatype="html">
+        <source>Invalid current password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/users/users.errors.ts</context>
+          <context context-type="linenumber">4</context>
         </context-group>
       </trans-unit>
       <trans-unit id="header.Home" datatype="html">
