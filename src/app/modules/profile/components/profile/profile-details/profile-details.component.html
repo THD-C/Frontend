@@ -1,7 +1,7 @@
-<form class="card-body row gy-4 gx-0 gx-lg-4" (submit)="$event.preventDefault(); $event.stopImmediatePropagation()">
-  <h4 class="card-header bg-body">Personal</h4>
-  <div class="col-12 col-lg-6 p-0 p-lg-2 ps-lg-0" >
-    <dx-text-box label="Name" i18n-label="@@profile.Name" labelMode="floating" validationMessageMode="always">
+<form class="card-body row gy-4 gx-0 gx-lg-4 vw-max-50" (submit)="$event.preventDefault(); $event.stopImmediatePropagation()">
+  <h4 class="card-header bg-body" i18n="@@profile-details.Identity">Identity</h4>
+  <div class="col-12 col-lg-6 p-0 p-lg-2 ps-lg-0">
+    <dx-text-box label="Username" i18n-label="@@profile-details.Username" labelMode="floating" validationMessageMode="always">
       <dx-validator>
         <dxi-validation-rule type="required">
         </dxi-validation-rule>
@@ -9,7 +9,28 @@
     </dx-text-box>
   </div>
   <div class="col-12 col-lg-6 p-0 pe-lg-0 p-lg-2">
-    <dx-text-box label="Surname" i18n-label="@@profile.Surname" labelMode="floating" #txtEmail validationMessageMode="always">
+    <dx-text-box label="E-mail" i18n-label="@@profile-details.E-mail" labelMode="floating" validationMessageMode="always">
+      <dx-validator>
+        <dxi-validation-rule type="required">
+        </dxi-validation-rule>
+        
+        <dxi-validation-rule type="email">
+        </dxi-validation-rule>
+      </dx-validator>
+    </dx-text-box>
+  </div>
+
+  <h4 class="card-header bg-body" i18n="@@profile-details.Personal">Personal</h4>
+  <div class="col-12 col-lg-6 p-0 p-lg-2 ps-lg-0">
+    <dx-text-box label="Name" i18n-label="@@profile-details.Name" labelMode="floating" validationMessageMode="always">
+      <dx-validator>
+        <dxi-validation-rule type="required">
+        </dxi-validation-rule>
+      </dx-validator>
+    </dx-text-box>
+  </div>
+  <div class="col-12 col-lg-6 p-0 pe-lg-0 p-lg-2">
+    <dx-text-box label="Surname" i18n-label="@@profile-details.Surname" labelMode="floating" validationMessageMode="always">
       <dx-validator>
         <dxi-validation-rule type="required">
         </dxi-validation-rule>
@@ -17,9 +38,9 @@
     </dx-text-box>
   </div>
 
-  <h4 class="card-header bg-body mt-5">Address</h4>
+  <h4 class="card-header bg-body mt-5" i18n="@@profile-details.Address">Address</h4>
   <div class="col-lg-6 col-12 p-0 p-lg-2 ps-lg-0">
-    <dx-text-box label="Country" i18n-label="@@profile.Country" labelMode="floating" validationMessageMode="always">
+    <dx-text-box label="Country" i18n-label="@@profile-details.Country" labelMode="floating" validationMessageMode="always">
       <dx-validator>
         <dxi-validation-rule type="required">
         </dxi-validation-rule>
@@ -27,7 +48,7 @@
     </dx-text-box>
   </div>
   <div class="col-lg-6 col-12 p-0 pe-lg-0 p-lg-2">
-    <dx-text-box label="City" i18n-label="@@profile.City" labelMode="floating" validationMessageMode="always">
+    <dx-text-box label="City" i18n-label="@@profile-details.City" labelMode="floating" validationMessageMode="always">
       <dx-validator>
         <dxi-validation-rule type="required">
         </dxi-validation-rule>
@@ -35,7 +56,7 @@
     </dx-text-box>
   </div>
   <div class="col-lg-4 col-12 p-0 ps-lg-0 p-lg-2">
-    <dx-text-box label="Postal code" i18n-label="@@profile.Postal-code" labelMode="floating" validationMessageMode="always">
+    <dx-text-box label="Postal code" i18n-label="@@profile-details.Postal-code" labelMode="floating" validationMessageMode="always">
       <dx-validator>
         <dxi-validation-rule type="required">
         </dxi-validation-rule>
@@ -43,7 +64,7 @@
     </dx-text-box>
   </div>
   <div class="col-lg-4 col-12 p-0 p-lg-2">
-    <dx-text-box label="Street" i18n-label="@@profile.Street" labelMode="floating" validationMessageMode="always">
+    <dx-text-box label="Street" i18n-label="@@profile-details.Street" labelMode="floating" validationMessageMode="always">
       <dx-validator>
         <dxi-validation-rule type="required">
         </dxi-validation-rule>
@@ -51,7 +72,7 @@
     </dx-text-box>
   </div>
   <div class="col-lg-4 col-12 p-0 pe-lg-0 p-lg-2">
-    <dx-text-box label="Building" i18n-label="@@profile.Building" labelMode="floating" validationMessageMode="always">
+    <dx-text-box label="Building" i18n-label="@@profile-details.Building" labelMode="floating" validationMessageMode="always">
       <dx-validator>
         <dxi-validation-rule type="required">
         </dxi-validation-rule>
@@ -59,5 +80,5 @@
     </dx-text-box>
   </div>
 
-  <dx-button class="col-lg-auto col ms-auto" type="default" [useSubmitBehavior]="true" (onClick)="undefined" text="Save" i18n-text="@@profile.Save"></dx-button>
+  <dx-button class="col-lg-auto col ms-auto" type="default" [useSubmitBehavior]="true" (onClick)="undefined" text="Save" i18n-text="@@profile-details.Save"></dx-button>
 </form>

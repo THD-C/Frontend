@@ -8,9 +8,10 @@ import { DxValidatorModule } from 'devextreme-angular/ui/validator';
 import { DxButtonModule } from 'devextreme-angular/ui/button';
 
 import { routes } from './profile.routes';
+import { HeaderComponent } from '../../shared/components/header/header.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ProfileDetailsComponent } from './components/profile/profile-details/profile-details.component';
-import { HeaderComponent } from '../../shared/components/header/header.component';
+import { ProfileCredentialsComponent } from './components/profile/profile-credentials/profile-credentials.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { HeaderComponent } from '../../shared/components/header/header.component
   ],
   declarations: [
     ProfileComponent,
-    ProfileDetailsComponent
+    ProfileDetailsComponent,
+    ProfileCredentialsComponent,
   ],
   imports: [
     CommonModule,
