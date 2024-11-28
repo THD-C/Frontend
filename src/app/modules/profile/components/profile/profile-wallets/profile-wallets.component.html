@@ -1,0 +1,13 @@
+<dx-scroll-view class="card shadow p-3 border-primary" width="40vw" height="75vh" [useNative]="false" [scrollByContent]="true" [scrollByThumb]="true">
+  <dx-data-grid [dataSource]="wallets">
+    <dxi-column caption="Action" i18n="@@profile-wallets.Action" cellTemplate="actionCellTemplate" width="93">
+      <div *dxTemplate="let d of 'actionCellTemplate'">
+        <dx-button appGridEditButton></dx-button>
+        <dx-button appGridDeleteButton (onClick)="deleteWallet(d.data.id)"></dx-button>
+      </div>
+    </dxi-column>
+    <dxi-column dataField="id" caption="ID" i18n="@@profile-wallets.ID"></dxi-column>
+    <dxi-column dataField="currency" caption="Currency" i18n="@@profile-wallets.Currency"></dxi-column>
+    <dxi-column dataField="value" dataType="number" caption="Value" i18n="@@profile-wallets.Value"></dxi-column>
+  </dx-data-grid>
+</dx-scroll-view>
