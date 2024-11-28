@@ -9,8 +9,4 @@ export const tabs: DxTabsItem[] = [
     text: $localize`:@@profile.Wallets:Wallets`,
     icon: 'money',
   },
-  {
-    text: $localize`:@@profile.Credentials:Credentials`,
-    icon: 'key',
-  },
 ];

@@ -11,7 +11,6 @@ import { routes } from './profile.routes';
 import { HeaderComponent } from '../../shared/components/header/header.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ProfileDetailsComponent } from './components/profile/profile-details/profile-details.component';
-import { ProfileCredentialsComponent } from './components/profile/profile-credentials/profile-credentials.component';
 
 
 @NgModule({
@@ -21,7 +20,6 @@ import { ProfileCredentialsComponent } from './components/profile/profile-creden
   declarations: [
     ProfileComponent,
     ProfileDetailsComponent,
-    ProfileCredentialsComponent,
   ],
   imports: [
     CommonModule,
