@@ -1,9 +1,8 @@
 import { HttpEvent, HttpHandlerFn, HttpInterceptorFn, HttpRequest } from '@angular/common/http';
 import { inject } from '@angular/core';
-import { Location } from '@angular/common';
 import { Observable } from 'rxjs';
 
-import { AuthService } from '../../services/user/auth.service';
+import { AuthService } from '../../services/auth/auth.service';
 import { RouterExtendedService } from '../../services/router-extended/router-extended.service';
 
 /**
@@ -22,11 +21,10 @@ export const jwtInterceptor: HttpInterceptorFn = (req, next) => {
 function handleRequest(req: HttpRequest<unknown>, next: HttpHandlerFn): Observable<HttpEvent<unknown>> {
   const auth = inject(AuthService);
   const router = inject(RouterExtendedService);
-  const location = inject(Location);
 
   if (auth.isTokenExpired) {
     auth.logout();
-    router.navigateToLogin(location.path());
+    router.navigateToLogin(router.previousUrl);
   }
 
   req = req.clone({

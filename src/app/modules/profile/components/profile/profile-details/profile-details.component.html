@@ -1,0 +1,109 @@
+<form class="card-body row gy-4 gx-0 gx-lg-4" (submit)="$event.preventDefault(); $event.stopImmediatePropagation()">
+  <h4 class="card-header bg-body" i18n="@@profile-details.Identity">Identity</h4>
+  <div class="col-12 col-lg-6 p-0 p-lg-2 ps-lg-0">
+    <dx-text-box [(value)]="profileDetails.username" label="Username" i18n-label="@@profile-details.Username" labelMode="floating" validationMessageMode="always">
+      <dx-validator>
+        <dxi-validation-rule type="required">
+        </dxi-validation-rule>
+      </dx-validator>
+    </dx-text-box>
+  </div>
+  <div class="col-12 col-lg-6 p-0 pe-lg-0 p-lg-2">
+    <dx-text-box [(value)]="profileDetails.email" label="E-mail" i18n-label="@@profile-details.E-mail" labelMode="floating" validationMessageMode="always">
+      <dx-validator>
+        <dxi-validation-rule type="required">
+        </dxi-validation-rule>
+        
+        <dxi-validation-rule type="email">
+        </dxi-validation-rule>
+      </dx-validator>
+    </dx-text-box>
+  </div>
+
+  <h4 class="card-header bg-body" i18n="@@profile-details.Personal">Personal</h4>
+  <div class="col-12 col-lg-6 p-0 p-lg-2 ps-lg-0">
+    <dx-text-box [(value)]="profileDetails.name" label="Name" i18n-label="@@profile-details.Name" labelMode="floating" validationMessageMode="always">
+      <dx-validator>
+        <dxi-validation-rule type="required">
+        </dxi-validation-rule>
+      </dx-validator>
+    </dx-text-box>
+  </div>
+  <div class="col-12 col-lg-6 p-0 pe-lg-0 p-lg-2">
+    <dx-text-box [(value)]="profileDetails.surname" label="Surname" i18n-label="@@profile-details.Surname" labelMode="floating" validationMessageMode="always">
+      <dx-validator>
+        <dxi-validation-rule type="required">
+        </dxi-validation-rule>
+      </dx-validator>
+    </dx-text-box>
+  </div>
+
+  <h4 class="card-header bg-body mt-5" i18n="@@profile-details.Address">Address</h4>
+  <div class="col-lg-6 col-12 p-0 p-lg-2 ps-lg-0">
+    <dx-text-box [(value)]="profileDetails.country" label="Country" i18n-label="@@profile-details.Country" labelMode="floating" validationMessageMode="always">
+      <dx-validator>
+        <dxi-validation-rule type="required">
+        </dxi-validation-rule>
+      </dx-validator>
+    </dx-text-box>
+  </div>
+  <div class="col-lg-6 col-12 p-0 pe-lg-0 p-lg-2">
+    <dx-text-box [(value)]="profileDetails.city" label="City" i18n-label="@@profile-details.City" labelMode="floating" validationMessageMode="always">
+      <dx-validator>
+        <dxi-validation-rule type="required">
+        </dxi-validation-rule>
+      </dx-validator>
+    </dx-text-box>
+  </div>
+  <div class="col-lg-4 col-12 p-0 ps-lg-0 p-lg-2">
+    <dx-text-box [(value)]="profileDetails.postal_code" label="Postal code" i18n-label="@@profile-details.Postal-code" labelMode="floating" validationMessageMode="always">
+      <dx-validator>
+        <dxi-validation-rule type="required">
+        </dxi-validation-rule>
+      </dx-validator>
+    </dx-text-box>
+  </div>
+  <div class="col-lg-4 col-12 p-0 p-lg-2">
+    <dx-text-box [(value)]="profileDetails.street" label="Street" i18n-label="@@profile-details.Street" labelMode="floating" validationMessageMode="always">
+      <dx-validator>
+        <dxi-validation-rule type="required">
+        </dxi-validation-rule>
+      </dx-validator>
+    </dx-text-box>
+  </div>
+  <div class="col-lg-4 col-12 p-0 pe-lg-0 p-lg-2">
+    <dx-text-box [(value)]="profileDetails.building" label="Building" i18n-label="@@profile-details.Building" labelMode="floating" validationMessageMode="always">
+      <dx-validator>
+        <dxi-validation-rule type="required">
+        </dxi-validation-rule>
+      </dx-validator>
+    </dx-text-box>
+  </div>
+
+  <h4 class="card-header bg-body">Password</h4>
+  <div class="col-12 col-lg-6 p-0 p-lg-2 ps-lg-0">
+    <dx-text-box [(value)]="profileDetails.current_password" [mode]="currentPasswordMode" label="Current password" i18n-label="@@profile-details.Current-password" labelMode="floating" validationMessageMode="always">
+      <dxi-button name="password" [options]="currentPasswordButtonOptions"></dxi-button>
+    </dx-text-box>
+  </div>
+  <div class="col-12 col-lg-6 p-0 pe-lg-0 p-lg-2">
+    <dx-text-box [(value)]="profileDetails.new_password" [mode]="newPasswordMode" label="New password" i18n-label="@@profile-details.New-password" labelMode="floating" validationMessageMode="always">
+      <dx-validator>
+        <dxi-validation-rule type="custom" [validationCallback]="validateNewPassword.bind(this)" message="New password does not conform rules" i18n-label="@@profile-details.New-password-does-not-conform-rules">
+        </dxi-validation-rule>
+      </dx-validator>
+      <dxi-button name="password" [options]="newPasswordButtonOptions"></dxi-button>
+    </dx-text-box>
+    @if (showPasswordErrors) {
+      <small class="ps-0 mt-5 d-block">
+        <ul class="text-danger ps-3">
+          @for (error of passwordErrors; track error) {
+            <li class="mt-2">{{ error }}</li>
+          }
+        </ul>
+      </small>
+    }
+  </div>
+
+  <dx-button class="col-lg-auto col ms-auto" type="default" [useSubmitBehavior]="true" (onClick)="submit()" text="Save" i18n-text="@@profile-details.Save"></dx-button>
+</form>
