@@ -1,11 +1,12 @@
 <app-header />
 
 <div class="min-vh-100 d-flex align-items-center justify-content-center flex-column">
-  <dx-tabs iconPosition="start" [selectedIndex]="0" class="w-auto">
-    <dxi-item text="Details" icon="user"> 
-    </dxi-item>
-    <dxi-item text="Wallets" icon="money"> 
-    </dxi-item>
+  <dx-tabs
+    class="w-auto"
+    iconPosition="start"
+    [selectedIndex]="0"
+    (selectedIndexChange)="onTabIndexSelectionChanged($event)"
+    [dataSource]="tabs">
   </dx-tabs>
 
   <div class="card shadow p-5 border-primary">

@@ -4,6 +4,7 @@ import { authGuard } from '../../guards/auth/auth.guard';
 
 import { ProfileComponent } from './components/profile/profile.component';
 import { ProfileDetailsComponent } from './components/profile/profile-details/profile-details.component';
+import { ProfileCredentialsComponent } from './components/profile/profile-credentials/profile-credentials.component';
 
 export const routes: Route[] = [
   {
@@ -16,10 +17,13 @@ export const routes: Route[] = [
         component: ProfileDetailsComponent
       },
       {
+        path: 'credentials',
+        component: ProfileCredentialsComponent,
+      },
+      {
         path: '**',
         component: ProfileDetailsComponent,
-        canActivate: [authGuard],
       },
     ],
   },
-]
+];
