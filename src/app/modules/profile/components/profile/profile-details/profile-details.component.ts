@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { UpdateProfileDetailsRequest } from '../profile.model';
 import { TextBoxType } from 'devextreme/ui/text_box';
 import { validatePassword } from '../../../../../shared/validators/password-strength.validator';
@@ -12,7 +12,7 @@ import { UsersService } from '../../../../../services/users/users.service';
   templateUrl: './profile-details.component.html',
   styleUrl: './profile-details.component.scss'
 })
-export class ProfileDetailsComponent {
+export class ProfileDetailsComponent implements AfterViewInit {
   
   profileDetails: UpdateProfileDetailsRequest = {
     username: '',
@@ -73,6 +73,10 @@ export class ProfileDetailsComponent {
     private readonly usersService: UsersService,
   ) { }
 
+  async ngAfterViewInit(): Promise<void> {
+    await this.getMe();
+  }
+
   protected validateNewPassword(callbackData: ValidationCallbackData): boolean {
     if (callbackData.value.length === 0) {
       return true;
@@ -95,6 +99,17 @@ export class ProfileDetailsComponent {
     try {
       await this.usersService.updateProfileDetails(this.profileDetails);
     } catch(e) {
+    }
+  }
+
+  async getMe(): Promise<void> {
+    try {
+      this.profileDetails = {
+        ...await this.usersService.getMe(),
+        current_password: '',
+        new_password: '',
+      };
+    } catch (e) {
     }
   }
 

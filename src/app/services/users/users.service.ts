@@ -5,8 +5,9 @@ import { NotificationsService } from 'angular2-notifications';
 import { BaseService } from '../base/base.service';
 
 import { errors } from './users.errors';
-import { UpdateProfileDetailsRequest } from '../../modules/profile/components/profile/profile.model';
+import { UpdateProfileDetailsRequest, UserProfileDetails } from '../../modules/profile/components/profile/profile.model';
 import { environment } from '../../../environments/environment';
+import { User } from '../../shared/models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -37,6 +38,18 @@ export class UsersService extends BaseService {
     ).pipe(catchError(this.catchCustomError.bind(this)));
 
     await firstValueFrom(request);
+  }
+
+  /**
+   * Makes a request call to the API to get logged user's data.
+   * @param updateProfileDetailsRequest Logged user's data.
+   */
+  async getMe(): Promise<UserProfileDetails> {
+    const request = this.httpClient.get<UserProfileDetails>(
+      `${environment.apiUrl}/${this.baseUsersPath}/me`
+    ).pipe(catchError(this.catchCustomError.bind(this)));
+
+    return await firstValueFrom(request) as UserProfileDetails;
   }
 
 }

@@ -8,11 +8,9 @@ export const tabsRouterMap: Map<number, string[]> = new Map([
   [TabId.Wallets, ['wallets']],
 ]);
 
-export type UpdateProfileDetailsRequest = {
+export type UserProfileDetails = {
   username: string;
   email: string;
-  current_password: string;
-  new_password: string;
   name: string;
   surname: string;
   street: string;
@@ -20,4 +18,9 @@ export type UpdateProfileDetailsRequest = {
   city: string;
   postal_code: string;
   country: string;
+}
+
+export type UpdateProfileDetailsRequest = UserProfileDetails & {
+  current_password: string;
+  new_password: string;
 }
