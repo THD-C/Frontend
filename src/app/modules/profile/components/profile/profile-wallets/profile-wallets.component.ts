@@ -1,10 +1,11 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { AfterViewInit, Component, viewChild } from '@angular/core';
 
 import { confirm } from 'devextreme/ui/dialog';
 
 import { Wallet } from './profile-wallets.model';
 import { AuthService } from '../../../../../services/auth/auth.service';
 import { WalletsService } from '../../../../../services/wallets/wallets.service';
+import { ProfileWalletEditComponent } from './profile-wallet-edit/profile-wallet-edit.component';
 
 @Component({
   selector: 'app-profile-wallets',
@@ -12,6 +13,8 @@ import { WalletsService } from '../../../../../services/wallets/wallets.service'
   styleUrl: './profile-wallets.component.scss'
 })
 export class ProfileWalletsComponent implements AfterViewInit {
+
+  profileWalletEditPopup = viewChild.required<ProfileWalletEditComponent>('profileWalletEditPopup');
 
   wallets: Wallet[] = [];
 
@@ -42,11 +45,15 @@ export class ProfileWalletsComponent implements AfterViewInit {
     }
   }
 
-  async createWallet(): Promise<void> {
-
+  add(): void {
+    this.profileWalletEditPopup().open();
   }
 
-  async deleteWallet(id: number): Promise<void> {
+  edit(id: number): void {
+    this.profileWalletEditPopup().open(id);
+  }
+
+  async delete(id: number): Promise<void> {
     if (
       await confirm(
         $localize`:@@profile-wallets.Are-you-sure-you-want-delete-the-wallet:Are you sure you want delete the wallet?`,
