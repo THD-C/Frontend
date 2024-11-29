@@ -36,4 +36,4 @@
   </dx-data-grid>
 </dx-scroll-view>
 
-<app-profile-wallet-edit #profileWalletEditPopup />
+<app-profile-wallet-edit #profileWalletEditPopup (onSaved)="onWalletSaved($event)" />

@@ -6,6 +6,7 @@ import { ValidationCallbackData } from 'devextreme/common';
 import { passwordButtonOptions } from './profile-details.config';
 import { NotificationsService } from 'angular2-notifications';
 import { UsersService } from '../../../../../services/users/users.service';
+import { AuthService } from '../../../../../services/auth/auth.service';
 
 @Component({
   selector: 'app-profile-details',
@@ -15,16 +16,17 @@ import { UsersService } from '../../../../../services/users/users.service';
 export class ProfileDetailsComponent implements AfterViewInit {
   
   profileDetails: UpdateProfileDetailsRequest = {
+    id: '',
     username: '',
     email: '',
-    current_password: '',
-    new_password: '',
+    currentPassword: '',
+    password: '',
     name: '',
     surname: '',
     street: '',
     building: '',
     city: '',
-    postal_code: '',
+    postalCode: '',
     country: ''
   };
 
@@ -55,22 +57,23 @@ export class ProfileDetailsComponent implements AfterViewInit {
       && this.profileDetails.email.length > 0
       && (
         (
-          this.profileDetails.current_password.length === 0
-          && this.profileDetails.new_password.length === 0
-        ) || validatePassword(this.profileDetails.new_password)
+          this.profileDetails.currentPassword.length === 0
+          && this.profileDetails.password.length === 0
+        ) || validatePassword(this.profileDetails.password)
       )
       && this.profileDetails.name.length > 0
       && this.profileDetails.surname.length > 0
       && this.profileDetails.street.length > 0
       && this.profileDetails.building.length > 0
       && this.profileDetails.city.length > 0
-      && this.profileDetails.postal_code.length > 0
+      && this.profileDetails.postalCode.length > 0
       && this.profileDetails.country.length > 0;
   }
 
   constructor(
     private readonly notifications: NotificationsService,
     private readonly usersService: UsersService,
+    private readonly authService: AuthService,
   ) { }
 
   async ngAfterViewInit(): Promise<void> {
@@ -106,8 +109,9 @@ export class ProfileDetailsComponent implements AfterViewInit {
     try {
       this.profileDetails = {
         ...await this.usersService.getMe(),
-        current_password: '',
-        new_password: '',
+        id: this.authService.session!.id.toString(),
+        currentPassword: '',
+        password: '',
       };
     } catch (e) {
     }

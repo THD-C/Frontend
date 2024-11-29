@@ -3,7 +3,7 @@ import { BaseService } from '../base/base.service';
 import { HttpClient } from '@angular/common/http';
 import { NotificationsService } from 'angular2-notifications';
 import { errors } from './wallets.errors';
-import { CreateWalletRequest, UpdateWalletRequest, Wallet } from '../../modules/profile/components/profile/profile-wallets/profile-wallets.model';
+import { CreateWalletRequest, GetWalletsResponse, UpdateWalletRequest, Wallet } from '../../modules/profile/components/profile/profile-wallets/profile-wallets.model';
 import { environment } from '../../../environments/environment';
 import { catchError, firstValueFrom } from 'rxjs';
 
@@ -29,16 +29,17 @@ export class WalletsService extends BaseService {
     user_id: number
   }): Promise<Wallet[]> {
     const params = this.generateParams(filters);
-    const request = this.httpClient.get<Wallet[]>(
+    const request = this.httpClient.get<GetWalletsResponse>(
       `${environment.apiUrl}/${this.baseWalletsPath}/`,
       { params }
     ).pipe(catchError(this.catchCustomError.bind(this)));
 
-    return await firstValueFrom(request) as Wallet[];
+    const { wallets } = await firstValueFrom(request) as GetWalletsResponse;
+    return wallets;
   }
 
   async getById(id: number): Promise<Wallet> {
-    const params = this.generateParams({ id });
+    const params = this.generateParams({ wallet_id: id });
     const request = this.httpClient.get<Wallet>(
       `${environment.apiUrl}/${this.baseWalletsPath}/wallet/`,
       { params }
@@ -48,7 +49,7 @@ export class WalletsService extends BaseService {
   }
 
   async delete(id: number): Promise<void> {
-    const params = this.generateParams({ id });
+    const params = this.generateParams({ wallet_id: id });
     const request = this.httpClient.delete(
       `${environment.apiUrl}/${this.baseWalletsPath}/`,
       { params }

@@ -29,15 +29,6 @@ export class ProfileWalletsComponent implements AfterViewInit {
 
   async getWallets(): Promise<void> {
     try {
-
-      this.wallets = [
-        {
-          id: "1",
-          currency: "PLN",
-          user_id: 1,
-          value: 0,
-        }
-      ];
       this.wallets = await this.walletsService.get({
         user_id: this.authService.session?.id ?? 0
       });
@@ -65,7 +56,17 @@ export class ProfileWalletsComponent implements AfterViewInit {
 
     try {
       await this.walletsService.delete(id);
+      this.wallets = this.wallets.filter(w => w.id !== id.toString());
     } catch (e) {
+    }
+  }
+
+  onWalletSaved(wallet: Wallet): void {
+    const index = this.wallets.findIndex(({ id }) => id === wallet.id);
+    if (index === -1) {
+      this.wallets.push(wallet);
+    } else {
+      this.wallets[index] = wallet;
     }
   }
 

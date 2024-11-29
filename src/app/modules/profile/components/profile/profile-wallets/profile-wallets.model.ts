@@ -7,7 +7,6 @@ export type Wallet = {
 
 export type CreateWalletRequest = {
   currency: string;
-  value: number;
   user_id: number;
 }
 
@@ -16,5 +15,9 @@ export type UpdateWalletRequest = {
   currency: string;
   value: number;
   user_id: number;
+}
+
+export type GetWalletsResponse = {
+  wallets: Wallet[];
 }
 

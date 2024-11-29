@@ -14,6 +14,7 @@ export const activatedRouteTabsMap: Map<string, TabId> = new Map([
 ]);
 
 export type UserProfileDetails = {
+  id: string;
   username: string;
   email: string;
   name: string;
@@ -21,11 +22,11 @@ export type UserProfileDetails = {
   street: string;
   building: string;
   city: string;
-  postal_code: string;
+  postalCode: string;
   country: string;
 }
 
 export type UpdateProfileDetailsRequest = UserProfileDetails & {
-  current_password: string;
-  new_password: string;
+  currentPassword: string;
+  password: string;
 }
