@@ -18,6 +18,6 @@ export type UpdateWalletRequest = {
 }
 
 export type GetWalletsResponse = {
-  wallets: Wallet[]
+  wallets: Wallet[];
 }
 

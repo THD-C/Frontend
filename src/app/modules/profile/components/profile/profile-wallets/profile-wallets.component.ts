@@ -56,6 +56,7 @@ export class ProfileWalletsComponent implements AfterViewInit {
 
     try {
       await this.walletsService.delete(id);
+      this.wallets = this.wallets.filter(w => w.id !== id.toString());
     } catch (e) {
     }
   }

@@ -49,7 +49,7 @@ export class WalletsService extends BaseService {
   }
 
   async delete(id: number): Promise<void> {
-    const params = this.generateParams({ id });
+    const params = this.generateParams({ wallet_id: id });
     const request = this.httpClient.delete(
       `${environment.apiUrl}/${this.baseWalletsPath}/`,
       { params }
