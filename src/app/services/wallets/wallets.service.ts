@@ -39,7 +39,7 @@ export class WalletsService extends BaseService {
   }
 
   async getById(id: number): Promise<Wallet> {
-    const params = this.generateParams({ id });
+    const params = this.generateParams({ wallet_id: id });
     const request = this.httpClient.get<Wallet>(
       `${environment.apiUrl}/${this.baseWalletsPath}/wallet/`,
       { params }
