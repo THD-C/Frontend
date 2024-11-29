@@ -8,6 +8,11 @@ export const tabsRouterMap: Map<number, string[]> = new Map([
   [TabId.Wallets, ['wallets']],
 ]);
 
+export const activatedRouteTabsMap: Map<string, TabId> = new Map([
+  ['/profile/details', TabId.Details],
+  ['/profile/wallets', TabId.Wallets],
+]);
+
 export type UserProfileDetails = {
   username: string;
   email: string;

@@ -1,0 +1,241 @@
+export type Currency = {
+  code: string;
+}
+
+export const currencies: Currency[] = [{
+	code: "USD",
+}, {
+	code: "CAD",
+}, {
+	code: "EUR",
+}, {
+	code: "AED",
+}, {
+	code: "AFN",
+}, {
+	code: "ALL",
+}, {
+	code: "AMD",
+}, {
+	code: "ARS",
+}, {
+	code: "AUD",
+}, {
+	code: "AZN",
+}, {
+	code: "BAM",
+}, {
+	code: "BDT",
+}, {
+	code: "BGN",
+}, {
+	code: "BHD",
+}, {
+	code: "BIF",
+}, {
+	code: "BND",
+}, {
+	code: "BOB",
+}, {
+	code: "BRL",
+}, {
+	code: "BWP",
+}, {
+	code: "BYR",
+}, {
+	code: "BZD",
+}, {
+	code: "CDF",
+}, {
+	code: "CHF",
+}, {
+	code: "CLP",
+}, {
+	code: "CNY",
+}, {
+	code: "COP",
+}, {
+	code: "CRC",
+}, {
+	code: "CVE",
+}, {
+	code: "CZK",
+}, {
+	code: "DJF",
+}, {
+	code: "DKK",
+}, {
+	code: "DOP",
+}, {
+	code: "DZD",
+}, {
+	code: "EEK",
+}, {
+	code: "EGP",
+}, {
+	code: "ERN",
+}, {
+	code: "ETB",
+}, {
+	code: "GBP",
+}, {
+	code: "GEL",
+}, {
+	code: "GHS",
+}, {
+	code: "GNF",
+}, {
+	code: "GTQ",
+}, {
+	code: "HKD",
+}, {
+	code: "HNL",
+}, {
+	code: "HRK",
+}, {
+	code: "HUF",
+}, {
+	code: "IDR",
+}, {
+	code: "ILS",
+}, {
+	code: "INR",
+}, {
+	code: "IQD",
+}, {
+	code: "IRR",
+}, {
+	code: "ISK",
+}, {
+	code: "JMD",
+}, {
+	code: "JOD",
+}, {
+	code: "JPY",
+}, {
+	code: "KES",
+}, {
+	code: "KHR",
+}, {
+	code: "KMF",
+}, {
+	code: "KRW",
+}, {
+	code: "KWD",
+}, {
+	code: "KZT",
+}, {
+	code: "LBP",
+}, {
+	code: "LKR",
+}, {
+	code: "LTL",
+}, {
+	code: "LVL",
+}, {
+	code: "LYD",
+}, {
+	code: "MAD",
+}, {
+	code: "MDL",
+}, {
+	code: "MGA",
+}, {
+	code: "MKD",
+}, {
+	code: "MMK",
+}, {
+	code: "MOP",
+}, {
+	code: "MUR",
+}, {
+	code: "MXN",
+}, {
+	code: "MYR",
+}, {
+	code: "MZN",
+}, {
+	code: "NAD",
+}, {
+	code: "NGN",
+}, {
+	code: "NIO",
+}, {
+	code: "NOK",
+}, {
+	code: "NPR",
+}, {
+	code: "NZD",
+}, {
+	code: "OMR",
+}, {
+	code: "PAB",
+}, {
+	code: "PEN",
+}, {
+	code: "PHP",
+}, {
+	code: "PKR",
+}, {
+	code: "PLN",
+}, {
+	code: "PYG",
+}, {
+	code: "QAR",
+}, {
+	code: "RON",
+}, {
+	code: "RSD",
+}, {
+	code: "RUB",
+}, {
+	code: "RWF",
+}, {
+	code: "SAR",
+}, {
+	code: "SDG",
+}, {
+	code: "SEK",
+}, {
+	code: "SGD",
+}, {
+	code: "SOS",
+}, {
+	code: "SYP",
+}, {
+	code: "THB",
+}, {
+	code: "TND",
+}, {
+	code: "TOP",
+}, {
+	code: "TRY",
+}, {
+	code: "TTD",
+}, {
+	code: "TWD",
+}, {
+	code: "TZS",
+}, {
+	code: "UAH",
+}, {
+	code: "UGX",
+}, {
+	code: "UYU",
+}, {
+	code: "UZS",
+}, {
+	code: "VEF",
+}, {
+	code: "VND",
+}, {
+	code: "XAF",
+}, {
+	code: "XOF",
+}, {
+	code: "YER",
+}, {
+	code: "ZAR",
+}, {
+	code: "ZMK",
+}]

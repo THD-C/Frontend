@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { ActivatedRoute, RouterLink, RouterLinkActive, RouterModule } from '@angular/router';
-import { appName } from '../../../app.config';
-import { AuthService } from '../../../services/auth/auth.service';
+import { RouterLink, RouterLinkActive, RouterModule } from '@angular/router';
 
 import { DxButtonModule } from 'devextreme-angular/ui/button';
 import { ButtonType } from 'devextreme/ui/button';
+
+import { appName } from '../../../app.config';
+import { AuthService } from '../../../services/auth/auth.service';
 import { RouterExtendedService } from '../../../services/router-extended/router-extended.service';
 
 @Component({

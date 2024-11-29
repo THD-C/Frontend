@@ -1,4 +1,5 @@
 import { Item as DxTabsItem } from 'devextreme/ui/tabs';
+import { TabId } from './profile.model';
 
 export const tabs: DxTabsItem[] = [
   {
@@ -10,3 +11,5 @@ export const tabs: DxTabsItem[] = [
     icon: 'money',
   },
 ];
+
+export const selectedTabIndex: TabId = TabId.Details;
