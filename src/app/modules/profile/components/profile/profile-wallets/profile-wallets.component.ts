@@ -29,15 +29,6 @@ export class ProfileWalletsComponent implements AfterViewInit {
 
   async getWallets(): Promise<void> {
     try {
-
-      this.wallets = [
-        {
-          id: "1",
-          currency: "PLN",
-          user_id: 1,
-          value: 0,
-        }
-      ];
       this.wallets = await this.walletsService.get({
         user_id: this.authService.session?.id ?? 0
       });
