@@ -60,4 +60,13 @@ export class ProfileWalletsComponent implements AfterViewInit {
     }
   }
 
+  onWalletSaved(wallet: Wallet): void {
+    const index = this.wallets.findIndex(({ id }) => id === wallet.id);
+    if (index === -1) {
+      this.wallets.push(wallet);
+    } else {
+      this.wallets[index] = wallet;
+    }
+  }
+
 }

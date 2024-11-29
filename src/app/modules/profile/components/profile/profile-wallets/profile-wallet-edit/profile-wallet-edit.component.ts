@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, output } from '@angular/core';
 import { WalletsService } from '../../../../../../services/wallets/wallets.service';
 import { AuthService } from '../../../../../../services/auth/auth.service';
 import { CreateWalletRequest, UpdateWalletRequest, Wallet } from '../profile-wallets.model';
@@ -16,6 +16,8 @@ export class ProfileWalletEditComponent {
   private get isFormValid(): boolean {
     return this.wallet.currency.length > 0;
   }
+
+  onSaved = output<Wallet>();
   
   visible: boolean = false;
   id: number = 0;
@@ -57,15 +59,18 @@ export class ProfileWalletEditComponent {
 
     try {
       if (!this.id) {
-        await this.walletsService.create({
-          ...this.wallet,
+        this.wallet = await this.walletsService.create({
+          currency: this.wallet.currency,
           user_id: this.authService.session?.id ?? 0,
         } satisfies CreateWalletRequest);
       } else {
-        await this.walletsService.update({
+        this.wallet = await this.walletsService.update({
           ...this.wallet,
         } satisfies UpdateWalletRequest);
       }
+
+      this.onSaved.emit(this.wallet);
+      this.close();
     } catch(e) {
     }
   }
