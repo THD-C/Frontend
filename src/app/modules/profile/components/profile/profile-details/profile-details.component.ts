@@ -19,23 +19,17 @@ export class ProfileDetailsComponent implements AfterViewInit {
     id: '',
     username: '',
     email: '',
-    currentPassword: '',
     password: '',
     name: '',
     surname: '',
     street: '',
     building: '',
     city: '',
-    postalCode: '',
+    postal_code: '',
     country: ''
   };
 
-  protected readonly currentPasswordButtonOptions = {
-    ...passwordButtonOptions,
-    onClick: () => {
-      this.currentPasswordMode = this.currentPasswordMode === 'text' ? 'password' : 'text';
-    },
-  };
+  profileDetailsOnLoad: UpdateProfileDetailsRequest = { ...this.profileDetails };
 
   protected readonly newPasswordButtonOptions = {
     ...passwordButtonOptions,
@@ -44,7 +38,6 @@ export class ProfileDetailsComponent implements AfterViewInit {
     },
   };
 
-  protected currentPasswordMode: TextBoxType = 'password';
   protected newPasswordMode: TextBoxType = 'password';
   protected passwordErrors: string[] = [];
 
@@ -56,24 +49,21 @@ export class ProfileDetailsComponent implements AfterViewInit {
     return this.profileDetails.username.length > 0
       && this.profileDetails.email.length > 0
       && (
-        (
-          this.profileDetails.currentPassword.length === 0
-          && this.profileDetails.password.length === 0
-        ) || validatePassword(this.profileDetails.password)
+        this.profileDetails.password.length === 0
+        || validatePassword(this.profileDetails.password)
       )
       && this.profileDetails.name.length > 0
       && this.profileDetails.surname.length > 0
       && this.profileDetails.street.length > 0
       && this.profileDetails.building.length > 0
       && this.profileDetails.city.length > 0
-      && this.profileDetails.postalCode.length > 0
+      && this.profileDetails.postal_code.length > 0
       && this.profileDetails.country.length > 0;
   }
 
   constructor(
     private readonly notifications: NotificationsService,
     private readonly usersService: UsersService,
-    private readonly authService: AuthService,
   ) { }
 
   async ngAfterViewInit(): Promise<void> {
@@ -89,7 +79,12 @@ export class ProfileDetailsComponent implements AfterViewInit {
     return this.passwordErrors.length === 0;
   }
 
-  async submit(): Promise<void> {
+  async restore(): Promise<void> {
+    await this.getMe();
+    this.passwordErrors = [];
+  }
+
+  async save(): Promise<void> {
     if (this.isFormValid === false) {
       this.notifications.error(
         $localize`:@@profile-details.Error:Error`,
@@ -101,6 +96,10 @@ export class ProfileDetailsComponent implements AfterViewInit {
 
     try {
       await this.usersService.updateProfileDetails(this.profileDetails);
+      this.notifications.success(
+        $localize`:@@notifications.Success:Success`,
+        $localize`:@@profile-details.Profile-updated-successfully:Profile updated successfully`
+      );
     } catch(e) {
     }
   }
@@ -109,8 +108,6 @@ export class ProfileDetailsComponent implements AfterViewInit {
     try {
       this.profileDetails = {
         ...await this.usersService.getMe(),
-        id: this.authService.session!.id.toString(),
-        currentPassword: '',
         password: '',
       };
     } catch (e) {

@@ -1,6 +1,6 @@
 import { Component, output } from '@angular/core';
+import { NotificationsService } from 'angular2-notifications';
 import { WalletsService } from '../../../../../../services/wallets/wallets.service';
-import { AuthService } from '../../../../../../services/auth/auth.service';
 import { CreateWalletRequest, UpdateWalletRequest, Wallet } from '../profile-wallets.model';
 import { currencies } from '../profile-wallets.config';
 
@@ -30,7 +30,7 @@ export class ProfileWalletEditComponent {
   
   constructor(
     private readonly walletsService: WalletsService,
-    private readonly authService: AuthService,
+    private readonly notifications: NotificationsService,
   ) { }
 
   open(id: number = 0): void {
@@ -60,14 +60,18 @@ export class ProfileWalletEditComponent {
     try {
       if (!this.id) {
         this.wallet = await this.walletsService.create({
-          currency: this.wallet.currency,
-          user_id: this.authService.session?.id ?? 0,
+          currency: this.wallet.currency
         } satisfies CreateWalletRequest);
       } else {
         this.wallet = await this.walletsService.update({
           ...this.wallet,
         } satisfies UpdateWalletRequest);
       }
+
+      this.notifications.success(
+        $localize`:@@notifications.Success:Success`,
+        $localize`:@@profile-wallet-edit.Wallet-saved-successfully:Wallet saved successfully`
+      );
 
       this.onSaved.emit(this.wallet);
       this.close();

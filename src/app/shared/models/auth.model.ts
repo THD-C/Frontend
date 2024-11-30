@@ -5,5 +5,4 @@ export type Session = {
   authScheme: AuthScheme;
   email: string;
   username: string;
-  id: number;
 }

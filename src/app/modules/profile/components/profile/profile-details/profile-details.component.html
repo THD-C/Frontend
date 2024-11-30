@@ -1,7 +1,33 @@
-<dx-scroll-view class="card shadow p-3 border-primary" width="90vw" height="75vh" [useNative]="false" [scrollByContent]="true" [scrollByThumb]="true">
+<dx-scroll-view class="card shadow p-3 border-primary container" height="75vh" [useNative]="false" [scrollByContent]="true" [scrollByThumb]="true">
   <form class="card-body row gy-4 gx-0 gx-lg-4" (submit)="$event.preventDefault(); $event.stopImmediatePropagation()">
-    <h4 class="card-header bg-body" i18n="@@profile-details.Identity">Identity</h4>
-    <div class="col-12 col-lg-6 p-0 p-lg-2 ps-lg-0">
+    <div class="col-12 d-none d-lg-block sticky-top p-0 bg-body py-2">
+      <div class="row gx-4">
+        <div class="col-lg-auto col-md-6 ms-lg-auto">
+          <dx-button
+            class="w-100"
+            type="normal"
+            [useSubmitBehavior]="false"
+            (onClick)="restore()"
+            text="Restore"
+            i18n-text="@@profile-details.Restore">
+          </dx-button>
+        </div>
+    
+        <div class="col-lg-auto col-md-6">
+          <dx-button
+            class="w-100"
+            type="default"
+            [useSubmitBehavior]="true"
+            (onClick)="save()"
+            text="Save"
+            i18n-text="@@profile-details.Save">
+          </dx-button>
+        </div>
+      </div>
+    </div>
+
+    <h4 class="card-header bg-body mt-2" i18n="@@profile-details.Identity">Identity</h4>
+    <div class="col-lg-4 col-12 p-0 ps-lg-0 p-lg-2">
       <dx-text-box [(value)]="profileDetails.username" label="Username" i18n-label="@@profile-details.Username" labelMode="floating" validationMessageMode="always">
         <dx-validator>
           <dxi-validation-rule type="required">
@@ -9,7 +35,7 @@
         </dx-validator>
       </dx-text-box>
     </div>
-    <div class="col-12 col-lg-6 p-0 pe-lg-0 p-lg-2">
+    <div class="col-lg-4 col-12 p-0 p-lg-2">
       <dx-text-box [(value)]="profileDetails.email" label="E-mail" i18n-label="@@profile-details.E-mail" labelMode="floating" validationMessageMode="always">
         <dx-validator>
           <dxi-validation-rule type="required">
@@ -19,6 +45,24 @@
           </dxi-validation-rule>
         </dx-validator>
       </dx-text-box>
+    </div>
+    <div class="col-lg-4 col-12 p-0 pe-lg-0 p-lg-2">
+      <dx-text-box [(value)]="profileDetails.password" [mode]="newPasswordMode" label="New password" i18n-label="@@profile-details.New-password" labelMode="floating" validationMessageMode="always">
+        <dx-validator>
+          <dxi-validation-rule type="custom" [validationCallback]="validateNewPassword.bind(this)" message="New password does not conform rules" i18n-label="@@profile-details.New-password-does-not-conform-rules">
+          </dxi-validation-rule>
+        </dx-validator>
+        <dxi-button name="password" [options]="newPasswordButtonOptions"></dxi-button>
+      </dx-text-box>
+      @if (showPasswordErrors) {
+        <small class="ps-0 mt-5 d-block">
+          <ul class="text-danger ps-3">
+            @for (error of passwordErrors; track error) {
+              <li class="mt-2">{{ error }}</li>
+            }
+          </ul>
+        </small>
+      }
     </div>
 
     <h4 class="card-header bg-body" i18n="@@profile-details.Personal">Personal</h4>
@@ -57,7 +101,7 @@
       </dx-text-box>
     </div>
     <div class="col-lg-4 col-12 p-0 ps-lg-0 p-lg-2">
-      <dx-text-box [(value)]="profileDetails.postalCode" label="Postal code" i18n-label="@@profile-details.Postal-code" labelMode="floating" validationMessageMode="always">
+      <dx-text-box [(value)]="profileDetails.postal_code" label="Postal code" i18n-label="@@profile-details.Postal-code" labelMode="floating" validationMessageMode="always">
         <dx-validator>
           <dxi-validation-rule type="required">
           </dxi-validation-rule>
@@ -81,31 +125,30 @@
       </dx-text-box>
     </div>
 
-    <h4 class="card-header bg-body">Password</h4>
-    <div class="col-12 col-lg-6 p-0 p-lg-2 ps-lg-0">
-      <dx-text-box [(value)]="profileDetails.currentPassword" [mode]="currentPasswordMode" label="Current password" i18n-label="@@profile-details.Current-password" labelMode="floating" validationMessageMode="always">
-        <dxi-button name="password" [options]="currentPasswordButtonOptions"></dxi-button>
-      </dx-text-box>
+    <div class="col-12 d-block d-lg-none sticky-bottom p-0 bg-body py-2">
+      <div class="row gx-3">
+        <div class="col-6">
+          <dx-button
+            class="w-100"
+            type="normal"
+            [useSubmitBehavior]="false"
+            (onClick)="restore()"
+            text="Restore"
+            i18n-text="@@profile-details.Restore">
+          </dx-button>
+        </div>
+    
+        <div class="col-6">
+          <dx-button
+            class="w-100"
+            type="default"
+            [useSubmitBehavior]="true"
+            (onClick)="save()"
+            text="Save"
+            i18n-text="@@profile-details.Save">
+          </dx-button>
+        </div>
+      </div>
     </div>
-    <div class="col-12 col-lg-6 p-0 pe-lg-0 p-lg-2">
-      <dx-text-box [(value)]="profileDetails.password" [mode]="newPasswordMode" label="New password" i18n-label="@@profile-details.New-password" labelMode="floating" validationMessageMode="always">
-        <dx-validator>
-          <dxi-validation-rule type="custom" [validationCallback]="validateNewPassword.bind(this)" message="New password does not conform rules" i18n-label="@@profile-details.New-password-does-not-conform-rules">
-          </dxi-validation-rule>
-        </dx-validator>
-        <dxi-button name="password" [options]="newPasswordButtonOptions"></dxi-button>
-      </dx-text-box>
-      @if (showPasswordErrors) {
-        <small class="ps-0 mt-5 d-block">
-          <ul class="text-danger ps-3">
-            @for (error of passwordErrors; track error) {
-              <li class="mt-2">{{ error }}</li>
-            }
-          </ul>
-        </small>
-      }
-    </div>
-
-    <dx-button class="col-lg-auto col ms-auto" type="default" [useSubmitBehavior]="true" (onClick)="submit()" text="Save" i18n-text="@@profile-details.Save"></dx-button>
   </form>
 </dx-scroll-view>

@@ -22,7 +22,7 @@ export const routes: Route[] = [
       },
       {
         path: '**',
-        component: ProfileDetailsComponent,
+        redirectTo: 'details',
       },
     ],
   },

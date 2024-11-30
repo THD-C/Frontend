@@ -22,11 +22,10 @@ export type UserProfileDetails = {
   street: string;
   building: string;
   city: string;
-  postalCode: string;
+  postal_code: string;
   country: string;
 }
 
 export type UpdateProfileDetailsRequest = UserProfileDetails & {
-  currentPassword: string;
   password: string;
 }
