@@ -3,27 +3,39 @@
   [(visible)]="visible"
   [showCloseButton]="true"
   width="300px"
-  height="220px"
+  height="230px"
   contentTemplate="contentTemplatePopup">
-  <div *dxTemplate="let d of 'contentTemplatePopup'" class="row gy-4 gx-0">
-    <dx-select-box
-      class="col-12"
-      [dataSource]="currencies"
-      valueExpr="code"
-      displayExpr="code"
-      [searchEnabled]="true"
-      [(value)]="wallet.currency"
-      label="Currency"
-      i18n-label="@@payment-wallet-edit.Currency"
-      labelMode="floating"
-      validationMessageMode="always">
-      <dx-validator>
-        <dxi-validation-rule type="required">
-        </dxi-validation-rule>
-      </dx-validator>
-    </dx-select-box>
+  <div *dxTemplate="let d of 'contentTemplatePopup'" class="w-100 h-100">
+    <div class="row gx-0 gy-4">
+      <div class="col-12">
+        <dx-select-box
+          class="w-100"
+          [dataSource]="currencies"
+          valueExpr="code"
+          displayExpr="code"
+          [searchEnabled]="true"
+          [(value)]="wallet.currency"
+          label="Currency"
+          i18n-label="@@payment-wallet-edit.Currency"
+          labelMode="floating"
+          validationMessageMode="always">
+          <dx-validator>
+            <dxi-validation-rule type="required">
+            </dxi-validation-rule>
+          </dx-validator>
+        </dx-select-box>
+      </div>
 
-    <dx-button class="col-lg-auto col-6 ms-auto" type="normal" text="Cancel" i18n-text="@@profile-wallet-edit.Cancel" (onClick)="close()"></dx-button>
-    <dx-button class="col-lg-auto col-6 ms-lg-2" type="default" text="Save" i18n-text="@@profile-wallet-edit.Save" (onClick)="save()" [useSubmitBehavior]="true"></dx-button>
+      <div class="col-12">
+        <div class="row g-4">
+          <div class="col-lg-auto col-6 ms-lg-auto">
+            <dx-button class="w-100" type="normal" text="Cancel" i18n-text="@@profile-wallet-edit.Cancel" (onClick)="close()"></dx-button>
+          </div>
+          <div class="col-lg-auto col-6">
+            <dx-button class="w-100" type="default" text="Save" i18n-text="@@profile-wallet-edit.Save" (onClick)="save()" [useSubmitBehavior]="true"></dx-button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </dx-popup>

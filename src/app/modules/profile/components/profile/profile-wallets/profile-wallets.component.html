@@ -1,11 +1,13 @@
 <dx-scroll-view class="card shadow p-3 border-primary" width="40vw" height="75vh" [useNative]="false" [scrollByContent]="true" [scrollByThumb]="true">
-  <dx-button
-    type="default"
-    stylingMode="outlined"
-    text="Add"
-    icon="add"
-    (onClick)="add()">
-  </dx-button>
+  <div class="d-none d-lg-flex sticky-top ms-auto justify-content-end mb-3">
+    <dx-button
+      type="default"
+      text="Add"
+      i18n-text="@@profile-wallets.Add"
+      icon="add"
+      (onClick)="add()">
+    </dx-button>
+  </div>
 
   <dx-data-grid
     [dataSource]="wallets"
@@ -20,8 +22,6 @@
       [visible]="true"
       [highlightCaseSensitive]="true"
     ></dxo-search-panel>
-    <dxo-group-panel [visible]="true"></dxo-group-panel>
-    <dxo-grouping [autoExpandAll]="true"></dxo-grouping>
     <dxo-column-chooser [enabled]="true"></dxo-column-chooser>
 
     <dxi-column caption="Action" i18n-caption="@@profile-wallets.Action" cellTemplate="actionCellTemplate" width="93">
@@ -34,6 +34,17 @@
     <dxi-column dataField="currency" caption="Currency" i18n-caption="@@profile-wallets.Currency"></dxi-column>
     <dxi-column dataField="value" dataType="number" caption="Value" i18n-caption="@@profile-wallets.Value"></dxi-column>
   </dx-data-grid>
+
+  <div class="d-inline-flex d-lg-none sticky-bottom mt-3 w-100">
+    <dx-button
+      class="w-100"
+      type="default"
+      text="Add"
+      i18n-text="@@profile-wallets.Add"
+      icon="add"
+      (onClick)="add()">
+    </dx-button>
+  </div>
 </dx-scroll-view>
 
 <app-profile-wallet-edit #profileWalletEditPopup (onSaved)="onWalletSaved($event)" />
