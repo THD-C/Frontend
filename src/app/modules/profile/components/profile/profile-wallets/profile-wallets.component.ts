@@ -3,9 +3,8 @@ import { AfterViewInit, Component, viewChild } from '@angular/core';
 import { confirm } from 'devextreme/ui/dialog';
 
 import { Wallet } from './profile-wallets.model';
-import { AuthService } from '../../../../../services/auth/auth.service';
-import { WalletsService } from '../../../../../services/wallets/wallets.service';
 import { ProfileWalletEditComponent } from './profile-wallet-edit/profile-wallet-edit.component';
+import { WalletsService } from '../../../../../services/wallets/wallets.service';
 
 @Component({
   selector: 'app-profile-wallets',
@@ -20,7 +19,6 @@ export class ProfileWalletsComponent implements AfterViewInit {
 
   constructor(
     private readonly walletsService: WalletsService,
-    private readonly authService: AuthService,
   ) { }
 
   async ngAfterViewInit(): Promise<void> {
@@ -29,9 +27,7 @@ export class ProfileWalletsComponent implements AfterViewInit {
 
   async getWallets(): Promise<void> {
     try {
-      this.wallets = await this.walletsService.get({
-        user_id: this.authService.session?.id ?? 0
-      });
+      this.wallets = await this.walletsService.get();
     } catch (e) {
     }
   }

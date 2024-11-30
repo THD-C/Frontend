@@ -25,13 +25,9 @@ export class WalletsService extends BaseService {
     this.errors = { ...this.errors, ...errors };
   }
 
-  async get(filters: {
-    user_id: number
-  }): Promise<Wallet[]> {
-    const params = this.generateParams(filters);
+  async get(): Promise<Wallet[]> {
     const request = this.httpClient.get<GetWalletsResponse>(
-      `${environment.apiUrl}/${this.baseWalletsPath}/`,
-      { params }
+      `${environment.apiUrl}/${this.baseWalletsPath}/`
     ).pipe(catchError(this.catchCustomError.bind(this)));
 
     const { wallets } = await firstValueFrom(request) as GetWalletsResponse;

@@ -60,8 +60,7 @@ export class ProfileWalletEditComponent {
     try {
       if (!this.id) {
         this.wallet = await this.walletsService.create({
-          currency: this.wallet.currency,
-          user_id: this.authService.session?.id ?? 0,
+          currency: this.wallet.currency
         } satisfies CreateWalletRequest);
       } else {
         this.wallet = await this.walletsService.update({

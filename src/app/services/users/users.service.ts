@@ -35,10 +35,7 @@ export class UsersService extends BaseService {
   async updateProfileDetails(updateProfileDetailsRequest: UpdateProfileDetailsRequest): Promise<void> {
     const request = this.httpClient.put<void>(
       `${environment.apiUrl}/${this.baseUsersPath}/`,
-      { 
-        ...updateProfileDetailsRequest,
-        postal_code: updateProfileDetailsRequest.postalCode,
-      }
+      { ...updateProfileDetailsRequest }
     ).pipe(catchError(this.catchCustomError.bind(this)));
 
     await firstValueFrom(request);
@@ -48,12 +45,8 @@ export class UsersService extends BaseService {
    * Makes a request call to the API to get logged user's data.
    */
   async getMe(): Promise<UserProfileDetails> {
-    const params = this.generateParams({
-      user_id: this.authService.session?.id
-    });
     const request = this.httpClient.get<UserProfileDetails>(
       `${environment.apiUrl}/${this.baseUsersPath}/`,
-      { params }
     ).pipe(catchError(this.catchCustomError.bind(this)));
 
     return await firstValueFrom(request) as UserProfileDetails;

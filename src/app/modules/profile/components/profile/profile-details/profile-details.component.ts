@@ -26,7 +26,7 @@ export class ProfileDetailsComponent implements AfterViewInit {
     street: '',
     building: '',
     city: '',
-    postalCode: '',
+    postal_code: '',
     country: ''
   };
 
@@ -66,14 +66,13 @@ export class ProfileDetailsComponent implements AfterViewInit {
       && this.profileDetails.street.length > 0
       && this.profileDetails.building.length > 0
       && this.profileDetails.city.length > 0
-      && this.profileDetails.postalCode.length > 0
+      && this.profileDetails.postal_code.length > 0
       && this.profileDetails.country.length > 0;
   }
 
   constructor(
     private readonly notifications: NotificationsService,
     private readonly usersService: UsersService,
-    private readonly authService: AuthService,
   ) { }
 
   async ngAfterViewInit(): Promise<void> {
@@ -109,7 +108,6 @@ export class ProfileDetailsComponent implements AfterViewInit {
     try {
       this.profileDetails = {
         ...await this.usersService.getMe(),
-        id: this.authService.session!.id.toString(),
         currentPassword: '',
         password: '',
       };
