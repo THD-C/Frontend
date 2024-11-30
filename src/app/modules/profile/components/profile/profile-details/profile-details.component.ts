@@ -84,7 +84,7 @@ export class ProfileDetailsComponent implements AfterViewInit {
     this.passwordErrors = [];
   }
 
-  async submit(): Promise<void> {
+  async save(): Promise<void> {
     if (this.isFormValid === false) {
       this.notifications.error(
         $localize`:@@profile-details.Error:Error`,
@@ -96,6 +96,10 @@ export class ProfileDetailsComponent implements AfterViewInit {
 
     try {
       await this.usersService.updateProfileDetails(this.profileDetails);
+      this.notifications.success(
+        $localize`:@@notifications.Success:Success`,
+        $localize`:@@profile-details.Profile-updated-successfully:Profile updated successfully`
+      );
     } catch(e) {
     }
   }

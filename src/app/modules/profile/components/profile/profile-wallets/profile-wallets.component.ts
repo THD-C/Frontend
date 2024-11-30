@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, viewChild } from '@angular/core';
 
 import { confirm } from 'devextreme/ui/dialog';
+import { NotificationsService } from 'angular2-notifications';
 
 import { Wallet } from './profile-wallets.model';
 import { ProfileWalletEditComponent } from './profile-wallet-edit/profile-wallet-edit.component';
@@ -19,6 +20,7 @@ export class ProfileWalletsComponent implements AfterViewInit {
 
   constructor(
     private readonly walletsService: WalletsService,
+    private readonly notifications: NotificationsService,
   ) { }
 
   async ngAfterViewInit(): Promise<void> {
@@ -53,6 +55,10 @@ export class ProfileWalletsComponent implements AfterViewInit {
     try {
       await this.walletsService.delete(id);
       this.wallets = this.wallets.filter(w => w.id !== id.toString());
+      this.notifications.success(
+        $localize`:@@notifications.Success:Success`,
+        $localize`:@@profile-wallets.Wallet-deleted-successfully:Wallet deleted successfully`
+      );
     } catch (e) {
     }
   }
