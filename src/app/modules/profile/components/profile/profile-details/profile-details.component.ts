@@ -19,7 +19,6 @@ export class ProfileDetailsComponent implements AfterViewInit {
     id: '',
     username: '',
     email: '',
-    currentPassword: '',
     password: '',
     name: '',
     surname: '',
@@ -30,12 +29,7 @@ export class ProfileDetailsComponent implements AfterViewInit {
     country: ''
   };
 
-  protected readonly currentPasswordButtonOptions = {
-    ...passwordButtonOptions,
-    onClick: () => {
-      this.currentPasswordMode = this.currentPasswordMode === 'text' ? 'password' : 'text';
-    },
-  };
+  profileDetailsOnLoad: UpdateProfileDetailsRequest = { ...this.profileDetails };
 
   protected readonly newPasswordButtonOptions = {
     ...passwordButtonOptions,
@@ -44,7 +38,6 @@ export class ProfileDetailsComponent implements AfterViewInit {
     },
   };
 
-  protected currentPasswordMode: TextBoxType = 'password';
   protected newPasswordMode: TextBoxType = 'password';
   protected passwordErrors: string[] = [];
 
@@ -56,10 +49,8 @@ export class ProfileDetailsComponent implements AfterViewInit {
     return this.profileDetails.username.length > 0
       && this.profileDetails.email.length > 0
       && (
-        (
-          this.profileDetails.currentPassword.length === 0
-          && this.profileDetails.password.length === 0
-        ) || validatePassword(this.profileDetails.password)
+        this.profileDetails.password.length === 0
+        || validatePassword(this.profileDetails.password)
       )
       && this.profileDetails.name.length > 0
       && this.profileDetails.surname.length > 0
@@ -88,6 +79,11 @@ export class ProfileDetailsComponent implements AfterViewInit {
     return this.passwordErrors.length === 0;
   }
 
+  async restore(): Promise<void> {
+    await this.getMe();
+    this.passwordErrors = [];
+  }
+
   async submit(): Promise<void> {
     if (this.isFormValid === false) {
       this.notifications.error(
@@ -108,7 +104,6 @@ export class ProfileDetailsComponent implements AfterViewInit {
     try {
       this.profileDetails = {
         ...await this.usersService.getMe(),
-        currentPassword: '',
         password: '',
       };
     } catch (e) {

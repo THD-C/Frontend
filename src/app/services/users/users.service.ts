@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { catchError, firstValueFrom } from 'rxjs';
 import { NotificationsService } from 'angular2-notifications';
 import { BaseService } from '../base/base.service';
-import { AuthService } from '../auth/auth.service';
 
 import { errors } from './users.errors';
 import { UpdateProfileDetailsRequest, UserProfileDetails } from '../../modules/profile/components/profile/profile.model';
@@ -22,7 +21,6 @@ export class UsersService extends BaseService {
   constructor(
     private readonly httpClient: HttpClient,
     protected override readonly notificationsService: NotificationsService,
-    private readonly authService: AuthService,
   ) {
     super(notificationsService);
     this.errors = { ...this.errors, ...errors };

@@ -27,6 +27,5 @@ export type UserProfileDetails = {
 }
 
 export type UpdateProfileDetailsRequest = UserProfileDetails & {
-  currentPassword: string;
   password: string;
 }
