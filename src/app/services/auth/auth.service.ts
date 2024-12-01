@@ -108,6 +108,19 @@ export class AuthService extends BaseService {
   }
 
   /**
+   * Makes a request call to the API for authentication purposes.
+   * @param loginRequest User's credentials provided during log in.
+   */
+  async loginWithGoogle(token: string): Promise<void> {
+    const request = this.httpClient.post<LoginResponse>(
+      `${environment.apiUrl}/${this.baseAuthPath}/auth-google`,
+      { OAuth_token: token },
+    ).pipe(catchError(this.catchCustomError.bind(this)));
+
+    await this.handleAuthRequest(request);
+  }
+
+  /**
    * Handles request.
    * @param request The request from {@link register}.
    */
