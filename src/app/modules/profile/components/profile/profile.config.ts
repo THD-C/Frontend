@@ -10,6 +10,10 @@ export const tabs: DxTabsItem[] = [
     text: $localize`:@@profile.Wallets:Wallets`,
     icon: 'money',
   },
+  {
+    text: $localize`:@@profile.Password:Password`,
+    icon: 'key',
+  },
 ];
 
 export const selectedTabIndex: TabId = TabId.Details;
