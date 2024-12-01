@@ -18,14 +18,14 @@ import { passwordButtonOptions } from './profile-password.config';
 export class ProfilePasswordComponent {
   
   userPassword: UpdateUserPasswordRequest = {
-    current_password: '',
+    old_password: '',
     new_password: '',
   };
 
-  protected readonly currentPasswordButtonOptions = {
+  protected readonly oldPasswordButtonOptions = {
     ...passwordButtonOptions,
     onClick: () => {
-      this.currentPasswordMode = this.currentPasswordMode === 'text' ? 'password' : 'text';
+      this.oldPasswordMode = this.oldPasswordMode === 'text' ? 'password' : 'text';
     },
   };
 
@@ -36,7 +36,7 @@ export class ProfilePasswordComponent {
     },
   };
 
-  protected currentPasswordMode: TextBoxType = 'password';
+  protected oldPasswordMode: TextBoxType = 'password';
   protected newPasswordMode: TextBoxType = 'password';
   protected passwordErrors: string[] = [];
 
@@ -45,7 +45,7 @@ export class ProfilePasswordComponent {
   }
 
   get isFormValid(): boolean {
-    return this.userPassword.current_password.length > 0 && this.passwordErrors.length === 0;
+    return this.userPassword.old_password.length > 0 && this.passwordErrors.length === 0;
   }
 
   constructor(
