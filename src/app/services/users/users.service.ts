@@ -46,7 +46,7 @@ export class UsersService extends BaseService {
    */
   async updatePassword(updateUserPassword: UpdateUserPasswordRequest): Promise<void> {
     const request = this.httpClient.put<void>(
-      `${environment.apiUrl}/${this.baseUsersPath}/change-password`,
+      `${environment.apiUrl}/${this.baseUsersPath}/update-password`,
       { ...updateUserPassword }
     ).pipe(catchError(this.catchCustomError.bind(this)));
 
