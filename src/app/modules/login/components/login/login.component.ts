@@ -1,6 +1,9 @@
 import { AfterViewInit, Component, viewChild } from '@angular/core';
 import { TextBoxType } from 'devextreme/ui/text_box';
+import { SocialAuthService } from '@abacritt/angularx-social-login';
+
 import { DxTextBoxComponent } from 'devextreme-angular/ui/text-box';
+
 import { AuthService } from '../../../../services/auth/auth.service';
 import { LoginRequest } from './login.model';
 import { passwordButtonOptions } from './login.config';
@@ -35,13 +38,22 @@ export class LoginComponent implements AfterViewInit {
 
   txtEmail = viewChild.required<DxTextBoxComponent>('txtEmail');
 
-  constructor(private readonly authService: AuthService) {}
+  constructor(
+    private readonly authService: AuthService,
+    
+    private readonly socialAuthService: SocialAuthService,
+  ) {}
 
   ngAfterViewInit(): void {
     this.txtEmail()?.instance.focus();
+    this.socialAuthService.authState.subscribe(async user => {
+      if (user.provider.toLowerCase() === 'google') {
+        await this.authService.loginWithGoogle(user.idToken)
+      }
+    });
   }
 
-  async submit(): Promise<void> {
+  async login(): Promise<void> {
     if (this.isFormValid === false) {
       return;
     }
@@ -51,4 +63,5 @@ export class LoginComponent implements AfterViewInit {
     } catch(e) {
     }
   }
+
 }
