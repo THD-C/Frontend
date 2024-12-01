@@ -27,7 +27,7 @@
     </div>
 
     <h4 class="card-header bg-body mt-2" i18n="@@profile-details.Identity">Identity</h4>
-    <div class="col-lg-4 col-12 p-0 ps-lg-0 p-lg-2">
+    <div class="col-lg-6 col-12 p-0 ps-lg-0 p-lg-2">
       <dx-text-box [(value)]="profileDetails.username" label="Username" i18n-label="@@profile-details.Username" labelMode="floating" validationMessageMode="always">
         <dx-validator>
           <dxi-validation-rule type="required">
@@ -35,7 +35,7 @@
         </dx-validator>
       </dx-text-box>
     </div>
-    <div class="col-lg-4 col-12 p-0 p-lg-2">
+    <div class="col-lg-6 col-12 p-0 pe-lg-0 p-lg-2">
       <dx-text-box [(value)]="profileDetails.email" label="E-mail" i18n-label="@@profile-details.E-mail" labelMode="floating" validationMessageMode="always">
         <dx-validator>
           <dxi-validation-rule type="required">
@@ -45,24 +45,6 @@
           </dxi-validation-rule>
         </dx-validator>
       </dx-text-box>
-    </div>
-    <div class="col-lg-4 col-12 p-0 pe-lg-0 p-lg-2">
-      <dx-text-box [(value)]="profileDetails.password" [mode]="newPasswordMode" label="New password" i18n-label="@@profile-details.New-password" labelMode="floating" validationMessageMode="always">
-        <dx-validator>
-          <dxi-validation-rule type="custom" [validationCallback]="validateNewPassword.bind(this)" message="New password does not conform rules" i18n-label="@@profile-details.New-password-does-not-conform-rules">
-          </dxi-validation-rule>
-        </dx-validator>
-        <dxi-button name="password" [options]="newPasswordButtonOptions"></dxi-button>
-      </dx-text-box>
-      @if (showPasswordErrors) {
-        <small class="ps-0 mt-5 d-block">
-          <ul class="text-danger ps-3">
-            @for (error of passwordErrors; track error) {
-              <li class="mt-2">{{ error }}</li>
-            }
-          </ul>
-        </small>
-      }
     </div>
 
     <h4 class="card-header bg-body" i18n="@@profile-details.Personal">Personal</h4>

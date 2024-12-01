@@ -5,6 +5,7 @@ import { authGuard } from '../../guards/auth/auth.guard';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ProfileDetailsComponent } from './components/profile/profile-details/profile-details.component';
 import { ProfileWalletsComponent } from './components/profile/profile-wallets/profile-wallets.component';
+import { ProfilePasswordComponent } from './components/profile/profile-password/profile-password.component';
 
 export const routes: Route[] = [
   {
@@ -19,6 +20,10 @@ export const routes: Route[] = [
       {
         path: 'wallets',
         component: ProfileWalletsComponent,
+      },
+      {
+        path: 'password',
+        component: ProfilePasswordComponent,
       },
       {
         path: '**',
