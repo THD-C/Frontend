@@ -830,6 +830,14 @@
           <context context-type="linenumber">43</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="home.Languages" datatype="html">
+        <source>Languages</source>
+        <target state="final">Languages</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
+          <context context-type="linenumber">50</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="home.Users-growth" datatype="html">
         <source>Users growth</source>
         <target state="final">Users growth</target>

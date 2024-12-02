@@ -5,7 +5,7 @@ import { RouterLink, RouterLinkActive, RouterModule } from '@angular/router';
 import { DxButtonModule } from 'devextreme-angular/ui/button';
 import { ButtonType } from 'devextreme/ui/button';
 
-import { appName } from '../../../app.config';
+import { appName, availableLanguages, Language } from '../../../app.config';
 import { AuthService } from '../../../services/auth/auth.service';
 import { RouterExtendedService } from '../../../services/router-extended/router-extended.service';
 
@@ -18,16 +18,19 @@ import { RouterExtendedService } from '../../../services/router-extended/router-
 })
 export class HeaderComponent {
 
+  languages: Language[] = availableLanguages.sort((a, b) => a.name.localeCompare(b.name) ? 1 : -1);
+
   protected readonly appName = appName;
 
   protected btnCollapseProfileType: ButtonType = 'normal';
 
   constructor(
     protected readonly authService: AuthService,
-    private readonly router: RouterExtendedService,
+    protected readonly router: RouterExtendedService,
   ) {
-    if (this.router.url.startsWith('/profile')) {
+    if (this.router.url.includes('/profile')) {
       this.btnCollapseProfileType = 'default';
     }
   }
+
 }

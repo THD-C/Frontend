@@ -23,7 +23,7 @@
             <a [routerLink]="['/faqs']" routerLinkActive="active"
               class="nav-item nav-link text-black" i18n="@@header.FAQs">FAQs</a>
           </div>
-          <div>
+          <div class="d-flex">
             @if (authService.isAuthenticated === false) {
               <dx-button class="me-2" type="normal" [routerLink]="['/login']" text="Log in" i18n-text="@@header.Log-in"></dx-button>
               <dx-button type="default" [routerLink]="['/register']" text="Try for free" i18n-text="@@header.Try-for-free"></dx-button>
@@ -46,6 +46,21 @@
                 </ul>
               </div>
             }
+            <div class="dropdown">
+              <dx-button class="ms-2" type="normal" hint="Languages" i18n-hint="@@home.Languages" stylingMode="outlined" id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-expanded="false" icon="globe">
+              </dx-button>
+              <ul class="dropdown-menu text-center p-0 dropdown-menu-custom" aria-labelledby="dropdownMenuButton3">
+                @for (language of languages; track language) {
+                  <li>
+                    <dx-button class="w-100" type="normal" template="btnLanguageTemplate">
+                      <a *dxTemplate="let d of 'btnLanguageTemplate'" [href]="'/' + language.code + router.url">
+                        {{ language.name }}
+                      </a>
+                    </dx-button>
+                  </li>
+                }
+              </ul>
+            </div>
           </div>
         </div>
       </nav>
