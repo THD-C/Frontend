@@ -84,11 +84,20 @@
               ]
             },
             "en": {
+              "watch": true,
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true,
               "localize": ["en"],
               "baseHref": "/en/"
+            },
+            "pl": {
+              "watch": true,
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "localize": ["pl"],
+              "baseHref": "/pl/"
             }
           },
           "defaultConfiguration": "production"
@@ -104,6 +113,9 @@
             },
             "en": {
               "buildTarget": "Frontend:build:en"
+            },
+            "pl": {
+              "buildTarget": "Frontend:build:pl"
             }
           },
           "defaultConfiguration": "development"

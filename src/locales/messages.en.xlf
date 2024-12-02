@@ -2,12 +2,44 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en" datatype="plaintext" original="ng2.template" target-language="en">
     <body>
+      <trans-unit id="app.routes.register.title" datatype="html">
+        <source>Increase financial knowledge and develop crypto currencies (sentiments) investment skills with THD(C) | THD(C)</source>
+        <target state="final">Increase financial knowledge and develop crypto currencies (sentiments) investment skills with THD(C) | THD(C)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.routes.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="app.routes.login.title" datatype="html">
+        <source>Log in to THD(C) | THD(C)</source>
+        <target state="final">Log in to THD(C) | THD(C)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.routes.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="app.routes.home.title" datatype="html">
+        <source>Welcome to the THD(C) the world's best online tool for training cryptocurrencies trading | THD(C)</source>
+        <target state="final">Welcome to the THD(C) the world's best online tool for training cryptocurrencies trading | THD(C)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.routes.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="app.routes.profile.title" datatype="html">
+        <source>Account details | THD(C)</source>
+        <target state="final">Account details | THD(C)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.routes.ts</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="login.Welcome-back" datatype="html">
         <source>Welcome back!</source>
         <target state="final">Welcome back!</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/login/components/login/login.component.html</context>
-          <context context-type="linenumber">6,7</context>
+          <context context-type="linenumber">6</context>
         </context-group>
       </trans-unit>
       <trans-unit id="login.Dont-have-account" datatype="html">
@@ -106,20 +138,20 @@
           <context context-type="linenumber">14</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="home.Crypto-trading-without-liabilities" datatype="html">
-        <source>Crypto trading <x id="START_TAG_SPAN_1" ctype="x-span_1" equiv-text="&lt;span class=&quot;text-primary&quot;>"/><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-decoration-underline&quot;>"/>without<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/> liabilities<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/>!</source>
-        <target state="final">Crypto trading <x id="START_TAG_SPAN_1" ctype="x-span_1" equiv-text="&lt;span class=&quot;text-primary&quot;>"/><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-decoration-underline&quot;>"/>without<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/> liabilities<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/>!</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
-          <context context-type="linenumber">6,7</context>
-        </context-group>
-      </trans-unit>
       <trans-unit id="home.Improve-trading-skills-explore-crypto-stocks-expand-your-knowledge-and-beyond-that" datatype="html">
         <source><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;fw-bold&quot;>"/>Improve<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/> trading skills, <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;fw-bold&quot;>"/>explore<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/> crypto stocks, expand your knowledge and beyond that!</source>
         <target state="final"><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;fw-bold&quot;>"/>Improve<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/> trading skills, <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;fw-bold&quot;>"/>explore<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/> crypto stocks, expand your knowledge and beyond that!</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
           <context context-type="linenumber">7,8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home.Try-for-free_" datatype="html">
+        <source>Try for free!</source>
+        <target state="final">Try for free!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
+          <context context-type="linenumber">9</context>
         </context-group>
       </trans-unit>
       <trans-unit id="home.Try-for-free" datatype="html">
@@ -144,6 +176,18 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
           <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home.US-dollars" datatype="html">
+        <source>US dollars</source>
+        <target state="final">US dollars</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
+          <context context-type="linenumber">79</context>
         </context-group>
       </trans-unit>
       <trans-unit id="home.We-offer-free-tool" datatype="html">
@@ -210,36 +254,20 @@
           <context context-type="linenumber">109,110</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="home.Join-community" datatype="html">
+        <source>Join community</source>
+        <target state="final">Join community</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
+          <context context-type="linenumber">110</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="home.Number-of-users" datatype="html">
         <source>Number of users</source>
         <target state="final">Number of users</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
           <context context-type="linenumber">115</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="home.All-Rights-Reserved" datatype="html">
-        <source>All Rights Reserved</source>
-        <target state="final">All Rights Reserved</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
-          <context context-type="linenumber">154,156</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="home.Home" datatype="html">
-        <source>Home</source>
-        <target state="final">Home</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
-          <context context-type="linenumber">157,158</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="home.Cookies" datatype="html">
-        <source>Cookies</source>
-        <target state="final">Cookies</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
-          <context context-type="linenumber">158,159</context>
         </context-group>
       </trans-unit>
       <trans-unit id="login.E-mail-or-username" datatype="html">
@@ -266,78 +294,6 @@
           <context context-type="linenumber">23</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="header.Home" datatype="html">
-        <source>Home</source>
-        <target state="final">Home</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
-          <context context-type="linenumber">16</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="header.Stock" datatype="html">
-        <source>Stock</source>
-        <target state="final">Stock</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
-          <context context-type="linenumber">18</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="header.Blog" datatype="html">
-        <source>Blog</source>
-        <target state="final">Blog</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
-          <context context-type="linenumber">20</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="header.About" datatype="html">
-        <source>About</source>
-        <target state="final">About</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
-          <context context-type="linenumber">22</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="header.FAQs" datatype="html">
-        <source>FAQs</source>
-        <target state="final">FAQs</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
-          <context context-type="linenumber">24</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="header.Log-in" datatype="html">
-        <source>Log in</source>
-        <target state="final">Log in</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
-          <context context-type="linenumber">28</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="header.Try-for-free" datatype="html">
-        <source>Try for free</source>
-        <target state="final">Try for free</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
-          <context context-type="linenumber">29</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="header.Profile" datatype="html">
-        <source>Profile</source>
-        <target state="final">Profile</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
-          <context context-type="linenumber">36</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="header.Log-out" datatype="html">
-        <source>Log out</source>
-        <target state="final">Log out</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
-          <context context-type="linenumber">43</context>
-        </context-group>
-      </trans-unit>
       <trans-unit id="home.Discover-the-market-and-make-a-move" datatype="html">
         <source>Discover the crypto world and make a <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary text-decoration-underline&quot;>"/>move<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/></source>
         <target state="final">Discover the crypto world and make a <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary text-decoration-underline&quot;>"/>move<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/></target>
@@ -360,14 +316,6 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/components/home/home.config.ts</context>
           <context context-type="linenumber">5</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="home.Try-for-free_" datatype="html">
-        <source>Try for free!</source>
-        <target state="final">Try for free!</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
-          <context context-type="linenumber">9</context>
         </context-group>
       </trans-unit>
       <trans-unit id="home.Common-cryptocurrencies-stock-prices" datatype="html">
@@ -548,6 +496,14 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/directives/grid-edit-button/grid-edit-button.directive.ts</context>
           <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home.Crypto-trading-without-liabilities_" datatype="html">
+        <source>Crypto trading <x id="START_TAG_SPAN_1" ctype="x-span_1" equiv-text="&lt;span class=&quot;text-primary&quot;>"/><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-decoration-underline&quot;>"/>without<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/> liabilities<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/>!</source>
+        <target state="final">Crypto trading <x id="START_TAG_SPAN_1" ctype="x-span_1" equiv-text="&lt;span class=&quot;text-primary&quot;>"/><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-decoration-underline&quot;>"/>without<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/> liabilities<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/>!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
+          <context context-type="linenumber">6,7</context>
         </context-group>
       </trans-unit>
       <trans-unit id="payment-wallet-edit.Currency" datatype="html">
@@ -794,6 +750,86 @@
           <context context-type="linenumber">4</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="header.Home" datatype="html">
+        <source>Home</source>
+        <target state="final">Home</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
+          <context context-type="linenumber">16,17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="header.Stock" datatype="html">
+        <source>Stock</source>
+        <target state="final">Stock</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
+          <context context-type="linenumber">18,19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="header.Blog" datatype="html">
+        <source>Blog</source>
+        <target state="final">Blog</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
+          <context context-type="linenumber">20,21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="header.About" datatype="html">
+        <source>About</source>
+        <target state="final">About</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
+          <context context-type="linenumber">22,23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="header.FAQs" datatype="html">
+        <source>FAQs</source>
+        <target state="final">FAQs</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
+          <context context-type="linenumber">24,26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="header.Log-in" datatype="html">
+        <source>Log in</source>
+        <target state="final">Log in</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="header.Try-for-free" datatype="html">
+        <source>Try for free</source>
+        <target state="final">Try for free</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home.Profile" datatype="html">
+        <source>Profile</source>
+        <target state="final">Profile</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="header.Profile" datatype="html">
+        <source>Profile</source>
+        <target state="final">Profile</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="header.Log-out" datatype="html">
+        <source>Log out</source>
+        <target state="final">Log out</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="home.Users-growth" datatype="html">
         <source>Users growth</source>
         <target state="final">Users growth</target>
@@ -802,41 +838,61 @@
           <context context-type="linenumber">125</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="7269761050063559415" datatype="html">
+      <trans-unit id="home.Twitter" datatype="html">
         <source>X (Twitter)</source>
         <target state="final">X (Twitter)</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
           <context context-type="linenumber">148,149</context>
         </context-group>
-        <note priority="1" from="description">@home.Twitter</note>
       </trans-unit>
-      <trans-unit id="55701353440365615" datatype="html">
+      <trans-unit id="home.Reddit" datatype="html">
         <source>Reddit</source>
         <target state="final">Reddit</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
           <context context-type="linenumber">149,150</context>
         </context-group>
-        <note priority="1" from="description">@home.Reddit</note>
       </trans-unit>
-      <trans-unit id="4440081753597585133" datatype="html">
+      <trans-unit id="home.LinkedIn" datatype="html">
         <source>LinkedIn</source>
         <target state="final">LinkedIn</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
           <context context-type="linenumber">150,151</context>
         </context-group>
-        <note priority="1" from="description">@home.LinkedIn</note>
       </trans-unit>
-      <trans-unit id="8790918354594417962" datatype="html">
+      <trans-unit id="home.Facebook" datatype="html">
         <source>Facebook</source>
         <target state="final">Facebook</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
           <context context-type="linenumber">151,153</context>
         </context-group>
-        <note priority="1" from="description">@home.Facebook</note>
+      </trans-unit>
+      <trans-unit id="home.All-Rights-Reserved" datatype="html">
+        <source>All Rights Reserved</source>
+        <target state="final">All Rights Reserved</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
+          <context context-type="linenumber">154,156</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home.Home" datatype="html">
+        <source>Home</source>
+        <target state="final">Home</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
+          <context context-type="linenumber">157,158</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home.Cookies" datatype="html">
+        <source>Cookies</source>
+        <target state="final">Cookies</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
+          <context context-type="linenumber">158,159</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="home.FAQs" datatype="html">
         <source>FAQs</source>

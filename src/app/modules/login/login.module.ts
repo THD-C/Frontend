@@ -17,6 +17,7 @@ import { DxValidatorModule } from 'devextreme-angular/ui/validator';
 import { routes } from './login.routes';
 import { LoginComponent } from './components/login/login.component';
 import { environment } from '../../../environments/environment';
+import { HeaderComponent } from "../../shared/components/header/header.component";
 
 
 const googleAuthService: Provider = {
@@ -51,10 +52,10 @@ const googleAuthService: Provider = {
     ReactiveFormsModule,
     SocialLoginModule,
     GoogleSigninButtonModule,
-
     DxTextBoxModule,
     DxButtonModule,
     DxValidatorModule,
+    HeaderComponent,
   ],
 })
 export class LoginModule { }

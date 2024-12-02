@@ -3,7 +3,7 @@
     <div class="col-auto col-lg-3">
       <a [routerLink]="['/home']" routerLinkActive="active"
         class="navbar-brand w-100 m-0 p-0 d-flex align-items-center justify-content-center">
-        <img class="rounded-circle" src="assets/icons/icon-96x96.png" [alt]="appName" />
+        <img class="rounded-circle" src="assets/icons/icon-72x72.png" [alt]="appName" />
       </a>
     </div>
     <div class="col-auto col-lg-9 ms-auto">
@@ -29,7 +29,7 @@
               <dx-button type="default" [routerLink]="['/register']" text="Try for free" i18n-text="@@header.Try-for-free"></dx-button>
             } @else {
               <div class="dropdown">
-                <dx-button [type]="btnCollapseProfileType" hint="Profile" i18n="@@home.Profile" stylingMode="outlined" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false" icon="user">
+                <dx-button [type]="btnCollapseProfileType" hint="Profile" i18n-hint="@@home.Profile" stylingMode="outlined" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false" icon="user">
                 </dx-button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
                   <li>
