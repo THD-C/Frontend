@@ -122,7 +122,7 @@
           itemTextPosition="bottom">
         </dxo-legend>
         <dxo-margin [bottom]="20"></dxo-margin>
-        <dxo-title text="Users growth"></dxo-title>
+        <dxo-title text="Users growth" i18n-text="@@home.Users-growth"></dxo-title>
       </dx-chart>
     </div>
   </div>
@@ -145,18 +145,18 @@
 
   <footer class="container-fluid bg-dark text-light fadeIn row p-5 d-flex align-items-center">
     <div class="col text-end">
-      <a href="#" class="pe-2">X (Twitter)</a>
-      <a href="#" class="pe-2">Reddit</a>
-      <a href="#" class="pe-2">LinkedIn</a>
-      <a href="#">Facebook</a>
+      <a href="#" class="pe-2" i18n="@home.Twitter">X (Twitter)</a>
+      <a href="#" class="pe-2" i18n="@home.Reddit">Reddit</a>
+      <a href="#" class="pe-2" i18n="@home.LinkedIn">LinkedIn</a>
+      <a href="#" i18n="@home.Facebook">Facebook</a>
     </div>
     <div class="col-auto text-center">
       &copy; <a [routerLink]="['/home']" class="text-white">{{ appName }}</a>, <span i18n="@@home.All-Rights-Reserved">All Rights Reserved</span>
     </div>
     <div class="col text-start">
-      <a [routerLink]="['/home']" class="text-decoration-none border-end border-gray text-white pe-3" i18n="@@home.Home">Home</a>
-      <a href="#" class="text-decoration-none border-end border-gray text-white px-3" i18n="@@home.Cookies">Cookies</a>
-      <a href="#" class="text-decoration-none text-white ps-3">FAQs</a>
+      <a [routerLink]="['/home']" routerLinkActive="active" class="text-decoration-none border-end border-gray text-white pe-3" i18n="@@home.Home">Home</a>
+      <a [routerLink]="['/cookies']" routerLinkActive="active" class="text-decoration-none border-end border-gray text-white px-3" i18n="@@home.Cookies">Cookies</a>
+      <a [routerLink]="['/faqs']" routerLinkActive="active" class="text-decoration-none text-white ps-3" i18n="@@home.FAQs">FAQs</a>
     </div>
   </footer>
 </div>

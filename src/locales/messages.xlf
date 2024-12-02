@@ -142,6 +142,45 @@
           <context context-type="linenumber">115</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="home.Users-growth" datatype="html">
+        <source>Users growth</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
+          <context context-type="linenumber">125</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7269761050063559415" datatype="html">
+        <source>X (Twitter)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
+          <context context-type="linenumber">148,149</context>
+        </context-group>
+        <note priority="1" from="description">@home.Twitter</note>
+      </trans-unit>
+      <trans-unit id="55701353440365615" datatype="html">
+        <source>Reddit</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
+          <context context-type="linenumber">149,150</context>
+        </context-group>
+        <note priority="1" from="description">@home.Reddit</note>
+      </trans-unit>
+      <trans-unit id="4440081753597585133" datatype="html">
+        <source>LinkedIn</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
+          <context context-type="linenumber">150,151</context>
+        </context-group>
+        <note priority="1" from="description">@home.LinkedIn</note>
+      </trans-unit>
+      <trans-unit id="8790918354594417962" datatype="html">
+        <source>Facebook</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
+          <context context-type="linenumber">151,153</context>
+        </context-group>
+        <note priority="1" from="description">@home.Facebook</note>
+      </trans-unit>
       <trans-unit id="home.All-Rights-Reserved" datatype="html">
         <source>All Rights Reserved</source>
         <context-group purpose="location">
@@ -161,6 +200,13 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
           <context context-type="linenumber">158,159</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home.FAQs" datatype="html">
+        <source>FAQs</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
+          <context context-type="linenumber">159,161</context>
         </context-group>
       </trans-unit>
       <trans-unit id="home.Submit" datatype="html">
@@ -593,8 +639,8 @@
           <context context-type="linenumber">4</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="wallets-errors.Invalid-current-password" datatype="html">
-        <source>Invalid current password</source>
+      <trans-unit id="wallets-errors.Operation-failed-Please-try-again" datatype="html">
+        <source>Operation failed. Please try again</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/services/wallets/wallets.errors.ts</context>
           <context context-type="linenumber">4</context>
