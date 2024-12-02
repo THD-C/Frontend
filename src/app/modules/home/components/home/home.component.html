@@ -3,7 +3,7 @@
 <div class="w-100">
   <div class="p-0 row gy-5 gx-0 d-flex align-items-center justify-content-evenly min-vh-100 p-5 pb-0">
     <div class="col-lg-4 col-12">
-      <h1 i18n="@@home.Crypto-trading-without-liabilities" class="fw-bold">Crypto trading <span class="text-primary"><span class="text-decoration-underline">without</span> liabilities</span>!</h1>
+      <h1 i18n="@@home.Crypto-trading-without-liabilities_" class="fw-bold">Crypto trading <span class="text-primary"><span class="text-decoration-underline">without</span> liabilities</span>!</h1>
       <h4 i18n="@@home.Improve-trading-skills-explore-crypto-stocks-expand-your-knowledge-and-beyond-that" class="mt-4"><span class="fw-bold">Improve</span> trading skills, <span class="fw-bold">explore</span> crypto stocks, expand your knowledge and beyond that!</h4>
       <div class="row g-0 mt-5">
         <dx-button class="col-lg-auto col-12" [routerLink]="['/register']" type="default" text="Try for free!" i18n-text="@@home.Try-for-free_"></dx-button>
@@ -25,7 +25,7 @@
         </dxo-common-series-settings>
         <dxo-legend [visible]="false"></dxo-legend>
         <dxi-value-axis [tickInterval]="1">
-          <dxo-title text="US dollars"></dxo-title>
+          <dxo-title text="US dollars" i18n-text="@@home.US-dollars"></dxo-title>
           <dxo-label>
             <dxo-format type="currency" [precision]="0"> </dxo-format>
           </dxo-label>
@@ -76,7 +76,7 @@
         </dxi-series>
         <dxo-legend itemTextPosition="left"></dxo-legend>
         <dxi-value-axis [tickInterval]="1">
-          <dxo-title text="US dollars"></dxo-title>
+          <dxo-title text="US dollars" i18n-text="@@home.US-dollars"></dxo-title>
           <dxo-label>
             <dxo-format type="currency" [precision]="6"></dxo-format>
           </dxo-label>
@@ -107,7 +107,7 @@
       <div class="p-5">
         <h3 class="display-4 fw-bold mb-4" i18n="@@home.It-s-your-time-to-show-up">It's your time to show up!</h3>
         <p class="mb-4 lh-lg" i18n="@@home.In-just-1-year-the-community-has-grown-to">In just 1 year the community has grown to <span class="text-primary fw-bold">100 000</span> users whereas <span class="text-primary fw-bold">10 000</span> of them uses the app daily.<br/>So... Why don't you try it yourself for free!</p>
-        <dx-button [routerLink]="['/register']" type="default" text="Join community" i18n="@@home.Join-community"></dx-button>
+        <dx-button [routerLink]="['/register']" type="default" text="Join community" i18n-text="@@home.Join-community"></dx-button>
       </div>
     </div>
     <div class="container-xxl px-0 zoomIn col-lg-4 col-12 bg-white d-flex align-items-center">
@@ -122,7 +122,7 @@
           itemTextPosition="bottom">
         </dxo-legend>
         <dxo-margin [bottom]="20"></dxo-margin>
-        <dxo-title text="Users growth"></dxo-title>
+        <dxo-title text="Users growth" i18n-text="@@home.Users-growth"></dxo-title>
       </dx-chart>
     </div>
   </div>
@@ -145,18 +145,18 @@
 
   <footer class="container-fluid bg-dark text-light fadeIn row p-5 d-flex align-items-center">
     <div class="col text-end">
-      <a href="#" class="pe-2">X (Twitter)</a>
-      <a href="#" class="pe-2">Reddit</a>
-      <a href="#" class="pe-2">LinkedIn</a>
-      <a href="#">Facebook</a>
+      <a href="#" class="pe-2" i18n="@@home.Twitter">X (Twitter)</a>
+      <a href="#" class="pe-2" i18n="@@home.Reddit">Reddit</a>
+      <a href="#" class="pe-2" i18n="@@home.LinkedIn">LinkedIn</a>
+      <a href="#" i18n="@@home.Facebook">Facebook</a>
     </div>
     <div class="col-auto text-center">
       &copy; <a [routerLink]="['/home']" class="text-white">{{ appName }}</a>, <span i18n="@@home.All-Rights-Reserved">All Rights Reserved</span>
     </div>
     <div class="col text-start">
-      <a [routerLink]="['/home']" class="text-decoration-none border-end border-gray text-white pe-3" i18n="@@home.Home">Home</a>
-      <a href="#" class="text-decoration-none border-end border-gray text-white px-3" i18n="@@home.Cookies">Cookies</a>
-      <a href="#" class="text-decoration-none text-white ps-3">FAQs</a>
+      <a [routerLink]="['/home']" routerLinkActive="active" class="text-decoration-none border-end border-gray text-white pe-3" i18n="@@home.Home">Home</a>
+      <a [routerLink]="['/cookies']" routerLinkActive="active" class="text-decoration-none border-end border-gray text-white px-3" i18n="@@home.Cookies">Cookies</a>
+      <a [routerLink]="['/faqs']" routerLinkActive="active" class="text-decoration-none text-white ps-3" i18n="@@home.FAQs">FAQs</a>
     </div>
   </footer>
 </div>

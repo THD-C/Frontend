@@ -5,5 +5,6 @@ RUN npm install
 RUN npm run build
 
 FROM nginx:latest
-COPY --from=build /usr/local/app/dist/frontend/browser /usr/share/nginx/html
+COPY --from=build /usr/local/app/dist/browser /usr/share/nginx/html
+COPY --from=build /usr/local/app/configs/nginx.conf /etc/nginx/
 EXPOSE 80

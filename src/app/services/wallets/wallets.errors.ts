@@ -1,5 +1,5 @@
 import { ApiError } from '../../shared/models/error.model';
 
 export const errors: ApiError = {
-  '???': $localize`:@@wallets-errors.Invalid-current-password:Invalid current password`,
+  'operation_failed': $localize`:@@wallets-errors.Operation-failed-Please-try-again:Operation failed. Please try again`,
 }

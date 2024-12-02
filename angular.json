@@ -24,7 +24,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/frontend",
+            "outputPath": "dist",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -82,6 +82,22 @@
                   "with": "src/environments/environment.development.ts"
                 }
               ]
+            },
+            "en": {
+              "watch": true,
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "localize": ["en"],
+              "baseHref": "/en/"
+            },
+            "pl": {
+              "watch": true,
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "localize": ["pl"],
+              "baseHref": "/pl/"
             }
           },
           "defaultConfiguration": "production"
@@ -94,6 +110,12 @@
             },
             "development": {
               "buildTarget": "Frontend:build:development"
+            },
+            "en": {
+              "buildTarget": "Frontend:build:en"
+            },
+            "pl": {
+              "buildTarget": "Frontend:build:pl"
             }
           },
           "defaultConfiguration": "development"
