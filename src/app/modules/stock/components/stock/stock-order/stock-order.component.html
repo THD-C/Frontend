@@ -8,8 +8,8 @@
   contentTemplate="contentTemplatePopup">
   <div *dxTemplate="let d of 'contentTemplatePopup'" class="w-100 h-100">
     <div class="row g-4 gx-0">
-      <h6 class="col-12 text-center" i18n="@@stock-order.Current-price">Current price: {{ price | number:'1.2-2' }} {{ selectedWallet?.currency }}</h6>
-      <h6 class="col-12 text-center mt-0" i18n="@@stock-order.Current-price">Free wallet cash: {{ selectedWallet?.value | number:'1.2-2' }} {{ selectedWallet?.currency }}</h6>
+      <h6 class="col-12 text-center" i18n="@@stock-order.Current-price">Current price: {{ price | number:'1.2-2' }} {{ selectedWallet.currency }}</h6>
+      <h6 class="col-12 text-center mt-0" i18n="@@stock-order.Current-price">Free wallet cash: {{ selectedWallet.value | number:'1.2-2' }} {{ selectedWallet.currency }}</h6>
 
       <div class="col-6">
         <dx-number-box
@@ -30,7 +30,7 @@
         <dx-select-box
           class="w-100"
           [dataSource]="wallets"
-          [value]="selectedWallet?.id"
+          [value]="selectedWallet.id"
           [(selectedItem)]="selectedWallet"
           label="Wallet"
           labelMode="floating"
@@ -61,7 +61,7 @@
         <dx-select-box
           class="w-100"
           [dataSource]="cryptosInfo"
-          [value]="selectedCrypto?.code"
+          [value]="selectedCrypto.code"
           [(selectedItem)]="selectedCrypto"
           label="Crypto"
           labelMode="floating"
