@@ -22,6 +22,11 @@ export const routes: Routes = [
     loadChildren: () => import('./modules/profile/profile.module').then(m => m.ProfileModule),
   },
   {
+    title: $localize`:@@app.routes.stock.title:Explore the stock market, buy or sell crypto | THD(C)`,
+    path: 'stock',
+    loadChildren: () => import('./modules/stock/stock.module').then(m => m.StockModule),
+  },
+  {
     path: '**',
     redirectTo: 'home',
   },

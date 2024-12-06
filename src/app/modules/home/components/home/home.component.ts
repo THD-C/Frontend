@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { appName } from '../../../../app.config';
-import { CryptoInfo as CryptoInfo, greenCandleColor, redCandleColor, StockPrice, stockPrices, cryptosInfo, cryptoStockPrices, CryptoStockPrice, UserGrowth, usersGrowth } from './home.model';
 import { newsletterButtonOptions } from './home.config';
+import { CryptoInfo, CryptoStockPrice, greenCandleColor, redCandleColor, StockPrice } from '../../../stock/components/stock/stock.model';
+import { cryptosInfo, cryptoStockPrices, stockPrices, UserGrowth, usersGrowth } from './home.model';
 
 @Component({
   selector: 'app-home',

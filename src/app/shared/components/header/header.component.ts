@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterModule } from '@angular/router';
 
 import { DxButtonModule } from 'devextreme-angular/ui/button';
@@ -8,6 +8,7 @@ import { ButtonType } from 'devextreme/ui/button';
 import { appName, availableLanguages, Language } from '../../../app.config';
 import { AuthService } from '../../../services/auth/auth.service';
 import { RouterExtendedService } from '../../../services/router-extended/router-extended.service';
+import { Position } from './header.model';
 
 @Component({
   selector: 'app-header',
@@ -17,6 +18,8 @@ import { RouterExtendedService } from '../../../services/router-extended/router-
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
+
+  position = input<Position>('fixed');
 
   languages: Language[] = availableLanguages.sort((a, b) => a.name.localeCompare(b.name) ? 1 : -1);
 
