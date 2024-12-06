@@ -27,8 +27,17 @@ export class StockOrderComponent {
 
   selectedOrderType: OrderType = defaultOrderType;
   orderSide!: OrderSide;
-  selectedWallet!: Wallet;
-  selectedCrypto!: CryptoInfo;
+  selectedWallet: Wallet = {
+    id: '',
+    currency: '',
+    value: 0,
+    user_id: 0,
+  };
+  selectedCrypto: CryptoInfo = {
+    code: '',
+    name: '',
+    value: '',
+  };
   amount: number = 0;
   nominal: number = 0;
   price: number = 1;
