@@ -1,4 +1,21 @@
-import { CryptoInfo, CryptoStockPrice, StockPrice } from '../../../stock/components/stock/stock.model';
+import { Item as DxTabsItem } from 'devextreme/ui/tabs';
+
+// Based on DevExtreme styles.
+export const greenCandleColor: string = '#08aa54';
+// Based on DevExtreme styles.
+export const redCandleColor: string = '#f44336';
+
+export type StockPrice = {
+  date: Date;
+
+  l: number;
+
+  h: number;
+
+  o: number;
+
+  c: number;
+}
 
 export const stockPrices: StockPrice[] = [{
   date: new Date(2024, 1, 1),
@@ -140,11 +157,24 @@ export const stockPrices: StockPrice[] = [{
   c: 25.25,
 }];
 
+export type CryptoInfo = {
+  code: string;
+  name: string;
+  value: string;
+}
+
 export const cryptosInfo: CryptoInfo[] = [
   { code: 'BTC', name: 'Bitcoin (BTC)', value: 'btc' },
   { code: 'ETH', name: 'Ethereum (ETH)', value: 'eth' },
   { code: 'DOGE', name: 'DogeCoin (DOGE)', value: 'doge' },
 ]
+
+export type CryptoStockPrice = {
+  date: Date;
+  btc: number;
+  eth: number;
+  doge: number;
+}
 
 export const cryptoStockPrices: CryptoStockPrice[] = [
   { btc: 46000, eth: 3200, doge: 0.080, date: new Date('2024-02-01') },
@@ -177,23 +207,10 @@ export const cryptoStockPrices: CryptoStockPrice[] = [
   { btc: 41600, eth: 3725, doge: 0.107, date: new Date('2024-02-28') },
 ];
 
-export type UserGrowth = {
-  month: number;
-  value: number;
+export type DxChartAdaptiveLayout = {
+  height?: number;
+  keepLabels?: boolean;
+  width?: number;
 }
 
-export const usersGrowth: UserGrowth[] = [
-  { month: 1, value: 15553 },
-  { month: 2, value: 20754 },
-  { month: 3, value: 25909 },
-  { month: 4, value: 31532 },
-  { month: 5, value: 40772 },
-  { month: 6, value: 49470 },
-  { month: 7, value: 55156 },
-  { month: 8, value: 60786 },
-  { month: 9, value: 65236 },
-  { month: 10, value: 75958 },
-  { month: 11, value: 85356 },
-  { month: 12, value: 101253 }
-];
-
+export type TimeFrame = DxTabsItem & { dateFrom?: Date, dateTo: Date };

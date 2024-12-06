@@ -1,4 +1,4 @@
-<div class="container-fluid px-0 fixed-top bg-body p-3 px-5 shadow-sm">
+<div class="container-fluid px-0 fixed-top bg-body p-3 px-5 shadow-sm" [class.fixed-top]="position() === 'fixed'">
   <div class="row gx-0">
     <div class="col-auto col-lg-3">
       <a [routerLink]="['/home']" routerLinkActive="active"

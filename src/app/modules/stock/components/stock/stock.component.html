@@ -1,0 +1,90 @@
+<div class="bg-light row g-4 d-flex justify-content-evenly">
+  <app-header [position]="'relative'" class="col-12" />
+
+  <div class="bg-white rounded shadow p-4 custom-col-10 col-lg-10 col-12 d-flex flex-column align-items-center justify-content-center">
+    <dx-chart
+      class="custom-dx-chart"
+      [title]="displayCrypto.name"
+      [dataSource]="stockPrices"
+      [adjustOnZoom]="true">
+      <dxi-series
+        [color]="greenCandleColor"
+        name="displayCrypto.code"
+        openValueField="o"
+        highValueField="h"
+        lowValueField="l"
+        closeValueField="c">
+        <dxo-reduction [color]="redCandleColor"></dxo-reduction>
+      </dxi-series>
+      <dxo-common-series-settings argumentField="date" type="candlestick">
+      </dxo-common-series-settings>
+      <dxo-legend [visible]="false"></dxo-legend>
+      <dxi-value-axis [tickInterval]="1">
+        <dxo-title [text]="displayCurrency.code" ></dxo-title>
+        <dxo-label>
+          <dxo-format type="currency" [precision]="2"> </dxo-format>
+        </dxo-label>
+      </dxi-value-axis>
+      <dxo-argument-axis [workdaysOnly]="false">
+        <dxo-label format="shortDate"></dxo-label>
+      </dxo-argument-axis>
+      <dxo-tooltip
+        [enabled]="true"
+        location="edge"
+        [customizeTooltip]="customizeTooltip.bind(this)">
+      </dxo-tooltip>
+      <dxo-zoom-and-pan
+        [dragToZoom]="true"
+        panKey="ctrl"
+        argumentAxis="both"
+        valueAxis="both">
+      </dxo-zoom-and-pan>
+    </dx-chart>
+
+    <dx-tabs
+      class="w-auto d-flex align-items-center"
+      [selectedIndex]="selectedTimeFrameIndex"
+      [dataSource]="timeFrames">
+    </dx-tabs>
+  </div>
+  
+  <div class="bg-white rounded shadow p-4 col-lg-2 col-12 p-0">
+    <div class="row gy-4 gx-0">
+      <h5 class="col-12 text-center" i18n="@@stock.Portfolio-value">Portfolio value:</h5>
+      <h6 class="col-12 mt-0 text-center">{{ 100_143.55 | number:'1.2-2' }}&nbsp;{{ displayCurrency.code }}</h6>
+      <h5 class="col-12 text-center" i18n="@@stock.Income">Income:</h5>
+      <h6 class="col-12 mt-0 text-center" [class.text-danger]="incomeValue < 0" [class.text-success]="incomeValue > 0">{{ incomeValueSign }}{{ incomeValue | number:'1.2-2' }}&nbsp;{{ displayCurrency.code }}</h6>
+      <dx-select-box
+        class="col-12"
+        [dataSource]="currencies"
+        [value]="displayCurrency.code"
+        [(selectedItem)]="displayCurrency"
+        label="Display in currency"
+        labelMode="floating"
+        i18n-label="@@stock.Display-in-currency:Display in currency"
+        valueExpr="code"
+        displayExpr="code">
+      </dx-select-box>
+      <dx-select-box
+        class="col-12"
+        [dataSource]="cryptosInfo"
+        [value]="displayCrypto.code"
+        [(selectedItem)]="displayCrypto"
+        label="Analyze crypto"
+        labelMode="floating"
+        i18n-label="@@stock.Analyze-crypto:Analyze crypto"
+        valueExpr="code"
+        displayExpr="name">
+      </dx-select-box>
+      
+      <div class="col-6 p-0 ps-lg-0 p-lg-2">
+        <dx-button class="w-100" type="danger" text="Sell" i18n-text="@@stock.Sell" (onClick)="openStockOrderPopup(OrderSide.Sell)"></dx-button>
+      </div>
+      <div class="col-6 p-0 pe-lg-0 p-lg-2">
+        <dx-button class="w-100" type="success" text="Buy" i18n-text="@@stock.Buy" (onClick)="openStockOrderPopup(OrderSide.Buy)"></dx-button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-stock-order #stockOrderPopup />
