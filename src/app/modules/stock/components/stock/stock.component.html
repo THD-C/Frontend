@@ -61,7 +61,7 @@
         [(selectedItem)]="displayCurrency"
         label="Display in currency"
         labelMode="floating"
-        i18n-text="@@stock.Display-in-currency:Display in currency"
+        i18n-label="@@stock.Display-in-currency:Display in currency"
         valueExpr="code"
         displayExpr="code">
       </dx-select-box>
@@ -72,30 +72,19 @@
         [(selectedItem)]="displayCrypto"
         label="Analyze crypto"
         labelMode="floating"
-        i18n-text="@@stock.Analyze-crypto:Analyze crypto"
+        i18n-label="@@stock.Analyze-crypto:Analyze crypto"
         valueExpr="code"
         displayExpr="name">
       </dx-select-box>
-
-      <dx-button [type]="selectedMarketOperationGroupType === MarketOperationsGroup.Order ? 'default' : 'normal'" class="col-6" text="Market order" i18n="@@stock.Market-order" (click)="selectMarketOperation(MarketOperationsGroup.Order)"></dx-button>
-      <dx-button [type]="selectedMarketOperationGroupType === MarketOperationsGroup.Auto ? 'default' : 'normal'" class="col-6" text="Stop/limit order" i18n="@@stock.Stop_limit-order" (click)="selectMarketOperation(MarketOperationsGroup.Auto)"></dx-button>
       
-      @if (selectedMarketOperationGroupType === MarketOperationsGroup.Order) {
-        <div class="col-6 p-0 ps-lg-0 p-lg-2">
-          <dx-button class="w-100" type="danger" text="Sell" i18n-text="@@stock.Sell"></dx-button>
-        </div>
-        <div class="col-6 p-0 pe-lg-0 p-lg-2">
-          <dx-button class="w-100" type="success" text="Buy" i18n-text="@@stock.Buy"></dx-button>
-        </div>
-      } @else if (selectedMarketOperationGroupType === MarketOperationsGroup.Auto) {
-        <div class="col-6 p-0 ps-lg-0 p-lg-2">
-          <dx-button class="w-100" type="danger" text="Sell limit" i18n-text="@@stock.Sell_limit"></dx-button>
-        </div>
-        <div class="col-6 p-0 pe-lg-0 p-lg-2">
-          <dx-button class="w-100" type="success" text="Buy limit" i18n-text="@@stock.Buy_limit"></dx-button>
-        </div>
-      }
+      <div class="col-6 p-0 ps-lg-0 p-lg-2">
+        <dx-button class="w-100" type="danger" text="Sell" i18n-text="@@stock.Sell" (onClick)="openStockOrderPopup(OrderSide.Sell)"></dx-button>
+      </div>
+      <div class="col-6 p-0 pe-lg-0 p-lg-2">
+        <dx-button class="w-100" type="success" text="Buy" i18n-text="@@stock.Buy" (onClick)="openStockOrderPopup(OrderSide.Buy)"></dx-button>
+      </div>
     </div>
   </div>
 </div>
 
+<app-stock-order #stockOrderPopup />

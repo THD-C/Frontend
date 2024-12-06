@@ -7,10 +7,12 @@ import { DxButtonModule } from 'devextreme-angular/ui/button';
 import { DxSelectBoxModule } from 'devextreme-angular/ui/select-box';
 import { DxTabsModule } from 'devextreme-angular/ui/tabs';
 import { DxNumberBoxModule } from 'devextreme-angular/ui/number-box';
+import { DxPopupModule } from 'devextreme-angular/ui/popup';
 
+import { routes } from './stock.routes';
 import { HeaderComponent } from '../../shared/components/header/header.component';
 import { StockComponent } from './components/stock/stock.component';
-import { routes } from './stock.routes';
+import { StockOrderComponent } from './components/stock/stock-order/stock-order.component';
 
 
 @NgModule({
@@ -19,6 +21,7 @@ import { routes } from './stock.routes';
   ],
   declarations: [
     StockComponent,
+    StockOrderComponent,
   ],
   imports: [
     CommonModule,
@@ -29,6 +32,7 @@ import { routes } from './stock.routes';
     DxSelectBoxModule,
     DxTabsModule,
     DxNumberBoxModule,
+    DxPopupModule,
   ],
 })
 export class StockModule { }

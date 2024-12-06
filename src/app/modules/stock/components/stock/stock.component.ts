@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
-import { CryptoInfo, cryptosInfo, greenCandleColor, MarketOperation, marketOperations, MarketOperationsGroup, redCandleColor, StockPrice, stockPrices, TimeFrame } from './stock.model';
-import { appName } from '../../../../app.config';
+import { Component, viewChild } from '@angular/core';
+import { CryptoInfo, cryptosInfo, greenCandleColor, redCandleColor, StockPrice, stockPrices, TimeFrame } from './stock.model';
+import { appName, defaultCurrency } from '../../../../app.config';
 import { currencies, Currency } from '../../../profile/components/profile/profile-wallets/profile-wallets.config';
-import { defaultDisplayCrypto, defaultDisplayCurrency, defaultMarketOperationGroupType, defaultTimeFrameIndex, timeFrames } from './stock.config';
-import { ItemClickEvent } from 'devextreme/ui/button_group';
+import { defaultDisplayCrypto, defaultTimeFrameIndex, timeFrames } from './stock.config';
+import { StockOrderComponent } from './stock-order/stock-order.component';
+import { OrderSide, OrderType } from './stock-order/stock-order.model';
 
 @Component({
   selector: 'app-stock',
@@ -12,14 +13,17 @@ import { ItemClickEvent } from 'devextreme/ui/button_group';
 })
 export class StockComponent {
   
-  protected readonly MarketOperationsGroup = MarketOperationsGroup;
+  protected readonly OrderType = OrderType;
+  protected readonly OrderSide = OrderSide;
   protected readonly currencies = currencies;
   protected readonly greenCandleColor = greenCandleColor;
   protected readonly redCandleColor = redCandleColor;
   protected readonly appName = appName;
   protected readonly cryptosInfo = cryptosInfo;
 
-  displayCurrency: Currency = defaultDisplayCurrency;
+  stockOrderPopup = viewChild.required<StockOrderComponent>('stockOrderPopup');
+
+  displayCurrency: Currency = defaultCurrency;
   displayCrypto: CryptoInfo = defaultDisplayCrypto;
   incomeValue: number = 356.21;
   get incomeValueSign(): string {
@@ -32,9 +36,7 @@ export class StockComponent {
   stockPrices: StockPrice[] = stockPrices;
 
   selectedTimeFrameIndex: number = defaultTimeFrameIndex;
-  selectedMarketOperationGroupType: MarketOperationsGroup = defaultMarketOperationGroupType;
   timeFrames: TimeFrame[] = timeFrames;
-  marketOperations: MarketOperation[] = marketOperations;
 
   customizeTooltip(arg: any) {
     return {
@@ -45,8 +47,12 @@ export class StockComponent {
     };
   }
 
-  selectMarketOperation(value: MarketOperationsGroup): void {
-    this.selectedMarketOperationGroupType = value;
+  openStockOrderPopup(orderSide: OrderSide): void {
+    this.stockOrderPopup()?.open(
+      orderSide,
+      this.displayCrypto,
+      this.displayCurrency,
+    );
   }
 
 }

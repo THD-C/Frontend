@@ -9,6 +9,7 @@ import { SimpleNotificationsModule } from 'angular2-notifications';
 
 import { routes } from './app.routes';
 import { jwtInterceptor } from './interceptors/jwt/jwt.interceptor';
+import { Currency } from './modules/profile/components/profile/profile-wallets/profile-wallets.config';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -45,4 +46,8 @@ export type Language = {
   code: string;
   name: string;
   isoCode: string;
+}
+
+export const defaultCurrency: Currency = {
+  code: 'USD',
 }

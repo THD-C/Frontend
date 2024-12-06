@@ -214,23 +214,3 @@ export type DxChartAdaptiveLayout = {
 }
 
 export type TimeFrame = DxTabsItem & { dateFrom?: Date, dateTo: Date };
-
-export enum MarketOperationsGroup {
-  Order = 1,
-  Auto = 2,
-}
-
-export type MarketOperation = DxTabsItem & {
-  groupType:  MarketOperationsGroup;
-}
-
-export const marketOperations: MarketOperation[] = [
-  {
-    badge: $localize`:@@stock.model.Market-order:Market order`,
-    groupType: MarketOperationsGroup.Order,
-  },
-  {
-    badge: $localize`:@@stock.model.Stop_Limit-order:Stop/Limit order`,
-    groupType: MarketOperationsGroup.Auto,
-  },
-];

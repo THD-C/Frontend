@@ -238,4 +238,4 @@ export const currencies: Currency[] = [{
 	code: "ZAR",
 }, {
 	code: "ZMK",
-}]
+}];

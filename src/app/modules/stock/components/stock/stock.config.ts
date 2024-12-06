@@ -1,9 +1,4 @@
-import { Currency } from '../../../profile/components/profile/profile-wallets/profile-wallets.config';
-import { CryptoInfo, DxChartAdaptiveLayout, MarketOperation, marketOperations, MarketOperationsGroup, TimeFrame } from './stock.model';
-
-export const defaultDisplayCurrency: Currency = {
-  code: 'USD'
-};
+import { CryptoInfo, TimeFrame } from './stock.model';
 
 export const defaultDisplayCrypto: CryptoInfo = {
   code: 'BTC',
@@ -12,7 +7,6 @@ export const defaultDisplayCrypto: CryptoInfo = {
 };
 
 export const defaultTimeFrameIndex: number = 0;
-export const defaultMarketOperationGroupType: MarketOperationsGroup = MarketOperationsGroup.Order;
 
 const now = new Date();
 const startDate = new Date();

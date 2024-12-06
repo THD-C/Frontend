@@ -1,0 +1,124 @@
+<dx-popup
+  [title]="title"
+  [(visible)]="visible"
+  [showCloseButton]="true"
+  width="450px"
+  height="360px"
+  contentTemplate="contentTemplatePopup">
+  <div *dxTemplate="let d of 'contentTemplatePopup'" class="w-100 h-100">
+    <div class="row g-4 gx-0">
+      @if (orderSide === OrderSide.Buy) {
+        <div class="col-6">
+          <dx-number-box
+            class="w-100"
+            label="Amount"
+            labelMode="floating"
+            i18n-text="@@stock-order.Amount:Amount">
+          </dx-number-box>
+        </div>
+        <div class="col-6">
+          <dx-select-box
+            class="w-100"
+            [dataSource]="currencies"
+            [value]="selectedCurrency.code"
+            [(selectedItem)]="selectedCurrency"
+            label="Wallet"
+            labelMode="floating"
+            i18n-text="@@stock-order.Wallet:Wallet"
+            valueExpr="code"
+            displayExpr="code">
+          </dx-select-box>
+        </div>
+        <div class="col-6">
+          <dx-number-box
+            class="w-100"
+            label="Volume"
+            labelMode="floating"
+            i18n-text="@@stock-order.Volume:Volume">
+          </dx-number-box>
+        </div>
+        <div class="col-6">
+          <dx-select-box
+            class="w-100"
+            [dataSource]="cryptosInfo"
+            [value]="selectedCrypto.code"
+            [(selectedItem)]="selectedCrypto"
+            label="Crypto"
+            labelMode="floating"
+            i18n-text="@@stock-order.Crypto:Crypto"
+            valueExpr="code"
+            displayExpr="name">
+          </dx-select-box>
+        </div>
+      }
+      @else if (orderSide === OrderSide.Sell) {
+        <div class="col-6">
+          <dx-number-box
+            class="w-100"
+            label="Volume"
+            labelMode="floating"
+            i18n-text="@@stock-order.Volume:Volume">
+          </dx-number-box>
+        </div>
+        <div class="col-6">
+          <dx-select-box
+            class="w-100"
+            [dataSource]="cryptosInfo"
+            [value]="selectedCrypto.code"
+            [(selectedItem)]="selectedCrypto"
+            label="Crypto"
+            labelMode="floating"
+            i18n-text="@@stock-order.Crypto:Crypto"
+            valueExpr="code"
+            displayExpr="name">
+          </dx-select-box>
+        </div>
+        <div class="col-6">
+          <dx-number-box
+            class="w-100"
+            label="Amount"
+            labelMode="floating"
+            i18n-text="@@stock-order.Amount:Amount">
+          </dx-number-box>
+        </div>
+        <div class="col-6">
+          <dx-select-box
+            class="w-100"
+            [dataSource]="currencies"
+            [value]="selectedCurrency.code"
+            [(selectedItem)]="selectedCurrency"
+            label="Wallet"
+            labelMode="floating"
+            i18n-text="@@stock-order.Wallet:Wallet"
+            valueExpr="code"
+            displayExpr="code">
+          </dx-select-box>
+        </div>
+      }
+      <div class="col-12">
+        <div class="row g-0">
+          @for (orderAvailableType of orderAvailableTypes; track orderAvailableType) {
+            <dx-button
+              [type]="getOrderButtonTypeType(orderAvailableType.type, selectedOrderType)"
+              [class]="'col-' + (12 / orderAvailableTypes.length)"
+              [text]="orderAvailableType.text"
+              [hint]="orderAvailableType.hint"
+              (click)="selectOrderType(orderAvailableType.type)">
+            </dx-button>
+          }
+        </div>
+      </div>
+  
+      <div class="col-12">
+        <div class="row g-4">
+          <div class="col-lg-auto col-6 ms-lg-auto">
+            <dx-button class="w-100" type="normal" text="Cancel" i18n-text="@@stock-order.Cancel" (onClick)="close()"></dx-button>
+          </div>
+          <div class="col-lg-auto col-6">
+            <dx-button class="w-100" type="success" text="Confirm order" i18n-text="@@stock-order.Confirm-order"></dx-button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</dx-popup>
