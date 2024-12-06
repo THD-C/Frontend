@@ -8,6 +8,8 @@ import { OrdersService } from '../../../../../services/orders/orders.service';
 import { WalletsService } from '../../../../../services/wallets/wallets.service';
 import { Wallet } from '../../../../profile/components/profile/profile-wallets/profile-wallets.model';
 import { ValueChangedEvent } from 'devextreme/ui/number_box';
+import { NotificationsService } from 'angular2-notifications';
+import { ValidationCallbackData } from 'devextreme-angular/common';
 
 @Component({
   selector: 'app-stock-order',
@@ -37,6 +39,7 @@ export class StockOrderComponent {
   constructor(
     private readonly ordersService: OrdersService,
     private readonly walletsService: WalletsService,
+    private readonly notifications: NotificationsService,
   ) {}
 
   getOrderButtonTypeType = getOrderButtonTypeType;
@@ -68,6 +71,10 @@ export class StockOrderComponent {
     this.visible = false;
   }
 
+  resetProperties(): void {
+    this.selectedOrderType = defaultOrderType;
+  }
+
   async placeOrder(): Promise<void> {
     try {
       await this.ordersService.placeOrder({
@@ -79,6 +86,11 @@ export class StockOrderComponent {
         type: orderTypeStringMap.get(this.selectedOrderType) ?? '',
         side: orderSideStringMap.get(this.orderSide) ?? '',
       });
+
+      this.notifications.success(
+        $localize`:@@stock-order.Success:Success`,
+        $localize`:@@stock-order.Order-created-successfully:Order created successfully`,
+      );
     } catch(e) {
     }
   }
@@ -87,8 +99,16 @@ export class StockOrderComponent {
     this.nominal = event.value / this.price;
   }
 
-  onVolumeChanged(event: ValueChangedEvent): void {
+  onNominalChanged(event: ValueChangedEvent): void {
     this.amount = this.price * event.value;
+  }
+
+  amountValidationCallback(callbackData: ValidationCallbackData): boolean {
+    if (callbackData.value > this.selectedWallet.value) {
+      return false;
+    }
+
+    return true;
   }
 
 }
