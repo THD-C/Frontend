@@ -1,7 +1,7 @@
 <div class="bg-light row g-4 d-flex justify-content-evenly">
   <app-header [position]="'relative'" class="col-12" />
 
-  <div class="bg-white rounded shadow p-4 custom-col-10 col-10 d-flex flex-column align-items-center justify-content-center">
+  <div class="bg-white rounded shadow p-4 custom-col-10 col-lg-10 col-12 d-flex flex-column align-items-center justify-content-center">
     <dx-chart
       class="custom-dx-chart"
       [title]="displayCrypto.name"
@@ -48,7 +48,7 @@
     </dx-tabs>
   </div>
   
-  <div class="bg-white rounded shadow p-4 col-2 p-0">
+  <div class="bg-white rounded shadow p-4 col-lg-2 col-12 p-0">
     <div class="row gy-4 gx-0">
       <h5 class="col-12 text-center" i18n="@@stock.Portfolio-value">Portfolio value:</h5>
       <h6 class="col-12 mt-0 text-center">{{ 100_143.55 | number:'1.2-2' }}&nbsp;{{ displayCurrency.code }}</h6>

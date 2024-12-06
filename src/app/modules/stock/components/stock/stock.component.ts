@@ -5,6 +5,8 @@ import { currencies, Currency } from '../../../profile/components/profile/profil
 import { defaultDisplayCrypto, defaultTimeFrameIndex, timeFrames } from './stock.config';
 import { StockOrderComponent } from './stock-order/stock-order.component';
 import { OrderSide, OrderType } from './stock-order/stock-order.model';
+import { AuthService } from '../../../../services/auth/auth.service';
+import { RouterExtendedService } from '../../../../services/router-extended/router-extended.service';
 
 @Component({
   selector: 'app-stock',
@@ -38,6 +40,11 @@ export class StockComponent {
   selectedTimeFrameIndex: number = defaultTimeFrameIndex;
   timeFrames: TimeFrame[] = timeFrames;
 
+  constructor(
+    private readonly authService: AuthService,
+    private readonly router: RouterExtendedService,
+  ) { }
+
   customizeTooltip(arg: any) {
     return {
       text: `Open: ${arg.openValue} ${this.displayCurrency.code}<br/>`
@@ -48,9 +55,15 @@ export class StockComponent {
   }
 
   openStockOrderPopup(orderSide: OrderSide): void {
+    if (this.authService.isAuthenticated === false) {
+      this.router.navigateToLogin(this.router.previousUrl);
+      return;
+    }
+
     this.stockOrderPopup()?.open(
       orderSide,
       this.displayCrypto,
+      833.234,
       this.displayCurrency,
     );
   }
