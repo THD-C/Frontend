@@ -1,5 +1,5 @@
 import { ApiError } from '../../shared/models/error.model';
 
 export const errors: ApiError = {
-  'TODO': $localize`:@@orders-errors.TODO:TODO`,
+  'operation_failed': $localize`:@@orders-errors.Operation-failed-Please-try-again:Operation failed. Please try again`,
 }
