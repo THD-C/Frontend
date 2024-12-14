@@ -67,8 +67,8 @@
         </context-group>
       </trans-unit>
       <trans-unit id="stock-order.Current-price" datatype="html">
-        <source>Current price: <x id="INTERPOLATION" equiv-text="{{ price | number:'1.2-2' }}"/> <x id="INTERPOLATION_1" equiv-text="{{ selectedWallet?.currency }}"/></source>
-        <target state="final">Current price: <x id="INTERPOLATION" equiv-text="{{ price | number:'1.2-2' }}"/> <x id="INTERPOLATION_1" equiv-text="{{ selectedWallet?.currency }}"/></target>
+        <source>Current price: <x id="INTERPOLATION" equiv-text="{{ price | number:'1.2-2' }}"/> <x id="INTERPOLATION_1" equiv-text="{{ selectedWallet.currency }}"/></source>
+        <target state="final">Current price: <x id="INTERPOLATION" equiv-text="{{ price | number:'1.2-2' }}"/> <x id="INTERPOLATION_1" equiv-text="{{ selectedWallet.currency }}"/></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock/stock-order/stock-order.component.html</context>
           <context context-type="linenumber">11,12</context>
@@ -147,7 +147,7 @@
         <target state="final">Success</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock/stock-order/stock-order.component.ts</context>
-          <context context-type="linenumber">91</context>
+          <context context-type="linenumber">100</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock-order.Order-created-successfully" datatype="html">
@@ -155,7 +155,7 @@
         <target state="final">Order created successfully</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock/stock-order/stock-order.component.ts</context>
-          <context context-type="linenumber">92</context>
+          <context context-type="linenumber">101</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock-order-config.Execute-market-order" datatype="html">
@@ -376,46 +376,6 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/register/components/register/register.component.html</context>
           <context context-type="linenumber">23</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="password-strength-validator.Password-must-contain-at-least-1-lower-case-character" datatype="html">
-        <source>Password must contain at least 1 lower case character</source>
-        <target state="final">Password must contain at least 1 lower case character</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/validators/password-strength.validator.ts</context>
-          <context context-type="linenumber">2</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="password-strength-validator.Password-must-contain-at-least-1-upper-case-character" datatype="html">
-        <source>Password must contain at least 1 upper case character</source>
-        <target state="final">Password must contain at least 1 upper case character</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/validators/password-strength.validator.ts</context>
-          <context context-type="linenumber">5</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="password-strength-validator.Password-must-contain-at-least-1-digit" datatype="html">
-        <source>Password must contain at least 1 digit</source>
-        <target state="final">Password must contain at least 1 digit</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/validators/password-strength.validator.ts</context>
-          <context context-type="linenumber">8</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="password-strength-validator.Password-must-contain-at-least-1-special-character" datatype="html">
-        <source>Password must contain at least 1 special character</source>
-        <target state="final">Password must contain at least 1 special character</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/validators/password-strength.validator.ts</context>
-          <context context-type="linenumber">11</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="password-strength-validator.Password-must-be-at-least-8-characters-long" datatype="html">
-        <source>Password must be at least 8 characters long</source>
-        <target state="final">Password must be at least 8 characters long</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/validators/password-strength.validator.ts</context>
-          <context context-type="linenumber">14</context>
         </context-group>
       </trans-unit>
       <trans-unit id="home.Improve-trading-skills-explore-crypto-stocks-expand-your-knowledge-and-beyond-that" datatype="html">
@@ -1124,6 +1084,14 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
           <context context-type="linenumber">50</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="password-strength-validator.Password-must-be-at-least-12-characters-long" datatype="html">
+        <source>Password must be at least 12 characters long</source>
+        <target state="final">Password must be at least 12 characters long</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/validators/password-strength.validator.ts</context>
+          <context context-type="linenumber">2</context>
         </context-group>
       </trans-unit>
       <trans-unit id="home.Users-growth" datatype="html">
