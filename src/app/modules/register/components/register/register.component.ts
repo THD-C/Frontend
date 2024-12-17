@@ -44,6 +44,8 @@ export class RegisterComponent implements AfterViewInit {
     country: ''
   };
 
+  privacyPolicyAccepted: boolean = false;
+
   protected get showPasswordErrors(): boolean {
     return this.passwordErrors.length > 0;
   }
@@ -51,7 +53,8 @@ export class RegisterComponent implements AfterViewInit {
   get isFormValid(): boolean {
     return this.registerRequest.username.length > 0
       && this.txtEmail().isValid
-      && validatePassword(this.registerRequest.password).length === 0;
+      && validatePassword(this.registerRequest.password).length === 0
+      && this.privacyPolicyAccepted;
   }
 
   constructor(private readonly authService: AuthService) {}

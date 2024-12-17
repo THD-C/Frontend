@@ -40,6 +40,15 @@
         </small>
       }
     
+      <div>
+        <dx-check-box [(value)]="privacyPolicyAccepted" text="I accept the privacy policy">
+          <dx-validator>
+            <dxi-validation-rule type="required" message="Accept our privacy policy" i18n-message="@@register.Accept-our-privacy-policy">
+            </dxi-validation-rule>
+          </dx-validator>
+        </dx-check-box>
+        &nbsp;<a routerLink="/privacy-policy" target="_blank" rel="external nofollow noopener">(LINK)</a>
+      </div>
       <dx-button class="col-12" type="default" [useSubmitBehavior]="true" (onClick)="submit()" text="Register" i18n-text="@@register.Register"></dx-button>
     </form>
   </div>
