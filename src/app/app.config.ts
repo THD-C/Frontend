@@ -51,3 +51,5 @@ export type Language = {
 export const defaultCurrency: Currency = {
   code: 'USD',
 }
+
+export const supportEmail: string = 'thdc.p.lodz@outlook.com';

@@ -27,6 +27,11 @@ export const routes: Routes = [
     loadChildren: () => import('./modules/stock/stock.module').then(m => m.StockModule),
   },
   {
+    title: $localize`:@@app.routes.privacy.policy.title:THD(C) privacy policy`,
+    path: 'privacy-policy',
+    loadChildren: () => import('./modules/privacy-policy/privacy-policy.module').then(m => m.PrivacyPolicyModule),
+  },
+  {
     path: '**',
     redirectTo: 'home',
   },
