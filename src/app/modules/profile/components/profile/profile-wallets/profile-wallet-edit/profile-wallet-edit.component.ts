@@ -83,4 +83,5 @@ export class ProfileWalletEditComponent {
     this.visible = false;
     this.id = 0;
   }
+  
 }

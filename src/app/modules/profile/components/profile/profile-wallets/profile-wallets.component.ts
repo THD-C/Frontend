@@ -6,6 +6,7 @@ import { NotificationsService } from 'angular2-notifications';
 import { Wallet } from './profile-wallets.model';
 import { ProfileWalletEditComponent } from './profile-wallet-edit/profile-wallet-edit.component';
 import { WalletsService } from '../../../../../services/wallets/wallets.service';
+import { ProfileWalletAddMoneyComponent } from './profile-wallet-add-money/profile-wallet-add-money.component';
 
 @Component({
   selector: 'app-profile-wallets',
@@ -15,6 +16,7 @@ import { WalletsService } from '../../../../../services/wallets/wallets.service'
 export class ProfileWalletsComponent implements AfterViewInit {
 
   profileWalletEditPopup = viewChild.required<ProfileWalletEditComponent>('profileWalletEditPopup');
+  profileWalletAddMoneyPopup = viewChild.required<ProfileWalletAddMoneyComponent>('profileWalletAddMoneyPopup');
 
   wallets: Wallet[] = [];
 
@@ -38,8 +40,8 @@ export class ProfileWalletsComponent implements AfterViewInit {
     this.profileWalletEditPopup().open();
   }
 
-  edit(id: number): void {
-    this.profileWalletEditPopup().open(id);
+  addMoney(wallet: Wallet): void {
+    this.profileWalletAddMoneyPopup().open(wallet);
   }
 
   async delete(id: number): Promise<void> {
