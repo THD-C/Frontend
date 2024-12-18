@@ -22,6 +22,7 @@ import { ProfileWalletsComponent } from './components/profile/profile-wallets/pr
 import { ProfileWalletEditComponent } from './components/profile/profile-wallets/profile-wallet-edit/profile-wallet-edit.component';
 import { ProfilePasswordComponent } from './components/profile/profile-password/profile-password.component';
 import { ProfileWalletAddMoneyComponent } from './components/profile/profile-wallets/profile-wallet-add-money/profile-wallet-add-money.component';
+import { ProfilePaymentsComponent } from './components/profile/profile-payments/profile-payments.component';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { ProfileWalletAddMoneyComponent } from './components/profile/profile-wal
     ProfileWalletEditComponent,
     ProfilePasswordComponent,
     ProfileWalletAddMoneyComponent,
+    ProfilePaymentsComponent,
   ],
   imports: [
     CommonModule,

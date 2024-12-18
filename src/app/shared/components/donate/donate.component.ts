@@ -12,8 +12,8 @@ import { RouterExtendedService } from '../../../services/router-extended/router-
 import { AuthService } from '../../../services/auth/auth.service';
 import { PaymentsService } from '../../../services/payments/payments.service';
 import { BaseService } from '../../../services/base/base.service';
-import { MakePaymentRequest } from './donate.model';
 import { currencies, defaultMakePaymentRequest } from './donate.config';
+import { MakePaymentRequest } from '../../../modules/profile/components/profile/profile-payments/profile-payments.model';
 
 @Component({
   selector: 'app-donate',
@@ -39,7 +39,7 @@ export class DonateComponent {
   async donate(): Promise<void> {
     try {
       const response = await this.paymentsService.makePayment(this.makePaymentRequest);
-      this.router.openInNewTab(response.session_url)
+      this.router.openInNewTab(response.session_url);
     } catch (e) {
     }
   }

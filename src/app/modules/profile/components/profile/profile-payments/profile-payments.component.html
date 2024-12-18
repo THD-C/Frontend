@@ -1,0 +1,39 @@
+<dx-scroll-view class="card shadow p-3 border-primary container" [useNative]="false" [scrollByContent]="true" [scrollByThumb]="true">
+  <dx-data-grid
+    [dataSource]="payments"
+    [remoteOperations]="false">
+    <dxo-paging [pageSize]="10"></dxo-paging>
+    <dxo-pager
+      [visible]="true"
+      [showPageSizeSelector]="true"
+      [allowedPageSizes]="[10, 25, 50, 100]"
+    ></dxo-pager>
+    <dxo-search-panel
+      [visible]="true"
+      [highlightCaseSensitive]="true"
+    ></dxo-search-panel>
+    <dxo-column-chooser [enabled]="true"></dxo-column-chooser>
+
+    <dxi-column caption="Action" i18n-caption="@@profile-payments.Action" cellTemplate="actionCellTemplate" width="93">
+      <div *dxTemplate="let d of 'actionCellTemplate'">
+        @if (isCancelable(d.data)) {
+          <dx-button
+            type="danger"
+            stylingMode="text"
+            icon="clear"
+            hint="Cancel"
+            i18n-hint="@@profile-payments.Cancel"
+            (onClick)="cancel(d.data.id)">
+          </dx-button>
+        }
+      </div>
+    </dxi-column>
+    <dxi-column dataField="id" caption="ID" i18n-caption="@@profile-payments.ID"></dxi-column>
+    <dxi-column dataField="currency" caption="Currency" i18n-caption="@@profile-payments.Currency"></dxi-column>
+    <dxi-column dataField="value" dataType="number" caption="Value" i18n-caption="@@profile-payments.Value">
+      <dxo-format type="fixedPoint" [precision]="2"></dxo-format>  
+    </dxi-column>
+    <dxi-column dataField="state" caption="State" i18n-caption="@@profile-payments.State" [calculateDisplayValue]="">
+    </dxi-column>
+  </dx-data-grid>
+</dx-scroll-view>
