@@ -27,8 +27,8 @@ export class PaymentsService extends BaseService {
     this.errors = { ...this.errors, ...errors };
   }
 
-  async makePayment(makePaymentRequest: MakePaymentRequest): Promise<MakePaymentResponse> {
-    const request = this.httpClient.post<MakePaymentResponse>(
+  async makePayment(makePaymentRequest: MakePaymentRequest): Promise<MakePaymentResponse[]> {
+    const request = this.httpClient.post<MakePaymentResponse[]>(
       `${environment.apiUrl}/${this.basePaymentsPath}/`,
       { 
         ...makePaymentRequest,
@@ -36,7 +36,7 @@ export class PaymentsService extends BaseService {
       }
     ).pipe(catchError(this.catchCustomError.bind(this)));
 
-    return await firstValueFrom(request) as MakePaymentResponse;
+    return await firstValueFrom(request) as MakePaymentResponse[];
   }
 
   async get(): Promise<Payment[]> {

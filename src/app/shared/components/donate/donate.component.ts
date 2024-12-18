@@ -38,8 +38,10 @@ export class DonateComponent {
 
   async donate(): Promise<void> {
     try {
-      const response = await this.paymentsService.makePayment(this.makePaymentRequest);
-      this.router.openInNewTab(response.session_url);
+      const response = (await this.paymentsService.makePayment(this.makePaymentRequest))[0];
+      this.router.openInNewTab(response?.session_url);
+
+      this.close();
     } catch (e) {
     }
   }
