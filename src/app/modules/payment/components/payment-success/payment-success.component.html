@@ -1,0 +1,10 @@
+<div class="vw-100 vh-100 d-flex align-items-center justify-content-center flex-column">
+  <a [routerLink]="['/']" routerLinkActive="active" class="d-flex justify-content-center">
+    <img class="rounded-circle my-4" src="assets/icons/icon-192x192.png" [alt]="appName">
+  </a>
+
+  <h2 i18n="@@payment-success.Payment-completed-successfully">Payment completed <span class="fw-bold text-success text-decoration-underline">successfully</span>!</h2>
+  <h4 i18n="@@payment-success.Thank-you-3">Thank <span class="text-primary fw-bold">you</span> &lt;3</h4>
+
+  <dx-button class="mt-4" type="default" (onClick)="router.navigate(['/rooms'])" text="Check stock" i18n-text="@@payment-success.Check-stock"></dx-button>
+</div>

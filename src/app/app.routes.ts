@@ -32,6 +32,11 @@ export const routes: Routes = [
     loadChildren: () => import('./modules/privacy-policy/privacy-policy.module').then(m => m.PrivacyPolicyModule),
   },
   {
+    title: $localize`:@@app.routes.payment.title:Payment status | THD(C)`,
+    path: 'payment',
+    loadChildren: () => import('./modules/payment/payment.module').then(m => m.PaymentModule),
+  },
+  {
     path: '**',
     redirectTo: 'home',
   },
