@@ -11,6 +11,7 @@ import { ValueChangedEvent } from 'devextreme/ui/number_box';
 import { NotificationsService } from 'angular2-notifications';
 import { ValidationCallbackData } from 'devextreme-angular/common';
 import { defaultWallet } from '../../../../profile/components/profile/profile-wallets/profile-wallet-edit/profile-wallet-edit.config';
+import { BaseService } from '../../../../../services/base/base.service';
 
 @Component({
   selector: 'app-stock-order',
@@ -95,6 +96,7 @@ export class StockOrderComponent {
       this.notifications.success(
         $localize`:@@stock-order.Success:Success`,
         $localize`:@@stock-order.Order-created-successfully:Order created successfully`,
+        BaseService.notificationOverride
       );
     } catch(e) {
     }

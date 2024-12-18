@@ -9,6 +9,7 @@ import { UsersService } from '../../../../../services/users/users.service';
 import { validatePassword } from '../../../../../shared/validators/password-strength.validator';
 import { UpdateUserPasswordRequest } from './profile-password.model';
 import { passwordButtonOptions } from './profile-password.config';
+import { BaseService } from '../../../../../services/base/base.service';
 
 @Component({
   selector: 'app-profile-password',
@@ -63,6 +64,7 @@ export class ProfilePasswordComponent {
       this.notifications.error(
         $localize`:@@profile-password.Error:Error`,
         $localize`:@@profile-password.Can-not-change-password-Missing-data-Check-the-form-and-try-again:Can not change password. Missing data. Check the form and try again`,
+        BaseService.notificationOverride
       );
 
       return;
@@ -72,7 +74,8 @@ export class ProfilePasswordComponent {
       await this.usersService.updatePassword(this.userPassword);
       this.notifications.success(
         $localize`:@@notifications.Success:Success`,
-        $localize`:@@profile-password.Password-changed-successfully:Password changed successfully`
+        $localize`:@@profile-password.Password-changed-successfully:Password changed successfully`,
+        BaseService.notificationOverride
       );
     } catch(e) {
     }

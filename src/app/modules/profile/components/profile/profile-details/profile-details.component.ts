@@ -3,6 +3,7 @@ import { NotificationsService } from 'angular2-notifications';
 
 import { UpdateProfileDetailsRequest } from './profile-details.model';
 import { UsersService } from '../../../../../services/users/users.service';
+import { BaseService } from '../../../../../services/base/base.service';
 
 @Component({
   selector: 'app-profile-details',
@@ -56,6 +57,7 @@ export class ProfileDetailsComponent implements AfterViewInit {
       this.notifications.error(
         $localize`:@@profile-details.Error:Error`,
         $localize`:@@profile-details.Can-not-update-profile-details-Missing-data-Check-the-form-and-try-again:Can not update profile details. Missing data. Check the form and try again`,
+        BaseService.notificationOverride
       );
 
       return;
@@ -65,7 +67,8 @@ export class ProfileDetailsComponent implements AfterViewInit {
       await this.usersService.updateProfileDetails(this.profileDetails);
       this.notifications.success(
         $localize`:@@notifications.Success:Success`,
-        $localize`:@@profile-details.Profile-updated-successfully:Profile updated successfully`
+        $localize`:@@profile-details.Profile-updated-successfully:Profile updated successfully`,
+        BaseService.notificationOverride
       );
     } catch(e) {
     }
