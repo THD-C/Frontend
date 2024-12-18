@@ -2,6 +2,7 @@ import { Component, output } from '@angular/core';
 import { UpdateWalletRequest, Wallet } from '../profile-wallets.model';
 import { NotificationsService } from 'angular2-notifications';
 import { WalletsService } from '../../../../../../services/wallets/wallets.service';
+import { defaultWallet } from '../profile-wallet-edit/profile-wallet-edit.config';
 
 @Component({
   selector: 'app-profile-wallet-add-money',
@@ -18,12 +19,7 @@ export class ProfileWalletAddMoneyComponent {
   
   visible: boolean = false;
   id: number = 0;
-  wallet: Wallet = {
-    id: "0",
-    currency: "PLN",
-    user_id: 0,
-    value: 0,
-  };
+  wallet: Wallet = defaultWallet;
   
   /**
    * How much to add
@@ -52,7 +48,7 @@ export class ProfileWalletAddMoneyComponent {
       await this.walletsService.update({
         id: this.wallet.id,
         currency: this.wallet.currency,
-        value: this.amount,
+        value: this.amount.toString(),
       } satisfies UpdateWalletRequest);
 
       this.notifications.success(
@@ -60,6 +56,7 @@ export class ProfileWalletAddMoneyComponent {
         $localize`:@@profile-wallet-add-money.Money-added-successfully:Money added successfully`
       );
 
+      this.wallet.value = (parseFloat(this.wallet.value) + this.amount).toString();
       this.onSaved.emit(this.wallet);
       this.close();
     } catch(e) {
@@ -69,6 +66,7 @@ export class ProfileWalletAddMoneyComponent {
   close(): void {
     this.visible = false;
     this.id = 0;
+    this.amount = 1;
   }
 
 }

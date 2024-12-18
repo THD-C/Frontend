@@ -3,6 +3,7 @@ import { NotificationsService } from 'angular2-notifications';
 import { WalletsService } from '../../../../../../services/wallets/wallets.service';
 import { CreateWalletRequest, UpdateWalletRequest, Wallet } from '../profile-wallets.model';
 import { currencies } from '../profile-wallets.config';
+import { defaultWallet } from './profile-wallet-edit.config';
 
 @Component({
   selector: 'app-profile-wallet-edit',
@@ -21,12 +22,7 @@ export class ProfileWalletEditComponent {
   
   visible: boolean = false;
   id: number = 0;
-  wallet: Wallet = {
-    id: "0",
-    currency: "PLN",
-    user_id: 0,
-    value: 0,
-  };
+  wallet: Wallet = defaultWallet;
   
   constructor(
     private readonly walletsService: WalletsService,
@@ -46,6 +42,7 @@ export class ProfileWalletEditComponent {
 
   private async getWallet(): Promise<void> {
     if (!this.id) {
+      this.wallet = defaultWallet;
       return;
     }
 
@@ -65,6 +62,7 @@ export class ProfileWalletEditComponent {
       } else {
         this.wallet = await this.walletsService.update({
           ...this.wallet,
+          value: this.wallet.value.toString()
         } satisfies UpdateWalletRequest);
       }
 

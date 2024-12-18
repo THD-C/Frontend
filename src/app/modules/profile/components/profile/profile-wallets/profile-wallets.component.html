@@ -44,7 +44,9 @@
     </dxi-column>
     <dxi-column dataField="id" caption="ID" i18n-caption="@@profile-wallets.ID"></dxi-column>
     <dxi-column dataField="currency" caption="Currency" i18n-caption="@@profile-wallets.Currency"></dxi-column>
-    <dxi-column dataField="value" dataType="number" caption="Value" i18n-caption="@@profile-wallets.Value"></dxi-column>
+    <dxi-column dataField="value" dataType="number" caption="Value" i18n-caption="@@profile-wallets.Value">
+      <dxo-format type="fixedPoint" [precision]="2"></dxo-format>  
+    </dxi-column>
   </dx-data-grid>
 
   <div class="d-inline-flex d-lg-none sticky-bottom mt-3 w-100">
