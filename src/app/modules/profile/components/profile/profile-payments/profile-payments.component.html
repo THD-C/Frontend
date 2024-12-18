@@ -30,10 +30,10 @@
     </dxi-column>
     <dxi-column dataField="id" caption="ID" i18n-caption="@@profile-payments.ID"></dxi-column>
     <dxi-column dataField="currency" caption="Currency" i18n-caption="@@profile-payments.Currency"></dxi-column>
-    <dxi-column dataField="value" dataType="number" caption="Value" i18n-caption="@@profile-payments.Value">
+    <dxi-column dataField="nominal" dataType="number" caption="Nominal" i18n-caption="@@profile-payments.Nominal">
       <dxo-format type="fixedPoint" [precision]="2"></dxo-format>  
     </dxi-column>
-    <dxi-column dataField="state" caption="State" i18n-caption="@@profile-payments.State" [calculateDisplayValue]="">
+    <dxi-column dataField="state" caption="State" i18n-caption="@@profile-payments.State">
     </dxi-column>
   </dx-data-grid>
 </dx-scroll-view>
