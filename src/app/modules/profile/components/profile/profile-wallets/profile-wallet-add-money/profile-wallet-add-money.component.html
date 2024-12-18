@@ -1,0 +1,37 @@
+<dx-popup
+  [title]="title"
+  [(visible)]="visible"
+  [showCloseButton]="true"
+  width="400px"
+  height="auto"
+  contentTemplate="contentTemplatePopup">
+  <div *dxTemplate="let d of 'contentTemplatePopup'" class="w-100 h-100">
+    <div class="row gx-0 gy-4">
+      <div class="col-12">
+        <dx-number-box
+          class="w-100"
+          label="Amount to add (min 1)"
+          labelMode="floating"
+          [min]="1"
+          [(value)]="amount"
+          validationMessageMode="always"
+          i18n-label="@@profile-wallet-add-money.Amount-to-add_min-1_:Amount to add (min 1)">
+          <dx-validator>
+            <dxi-validation-rule type="required" message="Amount is required" i18n-message="@@profile-wallet-add-money.Amount-is-required"></dxi-validation-rule>
+          </dx-validator>
+        </dx-number-box>
+      </div>
+
+      <div class="col-12">
+        <div class="row g-4">
+          <div class="col-lg-auto col-6 ms-lg-auto">
+            <dx-button class="w-100" type="normal" text="Cancel" i18n-text="@@profile-wallet-add-money.Cancel" (onClick)="close()"></dx-button>
+          </div>
+          <div class="col-lg-auto col-6">
+            <dx-button class="w-100" type="default" text="Add" i18n-text="@@profile-wallet-add-money.Add" (onClick)="add()" [useSubmitBehavior]="true"></dx-button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</dx-popup>
