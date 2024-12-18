@@ -10,12 +10,15 @@
       <div class="col-12">
         <dx-number-box
           class="w-100"
-          label="Amount to add (min 1)"
+          label="Amount (min 1)"
           labelMode="floating"
           [min]="1"
+          [step]="0.01"
+          [showSpinButtons]="true"
+          format="#0.##"
           [(value)]="amount"
           validationMessageMode="always"
-          i18n-label="@@profile-wallet-add-money.Amount-to-add_min-1_:Amount to add (min 1)">
+          i18n-label="@@profile-wallet-add-money.Amount_min-1_:Amount (min 1)">
           <dx-validator>
             <dxi-validation-rule type="required" message="Amount is required" i18n-message="@@profile-wallet-add-money.Amount-is-required"></dxi-validation-rule>
           </dx-validator>
