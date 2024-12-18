@@ -24,15 +24,29 @@
     ></dxo-search-panel>
     <dxo-column-chooser [enabled]="true"></dxo-column-chooser>
 
-    <dxi-column caption="Action" i18n-caption="@@profile-wallets.Action" cellTemplate="actionCellTemplate" width="93">
+    <dxi-column caption="Action" i18n-caption="@@profile-wallets.Action" cellTemplate="actionCellTemplate" width="139">
       <div *dxTemplate="let d of 'actionCellTemplate'">
-        <dx-button appGridEditButton (onClick)="edit(d.data.id)"></dx-button>
+        <dx-button
+          class="rounded-circle"
+          type="success"
+          stylingMode="text"
+          hint="Add money"
+          i18n-hint="@@profile.wallets.Add-money"
+          (onClick)="addMoney(d.data)"
+          template="addMoneyButtonTemplate">
+          <div *dxTemplate="let data of 'addMoneyButtonTemplate'" class="position-relative">
+            <i class="dx-icon dx-icon-plus position-absolute top-0 start-0"></i>
+            <i class="dx-icon dx-icon-money"></i>
+          </div>
+        </dx-button>
         <dx-button appGridDeleteButton (onClick)="delete(d.data.id)"></dx-button>
       </div>
     </dxi-column>
     <dxi-column dataField="id" caption="ID" i18n-caption="@@profile-wallets.ID"></dxi-column>
     <dxi-column dataField="currency" caption="Currency" i18n-caption="@@profile-wallets.Currency"></dxi-column>
-    <dxi-column dataField="value" dataType="number" caption="Value" i18n-caption="@@profile-wallets.Value"></dxi-column>
+    <dxi-column dataField="value" dataType="number" caption="Value" i18n-caption="@@profile-wallets.Value">
+      <dxo-format type="fixedPoint" [precision]="2"></dxo-format>  
+    </dxi-column>
   </dx-data-grid>
 
   <div class="d-inline-flex d-lg-none sticky-bottom mt-3 w-100">
@@ -48,3 +62,4 @@
 </dx-scroll-view>
 
 <app-profile-wallet-edit #profileWalletEditPopup (onSaved)="onWalletSaved($event)" />
+<app-profile-wallet-add-money #profileWalletAddMoneyPopup (onSaved)="onWalletSaved($event)" />

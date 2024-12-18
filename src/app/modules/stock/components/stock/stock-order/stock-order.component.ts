@@ -10,6 +10,7 @@ import { Wallet } from '../../../../profile/components/profile/profile-wallets/p
 import { ValueChangedEvent } from 'devextreme/ui/number_box';
 import { NotificationsService } from 'angular2-notifications';
 import { ValidationCallbackData } from 'devextreme-angular/common';
+import { defaultWallet } from '../../../../profile/components/profile/profile-wallets/profile-wallet-edit/profile-wallet-edit.config';
 
 @Component({
   selector: 'app-stock-order',
@@ -27,12 +28,7 @@ export class StockOrderComponent {
 
   selectedOrderType: OrderType = defaultOrderType;
   orderSide!: OrderSide;
-  selectedWallet: Wallet = {
-    id: '',
-    currency: '',
-    value: 0,
-    user_id: 0,
-  };
+  selectedWallet: Wallet = defaultWallet;
   selectedCrypto: CryptoInfo = {
     code: '',
     name: '',

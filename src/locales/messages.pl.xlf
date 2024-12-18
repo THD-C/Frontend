@@ -179,7 +179,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.deviceDefinition" datatype="html">
-        <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Device<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/> means any device that can access the Service such as a computer, a cellphone or a digital tablet.</source>
+        <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Device<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> means any device that can access the Service such as a computer, a cellphone or a digital tablet.</source>
         <target> <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Urządzenie<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> oznacza każde urządzenie, które może uzyskać dostęp do Usługi, takie jak komputer, telefon komórkowy lub tablet cyfrowy.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
@@ -187,7 +187,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.personalDataDefinition" datatype="html">
-        <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Personal Data<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/> is any information that relates to an identified or identifiable individual.</source>
+        <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Personal Data<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> is any information that relates to an identified or identifiable individual.</source>
         <target> <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Dane osobowe<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> to wszelkie informacje dotyczące zidentyfikowanej lub możliwej do zidentyfikowania osoby.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
@@ -195,7 +195,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.serviceDefinition" datatype="html">
-        <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Service<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/> refers to the Website.</source>
+        <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Service<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> refers to the Website.</source>
         <target> <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Usługa<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> odnosi się do Strony internetowej.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
@@ -203,7 +203,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.serviceProviderDefinition" datatype="html">
-        <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Service Provider<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/> means any natural or legal person who processes the data on behalf of the Company. It refers to third-party companies or individuals employed by the Company to facilitate the Service, to provide the Service on behalf of the Company, to perform services related to the Service or to assist the Company in analyzing how the Service is used.</source>
+        <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Service Provider<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> means any natural or legal person who processes the data on behalf of the Company. It refers to third-party companies or individuals employed by the Company to facilitate the Service, to provide the Service on behalf of the Company, to perform services related to the Service or to assist the Company in analyzing how the Service is used.</source>
         <target> <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Dostawca Usług<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> oznacza każdą osobę fizyczną lub prawną, która przetwarza dane w imieniu Firmy. Odnosi się to do firm trzecich lub osób zatrudnionych przez Firmę w celu ułatwienia świadczenia Usługi, świadczenia Usługi w imieniu Firmy, wykonywania usług związanych z Usługą lub wspomagania Firmy w analizie, jak Usługa jest wykorzystywana.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
@@ -211,7 +211,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.socialMediaServiceDefinition" datatype="html">
-        <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Third-party Social Media Service<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/> refers to any website or any social network website through which a User can log in or create an account to use the Service.</source>
+        <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Third-party Social Media Service<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> refers to any website or any social network website through which a User can log in or create an account to use the Service.</source>
         <target> <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Usługi mediów społecznościowych stron trzecich<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> odnosi się do każdej strony internetowej lub strony sieci społecznościowej, poprzez którą Użytkownik może zalogować się lub utworzyć konto w celu korzystania z Usługi.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
@@ -219,7 +219,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.usageDataDefinition" datatype="html">
-        <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Usage Data<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/> refers to data collected automatically, either generated by the use of the Service or from the Service infrastructure itself (for example, the duration of a page visit).</source>
+        <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Usage Data<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> refers to data collected automatically, either generated by the use of the Service or from the Service infrastructure itself (for example, the duration of a page visit).</source>
         <target> <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Dane użytkowe<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> oznaczają dane zbierane automatycznie, albo wygenerowane podczas korzystania z Usługi, albo z samej infrastruktury Usługi (na przykład czas trwania wizyty na stronie).</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
@@ -227,7 +227,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.websiteDefinition" datatype="html">
-        <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Website<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/> refers to <x id="INTERPOLATION" equiv-text="{{ appName }}"/>, accessible from <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;http://thdc.tail8ec47f.ts.net/&quot; rel=&quot;external nofollow noopener&quot; target=&quot;_blank&quot;>"/>http://thdc.tail8ec47f.ts.net/<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a>"/></source>
+        <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Website<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> refers to <x id="INTERPOLATION" equiv-text="{{ appName }}"/>, accessible from <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;http://thdc.tail8ec47f.ts.net/&quot; rel=&quot;external nofollow noopener&quot; target=&quot;_blank&quot;>"/>http://thdc.tail8ec47f.ts.net/<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a>"/></source>
         <target> <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Strona internetowa<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> odnosi się do <x id="INTERPOLATION" equiv-text="{{ appName }}"/>, dostępna pod adresem <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;http://thdc.tail8ec47f.ts.net/&quot; rel=&quot;external nofollow noopener&quot; target=&quot;_blank&quot;>"/>http://thdc.tail8ec47f.ts.net/<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a>"/></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
@@ -235,7 +235,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.youDefinition" datatype="html">
-        <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>You<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/> means the individual accessing or using the Service, or the company, or other legal entity on behalf of which such individual is accessing or using the Service, as applicable.</source>
+        <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>You<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> means the individual accessing or using the Service, or the company, or other legal entity on behalf of which such individual is accessing or using the Service, as applicable.</source>
         <target> <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Ty<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> oznacza osobę uzyskującą dostęp lub korzystającą z Usługi, albo firmę, albo inną jednostkę prawną, w imieniu której taka osoba uzyskuje dostęp lub korzysta z Usługi, w zależności od przypadku.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
@@ -1107,7 +1107,7 @@
         <target>Wykonaj zlecenie na rynku</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock/stock-order/stock-order.component.ts</context>
-          <context context-type="linenumber">25</context>
+          <context context-type="linenumber">26</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock-order.Success" datatype="html">
@@ -1115,7 +1115,7 @@
         <target>Sukces</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock/stock-order/stock-order.component.ts</context>
-          <context context-type="linenumber">100</context>
+          <context context-type="linenumber">96</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock-order.Order-created-successfully" datatype="html">
@@ -1123,7 +1123,7 @@
         <target>zlecenie utworzono pomyślnie</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock/stock-order/stock-order.component.ts</context>
-          <context context-type="linenumber">101</context>
+          <context context-type="linenumber">97</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock-order-config.Execute-market-order" datatype="html">
@@ -1698,6 +1698,14 @@
           <context context-type="linenumber">5</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="auth-errors.Could-not-authenticate-with-external-provider-Please-try-again-or-contact-support" datatype="html">
+        <source>Could not authenticate with external provider. Please try again or contact support</source>
+        <target>Nie udało się z uwierzytelnić z zewnętrznym dostawcą usługi. Spróbuj ponownie lub skontaktuj się z naszym supportem</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/auth/auth.errors.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="orders-errors.Operation-failed-Please-try-again" datatype="html">
         <source>Operation failed. Please try again</source>
         <target>Zlecenie nie powiodło się. Spróbuj ponownie</target>
@@ -1711,14 +1719,6 @@
         <target>Usuń</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/directives/grid-delete-button/grid-delete-button.directive.ts</context>
-          <context context-type="linenumber">11</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="Edit" datatype="html">
-        <source>Edit</source>
-        <target>Edytuj</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/directives/grid-edit-button/grid-edit-button.directive.ts</context>
           <context context-type="linenumber">11</context>
         </context-group>
       </trans-unit>
@@ -1759,7 +1759,7 @@
         <target>Nowy portfel</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallet-edit/profile-wallet-edit.component.ts</context>
-          <context context-type="linenumber">15</context>
+          <context context-type="linenumber">16</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-wallet-edit.Edit-wallet" datatype="html">
@@ -1767,7 +1767,7 @@
         <target>Edytuj portfel</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallet-edit/profile-wallet-edit.component.ts</context>
-          <context context-type="linenumber">41</context>
+          <context context-type="linenumber">37</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-wallets.Are-you-sure-you-want-delete-the-wallet" datatype="html">
@@ -1775,7 +1775,7 @@
         <target>Czy na pewno chcesz usunać portfel?</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallets.component.ts</context>
-          <context context-type="linenumber">48</context>
+          <context context-type="linenumber">50</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-wallets.Caution" datatype="html">
@@ -1783,7 +1783,7 @@
         <target>Uwaga!</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallets.component.ts</context>
-          <context context-type="linenumber">49</context>
+          <context context-type="linenumber">51</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-wallets.ID" datatype="html">
@@ -1791,7 +1791,7 @@
         <target>ID</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallets.component.html</context>
-          <context context-type="linenumber">33</context>
+          <context context-type="linenumber">45</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-wallets.Currency" datatype="html">
@@ -1799,7 +1799,7 @@
         <target>Waluta</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallets.component.html</context>
-          <context context-type="linenumber">34</context>
+          <context context-type="linenumber">46</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-wallets.Value" datatype="html">
@@ -1807,7 +1807,7 @@
         <target>Wartość</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallets.component.html</context>
-          <context context-type="linenumber">35</context>
+          <context context-type="linenumber">47</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-wallets.Action" datatype="html">
@@ -1816,6 +1816,14 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallets.component.html</context>
           <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile.wallets.Add-money" datatype="html">
+        <source>Add money</source>
+        <target>Dodaj fundusze</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallets.component.html</context>
+          <context context-type="linenumber">33,34</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-details.Restore" datatype="html">
@@ -1842,12 +1850,16 @@
           <context context-type="linenumber">74</context>
         </context-group>
         <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallet-add-money/profile-wallet-add-money.component.ts</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
+        <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallet-edit/profile-wallet-edit.component.ts</context>
-          <context context-type="linenumber">72</context>
+          <context context-type="linenumber">70</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallets.component.ts</context>
-          <context context-type="linenumber">59</context>
+          <context context-type="linenumber">61</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-details.Profile-updated-successfully" datatype="html">
@@ -1863,7 +1875,7 @@
         <target>Portfel zapisany</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallet-edit/profile-wallet-edit.component.ts</context>
-          <context context-type="linenumber">73</context>
+          <context context-type="linenumber">71</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-wallets.Add" datatype="html">
@@ -1875,7 +1887,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallets.component.html</context>
-          <context context-type="linenumber">43</context>
+          <context context-type="linenumber">57</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-wallets.Wallet-deleted-successfully" datatype="html">
@@ -1883,7 +1895,7 @@
         <target>Portfel usunięty</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallets.component.ts</context>
-          <context context-type="linenumber">60</context>
+          <context context-type="linenumber">62</context>
         </context-group>
       </trans-unit>
       <trans-unit id="login.or" datatype="html">
@@ -1948,6 +1960,54 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-password/profile-password.component.ts</context>
           <context context-type="linenumber">75</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile-wallet-add-money.Amount_min-1_:Amount (min 1)" datatype="html">
+        <source>Amount (min 1)</source>
+        <target>Kwota (min 1</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallet-add-money/profile-wallet-add-money.component.html</context>
+          <context context-type="linenumber">13,16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile-wallet-add-money.Amount-is-required" datatype="html">
+        <source>Amount is required</source>
+        <target>Kwota jest wymagana</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallet-add-money/profile-wallet-add-money.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile-wallet-add-money.Cancel" datatype="html">
+        <source>Cancel</source>
+        <target>Anuluj</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallet-add-money/profile-wallet-add-money.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile-wallet-add-money.Add" datatype="html">
+        <source>Add</source>
+        <target>Dodaj</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallet-add-money/profile-wallet-add-money.component.html</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile-wallet-add-money.Adding-money-to-wallet" datatype="html">
+        <source>Adding money to wallet</source>
+        <target>Dodawanie funduszy to portfela</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallet-add-money/profile-wallet-add-money.component.ts</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile-wallet-add-money.Money-added-successfully" datatype="html">
+        <source>Money added successfully</source>
+        <target>Kwota dodana pomyślnie</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallet-add-money/profile-wallet-add-money.component.ts</context>
+          <context context-type="linenumber">56</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.Password" datatype="html">
