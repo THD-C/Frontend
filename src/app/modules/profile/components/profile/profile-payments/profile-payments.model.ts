@@ -5,8 +5,6 @@ export type MakePaymentRequest = {
 
 export type MakePaymentResponse = {
   session_url: string;
-  success_urls: string[];
-  failure_urls: string[];
   payment_details: Payment;
 }
 
