@@ -3,6 +3,7 @@ import { UpdateWalletRequest, Wallet } from '../profile-wallets.model';
 import { NotificationsService } from 'angular2-notifications';
 import { WalletsService } from '../../../../../../services/wallets/wallets.service';
 import { defaultWallet } from '../profile-wallet-edit/profile-wallet-edit.config';
+import { BaseService } from '../../../../../../services/base/base.service';
 
 @Component({
   selector: 'app-profile-wallet-add-money',
@@ -53,7 +54,8 @@ export class ProfileWalletAddMoneyComponent {
 
       this.notifications.success(
         $localize`:@@notifications.Success:Success`,
-        $localize`:@@profile-wallet-add-money.Money-added-successfully:Money added successfully`
+        $localize`:@@profile-wallet-add-money.Money-added-successfully:Money added successfully`,
+        BaseService.notificationOverride
       );
 
       this.wallet.value = (parseFloat(this.wallet.value) + this.amount).toString();

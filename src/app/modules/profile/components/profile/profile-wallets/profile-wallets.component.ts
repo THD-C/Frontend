@@ -7,6 +7,7 @@ import { Wallet } from './profile-wallets.model';
 import { ProfileWalletEditComponent } from './profile-wallet-edit/profile-wallet-edit.component';
 import { WalletsService } from '../../../../../services/wallets/wallets.service';
 import { ProfileWalletAddMoneyComponent } from './profile-wallet-add-money/profile-wallet-add-money.component';
+import { BaseService } from '../../../../../services/base/base.service';
 
 @Component({
   selector: 'app-profile-wallets',
@@ -59,7 +60,8 @@ export class ProfileWalletsComponent implements AfterViewInit {
       this.wallets = this.wallets.filter(w => w.id !== id.toString());
       this.notifications.success(
         $localize`:@@notifications.Success:Success`,
-        $localize`:@@profile-wallets.Wallet-deleted-successfully:Wallet deleted successfully`
+        $localize`:@@profile-wallets.Wallet-deleted-successfully:Wallet deleted successfully`,
+        BaseService.notificationOverride
       );
     } catch (e) {
     }

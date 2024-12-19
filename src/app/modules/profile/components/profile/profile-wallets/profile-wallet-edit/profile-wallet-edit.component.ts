@@ -4,6 +4,7 @@ import { WalletsService } from '../../../../../../services/wallets/wallets.servi
 import { CreateWalletRequest, UpdateWalletRequest, Wallet } from '../profile-wallets.model';
 import { currencies } from '../profile-wallets.config';
 import { defaultWallet } from './profile-wallet-edit.config';
+import { BaseService } from '../../../../../../services/base/base.service';
 
 @Component({
   selector: 'app-profile-wallet-edit',
@@ -68,7 +69,8 @@ export class ProfileWalletEditComponent {
 
       this.notifications.success(
         $localize`:@@notifications.Success:Success`,
-        $localize`:@@profile-wallet-edit.Wallet-saved-successfully:Wallet saved successfully`
+        $localize`:@@profile-wallet-edit.Wallet-saved-successfully:Wallet saved successfully`,
+        BaseService.notificationOverride
       );
 
       this.onSaved.emit(this.wallet);

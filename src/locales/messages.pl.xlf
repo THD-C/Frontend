@@ -50,6 +50,14 @@
           <context context-type="linenumber">30</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="app.routes.payment.title" datatype="html">
+        <source>Payment status | THD(C)</source>
+        <target>Status płatności | THD(C)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.routes.ts</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="login.Welcome-back" datatype="html">
         <source>Welcome back!</source>
         <target>Witaj ponownie!</target>
@@ -64,6 +72,54 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/login/components/login/login.component.html</context>
           <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="payment-fail.Payment-completed-successfully" datatype="html">
+        <source>Payment <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;fw-bold text-danger text-decoration-underline&quot;>"/>failed<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/> :(</source>
+        <target>Płatność <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;fw-bold text-danger text-decoration-underline&quot;>"/>nie powiodła się<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/> :(</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/payment/components/payment-fail/payment-fail.component.html</context>
+          <context context-type="linenumber">6,7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="payment-fail.Please-try-again-later" datatype="html">
+        <source>Please try again later</source>
+        <target>Proszę spróbować później</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/payment/components/payment-fail/payment-fail.component.html</context>
+          <context context-type="linenumber">7,9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="payment-fail.Check-stock" datatype="html">
+        <source>Check stock</source>
+        <target>Przejdź do giełdy</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/payment/components/payment-fail/payment-fail.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="payment-success.Payment-completed-successfully" datatype="html">
+        <source>Payment completed <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;fw-bold text-success text-decoration-underline&quot;>"/>successfully<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/>!</source>
+        <target>Płatność zakończona <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;fw-bold text-success text-decoration-underline&quot;>"/>pomyślnie<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/>!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/payment/components/payment-success/payment-success.component.html</context>
+          <context context-type="linenumber">6,7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="payment-success.Thank-you-3" datatype="html">
+        <source>Thank <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary fw-bold&quot;>"/>you<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/> &lt;3</source>
+        <target>Dziękuję <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary fw-bold&quot;>"/>Tobie<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/> &lt;3</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/payment/components/payment-success/payment-success.component.html</context>
+          <context context-type="linenumber">7,9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="payment-success.Check-stock" datatype="html">
+        <source>Check stock</source>
+        <target>Sprawdź dostępność</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/payment/components/payment-success/payment-success.component.html</context>
+          <context context-type="linenumber">9</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.privacyPolicyTitle" datatype="html">
@@ -1107,7 +1163,7 @@
         <target>Wykonaj zlecenie na rynku</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock/stock-order/stock-order.component.ts</context>
-          <context context-type="linenumber">26</context>
+          <context context-type="linenumber">27</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock-order.Success" datatype="html">
@@ -1115,7 +1171,7 @@
         <target>Sukces</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock/stock-order/stock-order.component.ts</context>
-          <context context-type="linenumber">96</context>
+          <context context-type="linenumber">97</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock-order.Order-created-successfully" datatype="html">
@@ -1123,7 +1179,7 @@
         <target>zlecenie utworzono pomyślnie</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock/stock-order/stock-order.component.ts</context>
-          <context context-type="linenumber">97</context>
+          <context context-type="linenumber">98</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock-order-config.Execute-market-order" datatype="html">
@@ -1655,7 +1711,7 @@
         <target>Błąd</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-details/profile-details.component.ts</context>
-          <context context-type="linenumber">57</context>
+          <context context-type="linenumber">58</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-details.Can-not-update-profile-details-Missing-data-Check-the-form-and-try-again" datatype="html">
@@ -1663,7 +1719,7 @@
         <target>Nie można zaktualizować danych profilu. Niektóre pola są niepoprawne uzupełnione. Sprawdź formularz i spróbuj ponownie</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-details/profile-details.component.ts</context>
-          <context context-type="linenumber">58</context>
+          <context context-type="linenumber">59</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.Details" datatype="html">
@@ -1714,6 +1770,22 @@
           <context context-type="linenumber">4</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="payments-errors.Currency-not-supported" datatype="html">
+        <source>Currency not supported</source>
+        <target>Waluta nieobsługiwana</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/payments/payments.errors.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="payments-errors.Invalid-nominal" datatype="html">
+        <source>Invalid-nominal</source>
+        <target>Nieprawidłowy nominal</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/payments/payments.errors.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="Delete" datatype="html">
         <source>Delete</source>
         <target>Usuń</target>
@@ -1759,7 +1831,7 @@
         <target>Nowy portfel</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallet-edit/profile-wallet-edit.component.ts</context>
-          <context context-type="linenumber">16</context>
+          <context context-type="linenumber">17</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-wallet-edit.Edit-wallet" datatype="html">
@@ -1767,7 +1839,7 @@
         <target>Edytuj portfel</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallet-edit/profile-wallet-edit.component.ts</context>
-          <context context-type="linenumber">37</context>
+          <context context-type="linenumber">38</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-wallets.Are-you-sure-you-want-delete-the-wallet" datatype="html">
@@ -1775,7 +1847,7 @@
         <target>Czy na pewno chcesz usunać portfel?</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallets.component.ts</context>
-          <context context-type="linenumber">50</context>
+          <context context-type="linenumber">51</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-wallets.Caution" datatype="html">
@@ -1783,7 +1855,7 @@
         <target>Uwaga!</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallets.component.ts</context>
-          <context context-type="linenumber">51</context>
+          <context context-type="linenumber">52</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-wallets.ID" datatype="html">
@@ -1843,23 +1915,27 @@
         <target>Sukces</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-details/profile-details.component.ts</context>
-          <context context-type="linenumber">67</context>
+          <context context-type="linenumber">69</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-password/profile-password.component.ts</context>
-          <context context-type="linenumber">74</context>
+          <context context-type="linenumber">76</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-payments/profile-payments.component.ts</context>
+          <context context-type="linenumber">52</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallet-add-money/profile-wallet-add-money.component.ts</context>
-          <context context-type="linenumber">55</context>
+          <context context-type="linenumber">56</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallet-edit/profile-wallet-edit.component.ts</context>
-          <context context-type="linenumber">70</context>
+          <context context-type="linenumber">71</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallets.component.ts</context>
-          <context context-type="linenumber">61</context>
+          <context context-type="linenumber">62</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-details.Profile-updated-successfully" datatype="html">
@@ -1867,7 +1943,7 @@
         <target>Dane profilu zapisane pomyślnie</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-details/profile-details.component.ts</context>
-          <context context-type="linenumber">68</context>
+          <context context-type="linenumber">70</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-wallet-edit.Wallet-saved-successfully" datatype="html">
@@ -1875,7 +1951,7 @@
         <target>Portfel zapisany</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallet-edit/profile-wallet-edit.component.ts</context>
-          <context context-type="linenumber">71</context>
+          <context context-type="linenumber">72</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-wallets.Add" datatype="html">
@@ -1895,7 +1971,7 @@
         <target>Portfel usunięty</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallets.component.ts</context>
-          <context context-type="linenumber">62</context>
+          <context context-type="linenumber">63</context>
         </context-group>
       </trans-unit>
       <trans-unit id="login.or" datatype="html">
@@ -1943,7 +2019,7 @@
         <target>Błąd</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-password/profile-password.component.ts</context>
-          <context context-type="linenumber">64</context>
+          <context context-type="linenumber">65</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-password.Can-not-change-password-Missing-data-Check-the-form-and-try-again" datatype="html">
@@ -1951,7 +2027,7 @@
         <target>Nie można zmienić hasła. Brakuje danych. Uzupełnij formularz i spróbuj ponownie</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-password/profile-password.component.ts</context>
-          <context context-type="linenumber">65</context>
+          <context context-type="linenumber">66</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-password.Password-changed-successfully" datatype="html">
@@ -1959,7 +2035,79 @@
         <target>Hasło zmienione pomyślnie</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-password/profile-password.component.ts</context>
-          <context context-type="linenumber">75</context>
+          <context context-type="linenumber">77</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile-payments.Action" datatype="html">
+        <source>Action</source>
+        <target>Akcja</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-payments/profile-payments.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile-payments.Cancel" datatype="html">
+        <source>Cancel</source>
+        <target>Anuluj</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-payments/profile-payments.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile-payments.ID" datatype="html">
+        <source>ID</source>
+        <target>ID</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-payments/profile-payments.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile-payments.Currency" datatype="html">
+        <source>Currency</source>
+        <target>Waluta</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-payments/profile-payments.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile-payments.Nominal" datatype="html">
+        <source>Nominal</source>
+        <target>Nominał</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-payments/profile-payments.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile-payments.State" datatype="html">
+        <source>State</source>
+        <target>Stan</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-payments/profile-payments.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile-payments.Are-you-sure-you-want-cancel-the-payment" datatype="html">
+        <source>Are you sure you want cancel the payment?</source>
+        <target>Czy na pewno chcesz anulować płatność?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-payments/profile-payments.component.ts</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile-payments.Caution" datatype="html">
+        <source>Caution!</source>
+        <target>Uwaga!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-payments/profile-payments.component.ts</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile-payments.Payment-canceled-successfully" datatype="html">
+        <source>Payment canceled successfully</source>
+        <target>Płatność anulowana pomyślnie</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-payments/profile-payments.component.ts</context>
+          <context context-type="linenumber">53</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-wallet-add-money.Amount_min-1_:Amount (min 1)" datatype="html">
@@ -1968,14 +2116,6 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallet-add-money/profile-wallet-add-money.component.html</context>
           <context context-type="linenumber">13,16</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="profile-wallet-add-money.Amount-is-required" datatype="html">
-        <source>Amount is required</source>
-        <target>Kwota jest wymagana</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallet-add-money/profile-wallet-add-money.component.html</context>
-          <context context-type="linenumber">23</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-wallet-add-money.Cancel" datatype="html">
@@ -1999,7 +2139,7 @@
         <target>Dodawanie funduszy to portfela</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallet-add-money/profile-wallet-add-money.component.ts</context>
-          <context context-type="linenumber">39</context>
+          <context context-type="linenumber">40</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-wallet-add-money.Money-added-successfully" datatype="html">
@@ -2007,7 +2147,7 @@
         <target>Kwota dodana pomyślnie</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallet-add-money/profile-wallet-add-money.component.ts</context>
-          <context context-type="linenumber">56</context>
+          <context context-type="linenumber">57</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.Password" datatype="html">
@@ -2016,6 +2156,14 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile.config.ts</context>
           <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile.Payments" datatype="html">
+        <source>Payments</source>
+        <target>Płatności</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile.config.ts</context>
+          <context context-type="linenumber">18</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users-errors.Invalid-old-password" datatype="html">
@@ -2032,6 +2180,78 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/services/wallets/wallets.errors.ts</context>
           <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="donate.Support-us" datatype="html">
+        <source>Support us</source>
+        <target>Wesprzyj nas</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/donate/donate.component.html</context>
+          <context context-type="linenumber">5,7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="donate.Donate" datatype="html">
+        <source>Donate</source>
+        <target>Darowizna</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/donate/donate.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/donate/donate.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/donate/donate.component.html</context>
+          <context context-type="linenumber">75</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="donate.Support-us-via-donate" datatype="html">
+        <source>Support us via donate</source>
+        <target>Wesprzyj nas poprzez darowiznę</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/donate/donate.component.html</context>
+          <context context-type="linenumber">25,26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="donate.Currency" datatype="html">
+        <source>Currency</source>
+        <target>Waluta</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/donate/donate.component.html</context>
+          <context context-type="linenumber">41,42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="donate.Nominal_min-1_:Nominal (min 1)" datatype="html">
+        <source>Nominal (min 1)</source>
+        <target>Nominał (min 1)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/donate/donate.component.html</context>
+          <context context-type="linenumber">54,56</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="donate.Cancel" datatype="html">
+        <source>Cancel</source>
+        <target>Anuluj</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/donate/donate.component.html</context>
+          <context context-type="linenumber">72</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="donate.Info" datatype="html">
+        <source>Info</source>
+        <target>Info</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/donate/donate.component.ts</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="donate.In-order-to-donate-log-in-first" datatype="html">
+        <source>In order to donate log in first</source>
+        <target>Aby przekazać darowiznę, najpierw zaloguj się</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/donate/donate.component.ts</context>
+          <context context-type="linenumber">53</context>
         </context-group>
       </trans-unit>
       <trans-unit id="header.Home" datatype="html">
