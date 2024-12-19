@@ -7,11 +7,13 @@ import { StockOrderComponent } from './stock-order/stock-order.component';
 import { OrderSide, OrderType } from './stock-order/stock-order.model';
 import { AuthService } from '../../../../services/auth/auth.service';
 import { RouterExtendedService } from '../../../../services/router-extended/router-extended.service';
+import { DecimalPipe } from '@angular/common';
 
 @Component({
   selector: 'app-stock',
   templateUrl: './stock.component.html',
-  styleUrl: './stock.component.scss'
+  styleUrl: './stock.component.scss',
+  providers: [DecimalPipe],
 })
 export class StockComponent {
   
@@ -23,26 +25,31 @@ export class StockComponent {
   protected readonly appName = appName;
   protected readonly cryptosInfo = cryptosInfo;
 
+  get title(): string {
+    const { name, current_value } = this.displayCrypto;
+    return `${name} ${this.decimalPipe.transform(current_value, '1.2-2')} ${this.displayCurrency.code}`;
+  }
+
   stockOrderPopup = viewChild.required<StockOrderComponent>('stockOrderPopup');
 
   displayCurrency: Currency = defaultCurrency;
   displayCrypto: CryptoInfo = defaultDisplayCrypto;
-  incomeValue: number = 356.21;
-  get incomeValueSign(): string {
-    if (this.incomeValue > 0) {
-      return '+';
-    }
-
-    return '';
-  }
   stockPrices: StockPrice[] = stockPrices;
 
   selectedTimeFrameIndex: number = defaultTimeFrameIndex;
   timeFrames: TimeFrame[] = timeFrames;
 
+  cryptoOrdersTotal: number = 55_352.98;
+  currentProfit: number = 235.32;
+
+  get currentProfitInPercentage(): number {
+    return (this.cryptoOrdersTotal + this.currentProfit) / this.cryptoOrdersTotal;
+  }
+
   constructor(
     private readonly authService: AuthService,
     private readonly router: RouterExtendedService,
+    private readonly decimalPipe: DecimalPipe,
   ) { }
 
   customizeTooltip(arg: any) {

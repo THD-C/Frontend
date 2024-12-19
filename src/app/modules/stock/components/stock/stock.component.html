@@ -4,7 +4,7 @@
   <div class="bg-white rounded shadow p-4 custom-col-10 col-lg-10 col-12 d-flex flex-column align-items-center justify-content-center">
     <dx-chart
       class="custom-dx-chart"
-      [title]="displayCrypto.name"
+      [title]="title"
       [dataSource]="stockPrices"
       [adjustOnZoom]="true">
       <dxi-series
@@ -50,10 +50,11 @@
   
   <div class="bg-white rounded shadow p-4 col-lg-2 col-12 p-0">
     <div class="row gy-4 gx-0">
-      <h5 class="col-12 text-center" i18n="@@stock.Portfolio-value">Portfolio value:</h5>
-      <h6 class="col-12 mt-0 text-center">{{ 100_143.55 | number:'1.2-2' }}&nbsp;{{ displayCurrency.code }}</h6>
-      <h5 class="col-12 text-center" i18n="@@stock.Income">Income:</h5>
-      <h6 class="col-12 mt-0 text-center" [class.text-danger]="incomeValue < 0" [class.text-success]="incomeValue > 0">{{ incomeValueSign }}{{ incomeValue | number:'1.2-2' }}&nbsp;{{ displayCurrency.code }}</h6>
+      <h4 class="col-12 text-center mt-5 mb-3">{{ cryptoOrdersTotal | number:'1.2-2' }}&nbsp;{{ displayCurrency.code }}</h4>
+      <span class="col-12 text-center mt-0" [class.text-danger]="currentProfit < 0" [class.text-success]="currentProfit > 0">
+        {{ currentProfit | number:'1.2-2' }}&nbsp;<i class="dx-icon custom-dx-icon-arrow" [class.dx-icon-arrowup]="currentProfit > 0" [class.dx-icon-arrowdown]="currentProfit < 0"></i>{{ currentProfitInPercentage | number:'1.2-2' }}%
+      </span>
+      
       <dx-select-box
         class="col-12"
         [dataSource]="currencies"
@@ -70,9 +71,9 @@
         [dataSource]="cryptosInfo"
         [value]="displayCrypto.code"
         [(selectedItem)]="displayCrypto"
-        label="Analyze crypto"
+        label="Analyse crypto"
         labelMode="floating"
-        i18n-label="@@stock.Analyze-crypto:Analyze crypto"
+        i18n-label="@@stock.Analyse-crypto:Analyse crypto"
         valueExpr="code"
         displayExpr="name">
       </dx-select-box>

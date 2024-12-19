@@ -1,13 +1,15 @@
 export enum OrderSide {
-  Unknown = 0,
+  Undefined = 0,
   Buy = 1,
   Sell = 2,
 }
 
 export enum OrderType {
-  Instant = 1,
-  LimitOrder = 2,
-  StopOrder = 3,
+  Undefined = 0,
+  TakeProfit = 1,
+  StopLoss = 2,
+  Instant = 3,
+  Pending = 4,
 }
 
 export type OrderTypeDetail = {
@@ -15,24 +17,6 @@ export type OrderTypeDetail = {
   type: OrderType;
   hint: string;
 }
-
-export const buyingOrderAvailableTypes: OrderTypeDetail[] = [
-  {
-    text: $localize`:@@stock.model.Instant:Instant`,
-    type: OrderType.Instant,
-    hint: $localize`:@@stock.model.Buy-at-the-current-market-price:Buy at the current market price`,
-  },
-  {
-    text: $localize`:@@stock.model.Limit-order:Limit order`,
-    type: OrderType.LimitOrder,
-    hint: $localize`:@@stock.model.Buy-if-it-falls-to-a-lower-price:Buy if it falls to a lower price`,
-  },
-  {
-    text: $localize`:@@stock.model.Stop-order:Stop order`,
-    type: OrderType.StopOrder,
-    hint: $localize`:@@stock.model.Buy-if-it-rises-to-higher-price:Buy if it rises to higher price`,
-  },
-];
 
 export type OrderDetails = {
   /**
@@ -56,7 +40,7 @@ export type OrderDetails = {
   side: OrderSide;
 }
 
-export type PlaceOrderRequest = {
+export type ConfirmOrderRequest = {
   /**
    * Which currency is used i.e. BUY sth with USD, SELL BTC
    */
@@ -75,20 +59,30 @@ export type PlaceOrderRequest = {
      */
     price: string;
     type: string;
+
+    /**
+     * Based on {@link OrderSide} and {@link orderSideStringMap}
+     */
     side: string;
 };
 
-// TODO: change to this implementation when will be fixed on back-end
-// export const orderTypeStringMap: Map<OrderType, string> = new Map([
-//   [OrderType.Instant, 'ORDER_TYPE_INSTANT'],
-//   [OrderType.StopOrder, 'ORDER_TYPE_STOP_ORDER'],
-//   [OrderType.LimitOrder, 'ORDER_TYPE_LIMIT_ORDER'],
-// ]);
-
 export const orderTypeStringMap: Map<OrderType, string> = new Map([
+  /**
+   * Used on buy and sell
+   */
   [OrderType.Instant, 'ORDER_TYPE_INSTANT'],
-  [OrderType.StopOrder, 'ORDER_TYPE_STOP_LOSS'],
-  [OrderType.LimitOrder, 'ORDER_TYPE_TAKE_PROFIT'],
+  /**
+   * Used only in sell
+   */
+  [OrderType.StopLoss, 'ORDER_TYPE_STOP_LOSS'],
+  /**
+   * Used only in sell
+   */
+  [OrderType.TakeProfit, 'ORDER_TYPE_TAKE_PROFIT'],
+  /**
+   * Used only in buy
+   */
+  [OrderType.Pending, 'ORDER_TYPE_PENDING'],
 ]);
 
 export const buyOrderAvailableTypes: OrderTypeDetail[] = [
@@ -98,14 +92,9 @@ export const buyOrderAvailableTypes: OrderTypeDetail[] = [
     hint: $localize`:@@stock.model.Buy-at-the-current-market-price:Buy at the current market price`,
   },
   {
-    text: $localize`:@@stock.model.Limit-order:Limit order`,
-    type: OrderType.LimitOrder,
-    hint: $localize`:@@stock.model.Buy-if-it-falls-to-a-lower-price:Buy if it falls to a lower price`,
-  },
-  {
-    text: $localize`:@@stock.model.Stop-order:Stop order`,
-    type: OrderType.StopOrder,
-    hint: $localize`:@@stock.model.Buy-if-it-rises-to-higher-price:Buy if it rises to higher price`,
+    text: $localize`:@@stock.model.Pending:Pending`,
+    type: OrderType.StopLoss,
+    hint: $localize`:@@stock.model.Buy-if-it-rises-or-falls-to-specific-price:Buy if it rises or falls to specific price`,
   },
 ];
 
@@ -116,14 +105,14 @@ export const sellOrderAvailableTypes: OrderTypeDetail[] = [
     hint: $localize`:@@stock.model.Sell-at-the-current-market-price:Sell at the current market price`,
   },
   {
-    text: $localize`:@@stock.model.Limit-order:Limit order`,
-    type: OrderType.LimitOrder,
+    text: $localize`:@@stock.model.Take-profit:Take profit`,
+    type: OrderType.TakeProfit,
     hint: $localize`:@@stock.model.Sell-if-it-rises-to-higher-price:Sell if it rises to higher price`,
   },
   {
-    text: $localize`:@@stock.model.Stop-order:Stop order`,
-    type: OrderType.StopOrder,
-    hint: $localize`:@@stock.model.Sell-if-it-falls-to-a-lower-price:Sell if it falls to a lower price`,
+    text: $localize`:@@stock.model.Stop-loss:Stop loss`,
+    type: OrderType.StopLoss,
+    hint: $localize`:@@stock.model.Sell-if-it-falls-to-lower-price:Sell if it falls to lower price`,
   },
 ];
 
@@ -133,8 +122,8 @@ export const orderAvailableTypes: Map<OrderSide, OrderTypeDetail[]> = new Map([
 ]);
 
 export const orderSideTitles: Map<OrderSide, string> = new Map([
-  [OrderSide.Buy, $localize`:@@stock-order-config.Buy-crypto:Buy crypto`],
-  [OrderSide.Sell, $localize`:@@stock-order-config.Sell-crypto:Sell crypto`],
+  [OrderSide.Buy, $localize`:@@stock-order-config.Buy-order:Buy order`],
+  [OrderSide.Sell, $localize`:@@stock-order-config.Sell-order:Sell order`],
 ]);
 
 export const orderSideStringMap: Map<OrderSide, string> = new Map([

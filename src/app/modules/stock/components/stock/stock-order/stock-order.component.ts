@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { OrderSide, orderSideStringMap, OrderType, OrderTypeDetail, orderTypeStringMap } from './stock-order.model';
 import { currencies, Currency } from '../../../../profile/components/profile/profile-wallets/profile-wallets.config';
 import { CryptoInfo, cryptosInfo as tempCryptosInfo } from '../stock.model';
-import { defaultOrderType, getOrderAvailableTypes, getOrderButtonTypeType, getPopupTitle } from './stock-order.config';
+import { getOrderAvailableTypes, getOrderButtonTypeType, getPopupTitle } from './stock-order.config';
 import { defaultCurrency } from '../../../../../app.config';
 import { OrdersService } from '../../../../../services/orders/orders.service';
 import { WalletsService } from '../../../../../services/wallets/wallets.service';
@@ -23,21 +23,33 @@ export class StockOrderComponent {
   protected readonly currencies = currencies;
   protected readonly cryptosInfo = tempCryptosInfo;
   protected readonly OrderSide = OrderSide;
+  protected readonly OrderType = OrderType;
+
+  get confirmOrderButtonDisabled(): boolean {
+    return this.amount > parseFloat(this.selectedWallet?.value) || !this.amount;
+  }
+
+  get currentProfitInPercentage(): number {
+    return this.cryptoOrdersTotal + this.currentProfit / this.cryptoOrdersTotal;
+  }
 
   title: string = $localize`:@@Execute-market-order:Execute market order`;
   visible: boolean = false;
 
-  selectedOrderType: OrderType = defaultOrderType;
   orderSide!: OrderSide;
+  orderType: OrderType = OrderType.Instant;
   selectedWallet: Wallet = defaultWallet;
   selectedCrypto: CryptoInfo = {
     code: '',
     name: '',
     value: '',
+    current_value: 0,
   };
   amount: number = 0;
   nominal: number = 0;
   price: number = 1;
+  cryptoOrdersTotal: number = 55_352.98;
+  currentProfit: number = 235.32;
   wallets: Wallet[] = [];
 
   orderAvailableTypes: OrderTypeDetail[] = [];
@@ -49,10 +61,6 @@ export class StockOrderComponent {
   ) {}
 
   getOrderButtonTypeType = getOrderButtonTypeType;
-  
-  selectOrderType(value: OrderType): void {
-    this.selectedOrderType = value;
-  }
 
   open(
     orderSide: OrderSide,
@@ -78,18 +86,32 @@ export class StockOrderComponent {
   }
 
   resetProperties(): void {
-    this.selectedOrderType = defaultOrderType;
+    this.selectedWallet = defaultWallet;
+    this.selectedCrypto = {
+      code: '',
+      name: '',
+      value: '',
+      current_value: 0,
+    };
+    this.amount = 0;
+    this.nominal = 0;
+    this.price = 1;
+    this.wallets = [];
   }
 
-  async placeOrder(): Promise<void> {
+  async confirmOrder(): Promise<void> {
+    if (parseFloat(this.selectedWallet.value) < this.selectedCrypto.current_value) {
+      return;
+    }
+
     try {
-      await this.ordersService.placeOrder({
+      await this.ordersService.confirmOrder({
         currency_used_wallet_id: this.selectedWallet.id,
         currency_target: this.selectedCrypto.code,
         nominal: this.nominal.toString(),
         cash_quantity: '0', // ???
         price: this.price.toString(),
-        type: orderTypeStringMap.get(this.selectedOrderType) ?? '',
+        type: orderTypeStringMap.get(this.orderType) ?? '',
         side: orderSideStringMap.get(this.orderSide) ?? '',
       });
 
@@ -98,6 +120,8 @@ export class StockOrderComponent {
         $localize`:@@stock-order.Order-created-successfully:Order created successfully`,
         BaseService.notificationOverride
       );
+
+      this.close();
     } catch(e) {
     }
   }
@@ -111,7 +135,7 @@ export class StockOrderComponent {
   }
 
   amountValidationCallback(callbackData: ValidationCallbackData): boolean {
-    if (callbackData.value > this.selectedWallet.value) {
+    if (callbackData.value > this.selectedWallet?.value) {
       return false;
     }
 

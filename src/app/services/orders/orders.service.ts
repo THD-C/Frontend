@@ -5,7 +5,7 @@ import { catchError, firstValueFrom } from 'rxjs';
 import { BaseService } from '../base/base.service';
 import { errors } from './orders.errors';
 import { environment } from '../../../environments/environment';
-import { PlaceOrderRequest } from '../../modules/stock/components/stock/stock-order/stock-order.model';
+import { ConfirmOrderRequest } from '../../modules/stock/components/stock/stock-order/stock-order.model';
 
 @Injectable({
   providedIn: 'root'
@@ -26,13 +26,13 @@ export class OrdersService extends BaseService {
   }
 
   /**
-   * Makes a request call to the API for placing an order.
-   * @param placeOrderRequest {@link PlaceOrderRequest}.
+   * Makes a request call to the API for confirming an order.
+   * @param confirmOrderRequest {@link ConfirmOrderRequest}.
    */
-  async placeOrder(placeOrderRequest: PlaceOrderRequest): Promise<void> {
+  async confirmOrder(confirmOrderRequest: ConfirmOrderRequest): Promise<void> {
     const request = this.httpClient.post<void>(
       `${environment.apiUrl}/${this.baseOrdersPath}/`,
-      { ...placeOrderRequest }
+      { ...confirmOrderRequest }
     ).pipe(catchError(this.catchCustomError.bind(this)));
 
     await firstValueFrom(request);

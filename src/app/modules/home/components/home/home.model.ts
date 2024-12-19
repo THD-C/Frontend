@@ -141,10 +141,10 @@ export const stockPrices: StockPrice[] = [{
 }];
 
 export const cryptosInfo: CryptoInfo[] = [
-  { code: 'BTC', name: 'Bitcoin (BTC)', value: 'btc' },
-  { code: 'ETH', name: 'Ethereum (ETH)', value: 'eth' },
-  { code: 'DOGE', name: 'DogeCoin (DOGE)', value: 'doge' },
-]
+  { code: 'BTC', name: 'Bitcoin (BTC)', value: 'btc', current_value: 104_253.61 },
+  { code: 'ETH', name: 'Ethereum (ETH)', value: 'eth', current_value: 3_921.44 },
+  { code: 'DOGE', name: 'DogeCoin (DOGE)', value: 'doge', current_value: 31.56 },
+];
 
 export const cryptoStockPrices: CryptoStockPrice[] = [
   { btc: 46000, eth: 3200, doge: 0.080, date: new Date('2024-02-01') },
