@@ -111,8 +111,6 @@ export class StockComponent {
       const orders = await this.ordersService.get({ wallet_id: cryptoWallet?.id } satisfies GetOrdersRequest);
       this.currentCryptoOrders = orders.filter(({ cryptoWalletId }) => cryptoWalletId === cryptoWallet?.id)
         .sort((a, b) => a.dateCreated < b.dateCreated ? 1 : -1);
-
-        this.currentCryptoOrders[0].status = 'ORDER_STATUS_COMPLETED';
     } catch(e) {
     }
   }
