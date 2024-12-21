@@ -42,6 +42,18 @@ export const stockPrices: StockPrice[] = [{
   o: 26.875,
   c: 27.25,
 }, {
+  date: new Date(2024, 1, 5),
+  l: 23.50,
+  h: 24.658,
+  o: 23.875,
+  c: 23.95,
+}, {
+  date: new Date(2024, 1, 6),
+  l: 24.50,
+  h: 25.833,
+  o: 24.875,
+  c: 25.25,
+}, {
   date: new Date(2024, 1, 7),
   l: 26.375,
   h: 27.50,
@@ -71,6 +83,18 @@ export const stockPrices: StockPrice[] = [{
   h: 26.125,
   o: 26.00,
   c: 25.375,
+}, {
+  date: new Date(2024, 1, 12),
+  l: 23.1,
+  h: 25.355,
+  o: 23.13,
+  c: 24.25,
+}, {
+  date: new Date(2024, 1, 13),
+  l: 26.50,
+  h: 28.875,
+  o: 26.875,
+  c: 25.25,
 }, {
   date: new Date(2024, 1, 14),
   l: 25.125,
@@ -102,6 +126,18 @@ export const stockPrices: StockPrice[] = [{
   o: 27.00,
   c: 27.125,
 }, {
+  date: new Date(2024, 1, 19),
+  l: 23.44,
+  h: 28.875,
+  o: 26.875,
+  c: 27.39,
+}, {
+  date: new Date(2024, 1, 20),
+  l: 22.50,
+  h: 23.875,
+  o: 23.875,
+  c: 23.25,
+}, {
   date: new Date(2024, 1, 21),
   l: 26.75,
   h: 27.875,
@@ -131,6 +167,18 @@ export const stockPrices: StockPrice[] = [{
   h: 28.75,
   o: 27.75,
   c: 28.00,
+}, {
+  date: new Date(2024, 1, 26),
+  l: 26.50,
+  h: 22.875,
+  o: 23.875,
+  c: 21.25,
+}, {
+  date: new Date(2024, 1, 27),
+  l: 25.50,
+  h: 25.875,
+  o: 25.875,
+  c: 25.25,
 }, {
   date: new Date(2024, 1, 28),
   l: 25.75,

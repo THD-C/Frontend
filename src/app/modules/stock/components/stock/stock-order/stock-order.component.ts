@@ -25,8 +25,12 @@ export class StockOrderComponent {
   protected readonly OrderSide = OrderSide;
   protected readonly OrderType = OrderType;
 
+  get amountExceeded(): boolean {
+    return this.amount > parseFloat(this.selectedWallet?.value);
+  }
+
   get confirmOrderButtonDisabled(): boolean {
-    return this.amount > parseFloat(this.selectedWallet?.value) || !this.amount;
+    return this.amountExceeded || !this.amount;
   }
 
   get currentProfitInPercentage(): number {
@@ -62,16 +66,14 @@ export class StockOrderComponent {
 
   getOrderButtonTypeType = getOrderButtonTypeType;
 
-  open(
+  async open(
     orderSide: OrderSide,
     crypto: CryptoInfo,
     price: number,
     currency: Currency = defaultCurrency,
-  ): void {
-    this.walletsService.get().then(wallets => {
-      this.wallets = wallets;
-      this.selectedWallet = wallets.find(w => w.currency === currency.code) ?? wallets[0];
-    });
+  ): Promise<void> {
+    this.wallets = await this.walletsService.get();
+    this.selectedWallet = this.wallets.find(w => w.currency === currency.code) ?? this.wallets[0];
     this.orderSide = orderSide;
     this.orderAvailableTypes = getOrderAvailableTypes(orderSide);
     this.title = getPopupTitle(orderSide);
@@ -100,7 +102,13 @@ export class StockOrderComponent {
   }
 
   async confirmOrder(): Promise<void> {
-    if (parseFloat(this.selectedWallet.value) < this.selectedCrypto.current_value) {
+    if (this.amountExceeded) {
+      this.notifications.error(
+        $localize`:@@stock-order.Error:Error`,
+        $localize`:@@stock-order.Amount-exceeded-Not-enough-funds-in-the wallet:Amount exceeded. Not enough funds in the wallet`,
+        BaseService.notificationOverride,
+      );
+
       return;
     }
 
@@ -109,7 +117,7 @@ export class StockOrderComponent {
         currency_used_wallet_id: this.selectedWallet.id,
         currency_target: this.selectedCrypto.code,
         nominal: this.nominal.toString(),
-        cash_quantity: '0', // ???
+        cash_quantity: this.amount.toString(),
         price: this.price.toString(),
         type: orderTypeStringMap.get(this.orderType) ?? '',
         side: orderSideStringMap.get(this.orderSide) ?? '',
@@ -126,10 +134,18 @@ export class StockOrderComponent {
     }
   }
 
+  /**
+   * Recalculates {@link nominal} based on proviced price in on the stock
+   * @param event Event's data {@link ValueChangedEvent}
+   */
   onAmountChanged(event: ValueChangedEvent): void {
     this.nominal = event.value / this.price;
   }
 
+  /**
+   * Recalculates {@link amount} based on proviced price in on the stock
+   * @param event Event's data {@link ValueChangedEvent}
+   */
   onNominalChanged(event: ValueChangedEvent): void {
     this.amount = this.price * event.value;
   }

@@ -71,6 +71,7 @@
         [dataSource]="cryptosInfo"
         [value]="displayCrypto.code"
         [(selectedItem)]="displayCrypto"
+        (onSelectionChanged)="onDisplayCryptoSelectionChanged($event)"
         label="Analyse crypto"
         labelMode="floating"
         i18n-label="@@stock.Analyse-crypto:Analyse crypto"
@@ -78,10 +79,10 @@
         displayExpr="name">
       </dx-select-box>
       
-      <div class="col-6 p-0 ps-lg-0 p-lg-2">
+      <div class="col-6 p-0 ps-lg-0 p-lg-2 sticky-bottom">
         <dx-button class="w-100" type="danger" text="Sell" i18n-text="@@stock.Sell" (onClick)="openStockOrderPopup(OrderSide.Sell)"></dx-button>
       </div>
-      <div class="col-6 p-0 pe-lg-0 p-lg-2">
+      <div class="col-6 p-0 pe-lg-0 p-lg-2 sticky-bottom">
         <dx-button class="w-100" type="success" text="Buy" i18n-text="@@stock.Buy" (onClick)="openStockOrderPopup(OrderSide.Buy)"></dx-button>
       </div>
     </div>

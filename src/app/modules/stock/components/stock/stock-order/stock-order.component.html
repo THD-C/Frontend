@@ -8,8 +8,8 @@
   contentTemplate="contentTemplatePopup">
   <div *dxTemplate="let d of 'contentTemplatePopup'" class="w-100 h-100">
     <div class="row g-4 gx-0">
-      <h5 class="col-12 text-center" i18n="@@stock-order.Current-price">Current price: {{ price | number:'1.2-2' }}&nbsp;{{ selectedWallet?.currency }}</h5>
-      <h6 class="col-12 text-center mt-0" i18n="@@stock-order.Free-wallet-funds">Free wallet funds: {{ selectedWallet?.value | number:'1.2-2' }} {{ selectedWallet?.currency }}</h6>
+      <h5 class="col-12 text-center" i18n="@@stock-order.Current-price">Current price: {{ price | number:'1.2-2' }}&nbsp;{{ selectedWallet.currency }}</h5>
+      <h6 class="col-12 text-center mt-0" i18n="@@stock-order.Free-wallet-funds">Free wallet funds: {{ selectedWallet.value | number:'1.2-2' }} {{ selectedWallet.currency }}</h6>
 
       <div class="col-6">
         <dx-number-box
@@ -31,7 +31,7 @@
         <dx-select-box
           class="w-100"
           [dataSource]="wallets"
-          [value]="selectedWallet?.id"
+          [value]="selectedWallet.id"
           [(selectedItem)]="selectedWallet"
           label="Wallet"
           labelMode="floating"
@@ -100,7 +100,7 @@
             <dx-button class="w-100" type="normal" text="Cancel" i18n-text="@@stock-order.Cancel" (onClick)="close()"></dx-button>
           </div>
           <div class="col-lg-auto col-6">
-            <dx-button class="w-100" type="success" text="Confirm order" i18n-text="@@stock-order.Confirm-order" (onClick)="confirmOrder()" [disabled]="confirmOrderButtonDisabled"></dx-button>
+            <dx-button class="w-100" type="success" text="Confirm order" i18n-text="@@stock-order.Confirm-order" (onClick)="confirmOrder()"></dx-button>
           </div>
         </div>
       </div>

@@ -1,13 +1,13 @@
 import { Component, viewChild } from '@angular/core';
+import { DecimalPipe } from '@angular/common';
 import { CryptoInfo, cryptosInfo, greenCandleColor, redCandleColor, StockPrice, stockPrices, TimeFrame } from './stock.model';
 import { appName, defaultCurrency } from '../../../../app.config';
 import { currencies, Currency } from '../../../profile/components/profile/profile-wallets/profile-wallets.config';
 import { defaultDisplayCrypto, defaultTimeFrameIndex, timeFrames } from './stock.config';
 import { StockOrderComponent } from './stock-order/stock-order.component';
-import { OrderSide, OrderType } from './stock-order/stock-order.model';
+import { OrderDetails, OrderSide, OrderType } from './stock-order/stock-order.model';
 import { AuthService } from '../../../../services/auth/auth.service';
 import { RouterExtendedService } from '../../../../services/router-extended/router-extended.service';
-import { DecimalPipe } from '@angular/common';
 
 @Component({
   selector: 'app-stock',
@@ -41,6 +41,8 @@ export class StockComponent {
 
   cryptoOrdersTotal: number = 55_352.98;
   currentProfit: number = 235.32;
+
+  orders: OrderDetails[] = [];
 
   get currentProfitInPercentage(): number {
     return (this.cryptoOrdersTotal + this.currentProfit) / this.cryptoOrdersTotal;

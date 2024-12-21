@@ -37,4 +37,19 @@ export class OrdersService extends BaseService {
 
     await firstValueFrom(request);
   }
+
+  
+  /**
+   * Makes a request call to the API to retrieve the orders.
+   */
+  async get(crypto_wallet_id: number): Promise<any> {
+    const params = this.generateParams({ crypto_wallet_id });
+    const request = this.httpClient.get<any>(
+      `${environment.apiUrl}/${this.baseOrdersPath}/orders`,
+      { params }
+    ).pipe(catchError(this.catchCustomError.bind(this)));
+
+    return await firstValueFrom(request);
+  }
+
 }

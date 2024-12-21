@@ -44,27 +44,31 @@ export type ConfirmOrderRequest = {
   /**
    * Which currency is used i.e. BUY sth with USD, SELL BTC
    */
-    currency_used_wallet_id: string;
-    /**
-     * Which currency is the goal i.e. buy BTC, get USD from selling BTC
-     */
-    currency_target: string;
-    /**
-     * Number of units which are going to be used of currency_used_wallet_id
-     */
-    nominal: string;
-    cash_quantity: string;
-    /**
-     * Price on which user wants to perform an order
-     */
-    price: string;
-    type: string;
+  currency_used_wallet_id: string;
+  /**
+   * Which currency is the goal i.e. buy BTC, get USD from selling BTC
+   */
+  currency_target: string;
+  /**
+   * Number of units which are going to be used of currency_used_wallet_id
+   */
+  nominal: string;
+  cash_quantity: string;
+  /**
+   * Price on which user wants to perform an order
+   */
+  price: string;
+  type: string;
 
-    /**
-     * Based on {@link OrderSide} and {@link orderSideStringMap}
-     */
-    side: string;
+  /**
+   * Based on {@link OrderSide} and {@link orderSideStringMap}
+   */
+  side: string;
 };
+
+export type GetOrdersResponse = {
+  orders: OrderTypeDetail
+}
 
 export const orderTypeStringMap: Map<OrderType, string> = new Map([
   /**
