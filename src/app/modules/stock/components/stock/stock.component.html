@@ -85,8 +85,36 @@
       <div class="col-6 p-0 pe-lg-0 p-lg-2 sticky-bottom">
         <dx-button class="w-100" type="success" text="Buy" i18n-text="@@stock.Buy" (onClick)="openStockOrderPopup(OrderSide.Buy)"></dx-button>
       </div>
+
+      @if (currentCryptoOrders.length > 0) {
+        <h6 class="col-12 mt-5 mb-0" i18n="@@stock.Orders">Orders</h6>
+        <dx-scroll-view class="col-12 bg-light rounded p-3" height="30vh" [useNative]="false" [scrollByContent]="true" [scrollByThumb]="true">
+          <div class="row gy-4 gx-0">
+            @for (order of currentCryptoOrders; track order) {
+              <div class="col-12 border rounded p-3">
+                <div class="row gy-2 gx-0">
+                  <div class="rounded col-auto fw-bold fs-6 lh-base">
+                    {{ getOrderHistoryEntrySideLabel(order.side) }}&nbsp;{{ displayCrypto.code }}
+                  </div>
+                  @if (order.status === OrderStatusString.Cancelled) {
+                    <small class="text-danger col-auto bg-opacity-25 bg-danger rounded p-1 ms-2">{{ getOrderHistoryEntryStatusLabel(order.status) }}</small>
+                  }
+                  <div class="rounded col fw-bold fs-6 lh-base text-end">
+                    {{ getOrderHistoryEntryCashQuantityPrefixLabel(order.side) }}{{ order.cashQuantity | number:'1.2-2' }}&nbsp;{{ getOrderHistoryEntryFiatWalletLabel(order.fiatWalletId) }}
+                  </div>
+                  <div class="col-12 text-muted">{{ order.nominal }}&nbsp;·&nbsp;{{ order.price | number:'1.2-2' }}&nbsp;{{ getOrderHistoryEntryFiatWalletLabel(order.fiatWalletId) }}</div>
+                  <div class="col-12 text-muted" i18n="@@stock.Created-at">Created at: {{ order.dateCreated | date:'yyyy-MM-dd HH:mm:ss' }}</div>
+                  @if (order.dateExecuted !== defaultDate) {
+                    <div class="col-12 text-muted" i18n="@@stock.Executed-at">Executed at: {{ order.dateExecuted | date:'yyyy-MM-dd HH:mm:ss' }}</div>
+                  }
+                </div>
+              </div>
+            }
+          </div>
+        </dx-scroll-view>
+      }
     </div>
   </div>
 </div>
 
-<app-stock-order #stockOrderPopup />
+<app-stock-order #stockOrderPopup (onAdded)="onOrderAdded($event)" />

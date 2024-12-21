@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { OrderSide, orderSideStringMap, OrderType, OrderTypeDetail, orderTypeStringMap } from './stock-order.model';
+import { Component, EventEmitter, output } from '@angular/core';
+import { Order, OrderSide, orderSidesMap, OrderType, OrderTypeDetail, orderTypeStringMap } from './stock-order.model';
 import { currencies, Currency } from '../../../../profile/components/profile/profile-wallets/profile-wallets.config';
 import { CryptoInfo, cryptosInfo as tempCryptosInfo } from '../stock.model';
 import { getOrderAvailableTypes, getOrderButtonTypeType, getPopupTitle } from './stock-order.config';
@@ -24,6 +24,8 @@ export class StockOrderComponent {
   protected readonly cryptosInfo = tempCryptosInfo;
   protected readonly OrderSide = OrderSide;
   protected readonly OrderType = OrderType;
+
+  onAdded = output<Order>();
 
   get amountExceeded(): boolean {
     return this.amount > parseFloat(this.selectedWallet?.value);
@@ -113,14 +115,14 @@ export class StockOrderComponent {
     }
 
     try {
-      await this.ordersService.confirmOrder({
+      const newOrder = await this.ordersService.confirmOrder({
         currency_used_wallet_id: this.selectedWallet.id,
         currency_target: this.selectedCrypto.code,
         nominal: this.nominal.toString(),
         cash_quantity: this.amount.toString(),
         price: this.price.toString(),
         type: orderTypeStringMap.get(this.orderType) ?? '',
-        side: orderSideStringMap.get(this.orderSide) ?? '',
+        side: orderSidesMap.get(this.orderSide) ?? '',
       });
 
       this.notifications.success(
@@ -129,6 +131,7 @@ export class StockOrderComponent {
         BaseService.notificationOverride
       );
 
+      this.onAdded.emit(newOrder);
       this.close();
     } catch(e) {
     }
