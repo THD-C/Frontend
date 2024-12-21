@@ -5,7 +5,7 @@ import { catchError, firstValueFrom } from 'rxjs';
 import { BaseService } from '../base/base.service';
 import { errors } from './orders.errors';
 import { environment } from '../../../environments/environment';
-import { PlaceOrderRequest } from '../../modules/stock/components/stock/stock-order/stock-order.model';
+import { ConfirmOrderRequest, GetOrdersRequest, GetOrdersResponse, Order } from '../../modules/stock/components/stock/stock-order/stock-order.model';
 
 @Injectable({
   providedIn: 'root'
@@ -26,15 +26,32 @@ export class OrdersService extends BaseService {
   }
 
   /**
-   * Makes a request call to the API for placing an order.
-   * @param placeOrderRequest {@link PlaceOrderRequest}.
+   * Makes a request call to the API for confirming an order.
+   * @param confirmOrderRequest {@link ConfirmOrderRequest}.
    */
-  async placeOrder(placeOrderRequest: PlaceOrderRequest): Promise<void> {
-    const request = this.httpClient.post<void>(
+  async confirmOrder(confirmOrderRequest: ConfirmOrderRequest): Promise<Order> {
+    const request = this.httpClient.post<Order>(
       `${environment.apiUrl}/${this.baseOrdersPath}/`,
-      { ...placeOrderRequest }
+      { ...confirmOrderRequest }
     ).pipe(catchError(this.catchCustomError.bind(this)));
 
-    await firstValueFrom(request);
+    return await firstValueFrom(request) as Order;
   }
+
+  
+  /**
+   * Makes a request call to the API to retrieve the orders.
+   * @param getOrdersRequest Filters.
+   */
+  async get(getOrdersRequest: GetOrdersRequest): Promise<Order[]> {
+    const params = this.generateParams(getOrdersRequest);
+    const request = this.httpClient.get<any>(
+      `${environment.apiUrl}/${this.baseOrdersPath}/orders`,
+      { params }
+    ).pipe(catchError(this.catchCustomError.bind(this)));
+
+    const { orders } = await firstValueFrom(request) as GetOrdersResponse;
+    return orders;
+  }
+
 }

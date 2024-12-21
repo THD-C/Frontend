@@ -89,7 +89,13 @@
               "extractLicenses": false,
               "sourceMap": true,
               "localize": ["en"],
-              "baseHref": "/en/"
+              "baseHref": "/en/",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.development.ts"
+                }
+              ]
             },
             "pl": {
               "watch": true,
@@ -97,7 +103,13 @@
               "extractLicenses": false,
               "sourceMap": true,
               "localize": ["pl"],
-              "baseHref": "/pl/"
+              "baseHref": "/pl/",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.development.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"

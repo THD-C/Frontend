@@ -4,7 +4,7 @@
   <div class="bg-white rounded shadow p-4 custom-col-10 col-lg-10 col-12 d-flex flex-column align-items-center justify-content-center">
     <dx-chart
       class="custom-dx-chart"
-      [title]="displayCrypto.name"
+      [title]="title"
       [dataSource]="stockPrices"
       [adjustOnZoom]="true">
       <dxi-series
@@ -50,10 +50,11 @@
   
   <div class="bg-white rounded shadow p-4 col-lg-2 col-12 p-0">
     <div class="row gy-4 gx-0">
-      <h5 class="col-12 text-center" i18n="@@stock.Portfolio-value">Portfolio value:</h5>
-      <h6 class="col-12 mt-0 text-center">{{ 100_143.55 | number:'1.2-2' }}&nbsp;{{ displayCurrency.code }}</h6>
-      <h5 class="col-12 text-center" i18n="@@stock.Income">Income:</h5>
-      <h6 class="col-12 mt-0 text-center" [class.text-danger]="incomeValue < 0" [class.text-success]="incomeValue > 0">{{ incomeValueSign }}{{ incomeValue | number:'1.2-2' }}&nbsp;{{ displayCurrency.code }}</h6>
+      <h4 class="col-12 text-center mt-5 mb-3">{{ cryptoOrdersTotal | number:'1.2-2' }}&nbsp;{{ displayCurrency.code }}</h4>
+      <span class="col-12 text-center mt-0" [class.text-danger]="currentProfit < 0" [class.text-success]="currentProfit > 0">
+        {{ currentProfit | number:'1.2-2' }}&nbsp;<i class="dx-icon custom-dx-icon-arrow" [class.dx-icon-arrowup]="currentProfit > 0" [class.dx-icon-arrowdown]="currentProfit < 0"></i>{{ currentProfitInPercentage | number:'1.2-2' }}%
+      </span>
+      
       <dx-select-box
         class="col-12"
         [dataSource]="currencies"
@@ -70,21 +71,52 @@
         [dataSource]="cryptosInfo"
         [value]="displayCrypto.code"
         [(selectedItem)]="displayCrypto"
-        label="Analyze crypto"
+        (onSelectionChanged)="onDisplayCryptoSelectionChanged($event)"
+        label="Analyse crypto"
         labelMode="floating"
-        i18n-label="@@stock.Analyze-crypto:Analyze crypto"
+        i18n-label="@@stock.Analyse-crypto:Analyse crypto"
         valueExpr="code"
         displayExpr="name">
       </dx-select-box>
       
-      <div class="col-6 p-0 ps-lg-0 p-lg-2">
+      <div class="col-6 p-0 ps-lg-0 p-lg-2 sticky-bottom">
         <dx-button class="w-100" type="danger" text="Sell" i18n-text="@@stock.Sell" (onClick)="openStockOrderPopup(OrderSide.Sell)"></dx-button>
       </div>
-      <div class="col-6 p-0 pe-lg-0 p-lg-2">
+      <div class="col-6 p-0 pe-lg-0 p-lg-2 sticky-bottom">
         <dx-button class="w-100" type="success" text="Buy" i18n-text="@@stock.Buy" (onClick)="openStockOrderPopup(OrderSide.Buy)"></dx-button>
       </div>
+
+      @if (currentCryptoOrders.length > 0) {
+        <h6 class="col-12 mt-5 mb-0" i18n="@@stock.Orders">Orders</h6>
+        <dx-scroll-view class="col-12 bg-light rounded p-3" height="30vh" [useNative]="false" [scrollByContent]="true" [scrollByThumb]="true">
+          <div class="row gy-4 gx-0">
+            @for (order of currentCryptoOrders; track order) {
+              <div class="col-12 border rounded p-3">
+                <div class="row gy-2 gx-0">
+                  <div class="rounded col-auto fw-bold fs-6 lh-base">
+                    {{ getOrderHistoryEntrySideLabel(order.side) }}&nbsp;{{ displayCrypto.code }}
+                  </div>
+                  @if (order.status === OrderStatusString.Cancelled) {
+                    <small class="text-danger col-auto bg-opacity-25 bg-danger rounded p-1 ms-2">{{ getOrderHistoryEntryStatusLabel(order.status) }}</small>
+                  } @else if (order.status === OrderStatusString.Completed) {
+                    <small class="text-success col-auto bg-opacity-25 bg-success rounded p-1 ms-2">{{ getOrderHistoryEntryStatusLabel(order.status) }}</small>
+                  }
+                  <div class="rounded col fw-bold fs-6 lh-base text-end">
+                    {{ getOrderHistoryEntryCashQuantityPrefixLabel(order.side) }}{{ order.cashQuantity | number:'1.2-2' }}&nbsp;{{ getOrderHistoryEntryFiatWalletLabel(order.fiatWalletId) }}
+                  </div>
+                  <div class="col-12 text-muted">{{ order.nominal }}&nbsp;·&nbsp;{{ order.price | number:'1.2-2' }}&nbsp;{{ getOrderHistoryEntryFiatWalletLabel(order.fiatWalletId) }}</div>
+                  <div class="col-12 text-muted" i18n="@@stock.Created-at">Created at: {{ order.dateCreated | date:'yyyy-MM-dd HH:mm:ss' }}</div>
+                  @if (order.dateExecuted !== defaultDate) {
+                    <div class="col-12 text-muted" i18n="@@stock.Executed-at">Executed at: {{ order.dateExecuted | date:'yyyy-MM-dd HH:mm:ss' }}</div>
+                  }
+                </div>
+              </div>
+            }
+          </div>
+        </dx-scroll-view>
+      }
     </div>
   </div>
 </div>
 
-<app-stock-order #stockOrderPopup />
+<app-stock-order #stockOrderPopup (onAdded)="onOrderAdded($event)" />

@@ -9,6 +9,8 @@ import { DxTabsModule } from 'devextreme-angular/ui/tabs';
 import { DxNumberBoxModule } from 'devextreme-angular/ui/number-box';
 import { DxPopupModule } from 'devextreme-angular/ui/popup';
 import { DxValidatorModule } from 'devextreme-angular/ui/validator';
+import { DxRadioGroupModule } from 'devextreme-angular/ui/radio-group';
+import { DxScrollViewModule } from 'devextreme-angular/ui/scroll-view';
 
 import { routes } from './stock.routes';
 import { HeaderComponent } from '../../shared/components/header/header.component';
@@ -35,6 +37,8 @@ import { StockOrderComponent } from './components/stock/stock-order/stock-order.
     DxNumberBoxModule,
     DxPopupModule,
     DxValidatorModule,
+    DxRadioGroupModule,
+    DxScrollViewModule,
   ],
 })
 export class StockModule { }
