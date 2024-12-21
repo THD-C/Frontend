@@ -29,6 +29,7 @@
     "@opentelemetry/exporter-trace-otlp-http": "^0.57.0",
     "@opentelemetry/instrumentation": "^0.57.0",
     "@opentelemetry/sdk-trace-web": "^1.30.0",
+    "@opentelemetry/semantic-conventions": "^1.28.0",
     "angular2-notifications": "^16.0.1",
     "bootstrap": "^5.3.3",
     "devextreme": "24.1.7",

@@ -55,3 +55,5 @@ export const defaultCurrency: Currency = {
 export const supportEmail: string = 'thdc.p.lodz@outlook.com';
 
 export const defaultDate: string = '1970-01-01T00:00:00Z';
+
+export const containerName: string = 'Frontend';

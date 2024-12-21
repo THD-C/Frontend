@@ -8,9 +8,17 @@ import {
 import { getWebAutoInstrumentations } from '@opentelemetry/auto-instrumentations-web';
 import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-http';
 import { ZoneContextManager } from '@opentelemetry/context-zone';
-import { environment } from '../src/environments/environment';
+import { Resource } from '@opentelemetry/resources';
+import { SemanticResourceAttributes } from '@opentelemetry/semantic-conventions'
 
-const provider = new WebTracerProvider();
+import { environment } from '../src/environments/environment';
+import { containerName } from './app/app.config';
+
+const provider = new WebTracerProvider({
+  resource: new Resource({
+    [SemanticResourceAttributes.SERVICE_NAME]: containerName,
+  }),
+});
 
 // For demo purposes only, immediately log traces to the console
 provider.addSpanProcessor(new SimpleSpanProcessor(new ConsoleSpanExporter()));
@@ -33,12 +41,8 @@ registerInstrumentations({
     getWebAutoInstrumentations({
       '@opentelemetry/instrumentation-document-load': {},
       '@opentelemetry/instrumentation-user-interaction': {},
-      '@opentelemetry/instrumentation-fetch': {
-        propagateTraceHeaderCorsUrls: /.+/,
-      },
-      '@opentelemetry/instrumentation-xml-http-request': {
-        propagateTraceHeaderCorsUrls: /.+/,
-      },
+      '@opentelemetry/instrumentation-fetch': {},
+      '@opentelemetry/instrumentation-xml-http-request': {},
     }),
   ],
 });
