@@ -98,6 +98,8 @@
                   </div>
                   @if (order.status === OrderStatusString.Cancelled) {
                     <small class="text-danger col-auto bg-opacity-25 bg-danger rounded p-1 ms-2">{{ getOrderHistoryEntryStatusLabel(order.status) }}</small>
+                  } @else if (order.status === OrderStatusString.Completed) {
+                    <small class="text-success col-auto bg-opacity-25 bg-success rounded p-1 ms-2">{{ getOrderHistoryEntryStatusLabel(order.status) }}</small>
                   }
                   <div class="rounded col fw-bold fs-6 lh-base text-end">
                     {{ getOrderHistoryEntryCashQuantityPrefixLabel(order.side) }}{{ order.cashQuantity | number:'1.2-2' }}&nbsp;{{ getOrderHistoryEntryFiatWalletLabel(order.fiatWalletId) }}

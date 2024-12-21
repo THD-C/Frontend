@@ -112,7 +112,7 @@ export class StockComponent {
       this.currentCryptoOrders = orders.filter(({ cryptoWalletId }) => cryptoWalletId === cryptoWallet?.id)
         .sort((a, b) => a.dateCreated < b.dateCreated ? 1 : -1);
 
-        this.currentCryptoOrders[0].status = 'ORDER_STATUS_CANCELLED';
+        this.currentCryptoOrders[0].status = 'ORDER_STATUS_COMPLETED';
     } catch(e) {
     }
   }
