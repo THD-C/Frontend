@@ -9,21 +9,18 @@ import { getWebAutoInstrumentations } from '@opentelemetry/auto-instrumentations
 import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-http';
 import { ZoneContextManager } from '@opentelemetry/context-zone';
 import { Resource } from '@opentelemetry/resources';
-import { SemanticResourceAttributes } from '@opentelemetry/semantic-conventions'
+import { ATTR_SERVICE_NAME } from '@opentelemetry/semantic-conventions'
 
 import { environment } from '../src/environments/environment';
-import { containerName } from './app/app.config';
+import { serviceName } from './app/app.config';
 
 const provider = new WebTracerProvider({
   resource: new Resource({
-    [SemanticResourceAttributes.SERVICE_NAME]: containerName,
+    [ATTR_SERVICE_NAME]: serviceName,
   }),
 });
 
-// For demo purposes only, immediately log traces to the console
-provider.addSpanProcessor(new SimpleSpanProcessor(new ConsoleSpanExporter()));
-
-// Batch traces before sending them to HoneyComb
+// Batch traces before sending them to the Tempo API
 provider.addSpanProcessor(
   new BatchSpanProcessor(
     new OTLPTraceExporter({
