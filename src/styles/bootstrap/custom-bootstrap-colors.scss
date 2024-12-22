@@ -3,10 +3,12 @@
 
 $custom-primary: hsl(291, 64%, 42%);
 $custom-secondary: hsla(208, 7%, 46%, 10%);
+$custom-success: hsl(148, 91%, 35%);
 
 $custom-theme-colors: (
   "primary": $custom-primary,
-  "secondary": $custom-secondary
+  "secondary": $custom-secondary,
+  "success": $custom-success,
 );
 
 $theme-colors: map-merge($theme-colors, $custom-theme-colors);

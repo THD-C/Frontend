@@ -1,0 +1,14 @@
+{
+    "items": [
+        {
+            "key": "$base-success",
+            "value": "rgba(8, 170, 84, 1)"
+        }
+    ],
+    "baseTheme": "material.purple.dark",
+    "outputColorScheme": "dark",
+    "makeSwatch": true,
+    "version": "24.2.3",
+    "widgets": [],
+    "removeExternalResources": false
+}

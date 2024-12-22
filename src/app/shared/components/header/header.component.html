@@ -13,15 +13,15 @@
         <div class="collapse navbar-collapse justify-content-evenly align-items-center ms-auto position-lg-fixed end-0" id="navbarCollapse">
           <div class="navbar-nav py-0 fw-bold text-uppercase">
             <a [routerLink]="['/home']" routerLinkActive="active"
-              class="nav-item nav-link text-black" i18n="@@header.Home">Home</a>
+              class="nav-item nav-link text-body" i18n="@@header.Home">Home</a>
             <a [routerLink]="['/stock']" routerLinkActive="active"
-              class="nav-item nav-link text-black" i18n="@@header.Stock">Stock</a>
+              class="nav-item nav-link text-body" i18n="@@header.Stock">Stock</a>
             <a [routerLink]="['/blog']" routerLinkActive="active"
-              class="nav-item nav-link text-black" i18n="@@header.Blog">Blog</a>
+              class="nav-item nav-link text-body" i18n="@@header.Blog">Blog</a>
             <a [routerLink]="['/about']" routerLinkActive="active"
-              class="nav-item nav-link text-black" i18n="@@header.About">About</a>
+              class="nav-item nav-link text-body" i18n="@@header.About">About</a>
             <a [routerLink]="['/faqs']" routerLinkActive="active"
-              class="nav-item nav-link text-black" i18n="@@header.FAQs">FAQs</a>
+              class="nav-item nav-link text-body" i18n="@@header.FAQs">FAQs</a>
           </div>
           <div class="d-flex">
             @if (authService.isAuthenticated === false) {
@@ -47,7 +47,7 @@
               </div>
             }
             <div class="dropdown">
-              <dx-button class="ms-2" type="normal" hint="Languages" i18n-hint="@@home.Languages" stylingMode="outlined" id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-expanded="false" icon="globe">
+              <dx-button class="ms-2" type="normal" hint="Languages" i18n-hint="@@home.Languages" stylingMode="text" id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-expanded="false" icon="globe">
               </dx-button>
               <ul class="dropdown-menu text-center p-0 dropdown-menu-custom" aria-labelledby="dropdownMenuButton3">
                 @for (language of languages; track language) {
@@ -61,6 +61,15 @@
                 }
               </ul>
             </div>
+            <dx-button
+              class="ms-2"
+              type="normal"
+              hint="Switch to light/dark theme"
+              i18n-hint="@@home.Switch-to-light-dark-theme"
+              stylingMode="text"
+              [icon]="themeButtonIcon"
+              (onClick)="themesService.toggle()">
+            </dx-button>
           </div>
         </div>
       </nav>

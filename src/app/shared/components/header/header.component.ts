@@ -9,6 +9,7 @@ import { appName, availableLanguages, Language } from '../../../app.config';
 import { AuthService } from '../../../services/auth/auth.service';
 import { RouterExtendedService } from '../../../services/router-extended/router-extended.service';
 import { Position } from './header.model';
+import { ThemesService } from '../../../services/themes/themes.service';
 
 @Component({
   selector: 'app-header',
@@ -18,6 +19,10 @@ import { Position } from './header.model';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
+
+  get themeButtonIcon(): string {
+    return this.themesService.isDark ? 'moon' : 'sun';
+  }
 
   position = input<Position>('fixed');
 
@@ -30,6 +35,7 @@ export class HeaderComponent {
   constructor(
     protected readonly authService: AuthService,
     protected readonly router: RouterExtendedService,
+    protected readonly themesService: ThemesService,
   ) {
     if (this.router.url.includes('/profile')) {
       this.btnCollapseProfileType = 'default';

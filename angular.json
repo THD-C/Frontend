@@ -47,7 +47,6 @@
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.css",
-              "src/styles/devextreme/dx.material.light.css",
               "src/styles/bootstrap/bootstrap-setup.scss",
               "src/styles/styles.scss"
             ],
@@ -153,7 +152,6 @@
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/styles/devextreme/dx.material.light.css",
               "src/styles/bootstrap/bootstrap-setup.scss",
               "src/styles/styles.scss"
             ],
