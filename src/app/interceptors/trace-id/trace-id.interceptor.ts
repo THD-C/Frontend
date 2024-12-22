@@ -29,7 +29,7 @@ function handleRequest(req: HttpRequest<unknown>, next: HttpHandlerFn): Observab
 
   const tracer = trace.getTracer(serviceName);
   const span = tracer.startSpan(`${req.method} ${req.url}`);
-  let clearedReqBody = req.body;
+  let clearedReqBody = JSON.parse(JSON.stringify(req.body));
 
   // Clearing body from sensitive data
   if (clearedReqBody?.hasOwnProperty('password')) {
