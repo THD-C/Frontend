@@ -1,6 +1,13 @@
 import { HttpRequest, HttpEvent, HttpInterceptorFn, HttpHandlerFn } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { trace } from '@opentelemetry/api';
+import { inject } from '@angular/core';
+
+import { Observable } from 'rxjs';
+
+import { serviceName } from '../../app.config';
+
+import { AuthService } from '../../services/auth/auth.service';
+import { RouterExtendedService } from '../../services/router-extended/router-extended.service';
 
 
 /**
@@ -17,15 +24,37 @@ export const traceIdInterceptor: HttpInterceptorFn = (req, next) => {
 };
 
 function handleRequest(req: HttpRequest<unknown>, next: HttpHandlerFn): Observable<HttpEvent<unknown>> {
-  const tracer = trace.getTracer('default');
-  const span = tracer.startSpan('http_request');
-  const traceId = span.spanContext().traceId;
+  const auth = inject(AuthService);
+  const router = inject(RouterExtendedService);
+
+  const tracer = trace.getTracer(serviceName);
+  const span = tracer.startSpan(`${req.method} ${req.url}`);
+  let clearedReqBody = req.body;
+
+  // Clearing body from sensitive data
+  if (clearedReqBody?.hasOwnProperty('password')) {
+    clearedReqBody = delete (clearedReqBody as any).password;
+  }
+
+  span.setAttributes({
+    body: JSON.stringify(clearedReqBody),
+    params: req.urlWithParams,
+    user: JSON.stringify({
+      email: auth.session?.email,
+      username: auth.session?.username,
+    }),
+    page: router.url,
+  });
+
+  const { traceId, spanId } = span.spanContext();
 
   const clonedRequest = req.clone({
     setHeaders: {
-      'traceparent': traceId,
+      traceparent: `00-${traceId}-${spanId}-01`,
     },
   });
+
+  span.end();
   
-  return next(clonedRequest).pipe();
+  return next(clonedRequest);
 }

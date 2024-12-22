@@ -10,15 +10,19 @@ import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-http';
 import { ZoneContextManager } from '@opentelemetry/context-zone';
 import { Resource } from '@opentelemetry/resources';
 import { ATTR_SERVICE_NAME } from '@opentelemetry/semantic-conventions'
+import { CompositePropagator, W3CTraceContextPropagator } from '@opentelemetry/core';
 
 import { environment } from '../src/environments/environment';
 import { serviceName } from './app/app.config';
 
-const provider = new WebTracerProvider({
-  resource: new Resource({
+// Configure our resource
+const resource = Resource.default().merge(
+  new Resource({
     [ATTR_SERVICE_NAME]: serviceName,
   }),
-});
+);
+
+const provider = new WebTracerProvider({ resource });
 
 // Batch traces before sending them to the Tempo API
 provider.addSpanProcessor(
@@ -31,15 +35,11 @@ provider.addSpanProcessor(
 
 provider.register({
   contextManager: new ZoneContextManager(),
+  propagator: new CompositePropagator({
+    propagators: [new W3CTraceContextPropagator()],
+  }),
 });
 
 registerInstrumentations({
-  instrumentations: [
-    getWebAutoInstrumentations({
-      '@opentelemetry/instrumentation-document-load': {},
-      '@opentelemetry/instrumentation-user-interaction': {},
-      '@opentelemetry/instrumentation-fetch': {},
-      '@opentelemetry/instrumentation-xml-http-request': {},
-    }),
-  ],
+  instrumentations: [getWebAutoInstrumentations()],
 });
