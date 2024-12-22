@@ -2118,6 +2118,13 @@
           <context context-type="linenumber">50</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="home.Switch-to-light-dark-theme" datatype="html">
+        <source>Switch to light/dark theme</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
+          <context context-type="linenumber">67,68</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="password-strength-validator.Password-must-be-at-least-12-characters-long" datatype="html">
         <source>Password must be at least 12 characters long</source>
         <context-group purpose="location">
