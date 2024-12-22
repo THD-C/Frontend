@@ -10,6 +10,7 @@ import { SimpleNotificationsModule } from 'angular2-notifications';
 import { routes } from './app.routes';
 import { jwtInterceptor } from './interceptors/jwt/jwt.interceptor';
 import { Currency } from './modules/profile/components/profile/profile-wallets/profile-wallets.config';
+import { traceIdInterceptor } from './interceptors/trace-id/trace-id.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -21,7 +22,10 @@ export const appConfig: ApplicationConfig = {
       CommonModule,
     ),
     provideHttpClient(
-      withInterceptors([jwtInterceptor]),
+      withInterceptors([
+        jwtInterceptor,
+        traceIdInterceptor,
+      ]),
     ),
     provideAnimations(),
   ],
@@ -55,3 +59,5 @@ export const defaultCurrency: Currency = {
 export const supportEmail: string = 'thdc.p.lodz@outlook.com';
 
 export const defaultDate: string = '1970-01-01T00:00:00Z';
+
+export const serviceName: string = 'Frontend';
