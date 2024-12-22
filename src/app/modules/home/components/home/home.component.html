@@ -45,7 +45,7 @@
   <div class="p-0 mb-5 row gy-5 gx-0 d-flex align-items-center justify-content-center min-vh-100 p-5 bg-light">
     <div class="container-xxl py-5">
       <div class="container">
-        <div class="text-center fadeInUp">
+        <div class="text-center">
           <h6 class="text-center">
             <span class="section-title position-relative fw-bold" i18n="@@home.We-offer-free-tool">We offer <span class="text-primary text-decoration-underline"> free</span> tool</span>
           </h6>
@@ -53,7 +53,7 @@
         </div>
       </div>
     </div>
-    <div class="container-xxl px-0 zoomIn col-lg-4 col-12 bg-dark d-flex align-items-center rounded shadow">
+    <div class="container-xxl px-0 col-lg-4 col-12 bg-dark d-flex align-items-center rounded shadow">
       <div class="p-5">
         <h6 class="text-start text-white text-uppercase mb-3">
           <span class="section-title fw-bold text-start" i18n="@@home.It-s-your-time-to-crash-the-market">It's your time to <span class="text-primary">crash</span> the crypto market!</span>
@@ -67,7 +67,7 @@
       </div>
     </div>
     
-    <div class="container-xxl px-0 zoomIn col-lg-4 col-12 d-flex align-items-center rounded">
+    <div class="container-xxl px-0 col-lg-4 col-12 d-flex align-items-center rounded">
       <dx-chart palette="Violet" [dataSource]="cryptoStockPrices" class="w-100">
         <dxi-series
           *ngFor="let crypto of cryptosInfo"
@@ -103,14 +103,14 @@
       <h6 class="fw-bold text-center" i18n="@@home.Join-our-community-ers">Join our community of <span class="text-primary">{{ appName }}ers</span></h6>
       <h2 class="mb-4 text-center" i18n="@@home.with-10000-daily-active-users">with <span class="text-primary fw-bold">10 000 daily</span> active users</h2>
     </div>
-    <div class="container-xxl px-0 zoomIn col-lg-4 col-12 bg-white d-flex align-items-center rounded border shadow">
+    <div class="container-xxl px-0 col-lg-4 col-12 bg-body d-flex align-items-center rounded shadow">
       <div class="p-5">
         <h3 class="display-4 fw-bold mb-4" i18n="@@home.It-s-your-time-to-show-up">It's your time to show up!</h3>
         <p class="mb-4 lh-lg" i18n="@@home.In-just-1-year-the-community-has-grown-to">In just 1 year the community has grown to <span class="text-primary fw-bold">100 000</span> users whereas <span class="text-primary fw-bold">10 000</span> of them uses the app daily.<br/>So... Why don't you try it yourself for free!</p>
         <dx-button [routerLink]="['/register']" type="default" text="Join community" i18n-text="@@home.Join-community"></dx-button>
       </div>
     </div>
-    <div class="container-xxl px-0 zoomIn col-lg-4 col-12 bg-white d-flex align-items-center">
+    <div class="container-xxl px-0 col-lg-4 col-12 d-flex align-items-center">
       <dx-chart palette="Violet" [dataSource]="usersGrowth" class="w-100">
         <dxi-series valueField="value" name="Number of users" i18n-name="@@home.Number-of-users"></dxi-series>
         <dxo-legend itemTextPosition="left"></dxo-legend>
@@ -130,7 +130,7 @@
     <div class="row justify-content-center">
       <div class="col-lg-10 border rounded p-1">
         <div class="border rounded text-center p-1">
-          <div class="bg-white rounded text-center p-5">
+          <div class="bg-body rounded text-center p-5">
             <h4 class="mb-4" i18n="@@home.Subscribe-our-Newsletter">Subscribe our <span class="text-primary text-uppercase fw-bold">Newsletter</span></h4>
             <div class="mx-auto" style="max-width:400px;">
               <dx-text-box label="Enter your e-mail" i18n="@@home.Enter-your-e-mail" class="w-100">
