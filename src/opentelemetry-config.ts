@@ -1,11 +1,10 @@
 import { registerInstrumentations } from '@opentelemetry/instrumentation';
 import {
   WebTracerProvider,
-  ConsoleSpanExporter,
-  SimpleSpanProcessor,
   BatchSpanProcessor,
 } from '@opentelemetry/sdk-trace-web';
-import { getWebAutoInstrumentations } from '@opentelemetry/auto-instrumentations-web';
+import { FetchInstrumentation } from '@opentelemetry/instrumentation-fetch';
+import { XMLHttpRequestInstrumentation } from '@opentelemetry/instrumentation-xml-http-request';
 import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-http';
 import { ZoneContextManager } from '@opentelemetry/context-zone';
 import { Resource } from '@opentelemetry/resources';
@@ -15,7 +14,6 @@ import { CompositePropagator, W3CTraceContextPropagator } from '@opentelemetry/c
 import { environment } from '../src/environments/environment';
 import { serviceName } from './app/app.config';
 
-// Configure our resource
 const resource = Resource.default().merge(
   new Resource({
     [ATTR_SERVICE_NAME]: serviceName,
@@ -40,6 +38,15 @@ provider.register({
   }),
 });
 
+const fetchInstrumentation = new FetchInstrumentation();
+fetchInstrumentation.setTracerProvider(provider);
+
+const xmlHttpRequestInstrumentation = new XMLHttpRequestInstrumentation();
+xmlHttpRequestInstrumentation.setTracerProvider(provider);
+
 registerInstrumentations({
-  instrumentations: [getWebAutoInstrumentations()],
+  instrumentations: [
+    fetchInstrumentation,
+    xmlHttpRequestInstrumentation,
+  ],
 });
