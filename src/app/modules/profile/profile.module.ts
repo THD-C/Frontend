@@ -11,6 +11,7 @@ import { DxDataGridModule } from 'devextreme-angular/ui/data-grid';
 import { DxPopupModule } from 'devextreme-angular/ui/popup';
 import { DxSelectBoxModule } from 'devextreme-angular/ui/select-box';
 import { DxNumberBoxModule } from 'devextreme-angular/ui/number-box';
+import { DxCheckBoxModule } from 'devextreme-angular/ui/check-box';
 
 import { routes } from './profile.routes';
 import { GridEditButtonDirective } from '../../directives/grid-edit-button/grid-edit-button.directive';
@@ -52,6 +53,7 @@ import { ProfilePaymentsComponent } from './components/profile/profile-payments/
     DxPopupModule,
     DxSelectBoxModule,
     DxNumberBoxModule,
+    DxCheckBoxModule,
 
     GridEditButtonDirective,
     GridDeleteButtonDirective,

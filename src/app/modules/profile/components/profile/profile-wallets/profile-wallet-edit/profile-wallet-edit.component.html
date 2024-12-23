@@ -27,6 +27,10 @@
       </div>
 
       <div class="col-12">
+        <dx-check-box [(value)]="is_crypto" text="Cryptocurrency" i18n-text="@@profile-wallet-edit.Cryptocurrency"></dx-check-box>
+      </div>
+
+      <div class="col-12">
         <div class="row g-4">
           <div class="col-lg-auto col-6 ms-lg-auto">
             <dx-button class="w-100" type="normal" text="Cancel" i18n-text="@@profile-wallet-edit.Cancel" (onClick)="close()"></dx-button>

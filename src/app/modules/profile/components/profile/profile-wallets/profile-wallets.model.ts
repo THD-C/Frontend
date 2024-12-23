@@ -7,6 +7,7 @@ export type Wallet = {
 
 export type CreateWalletRequest = {
   currency: string;
+  is_crypto: boolean;
 }
 
 export type UpdateWalletRequest = {

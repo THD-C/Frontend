@@ -24,6 +24,12 @@ export class ProfileWalletEditComponent {
   visible: boolean = false;
   id: number = 0;
   wallet: Wallet = defaultWallet;
+
+  /**
+   * Only visible when wallet is new
+   * that is the {@link id} is === 0
+   */
+  is_crypto: boolean = false;
   
   constructor(
     private readonly walletsService: WalletsService,
@@ -58,7 +64,8 @@ export class ProfileWalletEditComponent {
     try {
       if (!this.id) {
         this.wallet = await this.walletsService.create({
-          currency: this.wallet.currency
+          currency: this.wallet.currency,
+          is_crypto: this.is_crypto,
         } satisfies CreateWalletRequest);
       } else {
         this.wallet = await this.walletsService.update({
