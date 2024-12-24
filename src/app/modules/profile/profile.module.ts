@@ -20,10 +20,11 @@ import { HeaderComponent } from '../../shared/components/header/header.component
 import { ProfileComponent } from './components/profile/profile.component';
 import { ProfileDetailsComponent } from './components/profile/profile-details/profile-details.component';
 import { ProfileWalletsComponent } from './components/profile/profile-wallets/profile-wallets.component';
-import { ProfileWalletEditComponent } from './components/profile/profile-wallets/profile-wallet-edit/profile-wallet-edit.component';
+import { ProfileWalletCreateComponent } from './components/profile/profile-wallets/profile-wallet-create/profile-wallet-create.component';
 import { ProfilePasswordComponent } from './components/profile/profile-password/profile-password.component';
 import { ProfileWalletAddMoneyComponent } from './components/profile/profile-wallets/profile-wallet-add-money/profile-wallet-add-money.component';
 import { ProfilePaymentsComponent } from './components/profile/profile-payments/profile-payments.component';
+import { ProfileWalletOrdersComponent } from './components/profile/profile-wallets/profile-wallet-orders/profile-wallet-orders.component';
 
 
 @NgModule({
@@ -34,10 +35,11 @@ import { ProfilePaymentsComponent } from './components/profile/profile-payments/
     ProfileComponent,
     ProfileDetailsComponent,
     ProfileWalletsComponent,
-    ProfileWalletEditComponent,
+    ProfileWalletCreateComponent,
     ProfilePasswordComponent,
     ProfileWalletAddMoneyComponent,
     ProfilePaymentsComponent,
+    ProfileWalletOrdersComponent,
   ],
   imports: [
     CommonModule,

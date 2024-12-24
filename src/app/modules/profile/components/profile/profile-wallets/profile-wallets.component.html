@@ -39,8 +39,9 @@
     </dxi-column>
     <dxi-column dataField="id" caption="ID" i18n-caption="@@profile-wallets.ID"></dxi-column>
     <dxi-column dataField="currency" caption="Currency" i18n-caption="@@profile-wallets.Currency"></dxi-column>
+    <dxi-column dataField="is_crypto" caption="Is crypto" i18n-caption="@@profile-wallets.Is-crypto" dataType="boolean"></dxi-column>
     <dxi-column dataField="value" dataType="number" caption="Value" i18n-caption="@@profile-wallets.Value">
-      <dxo-format type="fixedPoint" [precision]="2"></dxo-format>  
+      <dxo-format type="fixedPoint" [precision]="2"></dxo-format>
     </dxi-column>
   </dx-data-grid>
 
@@ -56,5 +57,5 @@
   </div>
 </dx-scroll-view>
 
-<app-profile-wallet-edit #profileWalletEditPopup (onSaved)="onWalletSaved($event)" />
+<app-profile-wallet-create #profileWalletEditPopup (onSaved)="onWalletSaved($event)" />
 <app-profile-wallet-add-money #profileWalletAddMoneyPopup (onSaved)="onWalletSaved($event)" />

@@ -12,7 +12,7 @@ import { SelectionChangedEvent } from 'devextreme/ui/select_box';
 import { OrdersService } from '../../../../services/orders/orders.service';
 import { Wallet } from '../../../profile/components/profile/profile-wallets/profile-wallets.model';
 import { WalletsService } from '../../../../services/wallets/wallets.service';
-import { getOrderHistoryEntryCashQuantityPrefixLabel, getOrderHistoryEntrySideLabel, getOrderHistoryEntryStatusLabel } from './stock-order/stock-order.config';
+import { getOrderHistoryEntrycash_quantityPrefixLabel, getOrderHistoryEntrySideLabel, getOrderHistoryEntryStatusLabel } from './stock-order/stock-order.config';
 
 @Component({
   selector: 'app-stock',
@@ -67,7 +67,7 @@ export class StockComponent {
 
   getOrderHistoryEntrySideLabel = getOrderHistoryEntrySideLabel;
   getOrderHistoryEntryStatusLabel = getOrderHistoryEntryStatusLabel;
-  getOrderHistoryEntryCashQuantityPrefixLabel = getOrderHistoryEntryCashQuantityPrefixLabel;
+  getOrderHistoryEntrycash_quantityPrefixLabel = getOrderHistoryEntrycash_quantityPrefixLabel;
 
   getOrderHistoryEntryFiatWalletLabel(fiat_wallet_id: string): string {
     const fiatWallet = this.wallets.find(({ id }) => id === fiat_wallet_id);
@@ -109,14 +109,14 @@ export class StockComponent {
 
       const cryptoWallet = this.wallets.find(({ currency }) => currency === this.displayCrypto.code);
       const orders = await this.ordersService.get({ wallet_id: cryptoWallet?.id } satisfies GetOrdersRequest);
-      this.currentCryptoOrders = orders.filter(({ cryptoWalletId }) => cryptoWalletId === cryptoWallet?.id)
-        .sort((a, b) => a.dateCreated < b.dateCreated ? 1 : -1);
+      this.currentCryptoOrders = orders.filter(({ crypto_wallet_id: cryptoWalletId }) => cryptoWalletId === cryptoWallet?.id)
+        .sort((a, b) => a.date_created < b.date_created ? 1 : -1);
     } catch(e) {
     }
   }
 
   onOrderAdded(order: Order): void {
-    const cryptoWallet = this.wallets.find(({ id }) => id === order.cryptoWalletId);
+    const cryptoWallet = this.wallets.find(({ id }) => id === order.crypto_wallet_id);
     if (!cryptoWallet) {
       return;
     }

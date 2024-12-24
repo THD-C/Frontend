@@ -3,6 +3,7 @@ export type Wallet = {
   currency: string;
   value: string;
   user_id: string;
+  is_crypto: boolean;
 }
 
 export type CreateWalletRequest = {

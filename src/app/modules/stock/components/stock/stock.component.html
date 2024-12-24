@@ -102,12 +102,12 @@
                     <small class="text-success col-auto bg-opacity-25 bg-success rounded p-1 ms-2">{{ getOrderHistoryEntryStatusLabel(order.status) }}</small>
                   }
                   <div class="rounded col fw-bold fs-6 lh-base text-end">
-                    {{ getOrderHistoryEntryCashQuantityPrefixLabel(order.side) }}{{ order.cashQuantity | number:'1.2-2' }}&nbsp;{{ getOrderHistoryEntryFiatWalletLabel(order.fiatWalletId) }}
+                    {{ getOrderHistoryEntrycash_quantityPrefixLabel(order.side) }}{{ order.cash_quantity | number:'1.2-2' }}&nbsp;{{ getOrderHistoryEntryFiatWalletLabel(order.fiat_wallet_id) }}
                   </div>
-                  <div class="col-12 text-muted">{{ order.nominal }}&nbsp;·&nbsp;{{ order.price | number:'1.2-2' }}&nbsp;{{ getOrderHistoryEntryFiatWalletLabel(order.fiatWalletId) }}</div>
-                  <div class="col-12 text-muted" i18n="@@stock.Created-at">Created at: {{ order.dateCreated | date:'yyyy-MM-dd HH:mm:ss' }}</div>
-                  @if (order.dateExecuted !== defaultDate) {
-                    <div class="col-12 text-muted" i18n="@@stock.Executed-at">Executed at: {{ order.dateExecuted | date:'yyyy-MM-dd HH:mm:ss' }}</div>
+                  <div class="col-12 text-muted">{{ order.nominal }}&nbsp;·&nbsp;{{ order.price | number:'1.2-2' }}&nbsp;{{ getOrderHistoryEntryFiatWalletLabel(order.fiat_wallet_id) }}</div>
+                  <div class="col-12 text-muted" i18n="@@stock.Created-at">Created at: {{ order.date_created | date:'yyyy-MM-dd HH:mm:ss' }}</div>
+                  @if (order.date_executed !== defaultDate) {
+                    <div class="col-12 text-muted" i18n="@@stock.Executed-at">Executed at: {{ order.date_executed | date:'yyyy-MM-dd HH:mm:ss' }}</div>
                   }
                 </div>
               </div>

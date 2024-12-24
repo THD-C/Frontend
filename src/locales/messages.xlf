@@ -1327,7 +1327,7 @@
           <context context-type="linenumber">56</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallet-edit/profile-wallet-edit.component.ts</context>
+          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallet-create/profile-wallet-create.component.ts</context>
           <context context-type="linenumber">71</context>
         </context-group>
         <context-group purpose="location">
@@ -1492,42 +1492,42 @@
       <trans-unit id="payment-wallet-edit.Currency" datatype="html">
         <source>Currency</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallet-edit/profile-wallet-edit.component.html</context>
+          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallet-create/profile-wallet-create.component.html</context>
           <context context-type="linenumber">18,19</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="profile-wallet-edit.Cancel" datatype="html">
+      <trans-unit id="profile-wallet-create.Cancel" datatype="html">
         <source>Cancel</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallet-edit/profile-wallet-edit.component.html</context>
+          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallet-create/profile-wallet-create.component.html</context>
           <context context-type="linenumber">32</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="profile-wallet-edit.Save" datatype="html">
+      <trans-unit id="profile-wallet-create.Save" datatype="html">
         <source>Save</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallet-edit/profile-wallet-edit.component.html</context>
+          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallet-create/profile-wallet-create.component.html</context>
           <context context-type="linenumber">35</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="profile-wallet-edit.New-wallet" datatype="html">
+      <trans-unit id="profile-wallet-create.New-wallet" datatype="html">
         <source>New wallet</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallet-edit/profile-wallet-edit.component.ts</context>
+          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallet-create/profile-wallet-create.component.ts</context>
           <context context-type="linenumber">17</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="profile-wallet-edit.Edit-wallet" datatype="html">
+      <trans-unit id="profile-wallet-create.Edit-wallet" datatype="html">
         <source>Edit wallet</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallet-edit/profile-wallet-edit.component.ts</context>
+          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallet-create/profile-wallet-create.component.ts</context>
           <context context-type="linenumber">38</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="profile-wallet-edit.Wallet-saved-successfully" datatype="html">
+      <trans-unit id="profile-wallet-create.Wallet-saved-successfully" datatype="html">
         <source>Wallet saved successfully</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallet-edit/profile-wallet-edit.component.ts</context>
+          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallet-create/profile-wallet-create.component.ts</context>
           <context context-type="linenumber">72</context>
         </context-group>
       </trans-unit>
@@ -1908,14 +1908,14 @@
         </context-group>
       </trans-unit>
       <trans-unit id="stock.Created-at" datatype="html">
-        <source>Created at: <x id="INTERPOLATION" equiv-text="{{ order.dateCreated | date:'yyyy-MM-dd HH:mm:ss' }}"/></source>
+        <source>Created at: <x id="INTERPOLATION" equiv-text="{{ order.date_created | date:'yyyy-MM-dd HH:mm:ss' }}"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock/stock.component.html</context>
           <context context-type="linenumber">108,109</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock.Executed-at" datatype="html">
-        <source>Executed at: <x id="INTERPOLATION" equiv-text="{{ order.dateExecuted | date:'yyyy-MM-dd HH:mm:ss' }}"/></source>
+        <source>Executed at: <x id="INTERPOLATION" equiv-text="{{ order.date_executed | date:'yyyy-MM-dd HH:mm:ss' }}"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock/stock.component.html</context>
           <context context-type="linenumber">110,111</context>
