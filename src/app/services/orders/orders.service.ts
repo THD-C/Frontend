@@ -4,7 +4,6 @@ import { NotificationsService } from 'angular2-notifications';
 import { catchError, firstValueFrom } from 'rxjs';
 import { BaseService } from '../base/base.service';
 import { errors } from './orders.errors';
-import { environment } from '../../../environments/environment';
 import { ConfirmOrderRequest, GetOrdersRequest, GetOrdersResponse, Order } from '../../modules/stock/components/stock/stock-order/stock-order.model';
 
 @Injectable({
@@ -18,10 +17,10 @@ export class OrdersService extends BaseService {
   readonly baseOrdersPath: string = 'order';
 
   constructor(
-    private readonly httpClient: HttpClient,
+    protected override readonly httpClient: HttpClient,
     protected override readonly notificationsService: NotificationsService,
   ) {
-    super(notificationsService);
+    super(notificationsService, httpClient);
     this.errors = { ...this.errors, ...errors };
   }
 
@@ -31,7 +30,7 @@ export class OrdersService extends BaseService {
    */
   async confirmOrder(confirmOrderRequest: ConfirmOrderRequest): Promise<Order> {
     const request = this.httpClient.post<Order>(
-      `${environment.apiUrl}/${this.baseOrdersPath}/`,
+      `${this.config.apiUrl}/${this.baseOrdersPath}/`,
       { ...confirmOrderRequest }
     ).pipe(catchError(this.catchCustomError.bind(this)));
 
@@ -46,7 +45,7 @@ export class OrdersService extends BaseService {
   async get(getOrdersRequest: GetOrdersRequest): Promise<Order[]> {
     const params = this.generateParams(getOrdersRequest);
     const request = this.httpClient.get<any>(
-      `${environment.apiUrl}/${this.baseOrdersPath}/orders`,
+      `${this.config.apiUrl}/${this.baseOrdersPath}/orders`,
       { params }
     ).pipe(catchError(this.catchCustomError.bind(this)));
 

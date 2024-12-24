@@ -61,3 +61,13 @@ export const supportEmail: string = 'thdc.p.lodz@outlook.com';
 export const defaultDate: string = '1970-01-01T00:00:00Z';
 
 export const serviceName: string = 'Frontend';
+
+export type Config = {
+  tempoUrl: string;
+  apiUrl: string;
+}
+
+export const defaultConfig: Config = {
+  tempoUrl: 'http://localhost:1234/v1/traces',
+  apiUrl: 'http://localhost:8000/api',
+}

@@ -3,6 +3,7 @@ import { OrdersService } from '../../../../../../services/orders/orders.service'
 import { GetOrdersRequest, Order } from '../../../../../stock/components/stock/stock-order/stock-order.model';
 import { Wallet } from '../profile-wallets.model';
 import { WalletsService } from '../../../../../../services/wallets/wallets.service';
+import { defaultWallet } from '../profile-wallet-add-money/profile-wallet-add-money.config';
 
 @Component({
   selector: 'app-profile-wallet-orders',
@@ -14,7 +15,7 @@ export class ProfileWalletOrdersComponent {
   title: string = $localize`:@@profile-wallet-orders.Wallet-orders: Wallet orders`;
   orders: Order[] = [];
   wallets: Wallet[] = [];
-  current_wallet!: Wallet;
+  current_wallet: Wallet = defaultWallet;
 
   constructor(
     private readonly ordersService: OrdersService,

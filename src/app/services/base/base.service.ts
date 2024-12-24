@@ -1,14 +1,20 @@
-import { HttpErrorResponse, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { NotificationsService } from 'angular2-notifications';
 import { ObservableInput, throwError } from 'rxjs';
 import { ApiError } from '../../shared/models/error.model';
 import { errors } from './base.errors';
+import { Config, defaultConfig } from '../../app.config';
+
+import config from '../../../../public/config.json';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BaseService {
+
+  private readonly configRelativePath: string = 'config.json';
+  config: Config = defaultConfig;
 
   errors: ApiError = errors;
 
@@ -23,7 +29,14 @@ export class BaseService {
 
   constructor(
     protected readonly notificationsService: NotificationsService,
-  ) { }
+    protected readonly httpClient: HttpClient,
+  ) {
+    this.setConfig();
+  }
+
+  private setConfig(): void {
+    this.config = config as Config;
+  }
   
   generateParams(filters?: unknown): HttpParams {
     let params = new HttpParams();

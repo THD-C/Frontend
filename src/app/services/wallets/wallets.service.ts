@@ -4,7 +4,6 @@ import { HttpClient } from '@angular/common/http';
 import { NotificationsService } from 'angular2-notifications';
 import { errors } from './wallets.errors';
 import { CreateWalletRequest, GetWalletsResponse, UpdateWalletRequest, Wallet } from '../../modules/profile/components/profile/profile-wallets/profile-wallets.model';
-import { environment } from '../../../environments/environment';
 import { catchError, firstValueFrom } from 'rxjs';
 
 @Injectable({
@@ -18,16 +17,16 @@ export class WalletsService extends BaseService {
   readonly baseWalletsPath: string = 'wallets';
 
   constructor(
-    private readonly httpClient: HttpClient,
+    protected override readonly httpClient: HttpClient,
     protected override readonly notificationsService: NotificationsService,
   ) {
-    super(notificationsService);
+    super(notificationsService, httpClient);
     this.errors = { ...this.errors, ...errors };
   }
 
   async get(): Promise<Wallet[]> {
     const request = this.httpClient.get<GetWalletsResponse>(
-      `${environment.apiUrl}/${this.baseWalletsPath}/`
+      `${this.config.apiUrl}/${this.baseWalletsPath}/`
     ).pipe(catchError(this.catchCustomError.bind(this)));
 
     const { wallets } = await firstValueFrom(request) as GetWalletsResponse;
@@ -37,7 +36,7 @@ export class WalletsService extends BaseService {
   async getById(id: number): Promise<Wallet> {
     const params = this.generateParams({ wallet_id: id });
     const request = this.httpClient.get<Wallet>(
-      `${environment.apiUrl}/${this.baseWalletsPath}/wallet/`,
+      `${this.config.apiUrl}/${this.baseWalletsPath}/wallet/`,
       { params }
     ).pipe(catchError(this.catchCustomError.bind(this)));
 
@@ -47,7 +46,7 @@ export class WalletsService extends BaseService {
   async delete(id: number): Promise<void> {
     const params = this.generateParams({ wallet_id: id });
     const request = this.httpClient.delete(
-      `${environment.apiUrl}/${this.baseWalletsPath}/`,
+      `${this.config.apiUrl}/${this.baseWalletsPath}/`,
       { params }
     ).pipe(catchError(this.catchCustomError.bind(this)));
 
@@ -56,7 +55,7 @@ export class WalletsService extends BaseService {
 
   async create(createWalletRequest: CreateWalletRequest): Promise<Wallet> {
     const request = this.httpClient.post<Wallet>(
-      `${environment.apiUrl}/${this.baseWalletsPath}/`,
+      `${this.config.apiUrl}/${this.baseWalletsPath}/`,
       { ...createWalletRequest }
     ).pipe(catchError(this.catchCustomError.bind(this)));
 
@@ -65,7 +64,7 @@ export class WalletsService extends BaseService {
 
   async update(updateWalletRequest: UpdateWalletRequest): Promise<Wallet> {
     const request = this.httpClient.put<Wallet>(
-      `${environment.apiUrl}/${this.baseWalletsPath}/`,
+      `${this.config.apiUrl}/${this.baseWalletsPath}/`,
       { ...updateWalletRequest }
     ).pipe(catchError(this.catchCustomError.bind(this)));
 

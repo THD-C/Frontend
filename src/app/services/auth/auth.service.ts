@@ -4,8 +4,6 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { catchError, firstValueFrom, Observable } from 'rxjs';
 import { NotificationsService } from 'angular2-notifications';
 
-import { environment } from '../../../environments/environment';
-
 import { BaseService } from '../base/base.service';
 import { RouterExtendedService } from '../router-extended/router-extended.service';
 
@@ -71,12 +69,12 @@ export class AuthService extends BaseService {
   }
 
   constructor(
-    private readonly httpClient: HttpClient,
+    protected override readonly httpClient: HttpClient,
     protected override readonly notificationsService: NotificationsService,
     private readonly routerExtended: RouterExtendedService,
     private readonly jwtHelperService: JwtHelperService,
   ) {
-    super(notificationsService);
+    super(notificationsService, httpClient);
     this.errors = { ...this.errors, ...errors };
   }
 
@@ -87,7 +85,7 @@ export class AuthService extends BaseService {
    */
   async register(registerRequest: RegisterRequest): Promise<void> {
     const request = this.httpClient.post<RegisterResponse>(
-      `${environment.apiUrl}/${this.baseAuthPath}/register`,
+      `${this.config.apiUrl}/${this.baseAuthPath}/register`,
       { ...registerRequest }
     ).pipe(catchError(this.catchCustomError.bind(this)));
 
@@ -100,7 +98,7 @@ export class AuthService extends BaseService {
    */
   async login(loginRequest: LoginRequest): Promise<void> {
     const request = this.httpClient.post<LoginResponse>(
-      `${environment.apiUrl}/${this.baseAuthPath}/login`,
+      `${this.config.apiUrl}/${this.baseAuthPath}/login`,
       { ...loginRequest }
     ).pipe(catchError(this.catchCustomError.bind(this)));
 
@@ -113,7 +111,7 @@ export class AuthService extends BaseService {
    */
   async loginWithGoogle(token: string): Promise<void> {
     const request = this.httpClient.post<LoginResponse>(
-      `${environment.apiUrl}/${this.baseAuthPath}/auth-google`,
+      `${this.config.apiUrl}/${this.baseAuthPath}/auth-google`,
       { OAuth_token: token },
     ).pipe(catchError(this.catchCustomError.bind(this)));
 
