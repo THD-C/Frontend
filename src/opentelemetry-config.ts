@@ -11,8 +11,9 @@ import { Resource } from '@opentelemetry/resources';
 import { ATTR_SERVICE_NAME } from '@opentelemetry/semantic-conventions'
 import { CompositePropagator, W3CTraceContextPropagator } from '@opentelemetry/core';
 
-import { environment } from '../src/environments/environment';
-import { serviceName } from './app/app.config';
+import { Config, serviceName } from './app/app.config';
+
+import config from '../public/config.json';
 
 const resource = Resource.default().merge(
   new Resource({
@@ -26,7 +27,7 @@ const provider = new WebTracerProvider({ resource });
 provider.addSpanProcessor(
   new BatchSpanProcessor(
     new OTLPTraceExporter({
-      url: environment.tempoUrl,
+      url: (config as Config).tempoUrl,
     }),
   ),
 );

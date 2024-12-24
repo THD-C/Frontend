@@ -5,7 +5,6 @@ import { NotificationsService } from 'angular2-notifications';
 import { BaseService } from '../base/base.service';
 
 import { errors } from './users.errors';
-import { environment } from '../../../environments/environment';
 import { UpdateUserPasswordRequest } from '../../modules/profile/components/profile/profile-password/profile-password.model';
 import { UpdateProfileDetailsRequest, UserProfileDetails } from '../../modules/profile/components/profile/profile-details/profile-details.model';
 
@@ -20,10 +19,10 @@ export class UsersService extends BaseService {
   readonly baseUsersPath: string = 'user';
 
   constructor(
-    private readonly httpClient: HttpClient,
+    protected override readonly httpClient: HttpClient,
     protected override readonly notificationsService: NotificationsService,
   ) {
-    super(notificationsService);
+    super(notificationsService, httpClient);
     this.errors = { ...this.errors, ...errors };
   }
 
@@ -33,7 +32,7 @@ export class UsersService extends BaseService {
    */
   async updateProfileDetails(updateProfileDetailsRequest: UpdateProfileDetailsRequest): Promise<void> {
     const request = this.httpClient.put<void>(
-      `${environment.apiUrl}/${this.baseUsersPath}/`,
+      `${this.config.apiUrl}/${this.baseUsersPath}/`,
       { ...updateProfileDetailsRequest }
     ).pipe(catchError(this.catchCustomError.bind(this)));
 
@@ -46,7 +45,7 @@ export class UsersService extends BaseService {
    */
   async updatePassword(updateUserPassword: UpdateUserPasswordRequest): Promise<void> {
     const request = this.httpClient.put<void>(
-      `${environment.apiUrl}/${this.baseUsersPath}/update-password`,
+      `${this.config.apiUrl}/${this.baseUsersPath}/update-password`,
       { ...updateUserPassword }
     ).pipe(catchError(this.catchCustomError.bind(this)));
 
@@ -58,7 +57,7 @@ export class UsersService extends BaseService {
    */
   async getMe(): Promise<UserProfileDetails> {
     const request = this.httpClient.get<UserProfileDetails>(
-      `${environment.apiUrl}/${this.baseUsersPath}/`,
+      `${this.config.apiUrl}/${this.baseUsersPath}/`,
     ).pipe(catchError(this.catchCustomError.bind(this)));
 
     return await firstValueFrom(request) as UserProfileDetails;

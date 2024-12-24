@@ -44,3 +44,4 @@ google.txt
 
 # Secrets
 .github_token
+**/config.json
