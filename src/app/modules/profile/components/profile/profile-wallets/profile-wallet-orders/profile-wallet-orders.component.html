@@ -1,0 +1,60 @@
+<dx-popup
+  [title]="title"
+  [(visible)]="visible"
+  [showCloseButton]="true"
+  width="auto"
+  height="auto"
+  contentTemplate="contentTemplatePopup">
+  <div *dxTemplate="let d of 'contentTemplatePopup'" class="w-100 h-100">
+    <div class="row gx-0 gy-4">
+      <div class="col-12">
+        <dx-data-grid
+          [dataSource]="orders"
+          [remoteOperations]="false">
+          <dxo-paging [pageSize]="10"></dxo-paging>
+          <dxo-pager
+            [visible]="true"
+            [showPageSizeSelector]="true"
+            [allowedPageSizes]="[10, 25, 50, 100]"
+          ></dxo-pager>
+          <dxo-search-panel
+            [visible]="true"
+            [highlightCaseSensitive]="true"
+          ></dxo-search-panel>
+          <dxo-column-chooser [enabled]="true"></dxo-column-chooser>
+
+          <dxi-column caption="Action" i18n-caption="@@profile-wallet-orders.Action" cellTemplate="actionCellTemplate" width="87">
+            <div *dxTemplate="let d of 'actionCellTemplate'">
+              <dx-button appGridDeleteButton icon="close" (onClick)="cancel(d.data.id)"></dx-button>
+            </div>
+          </dxi-column>
+          <dxi-column dataField="id" caption="ID" i18n-caption="@@profile-wallet-orders.ID"></dxi-column>
+          <dxi-column dataField="date_created" caption="Date created" i18n-caption="@@profile-wallet-orders.Date-created" dataType="datetime"></dxi-column>
+          <dxi-column dataField="date_executed" caption="Date executed" i18n-caption="@@profile-wallet-orders.Date-executed" dataType="datetime"></dxi-column>
+          <dxi-column dataField="status" caption="Status" i18n-caption="@@profile-wallet-orders.Status"></dxi-column>
+          <dxi-column dataField="nominal" caption="Nominal" i18n-caption="@@profile-wallet-orders.Nominal" dataType="number"></dxi-column>
+          <dxi-column dataField="price" caption="Price" i18n-caption="@@profile-wallet-orders.Price" dataType="number">
+            <dxo-format type="fixedPoint" [precision]="2"></dxo-format>
+          </dxi-column>
+          <dxi-column dataField="cash_quantity" caption="Cash quantity" i18n-caption="@@profile-wallet-orders.Cash quantity" dataType="number">
+            <dxo-format type="fixedPoint" [precision]="2"></dxo-format>
+          </dxi-column>
+          <dxi-column dataField="side" caption="Side" i18n-caption="@@profile-wallet-orders.Side"></dxi-column>
+          @if (current_wallet.is_crypto) {
+            <dxi-column dataField="fiat_wallet_id" caption="Fiat wallet" i18n-caption="@@profile-wallet-orders.Fiat wallet" cellTemplate="fiatWalletCellTemplate">
+              <div *dxTemplate="let d of 'fiatWalletCellTemplate'">
+                <span>{{ calculateWalletDisplayValue(d.data.fiat_wallet_id) }}</span>
+              </div>
+            </dxi-column>
+          } @else if (current_wallet.is_crypto === false) {
+            <dxi-column dataField="crypto_wallet_id" caption="Crypto wallet" i18n-caption="@@profile-wallet-orders.Crypto wallet" cellTemplate="cryptoWalletCellTemplate">
+              <div *dxTemplate="let d of 'cryptoWalletCellTemplate'">
+                <span>{{ calculateWalletDisplayValue(d.data.crypto_wallet_id) }}</span>
+              </div>
+            </dxi-column>
+          }
+        </dx-data-grid>
+      </div>
+    </div>
+  </div>
+</dx-popup>

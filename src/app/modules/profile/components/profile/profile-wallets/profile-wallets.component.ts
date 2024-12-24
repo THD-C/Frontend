@@ -10,6 +10,7 @@ import { BaseService } from '../../../../../services/base/base.service';
 
 import { ProfileWalletCreateComponent } from './profile-wallet-create/profile-wallet-create.component';
 import { ProfileWalletAddMoneyComponent } from './profile-wallet-add-money/profile-wallet-add-money.component';
+import { ProfileWalletOrdersComponent } from './profile-wallet-orders/profile-wallet-orders.component';
 
 @Component({
   selector: 'app-profile-wallets',
@@ -20,6 +21,7 @@ export class ProfileWalletsComponent implements AfterViewInit {
 
   profileWalletEditPopup = viewChild.required<ProfileWalletCreateComponent>('profileWalletEditPopup');
   profileWalletAddMoneyPopup = viewChild.required<ProfileWalletAddMoneyComponent>('profileWalletAddMoneyPopup');
+  profileWalletOrdersPopup = viewChild.required<ProfileWalletOrdersComponent>('profileWalletOrdersPopup');
 
   wallets: Wallet[] = [];
 
@@ -67,6 +69,12 @@ export class ProfileWalletsComponent implements AfterViewInit {
       );
     } catch (e) {
     }
+  }
+
+  showOrders(wallet_id: number): void {
+    this.profileWalletOrdersPopup()?.open({
+      wallet_id: wallet_id.toString()
+    });
   }
 
   onWalletSaved(wallet: Wallet): void {
