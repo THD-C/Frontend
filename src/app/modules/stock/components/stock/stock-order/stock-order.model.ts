@@ -8,8 +8,8 @@ export type OrderTypeDetail = {
 export type Order = {
   id: string;
 
-  dateCreated: string;
-  dateExecuted: string;
+  date_created: string;
+  date_executed: string;
 
   /**
    * Based on {@link OrderStatus} and {@link orderStatusesMap}
@@ -29,7 +29,7 @@ export type Order = {
   /**
    * How much was spent from fiat wallet
    */
-  cashQuantity: string;
+  cash_quantity: string;
   
   /**
    * {@link OrderType}
@@ -44,12 +44,12 @@ export type Order = {
   /**
    * Crypto currency i.e. BTC, ETH
    */
-  cryptoWalletId: string;
+  crypto_wallet_id: string;
 
   /**
    * Human currency i.e. USD, EUR
    */
-  fiatWalletId: string;
+  fiat_wallet_id: string;
 }
 
 export enum OrderSide {
@@ -159,27 +159,27 @@ export enum OrderStatus {
 }
 
 export enum OrderStatusString {
-  Undefined = 'ORDER_STATUS_UNDEFINED',
-  Accepted = 'ORDER_STATUS_ACCEPTED',
-  Rejected = 'ORDER_STATUS_REJECTED',
-  Pending = 'ORDER_STATUS_PENDING',
-  PartiallyCompleted = 'ORDER_STATUS_PARTIALLY_COMPLETED',
-  Completed = 'ORDER_STATUS_COMPLETED',
-  Cancelled = 'ORDER_STATUS_CANCELLED',
-  Expired = 'ORDER_STATUS_EXPIRED',
-  InProgress = 'ORDER_STATUS_IN_PROGRESS',
+  Undefined = 'UNDEFINED',
+  Accepted = 'ACCEPTED',
+  Rejected = 'REJECTED',
+  Pending = 'PENDING',
+  PartiallyCompleted = 'PARTIALLY_COMPLETED',
+  Completed = 'COMPLETED',
+  Cancelled = 'CANCELLED',
+  Expired = 'EXPIRED',
+  InProgress = 'IN_PROGRESS',
 }
 
 export const orderStatusesMap: Map<OrderStatus, string> = new Map([
-  [OrderStatus.Undefined, 'ORDER_STATUS_UNDEFINED'],
-  [OrderStatus.Accepted, 'ORDER_STATUS_ACCEPTED'],
-  [OrderStatus.Rejected, 'ORDER_STATUS_REJECTED'],
-  [OrderStatus.Pending, 'ORDER_STATUS_PENDING'],
-  [OrderStatus.PartiallyCompleted, 'ORDER_STATUS_PARTIALLY_COMPLETED'],
-  [OrderStatus.Completed, 'ORDER_STATUS_COMPLETED'],
-  [OrderStatus.Cancelled, 'ORDER_STATUS_CANCELLED'],
-  [OrderStatus.Expired, 'ORDER_STATUS_EXPIRED'],
-  [OrderStatus.InProgress, 'ORDER_STATUS_IN_PROGRESS'],
+  [OrderStatus.Undefined, 'UNDEFINED'],
+  [OrderStatus.Accepted, 'ACCEPTED'],
+  [OrderStatus.Rejected, 'REJECTED'],
+  [OrderStatus.Pending, 'PENDING'],
+  [OrderStatus.PartiallyCompleted, 'PARTIALLY_COMPLETED'],
+  [OrderStatus.Completed, 'COMPLETED'],
+  [OrderStatus.Cancelled, 'CANCELLED'],
+  [OrderStatus.Expired, 'EXPIRED'],
+  [OrderStatus.InProgress, 'IN_PROGRESS'],
 ]);
 
 export const orderStatusesMapReverse: Map<string, OrderStatus> = new Map(

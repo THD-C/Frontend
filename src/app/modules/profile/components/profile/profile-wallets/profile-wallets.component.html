@@ -24,7 +24,7 @@
     ></dxo-search-panel>
     <dxo-column-chooser [enabled]="true"></dxo-column-chooser>
 
-    <dxi-column caption="Action" i18n-caption="@@profile-wallets.Action" cellTemplate="actionCellTemplate" width="97">
+    <dxi-column caption="Action" i18n-caption="@@profile-wallets.Action" cellTemplate="actionCellTemplate" width="145">
       <div *dxTemplate="let d of 'actionCellTemplate'">
         <dx-button
           icon="plus"
@@ -35,12 +35,14 @@
           (onClick)="addMoney(d.data)">
         </dx-button>
         <dx-button appGridDeleteButton (onClick)="delete(d.data.id)"></dx-button>
+        <dx-button type="default" stylingMode="text" icon="clock" hint="Show orders" i18n-hint="@@profile-wallets.Show-orders" (onClick)="showOrders(d.data.id)"></dx-button>
       </div>
     </dxi-column>
     <dxi-column dataField="id" caption="ID" i18n-caption="@@profile-wallets.ID"></dxi-column>
     <dxi-column dataField="currency" caption="Currency" i18n-caption="@@profile-wallets.Currency"></dxi-column>
+    <dxi-column dataField="is_crypto" caption="Is crypto" i18n-caption="@@profile-wallets.Is-crypto" dataType="boolean"></dxi-column>
     <dxi-column dataField="value" dataType="number" caption="Value" i18n-caption="@@profile-wallets.Value">
-      <dxo-format type="fixedPoint" [precision]="2"></dxo-format>  
+      <dxo-format type="fixedPoint" [precision]="2"></dxo-format>
     </dxi-column>
   </dx-data-grid>
 
@@ -56,5 +58,6 @@
   </div>
 </dx-scroll-view>
 
-<app-profile-wallet-edit #profileWalletEditPopup (onSaved)="onWalletSaved($event)" />
+<app-profile-wallet-create #profileWalletEditPopup (onSaved)="onWalletSaved($event)" />
 <app-profile-wallet-add-money #profileWalletAddMoneyPopup (onSaved)="onWalletSaved($event)" />
+<app-profile-wallet-orders #profileWalletOrdersPopup />

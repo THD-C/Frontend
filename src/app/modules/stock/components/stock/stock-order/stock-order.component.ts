@@ -10,8 +10,8 @@ import { Wallet } from '../../../../profile/components/profile/profile-wallets/p
 import { ValueChangedEvent } from 'devextreme/ui/number_box';
 import { NotificationsService } from 'angular2-notifications';
 import { ValidationCallbackData } from 'devextreme-angular/common';
-import { defaultWallet } from '../../../../profile/components/profile/profile-wallets/profile-wallet-edit/profile-wallet-edit.config';
 import { BaseService } from '../../../../../services/base/base.service';
+import { defaultWallet } from '../../../../profile/components/profile/profile-wallets/profile-wallet-add-money/profile-wallet-add-money.config';
 
 @Component({
   selector: 'app-stock-order',

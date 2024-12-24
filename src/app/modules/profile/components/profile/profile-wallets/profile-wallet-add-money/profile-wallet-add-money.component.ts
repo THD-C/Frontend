@@ -2,8 +2,8 @@ import { Component, output } from '@angular/core';
 import { UpdateWalletRequest, Wallet } from '../profile-wallets.model';
 import { NotificationsService } from 'angular2-notifications';
 import { WalletsService } from '../../../../../../services/wallets/wallets.service';
-import { defaultWallet } from '../profile-wallet-edit/profile-wallet-edit.config';
 import { BaseService } from '../../../../../../services/base/base.service';
+import { defaultWallet } from './profile-wallet-add-money.config';
 
 @Component({
   selector: 'app-profile-wallet-add-money',

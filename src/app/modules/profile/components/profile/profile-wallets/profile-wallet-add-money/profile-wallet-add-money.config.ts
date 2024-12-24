@@ -5,4 +5,5 @@ export const defaultWallet: Wallet = {
   currency: 'PLN',
   user_id: '0',
   value: '0',
+  is_crypto: false,
 };
