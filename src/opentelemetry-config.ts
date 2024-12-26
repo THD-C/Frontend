@@ -48,6 +48,6 @@ xmlHttpRequestInstrumentation.setTracerProvider(provider);
 registerInstrumentations({
   instrumentations: [
     fetchInstrumentation,
-    xmlHttpRequestInstrumentation,
+    //xmlHttpRequestInstrumentation,
   ],
 });
