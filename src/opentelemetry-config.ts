@@ -42,8 +42,8 @@ provider.register({
 const fetchInstrumentation = new FetchInstrumentation();
 fetchInstrumentation.setTracerProvider(provider);
 
-const xmlHttpRequestInstrumentation = new XMLHttpRequestInstrumentation();
-xmlHttpRequestInstrumentation.setTracerProvider(provider);
+// const xmlHttpRequestInstrumentation = new XMLHttpRequestInstrumentation();
+// xmlHttpRequestInstrumentation.setTracerProvider(provider);
 
 registerInstrumentations({
   instrumentations: [
