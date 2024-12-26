@@ -77,8 +77,8 @@ services:
     build:
       dockerfile: Dockerfile
       args:
-        - TEMPO_URL=http://test:1234/v1/traces
-        - API_URL=http://test:8000/api
+        - TEMPO_URL=http://localhost:1234/v1/traces
+        - API_URL=http://localhost:8000/api
     image: thd/frontend
     container_name: THD_Frontend
     hostname: Frontend
