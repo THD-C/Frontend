@@ -1,7 +1,10 @@
+ARG TEMPO_URL="http://localhost:1234/v1/traces"
+ARG API_URL="http://localhost:8000/api"
+
 FROM node:20.11.1 as build
 WORKDIR /usr/local/app
 COPY ./ /usr/local/app/
-COPY ./public/config.example.json /usr/local/app/public/config.json
+RUN echo "{\n\t\"tempoUrl\": \"$TEMPO_URL\",\n\t\"apiUrl\": \"$API_URL\"\n}" > "/usr/local/app/public/config.json"
 RUN npm install
 RUN npm run build
 
