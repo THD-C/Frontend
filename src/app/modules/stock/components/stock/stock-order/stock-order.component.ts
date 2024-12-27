@@ -1,6 +1,6 @@
 import { Component, EventEmitter, output } from '@angular/core';
 import { Order, OrderSide, orderSidesMap, OrderType, OrderTypeDetail, orderTypeStringMap } from './stock-order.model';
-import { currencies, Currency } from '../../../../profile/components/profile/profile-wallets/profile-wallets.config';
+import { Currency } from '../../../../profile/components/profile/profile-wallets/profile-wallets.config';
 import { CryptoInfo, cryptosInfo as tempCryptosInfo } from '../stock.model';
 import { getOrderAvailableTypes, getOrderButtonTypeType, getPopupTitle } from './stock-order.config';
 import { defaultCurrency } from '../../../../../app.config';
@@ -12,6 +12,8 @@ import { NotificationsService } from 'angular2-notifications';
 import { ValidationCallbackData } from 'devextreme-angular/common';
 import { BaseService } from '../../../../../services/base/base.service';
 import { defaultWallet } from '../../../../profile/components/profile/profile-wallets/profile-wallet-add-money/profile-wallet-add-money.config';
+import { CurrenciesService } from '../../../../../services/currencies/currencies.service';
+import { CurrencyType } from '../../../../profile/components/profile/profile-wallets/profile-wallet-create/profile-wallet-create.model';
 
 @Component({
   selector: 'app-stock-order',
@@ -20,7 +22,6 @@ import { defaultWallet } from '../../../../profile/components/profile/profile-wa
 })
 export class StockOrderComponent {
   
-  protected readonly currencies = currencies;
   protected readonly cryptosInfo = tempCryptosInfo;
   protected readonly OrderSide = OrderSide;
   protected readonly OrderType = OrderType;
@@ -45,18 +46,15 @@ export class StockOrderComponent {
   orderSide!: OrderSide;
   orderType: OrderType = OrderType.Instant;
   selectedWallet: Wallet = defaultWallet;
-  selectedCrypto: CryptoInfo = {
-    code: '',
-    name: '',
-    value: '',
-    current_value: 0,
-  };
+  selectedCrypto?: Currency;
   amount: number = 0;
   nominal: number = 0;
   price: number = 1;
   cryptoOrdersTotal: number = 55_352.98;
   currentProfit: number = 235.32;
   wallets: Wallet[] = [];
+  fiatCurrencies: Currency[] = [];
+  cryptoCurrencies: Currency[] = [];
 
   orderAvailableTypes: OrderTypeDetail[] = [];
 
@@ -64,23 +62,27 @@ export class StockOrderComponent {
     private readonly ordersService: OrdersService,
     private readonly walletsService: WalletsService,
     private readonly notifications: NotificationsService,
+    private readonly currenciesService: CurrenciesService,
   ) {}
 
   getOrderButtonTypeType = getOrderButtonTypeType;
 
   async open(
     orderSide: OrderSide,
-    crypto: CryptoInfo,
-    price: number,
+    crypto: Currency,
     currency: Currency = defaultCurrency,
   ): Promise<void> {
     this.wallets = await this.walletsService.get();
-    this.selectedWallet = this.wallets.find(w => w.currency === currency.code) ?? this.wallets[0];
+    this.selectedWallet = this.wallets.find(w => w.currency.toLowerCase() === currency.currency_name) ?? this.wallets[0];
     this.orderSide = orderSide;
     this.orderAvailableTypes = getOrderAvailableTypes(orderSide);
     this.title = getPopupTitle(orderSide);
     this.selectedCrypto = crypto;
-    this.price = price;
+
+    this.fiatCurrencies = await this.currenciesService.get({ currency_type: CurrencyType.FIAT });
+    this.cryptoCurrencies = await this.currenciesService.get({ currency_type: CurrencyType.CRYPTO });
+    // GET PRICE FROM COIN GECKO
+    //this.price = price;
 
     this.visible = true;
   }
@@ -91,12 +93,7 @@ export class StockOrderComponent {
 
   resetProperties(): void {
     this.selectedWallet = defaultWallet;
-    this.selectedCrypto = {
-      code: '',
-      name: '',
-      value: '',
-      current_value: 0,
-    };
+    this.selectedCrypto = undefined;
     this.amount = 0;
     this.nominal = 0;
     this.price = 1;
@@ -117,7 +114,7 @@ export class StockOrderComponent {
     try {
       const newOrder = await this.ordersService.confirmOrder({
         currency_used_wallet_id: this.selectedWallet.id,
-        currency_target: this.selectedCrypto.code,
+        currency_target: this.selectedCrypto?.currency_name ?? '',
         nominal: this.nominal.toString(),
         cash_quantity: this.amount.toString(),
         price: this.price.toString(),

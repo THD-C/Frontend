@@ -3,8 +3,10 @@ import { NotificationsService } from 'angular2-notifications';
 import { WalletsService } from '../../../../../../services/wallets/wallets.service';
 import { BaseService } from '../../../../../../services/base/base.service';
 import { CreateWalletRequest, Wallet } from '../profile-wallets.model';
-import { currencies } from '../profile-wallets.config';
 import { blankCreateWalletRequest } from './profile-wallet-create.config';
+import { Currency } from '../profile-wallets.config';
+import { CurrenciesService } from '../../../../../../services/currencies/currencies.service';
+import { CurrencyType } from './profile-wallet-create.model';
 
 @Component({
   selector: 'app-profile-wallet-create',
@@ -13,7 +15,6 @@ import { blankCreateWalletRequest } from './profile-wallet-create.config';
 })
 export class ProfileWalletCreateComponent {
 
-  protected readonly currencies = currencies;
   protected title: string = $localize`:@@profile-wallet-create.New-wallet:New wallet`;
   private get isFormValid(): boolean {
     return this.createWalletRequest.currency.length > 0;
@@ -23,14 +24,29 @@ export class ProfileWalletCreateComponent {
   
   visible: boolean = false;
   createWalletRequest: CreateWalletRequest = blankCreateWalletRequest;
+  currencies: Currency[] = [];
   
   constructor(
     private readonly walletsService: WalletsService,
     private readonly notifications: NotificationsService,
+    private readonly currenciesService: CurrenciesService,
   ) { }
 
-  open(): void {
+  async open(): Promise<void> {
+    await this.getCurrencies();
     this.visible = true;
+  }
+
+  async getCurrencies(): Promise<void> {
+    try {
+      this.currencies = [
+        ...await this.currenciesService.get({ currency_type: CurrencyType.FIAT }),
+        ...await this.currenciesService.get({ currency_type: CurrencyType.CRYPTO }),
+      ];
+
+      this.currencies.sort((a, b) => a.currency_name.localeCompare(b.currency_name));
+    } catch (e) {
+    }
   }
 
   async save(): Promise<void> {

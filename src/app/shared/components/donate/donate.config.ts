@@ -3,21 +3,21 @@ import { MakePaymentRequest } from '../../../modules/profile/components/profile/
 import { Currency } from '../../../modules/profile/components/profile/profile-wallets/profile-wallets.config';
 
 export const defaultMakePaymentRequest: MakePaymentRequest = {
-  currency: defaultCurrency.code,
+  currency: defaultCurrency.currency_name,
   nominal: 1,
 };
 
 export const currencies: Currency[] = [
   {
-    code: 'EUR',
+    currency_name: 'EUR',
   },
   {
-    code: 'GBP',
+    currency_name: 'GBP',
   },
   {
-    code: 'PLN',
+    currency_name: 'PLN',
   },
   {
-    code: 'USD',
+    currency_name: 'USD',
   },
 ];

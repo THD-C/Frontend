@@ -1,10 +1,8 @@
+import { Currency } from '../../../profile/components/profile/profile-wallets/profile-wallets.config';
 import { CryptoInfo, TimeFrame } from './stock.model';
 
-export const defaultDisplayCrypto: CryptoInfo = {
-  code: 'BTC',
-  name: 'Bitcoin (BTC)',
-  value: 'btc',
-  current_value: 104_253.35,
+export const defaultDisplayCrypto: Currency = {
+  currency_name: 'bitcoin'
 };
 
 export const defaultTimeFrameIndex: number = 0;

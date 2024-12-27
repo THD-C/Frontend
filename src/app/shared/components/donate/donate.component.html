@@ -34,8 +34,8 @@
         <dx-select-box
           class="w-100"
           [dataSource]="currencies"
-          valueExpr="code"
-          displayExpr="code"
+          valueExpr="currency_name"
+          displayExpr="currency_name"
           [searchEnabled]="true"
           [(value)]="makePaymentRequest.currency"
           label="Currency"
