@@ -3,7 +3,7 @@ import { DatePipe, DecimalPipe } from '@angular/common';
 import { CryptoDetails, CryptoPrice as CryptoHistorialDataEntry, greenCandleColor, redCandleColor, TimeFrame } from './stock.model';
 import { appName, defaultCurrency, defaultDate, dxPallet } from '../../../../app.config';
 import { Currency } from '../../../profile/components/profile/profile-wallets/profile-wallets.config';
-import { defaultCrypto, defaultCryptoDetails, defaultTimeFrameIndex, timeFrames } from './stock.config';
+import { defaultCrypto, defaultCryptoDetails, defaultTimeFrameIndex, dxChartButtonMenuOptions, timeFrames } from './stock.config';
 import { StockOrderComponent } from './stock-order/stock-order.component';
 import { GetOrdersRequest, Order, OrderSide, OrderSideString, OrderStatusString, OrderType } from './stock-order/stock-order.model';
 import { AuthService } from '../../../../services/auth/auth.service';
@@ -33,6 +33,7 @@ export class StockComponent implements OnInit {
   protected readonly appName = appName;
   protected readonly defaultDate = defaultDate;
   protected readonly dxPallet = dxPallet;
+  protected readonly dxChartButtonMenuOptions = dxChartButtonMenuOptions;
 
   stockOrderPopup = viewChild.required<StockOrderComponent>('stockOrderPopup');
 
@@ -40,7 +41,6 @@ export class StockComponent implements OnInit {
   displayCrypto: Currency = defaultCrypto;
   displayCryptoDetails: CryptoDetails = defaultCryptoDetails;
   historicalData: CryptoHistorialDataEntry[] = [];
-  // stockPrices: StockPrice[] = stockPrices;
 
   selectedTimeFrameIndex: number = defaultTimeFrameIndex;
   timeFrames: TimeFrame[] = timeFrames;
@@ -53,6 +53,13 @@ export class StockComponent implements OnInit {
   fiatCurrencies: Currency[] = [];
   cryptoCurrencies: Currency[] = [];
   statsVisible: boolean = false; 
+  fullscreen: boolean = false;
+  get toggleFullScreenButtonIcon(): string {
+    return this.fullscreen ? 'close' : 'fullscreen';
+  }
+  get toggleFullScreenButtonHint(): string {
+    return this.fullscreen ? $localize`:@@stock.Close-fullscreen:Close fullscreen` : $localize`:@@stock.Fullscreen:Fullscreen`;
+  }
 
   get currentProfitInPercentage(): number {
     return (this.cryptoOrdersTotal + this.currentProfit) / this.cryptoOrdersTotal;
@@ -165,6 +172,10 @@ export class StockComponent implements OnInit {
 
   showStats(): void {
     this.statsVisible = true;
+  }
+
+  toggleFullScreen(): void {
+    this.fullscreen = !this.fullscreen;
   }
 
 }

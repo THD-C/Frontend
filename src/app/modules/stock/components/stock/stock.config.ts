@@ -1,3 +1,4 @@
+import { DxButtonTypes } from 'devextreme-angular/ui/button';
 import { Currency } from '../../../profile/components/profile/profile-wallets/profile-wallets.config';
 import { CryptoDetails, TimeFrame } from './stock.model';
 
@@ -96,3 +97,9 @@ export const timeFrames: TimeFrame[] = [
   //   dateTo: new Date(endDate),
   // },
 ];
+
+export const dxChartButtonMenuOptions: DxButtonTypes.Properties = {
+  useSubmitBehavior: false,
+  stylingMode: 'text',
+  type: 'normal',
+};

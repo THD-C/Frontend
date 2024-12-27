@@ -1,25 +1,59 @@
 <div class="bg-light row g-4 d-flex justify-content-evenly">
   <app-header [position]="'relative'" class="col-12" />
 
-  <div class="bg-body rounded shadow p-4 custom-col-10 col-lg-10 col-12 d-flex flex-column align-items-center justify-content-center">
-    <div class="d-flex align-items-center mb-4 w-100">
-      <dx-button
-        icon="info"
-        type="normal"
-        stylingMode="text"
-        hint="Display stats"
-        i18n-hint="@@stock.Display-stats"
-        (onClick)="showStats()">
-      </dx-button>
-      <h5 class="mb-0">{{ displayCryptoDetails.symbol }}&nbsp;({{ displayCryptoDetails.name }})</h5>
+  <div
+    [class.position-fixed]="fullscreen"
+    [class.top-0]="fullscreen"
+    [class.start-0]="fullscreen"
+    [class.vw-100]="fullscreen"
+    [class.h-100]="fullscreen"
+    [class.col-lg-12]="fullscreen"
+    [class.z-3]="fullscreen"
+    [class.mt-0]="fullscreen"
+    [class.custom-col-10]="fullscreen === false"
+    [class.col-lg-10]="fullscreen === false"
+    [class.col-12]="fullscreen === false"
+    class="bg-body rounded shadow p-4 d-flex flex-column align-items-center justify-content-center">
+    <div class="d-flex align-items-center mb-4 w-100 justify-content-between">
+      <div class="d-flex align-items-center">
+        <dx-button
+          icon="info"
+          type="normal"
+          stylingMode="text"
+          hint="Display stats"
+          i18n-hint="@@stock.Display-stats"
+          (onClick)="showStats()">
+        </dx-button>
+        <h5 class="mb-0">{{ displayCryptoDetails.symbol }}&nbsp;({{ displayCryptoDetails.name }})</h5>
+      </div>
       <dx-tabs
-        class="w-auto mx-auto rounded overflow-hidden"
+        class="w-auto rounded overflow-hidden"
         [(selectedIndex)]="selectedTimeFrameIndex"
         (onSelectionChanged)="onTimeFrameSelectionChanged()"
         [dataSource]="timeFrames">
       </dx-tabs>
+      <div>
+        <dx-button
+          stylingMode="text"
+          type="normal"
+          hint="Refresh"
+          i18n-hint="@@stock.Refresh"
+          icon="refresh"
+          (onClick)="refreshCryptoHistoricalData()">
+        </dx-button>
+        <dx-button
+          stylingMode="text"
+          type="normal"
+          [hint]="toggleFullScreenButtonHint"
+          [icon]="toggleFullScreenButtonIcon"
+          (onClick)="toggleFullScreen()">
+        </dx-button>
+      </div>
     </div>
+
     <dx-chart
+      #dxChartHistoricalData
+      [class.h-100]="fullscreen"
       class="custom-dx-chart"
       [palette]="dxPallet"
       [dataSource]="historicalData"
@@ -83,10 +117,10 @@
         displayExpr="currency_name">
       </dx-select-box>
       
-      <div class="col-6 p-0 ps-lg-0 p-lg-2 sticky-bottom">
+      <div class="col-6 p-0 ps-lg-0 p-lg-2 sticky-bottom z-0">
         <dx-button class="w-100" type="danger" text="Sell" i18n-text="@@stock.Sell" (onClick)="openStockOrderPopup(OrderSide.Sell)"></dx-button>
       </div>
-      <div class="col-6 p-0 pe-lg-0 p-lg-2 sticky-bottom">
+      <div class="col-6 p-0 pe-lg-0 p-lg-2 sticky-bottom z-0">
         <dx-button class="w-100" type="success" text="Buy" i18n-text="@@stock.Buy" (onClick)="openStockOrderPopup(OrderSide.Buy)"></dx-button>
       </div>
 
@@ -101,8 +135,10 @@
                     {{ getOrderHistoryEntrySideLabel(order.side) }}&nbsp;{{ displayCrypto.currency_name }}
                   </div>
                   <small
-                    [class.text-danger.bg-danger]="order.status === OrderStatusString.Cancelled"
-                    [class.text-success.bg-success]="order.status === OrderStatusString.Completed"
+                    [class.text-danger]="order.status === OrderStatusString.Cancelled"
+                    [class.bg-danger]="order.status === OrderStatusString.Cancelled"
+                    [class.text-success]="order.status === OrderStatusString.Completed"
+                    [class.bg-success]="order.status === OrderStatusString.Completed"
                     [class.d-none]="order.status !== OrderStatusString.Cancelled && order.status !== OrderStatusString.Completed"
                     class="col-auto bg-opacity-25 rounded p-1 ms-2">
                     {{ getOrderHistoryEntryStatusLabel(order.status) }}
