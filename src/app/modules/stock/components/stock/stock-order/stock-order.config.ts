@@ -23,6 +23,6 @@ export const getOrderHistoryEntryStatusLabel = (orderStatus: string): string => 
   return OrderStatus[orderStatusesMapReverse.get(orderStatus) as OrderStatus] ?? $localize`:@@stock-order-config.Unknown:Unknown`;
 }
 
-export const getOrderHistoryEntrycash_quantityPrefixLabel = (orderSide: string): string => {
+export const getOrderHistoryEntryCashQuantityPrefixLabel = (orderSide: string): string => {
   return orderSidesStringFiatWalletOperationPrefixMap.get(orderSide) ?? '';
 }

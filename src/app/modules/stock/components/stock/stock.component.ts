@@ -11,7 +11,7 @@ import { RouterExtendedService } from '../../../../services/router-extended/rout
 import { OrdersService } from '../../../../services/orders/orders.service';
 import { Wallet } from '../../../profile/components/profile/profile-wallets/profile-wallets.model';
 import { WalletsService } from '../../../../services/wallets/wallets.service';
-import { getOrderHistoryEntrycash_quantityPrefixLabel, getOrderHistoryEntrySideLabel, getOrderHistoryEntryStatusLabel } from './stock-order/stock-order.config';
+import { getOrderHistoryEntryCashQuantityPrefixLabel, getOrderHistoryEntrySideLabel, getOrderHistoryEntryStatusLabel } from './stock-order/stock-order.config';
 import { CurrenciesService } from '../../../../services/currencies/currencies.service';
 import { CurrencyType } from '../../../profile/components/profile/profile-wallets/profile-wallet-create/profile-wallet-create.model';
 import { CryptosService } from '../../../../services/cryptos/cryptos.service';
@@ -76,7 +76,7 @@ export class StockComponent implements OnInit {
 
   getOrderHistoryEntrySideLabel = getOrderHistoryEntrySideLabel;
   getOrderHistoryEntryStatusLabel = getOrderHistoryEntryStatusLabel;
-  getOrderHistoryEntrycash_quantityPrefixLabel = getOrderHistoryEntrycash_quantityPrefixLabel;
+  getOrderHistoryEntryCashQuantityPrefixLabel = getOrderHistoryEntryCashQuantityPrefixLabel;
 
   getOrderHistoryEntryFiatWalletLabel(fiat_wallet_id: string): string {
     const fiatWallet = this.wallets.find(({ id }) => id === fiat_wallet_id);

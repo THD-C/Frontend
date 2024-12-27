@@ -100,13 +100,15 @@
                   <div class="rounded col-auto fw-bold fs-6 lh-base">
                     {{ getOrderHistoryEntrySideLabel(order.side) }}&nbsp;{{ displayCrypto.currency_name }}
                   </div>
-                  @if (order.status === OrderStatusString.Cancelled) {
-                    <small class="text-danger col-auto bg-opacity-25 bg-danger rounded p-1 ms-2">{{ getOrderHistoryEntryStatusLabel(order.status) }}</small>
-                  } @else if (order.status === OrderStatusString.Completed) {
-                    <small class="text-success col-auto bg-opacity-25 bg-success rounded p-1 ms-2">{{ getOrderHistoryEntryStatusLabel(order.status) }}</small>
-                  }
+                  <small
+                    [class.text-danger.bg-danger]="order.status === OrderStatusString.Cancelled"
+                    [class.text-success.bg-success]="order.status === OrderStatusString.Completed"
+                    [class.d-none]="order.status !== OrderStatusString.Cancelled && order.status !== OrderStatusString.Completed"
+                    class="col-auto bg-opacity-25 rounded p-1 ms-2">
+                    {{ getOrderHistoryEntryStatusLabel(order.status) }}
+                  </small>
                   <div class="rounded col fw-bold fs-6 lh-base text-end">
-                    {{ getOrderHistoryEntrycash_quantityPrefixLabel(order.side) }}{{ order.cash_quantity | number:'1.2-2' }}&nbsp;{{ getOrderHistoryEntryFiatWalletLabel(order.fiat_wallet_id) }}
+                    {{ getOrderHistoryEntryCashQuantityPrefixLabel(order.side) }}{{ order.cash_quantity | number:'1.2-2' }}&nbsp;{{ getOrderHistoryEntryFiatWalletLabel(order.fiat_wallet_id) }}
                   </div>
                   <div class="col-12 text-muted">{{ order.nominal }}&nbsp;·&nbsp;{{ order.price | number:'1.2-2' }}&nbsp;{{ getOrderHistoryEntryFiatWalletLabel(order.fiat_wallet_id) }}</div>
                   <div class="col-12 text-muted" i18n="@@stock.Created-at">Created at: {{ order.date_created | date:'yyyy-MM-dd HH:mm:ss' }}</div>
