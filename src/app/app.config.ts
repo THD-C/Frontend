@@ -11,6 +11,7 @@ import { routes } from './app.routes';
 import { jwtInterceptor } from './interceptors/jwt/jwt.interceptor';
 import { Currency } from './modules/profile/components/profile/profile-wallets/profile-wallets.config';
 import { traceIdInterceptor } from './interceptors/trace-id/trace-id.interceptor';
+import { Palette } from 'devextreme/common/charts';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -72,4 +73,4 @@ export const defaultConfig: Config = {
   apiUrl: 'http://localhost:8000/api',
 }
 
-export const dxPallet: string = 'Violet';
+export const dxPallet: Palette = 'Violet';

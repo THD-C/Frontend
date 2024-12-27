@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { NotificationsService } from 'angular2-notifications';
 import { errors } from './cryptos.errors';
 import { catchError, firstValueFrom } from 'rxjs';
-import { CryptoDetails, GetCryptoDetailsRequest, GetCryptoDetailsResponse } from '../../modules/stock/components/stock/stock.model';
+import { CryptoDetails, CryptoPrice, GetCryptoDetailsRequest, GetCryptoDetailsResponse, GetCryptoHistoricalDataRequest, GetCryptoHistoricalDataResponse } from '../../modules/stock/components/stock/stock.model';
 
 @Injectable({
   providedIn: 'root'
@@ -38,6 +38,25 @@ export class CryptosService extends BaseService {
 
     const { data } = await firstValueFrom(request) as GetCryptoDetailsResponse;
     return data;
+  }
+  
+  /**
+   * Makes a request call to the API
+   * to retrieve crypto historical data.
+   * @param getCryptoHistoricalDataRequest Filters.
+   */
+  async getHistoricalData(getCryptoHistoricalDataRequest: GetCryptoHistoricalDataRequest): Promise<CryptoPrice[]> {
+    const params = this.generateParams(getCryptoHistoricalDataRequest);
+    const request = this.httpClient.get<any>(
+      `${this.config.apiUrl}/${this.baseCryptosPath}/historical-data`,
+      { params }
+    ).pipe(catchError(this.catchCustomError.bind(this)));
+
+    const { data } = await firstValueFrom(request) as GetCryptoHistoricalDataResponse || { data: { timestamp: [], price: [] }};
+    return data.timestamp.map((value, index, array) => ({
+      date: new Date(value),
+      price: data.price[index]
+    } satisfies CryptoPrice));
   }
 
 }

@@ -1,14 +1,13 @@
 import { Component, OnInit, viewChild } from '@angular/core';
-import { DecimalPipe } from '@angular/common';
-import { CryptoDetails, greenCandleColor, redCandleColor, StockPrice, stockPrices, TimeFrame } from './stock.model';
-import { appName, defaultCurrency, defaultDate } from '../../../../app.config';
+import { DatePipe, DecimalPipe } from '@angular/common';
+import { CryptoDetails, CryptoPrice as CryptoHistorialDataEntry, greenCandleColor, redCandleColor, TimeFrame } from './stock.model';
+import { appName, defaultCurrency, defaultDate, dxPallet } from '../../../../app.config';
 import { Currency } from '../../../profile/components/profile/profile-wallets/profile-wallets.config';
 import { defaultCrypto, defaultCryptoDetails, defaultTimeFrameIndex, timeFrames } from './stock.config';
 import { StockOrderComponent } from './stock-order/stock-order.component';
 import { GetOrdersRequest, Order, OrderSide, OrderSideString, OrderStatusString, OrderType } from './stock-order/stock-order.model';
 import { AuthService } from '../../../../services/auth/auth.service';
 import { RouterExtendedService } from '../../../../services/router-extended/router-extended.service';
-import { SelectionChangedEvent } from 'devextreme/ui/select_box';
 import { OrdersService } from '../../../../services/orders/orders.service';
 import { Wallet } from '../../../profile/components/profile/profile-wallets/profile-wallets.model';
 import { WalletsService } from '../../../../services/wallets/wallets.service';
@@ -21,7 +20,7 @@ import { CryptosService } from '../../../../services/cryptos/cryptos.service';
   selector: 'app-stock',
   templateUrl: './stock.component.html',
   styleUrl: './stock.component.scss',
-  providers: [DecimalPipe],
+  providers: [DatePipe, DecimalPipe],
 })
 export class StockComponent implements OnInit {
   
@@ -33,13 +32,15 @@ export class StockComponent implements OnInit {
   protected readonly redCandleColor = redCandleColor;
   protected readonly appName = appName;
   protected readonly defaultDate = defaultDate;
+  protected readonly dxPallet = dxPallet;
 
   stockOrderPopup = viewChild.required<StockOrderComponent>('stockOrderPopup');
 
   displayCurrency: Currency = defaultCurrency;
   displayCrypto: Currency = defaultCrypto;
   displayCryptoDetails: CryptoDetails = defaultCryptoDetails;
-  stockPrices: StockPrice[] = stockPrices;
+  historicalData: CryptoHistorialDataEntry[] = [];
+  // stockPrices: StockPrice[] = stockPrices;
 
   selectedTimeFrameIndex: number = defaultTimeFrameIndex;
   timeFrames: TimeFrame[] = timeFrames;
@@ -51,7 +52,6 @@ export class StockComponent implements OnInit {
   wallets: Wallet[] = [];
   fiatCurrencies: Currency[] = [];
   cryptoCurrencies: Currency[] = [];
-  title: string = defaultCrypto.currency_name;
   statsVisible: boolean = false; 
 
   get currentProfitInPercentage(): number {
@@ -61,11 +61,12 @@ export class StockComponent implements OnInit {
   constructor(
     private readonly authService: AuthService,
     private readonly router: RouterExtendedService,
-    private readonly decimalPipe: DecimalPipe,
     private readonly ordersService: OrdersService,
     private readonly walletsService: WalletsService,
     private readonly currenciesService: CurrenciesService,
     private readonly cryptosService: CryptosService,
+    private readonly datePipe: DatePipe,
+    private readonly decimalPipe: DecimalPipe,
   ) { }
 
   async ngOnInit(): Promise<void> {
@@ -93,10 +94,10 @@ export class StockComponent implements OnInit {
 
   customizeTooltip(arg: any) {
     return {
-      text: `Open: ${arg.openValue} ${this.displayCurrency.currency_name}<br/>`
-          + `Close: ${arg.closeValue} ${this.displayCurrency.currency_name}<br/>`
-          + `High: ${arg.highValue} ${this.displayCurrency.currency_name}<br/>`
-          + `Low: ${arg.lowValue} ${this.displayCurrency.currency_name}<br/>`,
+      text: `
+        ${this.datePipe.transform(arg.argument, 'yyyy-MM-dd HH:mm:ss')}<br/>
+        ${this.decimalPipe.transform(arg.value, '1.2-2')} ${this.displayCurrency.currency_name}
+      `,
     };
   }
 
@@ -113,21 +114,45 @@ export class StockComponent implements OnInit {
     );
   }
 
-  async onDisplayCryptoSelectionChanged(event: SelectionChangedEvent): Promise<void> {
+  async onTimeFrameSelectionChanged(): Promise<void> {
+    try {
+      await this.refreshCryptoHistoricalData();
+    } catch(e) {
+    }
+  }
+
+  async onDisplayCurrencySelectionChanged(): Promise<void> {
+    try {
+      await this.refreshCryptoHistoricalData();
+    } catch(e) {
+      console.error(e);
+    }
+  }
+
+  async onDisplayCryptoSelectionChanged(): Promise<void> {
     try {
       const cryptoWallet = this.wallets.find(({ currency }) => currency === this.displayCrypto?.currency_name);
       this.currentCryptoOrders = await this.ordersService.get({ wallet_id: cryptoWallet?.id } satisfies GetOrdersRequest);
       this.currentCryptoOrders.sort((a, b) => a.date_created < b.date_created ? 1 : -1);
 
-      this.displayCryptoDetails = await this.cryptosService.getDetails({
-        coin_id: (event.selectedItem as Currency).currency_name,
-        currency: this.displayCurrency.currency_name,
-      });
-
-      this.title = `${this.displayCryptoDetails?.symbol} (${this.displayCryptoDetails.name})`;
+      await this.refreshCryptoHistoricalData();
     } catch(e) {
       console.error(e);
     }
+  }
+
+  async refreshCryptoHistoricalData(): Promise<void> {
+    this.displayCryptoDetails = await this.cryptosService.getDetails({
+      coin_id: this.displayCrypto.currency_name,
+      currency: this.displayCurrency.currency_name,
+    });
+
+    this.historicalData = await this.cryptosService.getHistoricalData({
+      coin_id: this.displayCrypto.currency_name,
+      currency: this.displayCurrency.currency_name,
+      start_date: this.datePipe.transform(this.timeFrames[this.selectedTimeFrameIndex].dateFrom, 'yyyy-MM-ddTHH:mm:ss.SSS')!,
+      end_date: this.datePipe.transform(this.timeFrames[this.selectedTimeFrameIndex].dateTo, 'yyyy-MM-ddTHH:mm:ss.SSS')!,
+    });
   }
 
   onOrderAdded(order: Order): void {

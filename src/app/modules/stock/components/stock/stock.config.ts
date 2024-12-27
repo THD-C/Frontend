@@ -30,31 +30,27 @@ startDate.setSeconds(0);
 startDate.setMilliseconds(0);
 
 const endDate = new Date();
-endDate.setHours(23);
-endDate.setMinutes(59);
-endDate.setSeconds(59);
-endDate.setMilliseconds(99);
+endDate.setHours(endDate.getHours() - 1);
 
-const oneDayDateFrom = new Date(startDate)
-oneDayDateFrom.setDate(now.getDate() - 1);
+const oneDayDateFrom = new Date(startDate);
 
-const oneWeekDateFrom = new Date(startDate)
+const oneWeekDateFrom = new Date(startDate);
 oneWeekDateFrom.setDate(now.getDate() - 7);
 
-const oneMonthDateFrom = new Date(startDate)
+const oneMonthDateFrom = new Date(startDate);
 oneMonthDateFrom.setDate(now.getDate() - 31);
 
 const sixMonthsDateFrom = new Date(startDate)
 sixMonthsDateFrom.setDate(now.getDate() - 184);
 
-const yearTodayMonthsDateFrom = new Date(startDate)
+const yearTodayMonthsDateFrom = new Date(startDate);
 yearTodayMonthsDateFrom.setMonth(0);
 yearTodayMonthsDateFrom.setDate(1);
 
-const oneYearMonthsDateFrom = new Date(startDate)
+const oneYearMonthsDateFrom = new Date(startDate);
 oneYearMonthsDateFrom.setFullYear(oneYearMonthsDateFrom.getFullYear() -  1);
 
-const fiveYearMonthsDateFrom = new Date(startDate)
+const fiveYearMonthsDateFrom = new Date(startDate);
 fiveYearMonthsDateFrom.setFullYear(fiveYearMonthsDateFrom.getFullYear() -  5);
 
 export const timeFrames: TimeFrame[] = [
@@ -88,14 +84,15 @@ export const timeFrames: TimeFrame[] = [
     dateFrom: oneYearMonthsDateFrom,
     dateTo: new Date(endDate),
   },
-  {
-    badge: '5Y',
-    dateFrom: fiveYearMonthsDateFrom,
-    dateTo: new Date(endDate),
-  },
-  {
-    badge: 'All',
-    dateFrom: undefined,
-    dateTo: new Date(endDate),
-  },
+  // Free CoinGeckoAPI does not support time frame more than 1 year :(
+  // {
+  //   badge: '5Y',
+  //   dateFrom: fiveYearMonthsDateFrom,
+  //   dateTo: new Date(endDate),
+  // },
+  // {
+  //   badge: 'All',
+  //   dateFrom: undefined,
+  //   dateTo: new Date(endDate),
+  // },
 ];

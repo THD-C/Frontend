@@ -38,7 +38,7 @@ export class CurrenciesService extends BaseService {
     ).pipe(catchError(this.catchCustomError.bind(this)));
 
     const { currencies } = await firstValueFrom(request) as GetCurrenciesResponse || { currencies: [] };
-    return currencies;
+    return currencies.sort((a, b) => a.currency_name.localeCompare(b.currency_name));
   }
   
 }
