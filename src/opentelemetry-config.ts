@@ -4,7 +4,6 @@ import {
   BatchSpanProcessor,
 } from '@opentelemetry/sdk-trace-web';
 import { FetchInstrumentation } from '@opentelemetry/instrumentation-fetch';
-import { XMLHttpRequestInstrumentation } from '@opentelemetry/instrumentation-xml-http-request';
 import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-http';
 import { ZoneContextManager } from '@opentelemetry/context-zone';
 import { Resource } from '@opentelemetry/resources';
@@ -42,12 +41,6 @@ provider.register({
 const fetchInstrumentation = new FetchInstrumentation();
 fetchInstrumentation.setTracerProvider(provider);
 
-// const xmlHttpRequestInstrumentation = new XMLHttpRequestInstrumentation();
-// xmlHttpRequestInstrumentation.setTracerProvider(provider);
-
 registerInstrumentations({
-  instrumentations: [
-    fetchInstrumentation,
-    //xmlHttpRequestInstrumentation,
-  ],
+  instrumentations: [fetchInstrumentation],
 });

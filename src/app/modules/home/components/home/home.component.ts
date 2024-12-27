@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { appName } from '../../../../app.config';
+import { appName, dxPallet } from '../../../../app.config';
 import { newsletterButtonOptions } from './home.config';
 import { CryptoInfo, CryptoStockPrice, greenCandleColor, redCandleColor, StockPrice } from '../../../stock/components/stock/stock.model';
 import { cryptosInfo, cryptoStockPrices, stockPrices, UserGrowth, usersGrowth } from './home.model';
@@ -15,6 +15,7 @@ export class HomeComponent {
   protected readonly redCandleColor = redCandleColor;
   protected readonly appName = appName;
   protected readonly newsletterButtonOptions = newsletterButtonOptions;
+  protected readonly dxPallet = dxPallet;
   stockPrices: StockPrice[] = stockPrices;
 
   cryptosInfo: CryptoInfo[] = cryptosInfo;

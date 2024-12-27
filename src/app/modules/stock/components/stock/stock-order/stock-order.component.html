@@ -8,8 +8,44 @@
   contentTemplate="contentTemplatePopup">
   <div *dxTemplate="let d of 'contentTemplatePopup'" class="w-100 h-100">
     <div class="row g-4 gx-0">
-      <h5 class="col-12 text-center" i18n="@@stock-order.Current-price">Current price: {{ price | number:'1.2-2' }}&nbsp;{{ selectedWallet.currency }}</h5>
+      <h5 class="col-12 text-center" i18n="@@stock-order.Current-price">Current price: {{ cryptoDetails.market_data.current_price | number:'1.2-2' }}&nbsp;{{ selectedWallet.currency }}</h5>
       <h6 class="col-12 text-center mt-0" i18n="@@stock-order.Free-wallet-funds">Free wallet funds: {{ selectedWallet.value | number:'1.2-2' }} {{ selectedWallet.currency }}</h6>
+
+      @if (orderSide === OrderSide.Sell) {
+        <div class="col-6">
+          <dx-number-box
+            class="w-100"
+            label="Nominal"
+            labelMode="floating"
+            [min]="0"
+            [(value)]="nominal"
+            (onValueChanged)="onNominalChanged($event)"
+            validationMessageMode="always"
+            i18n-label="@@stock-order.Nominal:Nominal">
+            <dx-validator>
+              <dxi-validation-rule type="required"></dxi-validation-rule>
+            </dx-validator>
+          </dx-number-box>
+        </div>
+        <div class="col-6">
+          <dx-select-box
+            class="w-100"
+            [dataSource]="cryptoCurrencies"
+            [value]="selectedCrypto.currency_name"
+            [(selectedItem)]="selectedCrypto"
+            (onSelectionChanged)="onCryptoSelectionChanged()"
+            label="Crypto"
+            labelMode="floating"
+            i18n-label="@@stock-order.Crypto:Crypto"
+            valueExpr="currency_name"
+            validationMessageMode="always"
+            displayExpr="currency_name">
+            <dx-validator>
+              <dxi-validation-rule type="required"></dxi-validation-rule>
+            </dx-validator>
+          </dx-select-box>
+        </div>
+      }
 
       <div class="col-6">
         <dx-number-box
@@ -33,6 +69,7 @@
           [dataSource]="wallets"
           [value]="selectedWallet.id"
           [(selectedItem)]="selectedWallet"
+          (onSelectionChanged)="onWalletSelectionChanged()"
           label="Wallet"
           labelMode="floating"
           i18n-label="@@stock-order.Wallet:Wallet"
@@ -48,38 +85,41 @@
           </dx-validator>
         </dx-select-box>
       </div>
-      <div class="col-6">
-        <dx-number-box
-          class="w-100"
-          label="Nominal"
-          labelMode="floating"
-          [min]="0"
-          [(value)]="nominal"
-          (onValueChanged)="onNominalChanged($event)"
-          validationMessageMode="always"
-          i18n-label="@@stock-order.Nominal:Nominal">
-          <dx-validator>
-            <dxi-validation-rule type="required"></dxi-validation-rule>
-          </dx-validator>
-        </dx-number-box>
-      </div>
-      <div class="col-6">
-        <dx-select-box
-          class="w-100"
-          [dataSource]="cryptosInfo"
-          [value]="selectedCrypto.code"
-          [(selectedItem)]="selectedCrypto"
-          label="Crypto"
-          labelMode="floating"
-          i18n-label="@@stock-order.Crypto:Crypto"
-          valueExpr="code"
-          validationMessageMode="always"
-          displayExpr="name">
-          <dx-validator>
-            <dxi-validation-rule type="required"></dxi-validation-rule>
-          </dx-validator>
-        </dx-select-box>
-      </div>
+      @if (orderSide === OrderSide.Buy) {
+        <div class="col-6">
+          <dx-number-box
+            class="w-100"
+            label="Nominal"
+            labelMode="floating"
+            [min]="0"
+            [(value)]="nominal"
+            (onValueChanged)="onNominalChanged($event)"
+            validationMessageMode="always"
+            i18n-label="@@stock-order.Nominal:Nominal">
+            <dx-validator>
+              <dxi-validation-rule type="required"></dxi-validation-rule>
+            </dx-validator>
+          </dx-number-box>
+        </div>
+        <div class="col-6">
+          <dx-select-box
+            class="w-100"
+            [dataSource]="cryptoCurrencies"
+            [value]="selectedCrypto.currency_name"
+            [(selectedItem)]="selectedCrypto"
+            (onSelectionChanged)="onCryptoSelectionChanged()"
+            label="Crypto"
+            labelMode="floating"
+            i18n-label="@@stock-order.Crypto:Crypto"
+            valueExpr="currency_name"
+            validationMessageMode="always"
+            displayExpr="currency_name">
+            <dx-validator>
+              <dxi-validation-rule type="required"></dxi-validation-rule>
+            </dx-validator>
+          </dx-select-box>
+        </div>
+      }
 
       <div class="col-12">
         <dx-radio-group

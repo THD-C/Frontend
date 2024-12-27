@@ -49,7 +49,7 @@ export class OrdersService extends BaseService {
       { params }
     ).pipe(catchError(this.catchCustomError.bind(this)));
 
-    const { orders } = await firstValueFrom(request) as GetOrdersResponse;
+    const { orders } = await firstValueFrom(request) as GetOrdersResponse || { orders: [] };
     return orders;
   }
 

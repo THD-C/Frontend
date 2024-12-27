@@ -1,33 +1,76 @@
 <div class="bg-light row g-4 d-flex justify-content-evenly">
   <app-header [position]="'relative'" class="col-12" />
 
-  <div class="bg-body rounded shadow p-4 custom-col-10 col-lg-10 col-12 d-flex flex-column align-items-center justify-content-center">
+  <div
+    [class.position-fixed]="fullscreen"
+    [class.top-0]="fullscreen"
+    [class.start-0]="fullscreen"
+    [class.vw-100]="fullscreen"
+    [class.h-100]="fullscreen"
+    [class.col-lg-12]="fullscreen"
+    [class.z-3]="fullscreen"
+    [class.mt-0]="fullscreen"
+    [class.custom-col-10]="fullscreen === false"
+    [class.col-lg-10]="fullscreen === false"
+    [class.col-12]="fullscreen === false"
+    class="bg-body rounded shadow p-4 d-flex flex-column align-items-center justify-content-center">
+    <div class="d-flex align-items-center mb-4 w-100 justify-content-between">
+      <div class="d-flex align-items-center">
+        <dx-button
+          icon="info"
+          type="normal"
+          stylingMode="text"
+          hint="Display stats"
+          i18n-hint="@@stock.Display-stats"
+          (onClick)="showStats()">
+        </dx-button>
+        <h5 class="mb-0">{{ displayCryptoDetails.symbol }}&nbsp;({{ displayCryptoDetails.name }})</h5>
+      </div>
+      <dx-tabs
+        class="w-auto rounded overflow-hidden"
+        [(selectedIndex)]="selectedTimeFrameIndex"
+        (onSelectionChanged)="onTimeFrameSelectionChanged()"
+        [dataSource]="timeFrames">
+      </dx-tabs>
+      <div>
+        <dx-button
+          stylingMode="text"
+          type="normal"
+          hint="Refresh"
+          i18n-hint="@@stock.Refresh"
+          icon="refresh"
+          (onClick)="refreshCryptoHistoricalData()">
+        </dx-button>
+        <dx-button
+          stylingMode="text"
+          type="normal"
+          [hint]="toggleFullScreenButtonHint"
+          [icon]="toggleFullScreenButtonIcon"
+          (onClick)="toggleFullScreen()">
+        </dx-button>
+      </div>
+    </div>
+
     <dx-chart
+      #dxChartHistoricalData
+      [class.h-100]="fullscreen"
       class="custom-dx-chart"
-      [title]="title"
-      [dataSource]="stockPrices"
+      [palette]="dxPallet"
+      [dataSource]="historicalData"
       [adjustOnZoom]="true">
-      <dxi-series
-        [color]="greenCandleColor"
-        name="displayCrypto.code"
-        openValueField="o"
-        highValueField="h"
-        lowValueField="l"
-        closeValueField="c">
-        <dxo-reduction [color]="redCandleColor"></dxo-reduction>
+      <dxi-series valueField="price">
+        <dxo-point [visible]="false"></dxo-point>
       </dxi-series>
-      <dxo-common-series-settings argumentField="date" type="candlestick">
-      </dxo-common-series-settings>
+      <dxo-common-series-settings argumentField="date" type="spline"></dxo-common-series-settings>
       <dxo-legend [visible]="false"></dxo-legend>
       <dxi-value-axis [tickInterval]="1">
-        <dxo-title [text]="displayCurrency.code" ></dxo-title>
+        <dxo-title [text]="displayCurrency.currency_name"></dxo-title>
         <dxo-label>
-          <dxo-format type="currency" [precision]="2"> </dxo-format>
+          <dxo-format type="fixedPoint" [precision]="2" useCurrencyAccountingStyle="false"></dxo-format>
         </dxo-label>
       </dxi-value-axis>
-      <dxo-argument-axis [workdaysOnly]="false">
-        <dxo-label format="shortDate"></dxo-label>
-      </dxo-argument-axis>
+      <dxo-argument-axis [workdaysOnly]="false"></dxo-argument-axis>
+      <dxo-loading-indicator [enabled]="true"></dxo-loading-indicator>
       <dxo-tooltip
         [enabled]="true"
         location="edge"
@@ -40,49 +83,44 @@
         valueAxis="both">
       </dxo-zoom-and-pan>
     </dx-chart>
-
-    <dx-tabs
-      class="w-auto d-flex align-items-center d-block mt-3"
-      [selectedIndex]="selectedTimeFrameIndex"
-      [dataSource]="timeFrames">
-    </dx-tabs>
   </div>
   
   <div class="bg-body rounded shadow p-4 col-lg-2 col-12 p-0">
     <div class="row gy-4 gx-0">
-      <h4 class="col-12 text-center mt-5 mb-3">{{ cryptoOrdersTotal | number:'1.2-2' }}&nbsp;{{ displayCurrency.code }}</h4>
+      <h4 class="col-12 text-center mt-5 mb-3">{{ cryptoOrdersTotal | number:'1.2-2' }}&nbsp;{{ displayCurrency.currency_name }}</h4>
       <span class="col-12 text-center mt-0" [class.text-danger]="currentProfit < 0" [class.text-success]="currentProfit > 0">
         {{ currentProfit | number:'1.2-2' }}&nbsp;<i class="dx-icon custom-dx-icon-arrow" [class.dx-icon-arrowup]="currentProfit > 0" [class.dx-icon-arrowdown]="currentProfit < 0"></i>{{ currentProfitInPercentage | number:'1.2-2' }}%
       </span>
       
       <dx-select-box
         class="col-12"
-        [dataSource]="currencies"
-        [value]="displayCurrency.code"
+        [dataSource]="fiatCurrencies"
+        [value]="displayCurrency.currency_name"
         [(selectedItem)]="displayCurrency"
+        (onSelectionChanged)="onDisplayCurrencySelectionChanged()"
         label="Display in currency"
         labelMode="floating"
-        i18n-label="@@stock.Display-in-currency:Display in currency"
-        valueExpr="code"
-        displayExpr="code">
+        i18n-label="@@stock.Display-in-currency"
+        valueExpr="currency_name"
+        displayExpr="currency_name">
       </dx-select-box>
       <dx-select-box
         class="col-12"
-        [dataSource]="cryptosInfo"
-        [value]="displayCrypto.code"
+        [dataSource]="cryptoCurrencies"
+        [value]="displayCrypto.currency_name"
         [(selectedItem)]="displayCrypto"
-        (onSelectionChanged)="onDisplayCryptoSelectionChanged($event)"
+        (onSelectionChanged)="onDisplayCryptoSelectionChanged()"
         label="Analyse crypto"
         labelMode="floating"
-        i18n-label="@@stock.Analyse-crypto:Analyse crypto"
-        valueExpr="code"
-        displayExpr="name">
+        i18n-label="@@stock.Analyse-crypto"
+        valueExpr="currency_name"
+        displayExpr="currency_name">
       </dx-select-box>
       
-      <div class="col-6 p-0 ps-lg-0 p-lg-2 sticky-bottom">
+      <div class="col-6 p-0 ps-lg-0 p-lg-2 sticky-bottom z-0">
         <dx-button class="w-100" type="danger" text="Sell" i18n-text="@@stock.Sell" (onClick)="openStockOrderPopup(OrderSide.Sell)"></dx-button>
       </div>
-      <div class="col-6 p-0 pe-lg-0 p-lg-2 sticky-bottom">
+      <div class="col-6 p-0 pe-lg-0 p-lg-2 sticky-bottom z-0">
         <dx-button class="w-100" type="success" text="Buy" i18n-text="@@stock.Buy" (onClick)="openStockOrderPopup(OrderSide.Buy)"></dx-button>
       </div>
 
@@ -94,15 +132,19 @@
               <div class="col-12 border rounded p-3">
                 <div class="row gy-2 gx-0">
                   <div class="rounded col-auto fw-bold fs-6 lh-base">
-                    {{ getOrderHistoryEntrySideLabel(order.side) }}&nbsp;{{ displayCrypto.code }}
+                    {{ getOrderHistoryEntrySideLabel(order.side) }}&nbsp;{{ displayCrypto.currency_name }}
                   </div>
-                  @if (order.status === OrderStatusString.Cancelled) {
-                    <small class="text-danger col-auto bg-opacity-25 bg-danger rounded p-1 ms-2">{{ getOrderHistoryEntryStatusLabel(order.status) }}</small>
-                  } @else if (order.status === OrderStatusString.Completed) {
-                    <small class="text-success col-auto bg-opacity-25 bg-success rounded p-1 ms-2">{{ getOrderHistoryEntryStatusLabel(order.status) }}</small>
-                  }
+                  <small
+                    [class.text-danger]="order.status === OrderStatusString.Cancelled"
+                    [class.bg-danger]="order.status === OrderStatusString.Cancelled"
+                    [class.text-success]="order.status === OrderStatusString.Completed"
+                    [class.bg-success]="order.status === OrderStatusString.Completed"
+                    [class.d-none]="order.status !== OrderStatusString.Cancelled && order.status !== OrderStatusString.Completed"
+                    class="col-auto bg-opacity-25 rounded p-1 ms-2">
+                    {{ getOrderHistoryEntryStatusLabel(order.status) }}
+                  </small>
                   <div class="rounded col fw-bold fs-6 lh-base text-end">
-                    {{ getOrderHistoryEntrycash_quantityPrefixLabel(order.side) }}{{ order.cash_quantity | number:'1.2-2' }}&nbsp;{{ getOrderHistoryEntryFiatWalletLabel(order.fiat_wallet_id) }}
+                    {{ getOrderHistoryEntryCashQuantityPrefixLabel(order.side) }}{{ order.cash_quantity | number:'1.2-2' }}&nbsp;{{ getOrderHistoryEntryFiatWalletLabel(order.fiat_wallet_id) }}
                   </div>
                   <div class="col-12 text-muted">{{ order.nominal }}&nbsp;·&nbsp;{{ order.price | number:'1.2-2' }}&nbsp;{{ getOrderHistoryEntryFiatWalletLabel(order.fiat_wallet_id) }}</div>
                   <div class="col-12 text-muted" i18n="@@stock.Created-at">Created at: {{ order.date_created | date:'yyyy-MM-dd HH:mm:ss' }}</div>
@@ -120,3 +162,37 @@
 </div>
 
 <app-stock-order #stockOrderPopup (onAdded)="onOrderAdded($event)" />
+<dx-popup
+  title="Crypto stats"
+  i18n-title="@@stock.Crypto-stats"
+  [(visible)]="statsVisible"
+  [showCloseButton]="true"
+  height="auto"
+  width="400">
+  <div class="row gy-2 gx-0">
+    <div class="col-12 d-flex justify-content-between">
+      <span class="text-muted" i18n="@@stock.Current-price">Current price</span>
+      <span >{{ displayCryptoDetails.market_data.current_price | number:'1.2-2' }}</span>
+    </div>
+    <div class="col-12 d-flex justify-content-between">
+      <span class="text-muted" i18n="@@stock.Min-in-24h">Min in 24h</span>
+      <span>{{ displayCryptoDetails.market_data.low_24h | number:'1.2-2' }}</span>
+    </div>
+    <div class="col-12 d-flex justify-content-between">
+      <span class="text-muted" i18n="@@stock.Max-in-24h">Max in 24h</span>
+      <span>{{ displayCryptoDetails.market_data.high_24h | number:'1.2-2' }}</span>
+    </div>
+    <div class="col-12 d-flex justify-content-between">
+      <span class="text-muted" i18n="@@stock.Price-change-in-24h">Price change in 24h</span>
+      <span [class.text-danger]="displayCryptoDetails.market_data.price_change_percentage_24h_in_currency < 0" [class.text-success]="displayCryptoDetails.market_data.price_change_percentage_24h_in_currency > 0">{{ displayCryptoDetails.market_data.price_change_24h_in_currency | number:'1.2-2' }} ({{ displayCryptoDetails.market_data.price_change_percentage_24h_in_currency | number:'1.2-2' }}%)</span>
+    </div>
+    <div class="col-12 d-flex justify-content-between">
+      <span class="text-muted" i18n="@@stock.Market-cap">Market cap</span>
+      <span>{{ displayCryptoDetails.market_data.market_cap | number:'1.0' }}</span>
+    </div>
+    <div class="col-12 d-flex justify-content-between">
+      <span class="text-muted" i18n="@@stock.Total-volume">Total volume</span>
+      <span>{{ displayCryptoDetails.market_data.total_volume | number:'1.0' }}</span>
+    </div>
+  </div>
+</dx-popup>

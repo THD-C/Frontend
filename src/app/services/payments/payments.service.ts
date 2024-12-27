@@ -42,7 +42,7 @@ export class PaymentsService extends BaseService {
       `${this.config.apiUrl}/${this.basePaymentsPath}/payments`
     ).pipe(catchError(this.catchCustomError.bind(this)));
 
-    const { payments } = await firstValueFrom(request) as GetPaymentsResponse;
+    const { payments } = await firstValueFrom(request) as GetPaymentsResponse || { payments: [] };
     return payments;
   }
 

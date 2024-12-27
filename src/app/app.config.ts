@@ -11,6 +11,7 @@ import { routes } from './app.routes';
 import { jwtInterceptor } from './interceptors/jwt/jwt.interceptor';
 import { Currency } from './modules/profile/components/profile/profile-wallets/profile-wallets.config';
 import { traceIdInterceptor } from './interceptors/trace-id/trace-id.interceptor';
+import { Palette } from 'devextreme/common/charts';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -53,7 +54,7 @@ export type Language = {
 }
 
 export const defaultCurrency: Currency = {
-  code: 'USD',
+  currency_name: 'usd',
 }
 
 export const supportEmail: string = 'thdc.p.lodz@outlook.com';
@@ -71,3 +72,5 @@ export const defaultConfig: Config = {
   tempoUrl: 'http://localhost:1234/v1/traces',
   apiUrl: 'http://localhost:8000/api',
 }
+
+export const dxPallet: Palette = 'Violet';

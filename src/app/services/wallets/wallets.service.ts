@@ -29,7 +29,7 @@ export class WalletsService extends BaseService {
       `${this.config.apiUrl}/${this.baseWalletsPath}/`
     ).pipe(catchError(this.catchCustomError.bind(this)));
 
-    const { wallets } = await firstValueFrom(request) as GetWalletsResponse;
+    const { wallets } = await firstValueFrom(request) as GetWalletsResponse || { wallets: [] };
     return wallets;
   }
 

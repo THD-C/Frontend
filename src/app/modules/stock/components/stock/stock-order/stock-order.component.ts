@@ -1,7 +1,6 @@
-import { Component, EventEmitter, output } from '@angular/core';
+import { Component, output } from '@angular/core';
 import { Order, OrderSide, orderSidesMap, OrderType, OrderTypeDetail, orderTypeStringMap } from './stock-order.model';
-import { currencies, Currency } from '../../../../profile/components/profile/profile-wallets/profile-wallets.config';
-import { CryptoInfo, cryptosInfo as tempCryptosInfo } from '../stock.model';
+import { Currency } from '../../../../profile/components/profile/profile-wallets/profile-wallets.config';
 import { getOrderAvailableTypes, getOrderButtonTypeType, getPopupTitle } from './stock-order.config';
 import { defaultCurrency } from '../../../../../app.config';
 import { OrdersService } from '../../../../../services/orders/orders.service';
@@ -12,6 +11,11 @@ import { NotificationsService } from 'angular2-notifications';
 import { ValidationCallbackData } from 'devextreme-angular/common';
 import { BaseService } from '../../../../../services/base/base.service';
 import { defaultWallet } from '../../../../profile/components/profile/profile-wallets/profile-wallet-add-money/profile-wallet-add-money.config';
+import { CurrenciesService } from '../../../../../services/currencies/currencies.service';
+import { CurrencyType } from '../../../../profile/components/profile/profile-wallets/profile-wallet-create/profile-wallet-create.model';
+import { defaultCrypto, defaultCryptoDetails } from '../stock.config';
+import { CryptoDetails } from '../stock.model';
+import { CryptosService } from '../../../../../services/cryptos/cryptos.service';
 
 @Component({
   selector: 'app-stock-order',
@@ -20,8 +24,6 @@ import { defaultWallet } from '../../../../profile/components/profile/profile-wa
 })
 export class StockOrderComponent {
   
-  protected readonly currencies = currencies;
-  protected readonly cryptosInfo = tempCryptosInfo;
   protected readonly OrderSide = OrderSide;
   protected readonly OrderType = OrderType;
 
@@ -35,54 +37,56 @@ export class StockOrderComponent {
     return this.amountExceeded || !this.amount;
   }
 
-  get currentProfitInPercentage(): number {
-    return this.cryptoOrdersTotal + this.currentProfit / this.cryptoOrdersTotal;
-  }
-
   title: string = $localize`:@@Execute-market-order:Execute market order`;
   visible: boolean = false;
 
   orderSide!: OrderSide;
   orderType: OrderType = OrderType.Instant;
   selectedWallet: Wallet = defaultWallet;
-  selectedCrypto: CryptoInfo = {
-    code: '',
-    name: '',
-    value: '',
-    current_value: 0,
-  };
+  selectedCrypto: Currency = defaultCrypto;
   amount: number = 0;
   nominal: number = 0;
-  price: number = 1;
-  cryptoOrdersTotal: number = 55_352.98;
-  currentProfit: number = 235.32;
   wallets: Wallet[] = [];
+  fiatCurrencies: Currency[] = [];
+  cryptoCurrencies: Currency[] = [];
 
   orderAvailableTypes: OrderTypeDetail[] = [];
+  cryptoDetails: CryptoDetails = defaultCryptoDetails;
 
   constructor(
     private readonly ordersService: OrdersService,
     private readonly walletsService: WalletsService,
     private readonly notifications: NotificationsService,
+    private readonly currenciesService: CurrenciesService,
+    private readonly cryptosService: CryptosService,
   ) {}
 
   getOrderButtonTypeType = getOrderButtonTypeType;
 
   async open(
     orderSide: OrderSide,
-    crypto: CryptoInfo,
-    price: number,
+    crypto: Currency,
     currency: Currency = defaultCurrency,
   ): Promise<void> {
-    this.wallets = await this.walletsService.get();
-    this.selectedWallet = this.wallets.find(w => w.currency === currency.code) ?? this.wallets[0];
+    this.wallets = (await this.walletsService.get()).filter(({ is_crypto }) => is_crypto === false);
+    this.selectedWallet = this.wallets.find(w => w.currency.toLowerCase() === currency.currency_name) ?? this.wallets[0];
     this.orderSide = orderSide;
     this.orderAvailableTypes = getOrderAvailableTypes(orderSide);
     this.title = getPopupTitle(orderSide);
     this.selectedCrypto = crypto;
-    this.price = price;
+
+    await this.refreshCryptoDetails();
+    this.fiatCurrencies = await this.currenciesService.get({ currency_type: CurrencyType.FIAT });
+    this.cryptoCurrencies = await this.currenciesService.get({ currency_type: CurrencyType.CRYPTO });
 
     this.visible = true;
+  }
+
+  async refreshCryptoDetails(): Promise<void> {
+    this.cryptoDetails = await this.cryptosService.getDetails({
+      coin_id: this.selectedCrypto.currency_name,
+      currency: this.selectedWallet.currency.toLowerCase(),
+    });
   }
 
   close(): void {
@@ -91,15 +95,10 @@ export class StockOrderComponent {
 
   resetProperties(): void {
     this.selectedWallet = defaultWallet;
-    this.selectedCrypto = {
-      code: '',
-      name: '',
-      value: '',
-      current_value: 0,
-    };
+    this.selectedCrypto = defaultCrypto;
     this.amount = 0;
     this.nominal = 0;
-    this.price = 1;
+    this.cryptoDetails = defaultCryptoDetails;
     this.wallets = [];
   }
 
@@ -117,10 +116,10 @@ export class StockOrderComponent {
     try {
       const newOrder = await this.ordersService.confirmOrder({
         currency_used_wallet_id: this.selectedWallet.id,
-        currency_target: this.selectedCrypto.code,
+        currency_target: this.selectedCrypto?.currency_name ?? '',
         nominal: this.nominal.toString(),
         cash_quantity: this.amount.toString(),
-        price: this.price.toString(),
+        price: this.cryptoDetails.market_data.current_price.toString(),
         type: orderTypeStringMap.get(this.orderType) ?? '',
         side: orderSidesMap.get(this.orderSide) ?? '',
       });
@@ -142,7 +141,7 @@ export class StockOrderComponent {
    * @param event Event's data {@link ValueChangedEvent}
    */
   onAmountChanged(event: ValueChangedEvent): void {
-    this.nominal = event.value / this.price;
+    this.nominal = event.value / this.cryptoDetails.market_data.current_price;
   }
 
   /**
@@ -150,7 +149,7 @@ export class StockOrderComponent {
    * @param event Event's data {@link ValueChangedEvent}
    */
   onNominalChanged(event: ValueChangedEvent): void {
-    this.amount = this.price * event.value;
+    this.amount = this.cryptoDetails.market_data.current_price * event.value;
   }
 
   amountValidationCallback(callbackData: ValidationCallbackData): boolean {
@@ -159,6 +158,14 @@ export class StockOrderComponent {
     }
 
     return true;
+  }
+
+  onWalletSelectionChanged(): void {
+    this.refreshCryptoDetails();
+  }
+
+  onCryptoSelectionChanged(): void {
+    this.refreshCryptoDetails();
   }
 
 }

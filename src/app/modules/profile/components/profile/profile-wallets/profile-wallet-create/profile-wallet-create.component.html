@@ -11,8 +11,8 @@
         <dx-select-box
           class="w-100"
           [dataSource]="currencies"
-          valueExpr="code"
-          displayExpr="code"
+          valueExpr="currency_name"
+          displayExpr="currency_name"
           [searchEnabled]="true"
           [(value)]="createWalletRequest.currency"
           label="Currency"
@@ -25,11 +25,6 @@
           </dx-validator>
         </dx-select-box>
       </div>
-
-      <div class="col-12">
-        <dx-check-box [(value)]="createWalletRequest.is_crypto" text="Is crypto" i18n-text="@@profile-wallet-create.Is-crypto"></dx-check-box>
-      </div>
-
       <div class="col-12">
         <div class="row g-4">
           <div class="col-lg-auto col-6 ms-lg-auto">
