@@ -1,7 +1,6 @@
-import { Component, EventEmitter, output } from '@angular/core';
+import { Component, output } from '@angular/core';
 import { Order, OrderSide, orderSidesMap, OrderType, OrderTypeDetail, orderTypeStringMap } from './stock-order.model';
 import { Currency } from '../../../../profile/components/profile/profile-wallets/profile-wallets.config';
-import { CryptoInfo, cryptosInfo as tempCryptosInfo } from '../stock.model';
 import { getOrderAvailableTypes, getOrderButtonTypeType, getPopupTitle } from './stock-order.config';
 import { defaultCurrency } from '../../../../../app.config';
 import { OrdersService } from '../../../../../services/orders/orders.service';
@@ -14,6 +13,7 @@ import { BaseService } from '../../../../../services/base/base.service';
 import { defaultWallet } from '../../../../profile/components/profile/profile-wallets/profile-wallet-add-money/profile-wallet-add-money.config';
 import { CurrenciesService } from '../../../../../services/currencies/currencies.service';
 import { CurrencyType } from '../../../../profile/components/profile/profile-wallets/profile-wallet-create/profile-wallet-create.model';
+import { defaultCrypto } from '../stock.config';
 
 @Component({
   selector: 'app-stock-order',
@@ -22,7 +22,6 @@ import { CurrencyType } from '../../../../profile/components/profile/profile-wal
 })
 export class StockOrderComponent {
   
-  protected readonly cryptosInfo = tempCryptosInfo;
   protected readonly OrderSide = OrderSide;
   protected readonly OrderType = OrderType;
 
@@ -46,7 +45,7 @@ export class StockOrderComponent {
   orderSide!: OrderSide;
   orderType: OrderType = OrderType.Instant;
   selectedWallet: Wallet = defaultWallet;
-  selectedCrypto?: Currency;
+  selectedCrypto: Currency = defaultCrypto;
   amount: number = 0;
   nominal: number = 0;
   price: number = 1;
@@ -93,7 +92,7 @@ export class StockOrderComponent {
 
   resetProperties(): void {
     this.selectedWallet = defaultWallet;
-    this.selectedCrypto = undefined;
+    this.selectedCrypto = defaultCrypto;
     this.amount = 0;
     this.nominal = 0;
     this.price = 1;

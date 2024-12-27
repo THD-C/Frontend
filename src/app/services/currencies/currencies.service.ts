@@ -28,7 +28,7 @@ export class CurrenciesService extends BaseService {
   /**
    * Makes a request call to the API
    * to retrieve the available currencies in the system.
-   * @param getOrdersRequest Filters.
+   * @param getCurrenciesRequest Filters.
    */
   async get(getCurrenciesRequest: GetCurrenciesRequest): Promise<Currency[]> {
     const params = this.generateParams(getCurrenciesRequest);
@@ -37,7 +37,8 @@ export class CurrenciesService extends BaseService {
       { params }
     ).pipe(catchError(this.catchCustomError.bind(this)));
 
-    const { currencies } = await firstValueFrom(request) as GetCurrenciesResponse;
+    const { currencies } = await firstValueFrom(request) as GetCurrenciesResponse || { currencies: [] };
     return currencies;
   }
+  
 }

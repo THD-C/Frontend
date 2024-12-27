@@ -1,9 +1,24 @@
 import { Currency } from '../../../profile/components/profile/profile-wallets/profile-wallets.config';
-import { CryptoInfo, TimeFrame } from './stock.model';
+import { CryptoDetails, TimeFrame } from './stock.model';
 
-export const defaultDisplayCrypto: Currency = {
-  currency_name: 'bitcoin'
+export const defaultCrypto: Currency = {
+  currency_name: 'bitcoin',
 };
+
+export const defaultCryptoDetails: CryptoDetails = {
+  id: '',
+  market_data: {
+    price_change_percentage_24h_in_currency: 0,
+    total_volume: 0,
+    high_24h: 0,
+    market_cap: 0,
+    current_price: 0,
+    low_24h: 0,
+    price_change_24h_in_currency: 0,
+  },
+  symbol: '',
+  name: '',
+}
 
 export const defaultTimeFrameIndex: number = 0;
 

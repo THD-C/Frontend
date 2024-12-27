@@ -2,9 +2,19 @@
   <app-header [position]="'relative'" class="col-12" />
 
   <div class="bg-body rounded shadow p-4 custom-col-10 col-lg-10 col-12 d-flex flex-column align-items-center justify-content-center">
+    <div class="d-flex align-items-center mb-4 w-100">
+      <dx-button
+        icon="info"
+        type="normal"
+        stylingMode="text"
+        hint="Display stats"
+        i18n-hint="@@stock.Display-stats"
+        (onClick)="showStats()">
+      </dx-button>
+      <h5 class="mb-0">{{ displayCryptoDetails?.symbol }}&nbsp;({{ displayCryptoDetails?.name }})</h5>
+    </div>
     <dx-chart
       class="custom-dx-chart"
-      [title]="'blabla TODO CHANGE'"
       [dataSource]="stockPrices"
       [adjustOnZoom]="true">
       <dxi-series
@@ -62,7 +72,7 @@
         [(selectedItem)]="displayCurrency"
         label="Display in currency"
         labelMode="floating"
-        i18n-label="@@stock.Display-in-currency:Display in currency"
+        i18n-label="@@stock.Display-in-currency"
         valueExpr="currency_name"
         displayExpr="currency_name">
       </dx-select-box>
@@ -74,7 +84,7 @@
         (onSelectionChanged)="onDisplayCryptoSelectionChanged($event)"
         label="Analyse crypto"
         labelMode="floating"
-        i18n-label="@@stock.Analyse-crypto:Analyse crypto"
+        i18n-label="@@stock.Analyse-crypto"
         valueExpr="currency_name"
         displayExpr="currency_name">
       </dx-select-box>
@@ -120,3 +130,37 @@
 </div>
 
 <app-stock-order #stockOrderPopup (onAdded)="onOrderAdded($event)" />
+<dx-popup
+  title="Crypto stats"
+  i18n-title="@@stock.Crypto-stats"
+  [(visible)]="statsVisible"
+  [showCloseButton]="true"
+  height="auto"
+  width="400">
+  <div class="row gy-2 gx-0">
+    <div class="col-12 d-flex justify-content-between">
+      <span class="text-muted" i18n="@@stock.Current-price">Current price</span>
+      <span >{{ displayCryptoDetails?.market_data?.current_price | number:'1.2-2' }}</span>
+    </div>
+    <div class="col-12 d-flex justify-content-between">
+      <span class="text-muted" i18n="@@stock.Min-in-24h">Min in 24h</span>
+      <span>{{ displayCryptoDetails?.market_data?.low_24h | number:'1.2-2' }}</span>
+    </div>
+    <div class="col-12 d-flex justify-content-between">
+      <span class="text-muted" i18n="@@stock.Max-in-24h">Max in 24h</span>
+      <span>{{ displayCryptoDetails?.market_data?.high_24h | number:'1.2-2' }}</span>
+    </div>
+    <div class="col-12 d-flex justify-content-between">
+      <span class="text-muted" i18n="@@stock.Price-change-in-24h">Price change in 24h</span>
+      <span>{{ displayCryptoDetails?.market_data?.price_change_24h_in_currency | number:'1.2-2' }} ({{ displayCryptoDetails?.market_data?.price_change_percentage_24h_in_currency | number:'1.2-2' }}%)</span>
+    </div>
+    <div class="col-12 d-flex justify-content-between">
+      <span class="text-muted" i18n="@@stock.Market-cap">Market cap</span>
+      <span>{{ displayCryptoDetails?.market_data?.market_cap | number:'1.2-2' }}</span>
+    </div>
+    <div class="col-12 d-flex justify-content-between">
+      <span class="text-muted" i18n="@@stock.Total-volume">Total volume</span>
+      <span>{{ displayCryptoDetails?.market_data?.total_volume | number:'1.0' }}</span>
+    </div>
+  </div>
+</dx-popup>

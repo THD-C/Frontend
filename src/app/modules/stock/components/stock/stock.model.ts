@@ -17,6 +17,47 @@ export type StockPrice = {
   c: number;
 }
 
+export type GetCryptoDetailsRequest = {
+  /**
+   * Based on CoinGecko API
+   */
+  coin_id: string;
+
+  /**
+   * Fiat currency i.e. PLN, USD etc.
+   */
+  currency: string;
+}
+
+export type GetCryptoDetailsResponse = {
+  status: string;
+  data: CryptoDetails;
+  error_message: string;
+  values_in_currency: string;
+}
+
+export type CryptoDetails = {
+  id: string;
+  market_data: {
+    price_change_percentage_24h_in_currency: number;
+    total_volume: number;
+    high_24h: number;
+    market_cap: number;
+    current_price: number;
+    low_24h: number;
+    price_change_24h_in_currency: number;
+  },
+  symbol: string;
+  name: string;
+}
+
+export type CryptoInfo = {
+  code: string;
+  name: string;
+  value: string;
+  current_value: number;
+}
+
 export const stockPrices: StockPrice[] = [{
   date: new Date(2024, 1, 1),
   l: 24.00,
@@ -204,19 +245,6 @@ export const stockPrices: StockPrice[] = [{
   o: 26.50,
   c: 25.25,
 }];
-
-export type CryptoInfo = {
-  code: string;
-  name: string;
-  value: string;
-  current_value: number;
-}
-
-export const cryptosInfo: CryptoInfo[] = [
-  { code: 'BTC', name: 'Bitcoin (BTC)', value: 'btc', current_value: 104_253.61 },
-  { code: 'ETH', name: 'Ethereum (ETH)', value: 'eth', current_value: 3_921.44 },
-  { code: 'DOGE', name: 'DogeCoin (DOGE)', value: 'doge', current_value: 31.56 },
-];
 
 export type CryptoStockPrice = {
   date: Date;

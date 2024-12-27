@@ -71,3 +71,5 @@ export const defaultConfig: Config = {
   tempoUrl: 'http://localhost:1234/v1/traces',
   apiUrl: 'http://localhost:8000/api',
 }
+
+export const dxPallet: string = 'Violet';

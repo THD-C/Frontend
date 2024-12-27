@@ -1,9 +1,9 @@
 import { Component, OnInit, viewChild } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
-import { CryptoInfo, cryptosInfo, greenCandleColor, redCandleColor, StockPrice, stockPrices, TimeFrame } from './stock.model';
+import { CryptoDetails, greenCandleColor, redCandleColor, StockPrice, stockPrices, TimeFrame } from './stock.model';
 import { appName, defaultCurrency, defaultDate } from '../../../../app.config';
 import { Currency } from '../../../profile/components/profile/profile-wallets/profile-wallets.config';
-import { defaultDisplayCrypto, defaultTimeFrameIndex, timeFrames } from './stock.config';
+import { defaultCrypto, defaultCryptoDetails, defaultTimeFrameIndex, timeFrames } from './stock.config';
 import { StockOrderComponent } from './stock-order/stock-order.component';
 import { GetOrdersRequest, Order, OrderSide, OrderSideString, OrderStatusString, OrderType } from './stock-order/stock-order.model';
 import { AuthService } from '../../../../services/auth/auth.service';
@@ -15,6 +15,7 @@ import { WalletsService } from '../../../../services/wallets/wallets.service';
 import { getOrderHistoryEntrycash_quantityPrefixLabel, getOrderHistoryEntrySideLabel, getOrderHistoryEntryStatusLabel } from './stock-order/stock-order.config';
 import { CurrenciesService } from '../../../../services/currencies/currencies.service';
 import { CurrencyType } from '../../../profile/components/profile/profile-wallets/profile-wallet-create/profile-wallet-create.model';
+import { CryptosService } from '../../../../services/cryptos/cryptos.service';
 
 @Component({
   selector: 'app-stock',
@@ -32,12 +33,12 @@ export class StockComponent implements OnInit {
   protected readonly redCandleColor = redCandleColor;
   protected readonly appName = appName;
   protected readonly defaultDate = defaultDate;
-  protected readonly cryptosInfo = cryptosInfo;
 
   stockOrderPopup = viewChild.required<StockOrderComponent>('stockOrderPopup');
 
   displayCurrency: Currency = defaultCurrency;
-  displayCrypto: Currency = defaultDisplayCrypto;
+  displayCrypto: Currency = defaultCrypto;
+  displayCryptoDetails: CryptoDetails = defaultCryptoDetails;
   stockPrices: StockPrice[] = stockPrices;
 
   selectedTimeFrameIndex: number = defaultTimeFrameIndex;
@@ -50,6 +51,8 @@ export class StockComponent implements OnInit {
   wallets: Wallet[] = [];
   fiatCurrencies: Currency[] = [];
   cryptoCurrencies: Currency[] = [];
+  title: string = defaultCrypto.currency_name;
+  statsVisible: boolean = false; 
 
   get currentProfitInPercentage(): number {
     return (this.cryptoOrdersTotal + this.currentProfit) / this.cryptoOrdersTotal;
@@ -62,6 +65,7 @@ export class StockComponent implements OnInit {
     private readonly ordersService: OrdersService,
     private readonly walletsService: WalletsService,
     private readonly currenciesService: CurrenciesService,
+    private readonly cryptosService: CryptosService,
   ) { }
 
   async ngOnInit(): Promise<void> {
@@ -112,20 +116,30 @@ export class StockComponent implements OnInit {
   async onDisplayCryptoSelectionChanged(event: SelectionChangedEvent): Promise<void> {
     try {
       const cryptoWallet = this.wallets.find(({ currency }) => currency === this.displayCrypto?.currency_name);
-      const orders = await this.ordersService.get({ wallet_id: cryptoWallet?.id } satisfies GetOrdersRequest);
-      this.currentCryptoOrders = orders.filter(({ crypto_wallet_id: cryptoWalletId }) => cryptoWalletId === cryptoWallet?.id)
-        .sort((a, b) => a.date_created < b.date_created ? 1 : -1);
+      this.currentCryptoOrders = await this.ordersService.get({ wallet_id: cryptoWallet?.id } satisfies GetOrdersRequest);
+      this.currentCryptoOrders.sort((a, b) => a.date_created < b.date_created ? 1 : -1);
+
+      this.displayCryptoDetails = await this.cryptosService.getDetails({
+        coin_id: (event.selectedItem as Currency).currency_name,
+        currency: this.displayCurrency.currency_name,
+      });
+
+      this.title = `${this.displayCryptoDetails?.symbol} (${this.displayCryptoDetails.name})`;
     } catch(e) {
+      console.error(e);
     }
   }
 
   onOrderAdded(order: Order): void {
-    const cryptoWallet = this.wallets.find(({ id }) => id === order.crypto_wallet_id);
-    if (!cryptoWallet) {
+    if (this.wallets.some(({ id }) => id === order.crypto_wallet_id)) {
       return;
     }
 
     this.currentCryptoOrders.unshift(order);
+  }
+
+  showStats(): void {
+    this.statsVisible = true;
   }
 
 }

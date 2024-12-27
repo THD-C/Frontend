@@ -1,7 +1,5 @@
 import { CryptoInfo, CryptoStockPrice, StockPrice } from '../../../stock/components/stock/stock.model';
 
-
-
 export const stockPrices: StockPrice[] = [{
   date: new Date(2024, 1, 1),
   l: 24.00,
