@@ -4,7 +4,8 @@ import { HttpClient } from '@angular/common/http';
 import { NotificationsService } from 'angular2-notifications';
 import { errors } from './cryptos.errors';
 import { catchError, firstValueFrom } from 'rxjs';
-import { CryptoDetails, CryptoPrice, GetCryptoDetailsRequest, GetCryptoDetailsResponse, GetCryptoHistoricalDataRequest, GetCryptoHistoricalDataResponse } from '../../modules/stock/components/stock/stock.model';
+import { CryptoDetails, CryptoPrice, GetCryptoDetailsRequest, GetCryptoDetailsResponse, GetCryptoHistoricalDataRequest, GetCryptoHistoricalDataResponse } from '../../modules/stock/components/stock-details/stock-details.model';
+import { Coin, GetCoinsRequest, GetCoinsResponse } from '../../modules/stock/components/stocks-list/stocks-list.model';
 
 @Injectable({
   providedIn: 'root'
@@ -57,6 +58,25 @@ export class CryptosService extends BaseService {
       date: new Date(value),
       price: data.price[index]
     } satisfies CryptoPrice));
+  }
+
+  /**
+   * Makes a request call to the API
+   * to retrieve coins.
+   * @param getCoinsRequest Filters.
+   */
+  async getCoins(getCoinsRequest: GetCoinsRequest): Promise<CryptoDetails[]> {
+    const params = this.generateParams(getCoinsRequest);
+    const request = this.httpClient.get<any>(
+      `${this.config.apiUrl}/${this.baseCryptosPath}/coins`,
+      { params }
+    ).pipe(catchError(this.catchCustomError.bind(this)));
+
+    const { coins } = await firstValueFrom(request) as GetCoinsResponse || { coins: [] };
+    return coins.map(coin => {
+      const [coin_name, coin_details] = Object.entries(coin)[0];
+      return coin_details;
+    });
   }
 
 }

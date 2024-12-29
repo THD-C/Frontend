@@ -2,6 +2,7 @@
 @import "../../../node_modules/bootstrap/scss/bootstrap.scss";
 @import "../../../node_modules/bootstrap/scss/functions";
 @import "../../../node_modules/bootstrap/scss/utilities";
+@import "../../../node_modules/bootstrap/scss/mixins";
 
 .btn {
   @extend .text-uppercase;
@@ -63,4 +64,37 @@ a.nav-item.nav-link {
 
 [data-bs-theme="dark"] .bg-light {
   background-color: rgba(248, 249, 250, 0.05) !important;
+}
+
+$spacers: (
+  0: 0,
+  10: 10%,
+  25: 25%,
+  50: 50%,
+  75: 75%,
+  100: 100%
+);
+
+@each $size, $length in $spacers {
+  .end-#{$size} {
+    right: $length !important;
+  }
+  .top-#{$size} {
+    top: $length !important;
+  }
+  .bottom-#{$size} {
+    bottom: $length !important;
+  }
+  .left-#{$size} {
+    left: $length !important;
+  }
+}
+
+@each $size, $length in $spacers {
+  .h-#{$size} {
+    height: $length !important;
+  }
+  .w-#{$size} {
+    width: $length !important;
+  }
 }
