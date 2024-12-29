@@ -1,0 +1,76 @@
+<app-header></app-header>
+
+<div class="min-vh-100 d-flex align-items-center justify-content-center flex-column bg-light mt-5">
+  <dx-data-grid
+    width="75vw"
+    height="65%"
+    [dataSource]="coins"
+    [remoteOperations]="false"
+    #coinsGrid>
+    <dxo-paging [pageSize]="10"></dxo-paging>
+    <dxo-pager
+      [visible]="true"
+      [showPageSizeSelector]="true"
+      [allowedPageSizes]="[10, 25, 50, 100]"
+    ></dxo-pager>
+    <dxo-search-panel
+      [visible]="true"
+      [highlightCaseSensitive]="true"
+    ></dxo-search-panel>
+    <dxo-column-chooser [enabled]="true"></dxo-column-chooser>
+    <dxo-toolbar>
+      <dxi-item name="displayCurrencySelectBox" location="before" widget="dxSelectBox" [options]="displayCurrencySelectBoxGridToolbar"></dxi-item>
+      <dxi-item name="columnChooserButton"></dxi-item>
+      <dxi-item name="searchPanel"></dxi-item>
+    </dxo-toolbar>
+    <dxo-load-panel [enabled]="true"></dxo-load-panel>
+  
+    <dxi-column caption="Action" i18n-caption="@@stocks-list.Action" cellTemplate="actionCellTemplate" width="83">
+      <div *dxTemplate="let d of 'actionCellTemplate'">
+        <dx-button
+          (onClick)="navigateToCoinDetails(d.data.id)"
+          type="default"
+          stylingMode="text"
+          icon="search"
+          hint="Analyse coin"
+          i18n-hint="@@stocks-list.Analyse-coin">
+        </dx-button>
+      </div>
+    </dxi-column>
+    <dxi-column dataField="name" caption="Name" i18n-caption="@@stocks-list.Name" cellTemplate="nameCellTemplate">
+      <div *dxTemplate="let d of 'nameCellTemplate'">
+        <img class="w-10" [src]="'assets/icons/' + d.data.id + '.png'" alt="Logo" />
+        <span class="ms-2">{{ d.data.symbol }}&nbsp;({{ d.data.name }})</span>
+      </div>
+    </dxi-column>
+    <dxi-column dataField="market_data.current_price" caption="Current price" i18n-caption="@@stocks-list.Current-price" dataType="number">
+      <dxo-format type="fixedPoint" [precision]="2"></dxo-format>
+    </dxi-column>
+    <dxi-column dataField="market_data.price_change_24h_in_currency" caption="Price change 24h in currency" i18n-caption="@@stocks-list.Price-change-24h-in-currency" dataType="number" cellTemplate="priceChangeCellTemplate">
+      <div *dxTemplate="let d of 'priceChangeCellTemplate'">
+        <span 
+          [class.text-success]="d.data.market_data.price_change_24h_in_currency > 0"
+          [class.text-danger]="d.data.market_data.price_change_24h_in_currency < 0">
+          <i
+            class="dx-icon fs-6 lh-base"
+            [class.dx-icon-arrowup]="d.data.market_data.price_change_24h_in_currency > 0"
+            [class.dx-icon-arrowdown]="d.data.market_data.price_change_24h_in_currency < 0">
+          </i>
+          {{ d.data.market_data.price_change_24h_in_currency | number:'1.2-2' }}&nbsp;({{ d.data.market_data.price_change_percentage_24h_in_currency | number:'1.2-2' }}%)
+        </span>
+      </div>
+    </dxi-column>
+    <dxi-column dataField="market_data.high_24h" caption="High 24h" i18n-caption="@@stocks-list.High-24h" dataType="number">
+      <dxo-format type="fixedPoint" [precision]="2"></dxo-format>
+    </dxi-column>
+    <dxi-column dataField="market_data.low_24h" caption="Low 24h" i18n-caption="@@stocks-list.Low-24h" dataType="number">
+      <dxo-format type="fixedPoint" [precision]="2"></dxo-format>
+    </dxi-column>
+    <dxi-column dataField="market_data.total_volume" caption="Total volume" i18n-caption="@@stocks-list.Total-volume" dataType="number">
+      <dxo-format type="largeNumber"></dxo-format>
+    </dxi-column>
+    <dxi-column dataField="market_data.market_cap" caption="Total volume" i18n-caption="@@stocks-list.Total-volume" dataType="number">
+      <dxo-format type="largeNumber"></dxo-format>
+    </dxi-column>
+  </dx-data-grid>
+</div>
