@@ -10,36 +10,16 @@
         <dx-button class="col-lg-auto col-12 ms-lg-2" [routerLink]="['/stock']" type="normal" text="Check stock" i18n-text="@@home.Check-stock"></dx-button>
       </div>
     </div>
-    <div class="col-lg-4 col-12">
-      TODO COINS IMAGES
-      <!-- <dx-chart class="w-100" title="DogeCoin (DOGE) stock price" i18n-title="@@home.DogeCoin-DOGE-stock-price" [dataSource]="stockPrices">
-        <dxi-series
-          [color]="greenCandleColor"
-          name="DogeCoin"
-          openValueField="o"
-          highValueField="h"
-          lowValueField="l"
-          closeValueField="c">
-          <dxo-reduction [color]="redCandleColor"></dxo-reduction>
-        </dxi-series>
-        <dxo-common-series-settings argumentField="date" type="candlestick">
-        </dxo-common-series-settings>
-        <dxo-legend [visible]="false"></dxo-legend>
-        <dxi-value-axis [tickInterval]="1">
-          <dxo-title text="US dollars" i18n-text="@@home.US-dollars"></dxo-title>
-          <dxo-label>
-            <dxo-format type="currency" [precision]="0"> </dxo-format>
-          </dxo-label>
-        </dxi-value-axis>
-        <dxo-argument-axis [workdaysOnly]="false">
-          <dxo-label format="shortDate"></dxo-label>
-        </dxo-argument-axis>
-        <dxo-tooltip
-          [enabled]="true"
-          location="edge"
-          [customizeTooltip]="customizeTooltip">
-        </dxo-tooltip>
-      </dx-chart> -->
+    <div class="col-lg-4 col-12 d-none d-lg-inline-block position-relative">
+      <img class="w-25 position-absolute top-0" src="assets/icons/binancecoin.png" alt="BNB" />
+      <img class="w-25 position-absolute top-50 translate-middle" src="assets/icons/dogecoin.png" alt="Dogecoin" />
+      <img class="w-25 position-absolute bottom-0" src="assets/icons/ethereum.png" alt="Ethereum" />
+
+      <img class="w-75" src="assets/icons/bitcoin.png" alt="Bitcoin" />
+
+      <img class="w-25 position-absolute top-0 end-25" src="assets/icons/ripple.png" alt="XRP" />
+      <img class="w-25 position-absolute top-50 translate-middle" src="assets/icons/solana.png" alt="Solana" />
+      <img class="w-25 position-absolute bottom-0 end-25" src="assets/icons/tether.png" alt="Tether" />
     </div>
   </div>
   
@@ -60,8 +40,8 @@
           <span class="section-title fw-bold text-start" i18n="@@home.It-s-your-time-to-crash-the-market">It's your time to <span class="text-primary">crash</span> the crypto market!</span>
         </h6>
         <h3 class="display-4 fw-bold text-white mb-4" i18n="@@home.Discover-the-market-and-make-a-move">Discover the crypto world and make a <span class="text-primary text-decoration-underline">move</span></h3>
-        <p class="text-white mb-4 lh-lg" i18n="@@home.Everyday-we-improve-our-app-so-you-can-educate-with-ease_We-support-up-to-50-different-cryptocurrencies">
-          Everyday we improve our app so you can educate with ease. We support up to 50+ different cryptocurrencies like Bitcoin (BTC), Ethereum (ETH), Tether (USDT), BNB (BNB), Solana (SOL), USD Coin (USDC), XRP (XRP), Dogecoin (DOGE) and many more!
+        <p class="text-white mb-4 lh-lg" i18n="@@home.Everyday-we-improve-our-app-so-you-can-educate-with-ease_We-support-common-cryptocurrencies">
+          Everyday we improve our app so you can educate with ease. We support common cryptocurrencies like Bitcoin (BTC), Ethereum (ETH), Tether (USDT), Solana (SOL), USD Coin (USDC), Dogecoin (DOGE) and many more!
         </p>
         <dx-button [routerLink]="['/stock']" type="default" text="Explore crypto" i18n-text="@@home.Explore-crypto"></dx-button>
         <dx-button class="ms-2" [routerLink]="['/register']" type="normal" text="Try for free" i18n-text="@@home.Try-for-free"></dx-button>
@@ -69,7 +49,7 @@
     </div>
     
     <div class="container-xxl px-0 col-lg-4 col-12 d-flex align-items-center rounded">
-      <dx-chart palette="Violet" [dataSource]="cryptoStockPrices" class="w-100">
+      <dx-chart [palette]="dxPallet" [dataSource]="cryptoStockPrices" class="w-100">
         <dxi-series
           *ngFor="let crypto of cryptosInfo"
           [valueField]="crypto.value"
@@ -112,7 +92,7 @@
       </div>
     </div>
     <div class="container-xxl px-0 col-lg-4 col-12 d-flex align-items-center">
-      <dx-chart palette="Violet" [dataSource]="usersGrowth" class="w-100">
+      <dx-chart [palette]="dxPallet" [dataSource]="usersGrowth" class="w-100">
         <dxi-series valueField="value" name="Number of users" i18n-name="@@home.Number-of-users"></dxi-series>
         <dxo-legend itemTextPosition="left"></dxo-legend>
         <dxo-argument-axis [valueMarginsEnabled]="false"></dxo-argument-axis>

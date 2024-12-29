@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { provideRouter } from '@angular/router';
+import { provideRouter, RouterModule } from '@angular/router';
 
 import { DxChartModule } from 'devextreme-angular/ui/chart';
 import { DxButtonModule } from 'devextreme-angular/ui/button';
@@ -11,11 +11,14 @@ import { DxPopupModule } from 'devextreme-angular/ui/popup';
 import { DxValidatorModule } from 'devextreme-angular/ui/validator';
 import { DxRadioGroupModule } from 'devextreme-angular/ui/radio-group';
 import { DxScrollViewModule } from 'devextreme-angular/ui/scroll-view';
+import { DxDataGridModule } from 'devextreme-angular/ui/data-grid';
 
 import { routes } from './stock.routes';
 import { HeaderComponent } from '../../shared/components/header/header.component';
+import { StockDetailsComponent } from './components/stock-details/stock-details.component';
+import { StockOrderComponent } from './components/stock-details/stock-order/stock-order.component';
+import { StocksListComponent } from './components/stocks-list/stocks-list.component';
 import { StockComponent } from './components/stock/stock.component';
-import { StockOrderComponent } from './components/stock/stock-order/stock-order.component';
 
 
 @NgModule({
@@ -23,12 +26,15 @@ import { StockOrderComponent } from './components/stock/stock-order/stock-order.
     provideRouter(routes),
   ],
   declarations: [
-    StockComponent,
+    StockDetailsComponent,
     StockOrderComponent,
+    StocksListComponent,
+    StockComponent,
   ],
   imports: [
     CommonModule,
     HeaderComponent,
+    RouterModule,
 
     DxChartModule,
     DxButtonModule,
@@ -39,6 +45,7 @@ import { StockOrderComponent } from './components/stock/stock-order/stock-order.
     DxValidatorModule,
     DxRadioGroupModule,
     DxScrollViewModule,
+    DxDataGridModule,
   ],
 })
 export class StockModule { }
