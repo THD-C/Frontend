@@ -1,4 +1,4 @@
-export type ManageUser = {
+export type User = {
   ID: string;
   email: string;
   username: string;
@@ -10,5 +10,5 @@ export type ManageUser = {
 }
 
 export type GetUsersListResponse = {
-  user_data: ManageUser[];
+  user_data: User[];
 }

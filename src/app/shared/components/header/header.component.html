@@ -35,7 +35,7 @@
                   <li>
                     <a class="dropdown-item text-body py-2" [routerLink]="['/profile']" i18n="@@header.Profile">Profile</a>
                   </li>
-                  @if (authService.userType === UserType.Admin) {
+                  @if (authService.payload?.user_type === UserType.Admin) {
                     <li>
                       <a class="dropdown-item text-body py-2" [routerLink]="['/admin']" i18n="@@header.Admin">Admin</a>
                     </li>

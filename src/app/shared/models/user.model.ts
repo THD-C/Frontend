@@ -36,8 +36,6 @@ export type UserDetail = {
  * List of user types in the system
  */
 export enum UserType {
-  Unknown = 0,
-
   /**
    * Standard user register by himself
    */
@@ -56,20 +54,35 @@ export enum UserType {
 }
 
 export enum UserTypeString {
-  Unknown = 'USER_TYPE_UNKNOWN_USER',
-
   /**
    * {@link UserType.Standard}
    */
-  Standard = 'USER_TYPE_STANDARD_USER',
+  Standard = 'STANDARD_USER',
 
   /**
    * {@link UserType.Blogger}
    */
-  Blogger = 'USER_TYPE_BLOGGER_USER',
+  Blogger = 'BLOGGER_USER',
 
   /**
    * {@link UserType.Admin}
    */
-  Admin = 'USER_TYPE_SUPER_ADMIN_USER',
+  Admin = 'ADMIN_USER',
 }
+
+export type AvailableUserType = {
+  value: UserType;
+  text: UserTypeString;
+}
+
+export const userTypesMap: Map<UserType, UserTypeString> = new Map([
+  [UserType.Standard, UserTypeString.Standard],
+  [UserType.Blogger, UserTypeString.Blogger],
+  [UserType.Admin, UserTypeString.Admin],
+]);
+
+export const userTypesMapReverse: Map<UserTypeString, UserType> = new Map(
+  Array.from(userTypesMap, ([key, value]) => [value, key])
+);
+
+export const UserTypes: AvailableUserType[] = Array.from(userTypesMap, ([key, value]) => ({ value: key, text: value }));

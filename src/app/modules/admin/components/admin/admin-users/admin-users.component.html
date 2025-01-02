@@ -20,6 +20,7 @@
     <dxi-column caption="Action" i18n-caption="@@admin-users.Action" cellTemplate="actionCellTemplate" width="93">
       <div *dxTemplate="let d of 'actionCellTemplate'">
         @if (authService.payload?.id !== d.data.ID) {
+          <dx-button appGridEditButton (onClick)="openEditUser(d.data)"></dx-button>
           <dx-button appGridDeleteButton (onClick)="deleteUser(d.data.ID)"></dx-button>
         }
       </div>
@@ -29,3 +30,5 @@
     <dxi-column caption="E-mail" dataField="email"></dxi-column>
   </dx-data-grid>
 </dx-scroll-view>
+
+<app-admin-user-edit #adminUserEdit />

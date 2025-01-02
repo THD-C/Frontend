@@ -7,7 +7,8 @@ import { BaseService } from '../base/base.service';
 import { errors } from './users.errors';
 import { UpdateUserPasswordRequest } from '../../modules/profile/components/profile/profile-password/profile-password.model';
 import { UpdateProfileDetailsRequest, UserProfileDetails } from '../../modules/profile/components/profile/profile-details/profile-details.model';
-import { GetUsersListResponse, ManageUser } from '../../modules/admin/components/admin/admin-users/admin-users.model';
+import { GetUsersListResponse, User } from '../../modules/admin/components/admin/admin-users/admin-users.model';
+import { UserType, userTypesMap, UserTypeString } from '../../shared/models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -66,10 +67,10 @@ export class UsersService extends BaseService {
 
   /**
    * Makes a request call to the API to get all users in the system.
-   * Requests for admins ONLY!
+   * Request for ADMINS ONLY (with type {@link UserType.Admin})!
    * @returns List of users that admin can manage
    */
-  async getList(): Promise<ManageUser[]> {
+  async getList(): Promise<User[]> {
     const request = this.httpClient.get<GetUsersListResponse>(
       `${this.config.apiUrl}/${this.baseUsersPath}/list-users`,
     ).pipe(catchError(this.catchCustomError.bind(this)));
@@ -88,6 +89,27 @@ export class UsersService extends BaseService {
     const params = this.generateParams({ user_id: id });
     const request = this.httpClient.delete(
       `${this.config.apiUrl}/${this.baseUsersPath}/`,
+      { params }
+    ).pipe(catchError(this.catchCustomError.bind(this)));
+
+    await firstValueFrom(request);
+  }
+
+  /**
+   * Makes a request call to the API to change user type.
+   * Request for ADMINS ONLY (with type {@link UserType.Admin})!
+   * @param new_user_type New user type {@link UserType} granted by admin
+   * @param user_id User whose type will change
+   */
+  async changeUserType(new_user_type: UserType, user_id: string): Promise<void> {
+    const params = this.generateParams({
+      new_user_type: userTypesMap.get(new_user_type),
+      user_id,
+    });
+
+    const request = this.httpClient.put(
+      `${this.config.apiUrl}/${this.baseUsersPath}/change-user-type`,
+      undefined,
       { params }
     ).pipe(catchError(this.catchCustomError.bind(this)));
 

@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, viewChild } from '@angular/core';
 
 import { confirm } from 'devextreme/ui/dialog';
 
 import { UsersService } from '../../../../../services/users/users.service';
-import { ManageUser } from './admin-users.model';
+import { User as User } from './admin-users.model';
 import { AuthService } from '../../../../../services/auth/auth.service';
 import { UserType, UserTypeString } from '../../../../../shared/models/user.model';
+import { AdminUserEditComponent } from '../admin-user-edit/admin-user-edit.component';
 
 @Component({
   selector: 'app-admin-users',
@@ -16,7 +17,9 @@ export class AdminUsersComponent implements OnInit {
 
   protected readonly UserType = UserType;
 
-  users: ManageUser[] = [];
+  adminUserEdit = viewChild.required<AdminUserEditComponent>('adminUserEdit');
+
+  users: User[] = [];
   
   constructor(
     private readonly usersService: UsersService,
@@ -46,8 +49,13 @@ export class AdminUsersComponent implements OnInit {
 
     try {
       await this.usersService.delete(id);
+      this.users = this.users.filter(u => u.ID !== id);
     } catch (e) {
     }
+  }
+
+  openEditUser(user: User): void {
+    this.adminUserEdit()?.open(user.ID, user.user_type as UserTypeString);
   }
 
 }
