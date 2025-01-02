@@ -1,0 +1,34 @@
+<dx-scroll-view class="card shadow p-3 border-primary container" height="75vh" [useNative]="false" [scrollByContent]="true" [scrollByThumb]="true">
+  <dx-data-grid
+    height="65%"
+    [dataSource]="users"
+    [remoteOperations]="false"
+    #coinsGrid>
+    <dxo-paging [pageSize]="10"></dxo-paging>
+    <dxo-pager
+      [visible]="true"
+      [showPageSizeSelector]="true"
+      [allowedPageSizes]="[10, 25, 50, 100]"
+    ></dxo-pager>
+    <dxo-search-panel
+      [visible]="true"
+      [highlightCaseSensitive]="true"
+    ></dxo-search-panel>
+    <dxo-column-chooser [enabled]="true"></dxo-column-chooser>
+    <dxo-load-panel [enabled]="true"></dxo-load-panel>
+  
+    <dxi-column caption="Action" i18n-caption="@@admin-users.Action" cellTemplate="actionCellTemplate" width="93">
+      <div *dxTemplate="let d of 'actionCellTemplate'">
+        @if (authService.payload?.id !== d.data.ID) {
+          <dx-button appGridEditButton (onClick)="openEditUser(d.data)"></dx-button>
+          <dx-button appGridDeleteButton (onClick)="deleteUser(d.data.ID)"></dx-button>
+        }
+      </div>
+    </dxi-column>
+    <dxi-column caption="ID" dataField="ID"></dxi-column>
+    <dxi-column caption="Username" i18n-caption="@@admin-users.Username" dataField="username"></dxi-column>
+    <dxi-column caption="E-mail" dataField="email"></dxi-column>
+  </dx-data-grid>
+</dx-scroll-view>
+
+<app-admin-user-change-type #adminUserEdit />

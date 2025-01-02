@@ -9,8 +9,9 @@ import { RouterExtendedService } from '../router-extended/router-extended.servic
 
 import { errors } from './auth.errors';
 import { RegisterRequest, RegisterResponse } from '../../modules/register/components/register/register.model';
-import { Session } from '../../shared/models/auth.model';
+import { JwtPayload, Session } from '../../shared/models/auth.model';
 import { LoginRequest, LoginResponse } from '../../modules/login/components/login/login.model';
+import { UserType } from '../../shared/models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -66,6 +67,10 @@ export class AuthService extends BaseService {
     }
 
     return '';
+  }
+
+  get payload(): JwtPayload | null {
+    return this.jwtHelperService.decodeToken(this.session?.accessToken ?? '');
   }
 
   constructor(

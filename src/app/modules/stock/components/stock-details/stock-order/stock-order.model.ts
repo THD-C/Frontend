@@ -171,15 +171,15 @@ export enum OrderStatusString {
 }
 
 export const orderStatusesMap: Map<OrderStatus, string> = new Map([
-  [OrderStatus.Undefined, 'UNDEFINED'],
-  [OrderStatus.Accepted, 'ACCEPTED'],
-  [OrderStatus.Rejected, 'REJECTED'],
-  [OrderStatus.Pending, 'PENDING'],
-  [OrderStatus.PartiallyCompleted, 'PARTIALLY_COMPLETED'],
-  [OrderStatus.Completed, 'COMPLETED'],
-  [OrderStatus.Cancelled, 'CANCELLED'],
-  [OrderStatus.Expired, 'EXPIRED'],
-  [OrderStatus.InProgress, 'IN_PROGRESS'],
+  [OrderStatus.Undefined, OrderStatusString.Undefined],
+  [OrderStatus.Accepted, OrderStatusString.Accepted],
+  [OrderStatus.Rejected, OrderStatusString.Rejected],
+  [OrderStatus.Pending, OrderStatusString.Pending],
+  [OrderStatus.PartiallyCompleted, OrderStatusString.PartiallyCompleted],
+  [OrderStatus.Completed, OrderStatusString.Completed],
+  [OrderStatus.Cancelled, OrderStatusString.Cancelled],
+  [OrderStatus.Expired, OrderStatusString.Expired],
+  [OrderStatus.InProgress, OrderStatusString.InProgress],
 ]);
 
 export const orderStatusesMapReverse: Map<string, OrderStatus> = new Map(

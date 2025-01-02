@@ -2,7 +2,7 @@
 
 <div class="min-vh-100 d-flex align-items-center justify-content-center flex-column bg-light mt-5">
   <dx-data-grid
-    width="75vw"
+    class="card shadow border-primary p-3 container"
     height="65%"
     [dataSource]="coins"
     [remoteOperations]="false"
@@ -67,10 +67,10 @@
       <dxo-format type="fixedPoint" [precision]="2"></dxo-format>
     </dxi-column>
     <dxi-column dataField="market_data.total_volume" caption="Total volume" i18n-caption="@@stocks-list.Total-volume" dataType="number">
-      <dxo-format type="largeNumber"></dxo-format>
+      <dxo-format type="fixedPoint" [precision]="0"></dxo-format>
     </dxi-column>
     <dxi-column dataField="market_data.market_cap" caption="Total volume" i18n-caption="@@stocks-list.Total-volume" dataType="number">
-      <dxo-format type="largeNumber"></dxo-format>
+      <dxo-format type="fixedPoint" [precision]="0"></dxo-format>
     </dxi-column>
   </dx-data-grid>
 </div>
