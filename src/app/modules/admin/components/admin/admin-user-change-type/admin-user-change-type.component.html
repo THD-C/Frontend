@@ -1,6 +1,6 @@
 <dx-popup
   title="Update user type"
-  i18n-title="@@admin-user-edit.Update-user-type"
+  i18n-title="@@admin-user-change-type.Update-user-type"
   [(visible)]="visible"
   [showCloseButton]="true"
   width="400px"
@@ -17,7 +17,7 @@
           [searchEnabled]="true"
           [(value)]="user_type"
           label="User type"
-          i18n-label="@@admin-user-edit.User-type"
+          i18n-label="@@admin-user-change-type.User-type"
           labelMode="floating"
           validationMessageMode="always">
           <dx-validator>
@@ -30,10 +30,10 @@
       <div class="col-12">
         <div class="row g-4">
           <div class="col-lg-auto col-6 ms-lg-auto">
-            <dx-button class="w-100" type="normal" text="Cancel" i18n-text="@@admin-user-edit.Cancel" (onClick)="close()"></dx-button>
+            <dx-button class="w-100" type="normal" text="Cancel" i18n-text="@@admin-user-change-type.Cancel" (onClick)="close()"></dx-button>
           </div>
           <div class="col-lg-auto col-6">
-            <dx-button class="w-100" type="default" text="Change" i18n-text="@@admin-user-edit.Change" (onClick)="change()" [useSubmitBehavior]="true"></dx-button>
+            <dx-button class="w-100" type="default" text="Change" i18n-text="@@admin-user-change-type.Change" (onClick)="change()" [useSubmitBehavior]="true"></dx-button>
           </div>
         </div>
       </div>

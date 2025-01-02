@@ -17,7 +17,7 @@ import { AdminUsersComponent } from './components/admin/admin-users/admin-users.
 import { routes } from './admin.routes';
 import { GridEditButtonDirective } from '../../directives/grid-edit-button/grid-edit-button.directive';
 import { GridDeleteButtonDirective } from '../../directives/grid-delete-button/grid-delete-button.directive';
-import { AdminUserEditComponent } from './components/admin/admin-user-edit/admin-user-edit.component';
+import { AdminUserChangeTypeComponent } from './components/admin/admin-user-change-type/admin-user-change-type.component';
 
 
 @NgModule({
@@ -27,7 +27,7 @@ import { AdminUserEditComponent } from './components/admin/admin-user-edit/admin
   declarations: [
     AdminComponent,
     AdminUsersComponent,
-    AdminUserEditComponent,
+    AdminUserChangeTypeComponent,
   ],
   imports: [
     CommonModule,

@@ -5,11 +5,11 @@ import { UserType, UserTypes, userTypesMapReverse, UserTypeString } from '../../
 import { BaseService } from '../../../../../services/base/base.service';
 
 @Component({
-  selector: 'app-admin-user-edit',
-  templateUrl: './admin-user-edit.component.html',
-  styleUrl: './admin-user-edit.component.scss'
+  selector: 'app-admin-user-change-type',
+  templateUrl: './admin-user-change-type.component.html',
+  styleUrl: './admin-user-change-type.component.scss'
 })
-export class AdminUserEditComponent {
+export class AdminUserChangeTypeComponent {
 
   protected readonly UserTypes = UserTypes;
 
@@ -41,7 +41,7 @@ export class AdminUserEditComponent {
       await this.usersService.changeUserType(this.user_type, this.user_id);
       this.notifications.success(
         $localize`:@@notifications.Success:Success`,
-        $localize`:@@admin-user-edit.User-type-updated-successfully:User type updated successfully`,
+        $localize`:@@admin-user-change-type.User-type-updated-successfully:User type updated successfully`,
         BaseService.notificationOverride
       );
       this.close();

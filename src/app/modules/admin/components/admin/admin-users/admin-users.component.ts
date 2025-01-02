@@ -6,7 +6,7 @@ import { UsersService } from '../../../../../services/users/users.service';
 import { User as User } from './admin-users.model';
 import { AuthService } from '../../../../../services/auth/auth.service';
 import { UserType, UserTypeString } from '../../../../../shared/models/user.model';
-import { AdminUserEditComponent } from '../admin-user-edit/admin-user-edit.component';
+import { AdminUserChangeTypeComponent } from '../admin-user-change-type/admin-user-change-type.component';
 
 @Component({
   selector: 'app-admin-users',
@@ -17,7 +17,7 @@ export class AdminUsersComponent implements OnInit {
 
   protected readonly UserType = UserType;
 
-  adminUserEdit = viewChild.required<AdminUserEditComponent>('adminUserEdit');
+  adminUserEdit = viewChild.required<AdminUserChangeTypeComponent>('adminUserEdit');
 
   users: User[] = [];
   
