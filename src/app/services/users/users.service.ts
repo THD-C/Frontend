@@ -7,6 +7,7 @@ import { BaseService } from '../base/base.service';
 import { errors } from './users.errors';
 import { UpdateUserPasswordRequest } from '../../modules/profile/components/profile/profile-password/profile-password.model';
 import { UpdateProfileDetailsRequest, UserProfileDetails } from '../../modules/profile/components/profile/profile-details/profile-details.model';
+import { GetUsersListResponse, ManageUser } from '../../modules/admin/components/admin/admin-users/admin-users.model';
 
 @Injectable({
   providedIn: 'root'
@@ -61,6 +62,20 @@ export class UsersService extends BaseService {
     ).pipe(catchError(this.catchCustomError.bind(this)));
 
     return await firstValueFrom(request) as UserProfileDetails;
+  }
+
+  /**
+   * Makes a request call to the API to get all users in the system.
+   * Requests for admins ONLY!
+   * @returns List of users that admin can manage
+   */
+  async getList(): Promise<ManageUser[]> {
+    const request = this.httpClient.get<GetUsersListResponse>(
+      `${this.config.apiUrl}/${this.baseUsersPath}/list-users`,
+    ).pipe(catchError(this.catchCustomError.bind(this)));
+
+    const { user_data } = await firstValueFrom(request) as GetUsersListResponse || { user_data: [] };
+    return user_data;
   }
 
 }

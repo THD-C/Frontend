@@ -27,7 +27,7 @@ export const routes: Routes = [
     loadChildren: () => import('./modules/stock/stock.module').then(m => m.StockModule),
   },
   {
-    title: $localize`:@@app.routes.privacy.policy.title:THD(C) privacy policy`,
+    title: $localize`:@@app.routes.privacy.policy.title:Privacy policy | THD(C)`,
     path: 'privacy-policy',
     loadChildren: () => import('./modules/privacy-policy/privacy-policy.module').then(m => m.PrivacyPolicyModule),
   },
@@ -35,6 +35,11 @@ export const routes: Routes = [
     title: $localize`:@@app.routes.payment.title:Payment status | THD(C)`,
     path: 'payment',
     loadChildren: () => import('./modules/payment/payment.module').then(m => m.PaymentModule),
+  },
+  {
+    title: $localize`:@@app.routes.admin.title:Admin panel | THD(C)`,
+    path: 'admin',
+    loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule),
   },
   {
     path: '**',

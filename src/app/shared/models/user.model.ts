@@ -54,3 +54,22 @@ export enum UserType {
    */
   Admin = 3,
 }
+
+export enum UserTypeString {
+  Unknown = 'USER_TYPE_UNKNOWN_USER',
+
+  /**
+   * {@link UserType.Standard}
+   */
+  Standard = 'USER_TYPE_STANDARD_USER',
+
+  /**
+   * {@link UserType.Blogger}
+   */
+  Blogger = 'USER_TYPE_BLOGGER_USER',
+
+  /**
+   * {@link UserType.Admin}
+   */
+  Admin = 'USER_TYPE_SUPER_ADMIN_USER',
+}

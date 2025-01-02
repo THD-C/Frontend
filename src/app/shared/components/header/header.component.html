@@ -31,17 +31,20 @@
               <div class="dropdown">
                 <dx-button [type]="btnCollapseProfileType" hint="Profile" i18n-hint="@@home.Profile" stylingMode="outlined" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false" icon="user">
                 </dx-button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                <ul class="dropdown-menu w-auto" aria-labelledby="dropdownMenuButton2">
                   <li>
-                    <dx-button class="h-100" type="normal" stylingMode="text" class="dropdown-item" [routerLink]="['/profile']" text="Profile" i18n-text="@@header.Profile">
-                    </dx-button>
+                    <a class="dropdown-item text-body py-2" [routerLink]="['/profile']" i18n="@@header.Profile">Profile</a>
                   </li>
+                  @if (authService.userType === UserType.Admin) {
+                    <li>
+                      <a class="dropdown-item text-body py-2" [routerLink]="['/admin']" i18n="@@header.Admin">Admin</a>
+                    </li>
+                  }
                   <li>
                     <hr class="dropdown-divider">
                   </li>
                   <li>
-                    <dx-button class="w-100 h-100" type="normal" stylingMode="text" class="dropdown-item" href="#" (click)="authService.logout()" text="Log out" i18n-text="@@header.Log-out">
-                    </dx-button>
+                    <a class="dropdown-item text-body py-2" href="#" (click)="authService.logout()" i18n="@@header.Log-out">Log out</a>
                   </li>
                 </ul>
               </div>

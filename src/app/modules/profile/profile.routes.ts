@@ -1,4 +1,4 @@
-import { Route } from '@angular/router';
+import { Routes } from '@angular/router';
 
 import { authGuard } from '../../guards/auth/auth.guard';
 
@@ -8,7 +8,7 @@ import { ProfileWalletsComponent } from './components/profile/profile-wallets/pr
 import { ProfilePasswordComponent } from './components/profile/profile-password/profile-password.component';
 import { ProfilePaymentsComponent } from './components/profile/profile-payments/profile-payments.component';
 
-export const routes: Route[] = [
+export const routes: Routes = [
   {
     path: '',
     component: ProfileComponent,

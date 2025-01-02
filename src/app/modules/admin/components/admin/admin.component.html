@@ -1,0 +1,13 @@
+<app-header></app-header>
+
+<div class="min-vh-100 d-flex align-items-center justify-content-center flex-column bg-light p-2 mt-5">
+  <dx-tabs
+    class="w-auto rounded-top shadow overflow-hidden sticky-top"
+    iconPosition="start"
+    [selectedIndex]="selectedTabIndex"
+    (selectedIndexChange)="onTabIndexSelectionChanged($event)"
+    [dataSource]="tabs">
+  </dx-tabs>
+
+  <router-outlet />
+</div>
