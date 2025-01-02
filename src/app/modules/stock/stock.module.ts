@@ -19,6 +19,7 @@ import { StockDetailsComponent } from './components/stock-details/stock-details.
 import { StockOrderComponent } from './components/stock-details/stock-order/stock-order.component';
 import { StocksListComponent } from './components/stocks-list/stocks-list.component';
 import { StockComponent } from './components/stock/stock.component';
+import { GridDeleteButtonDirective } from '../../directives/grid-delete-button/grid-delete-button.directive';
 
 
 @NgModule({
@@ -35,6 +36,8 @@ import { StockComponent } from './components/stock/stock.component';
     CommonModule,
     HeaderComponent,
     RouterModule,
+
+    GridDeleteButtonDirective,
 
     DxChartModule,
     DxButtonModule,

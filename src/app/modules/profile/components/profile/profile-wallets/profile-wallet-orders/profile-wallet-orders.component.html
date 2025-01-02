@@ -25,7 +25,7 @@
 
           <dxi-column caption="Action" i18n-caption="@@profile-wallet-orders.Action" cellTemplate="actionCellTemplate" width="87">
             <div *dxTemplate="let d of 'actionCellTemplate'">
-              <dx-button appGridDeleteButton icon="close" (onClick)="cancel(d.data.id)"></dx-button>
+              <dx-button appGridDeleteButton (onClick)="deleteOrder(d.data.id)"></dx-button>
             </div>
           </dxi-column>
           <dxi-column dataField="id" caption="ID" i18n-caption="@@profile-wallet-orders.ID"></dxi-column>

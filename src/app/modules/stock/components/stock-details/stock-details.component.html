@@ -167,7 +167,7 @@
           <div class="row gy-4 gx-0">
             @for (order of currentCryptoOrders; track order) {
               <div class="col-12 border rounded p-3">
-                <div class="row gy-2 gx-0">
+                <div class="row gy-2 gx-0 position-relative">
                   <div class="rounded col-auto fw-bold fs-6 lh-base">
                     {{ getOrderHistoryEntrySideLabel(order.side) }}&nbsp;{{ displayCrypto.currency_name }}
                   </div>
@@ -187,6 +187,9 @@
                   <div class="col-12 text-muted" i18n="@@stock.Created-at">Created at: {{ order.date_created | date:'yyyy-MM-dd HH:mm:ss' }}</div>
                   @if (order.date_executed !== defaultDate) {
                     <div class="col-12 text-muted" i18n="@@stock.Executed-at">Executed at: {{ order.date_executed | date:'yyyy-MM-dd HH:mm:ss' }}</div>
+                  }
+                  @if (order.date_executed === defaultDate && order.status === OrderStatusLongString.Pending) {
+                    <dx-button class="position-absolute bottom-0 end-0 w-auto" appGridDeleteButton (onClick)="deleteOrder(order.id)"></dx-button>
                   }
                 </div>
               </div>
