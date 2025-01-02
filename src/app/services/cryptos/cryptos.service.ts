@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { BaseService } from '../base/base.service';
 import { HttpClient } from '@angular/common/http';
-import { NotificationsService } from 'angular2-notifications';
-import { errors } from './cryptos.errors';
 import { catchError, firstValueFrom } from 'rxjs';
+import { NotificationsService } from 'angular2-notifications';
+import { BaseService } from '../base/base.service';
+import { errors } from './cryptos.errors';
 import { CryptoDetails, CryptoPrice, GetCryptoDetailsRequest, GetCryptoDetailsResponse, GetCryptoHistoricalDataRequest, GetCryptoHistoricalDataResponse } from '../../modules/stock/components/stock-details/stock-details.model';
-import { Coin, GetCoinsRequest, GetCoinsResponse } from '../../modules/stock/components/stocks-list/stocks-list.model';
+import { GetCoinsRequest, GetCoinsResponse } from '../../modules/stock/components/stocks-list/stocks-list.model';
 
 @Injectable({
   providedIn: 'root'
@@ -53,10 +53,14 @@ export class CryptosService extends BaseService {
       { params }
     ).pipe(catchError(this.catchCustomError.bind(this)));
 
-    const { data } = await firstValueFrom(request) as GetCryptoHistoricalDataResponse || { data: { timestamp: [], price: [] }};
+    const { data } = await firstValueFrom(request) as GetCryptoHistoricalDataResponse || { data: { timestamp: [], price: [], open: [], high: [], low: [], close: [] }};
     return data.timestamp.map((value, index, array) => ({
       date: new Date(value),
-      price: data.price[index]
+      price: data.price?.at(index),
+      open: data.open?.at(index),
+      high: data.high?.at(index),
+      low: data.low?.at(index),
+      close: data.close?.at(index),
     } satisfies CryptoPrice));
   }
 

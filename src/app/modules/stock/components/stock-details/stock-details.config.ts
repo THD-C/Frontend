@@ -1,6 +1,6 @@
 import { DxButtonTypes } from 'devextreme-angular/ui/button';
 import { Currency } from '../../../profile/components/profile/profile-wallets/profile-wallets.config';
-import { CryptoDetails, TimeFrame } from './stock-details.model';
+import { ChartType, CryptoDetails, TimeFrame } from './stock-details.model';
 
 export const defaultCrypto: Currency = {
   currency_name: 'bitcoin',
@@ -25,34 +25,36 @@ export const defaultTimeFrameIndex: number = 0;
 
 const now = new Date();
 const startDate = new Date();
-startDate.setHours(0);
-startDate.setMinutes(0);
-startDate.setSeconds(0);
-startDate.setMilliseconds(0);
+startDate.setHours(startDate.getHours() - 1);
 
 const endDate = new Date();
 endDate.setHours(endDate.getHours() - 1);
 
 const oneDayDateFrom = new Date(startDate);
+oneDayDateFrom.setDate(now.getDate() - 1);
 
 const oneWeekDateFrom = new Date(startDate);
 oneWeekDateFrom.setDate(now.getDate() - 7);
 
 const oneMonthDateFrom = new Date(startDate);
-oneMonthDateFrom.setDate(now.getDate() - 31);
+oneMonthDateFrom.setDate(now.getDate() - 30);
 
 const sixMonthsDateFrom = new Date(startDate)
-sixMonthsDateFrom.setDate(now.getDate() - 184);
+sixMonthsDateFrom.setDate(now.getDate() - 180);
 
 const yearTodayMonthsDateFrom = new Date(startDate);
-yearTodayMonthsDateFrom.setMonth(0);
 yearTodayMonthsDateFrom.setDate(1);
+yearTodayMonthsDateFrom.setMonth(0);
+yearTodayMonthsDateFrom.setHours(0);
+yearTodayMonthsDateFrom.setMinutes(0);
+yearTodayMonthsDateFrom.setSeconds(0);
+yearTodayMonthsDateFrom.setMilliseconds(0);
 
 const oneYearMonthsDateFrom = new Date(startDate);
-oneYearMonthsDateFrom.setFullYear(oneYearMonthsDateFrom.getFullYear() -  1);
+oneYearMonthsDateFrom.setDate(now.getDate() - 365);
 
-const fiveYearMonthsDateFrom = new Date(startDate);
-fiveYearMonthsDateFrom.setFullYear(fiveYearMonthsDateFrom.getFullYear() -  5);
+// const fiveYearMonthsDateFrom = new Date(startDate);
+// fiveYearMonthsDateFrom.setFullYear(fiveYearMonthsDateFrom.getFullYear() -  5);
 
 export const timeFrames: TimeFrame[] = [
   {
@@ -107,4 +109,9 @@ export const dxChartButtonMenuOptions: DxButtonTypes.Properties = {
 export const stockQueryParamNames = {
   coin_id: 'coin_id',
   currency: 'currency',
+};
+
+export const defaultChartType: ChartType = {
+  text: $localize`:@@stock-details.Candlestick:Candlestick`,
+  value: 'candlestick',
 };

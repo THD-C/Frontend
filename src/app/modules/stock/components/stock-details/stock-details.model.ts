@@ -1,3 +1,4 @@
+import { SeriesType } from 'devextreme/common/charts';
 import { Item as DxTabsItem } from 'devextreme/ui/tabs';
 
 // Based on DevExtreme styles.
@@ -19,7 +20,11 @@ export type StockPrice = {
 
 export type CryptoPrice = {
   date: Date;
-  price: number;
+  price?: number;
+  close?: number;
+  low?: number;
+  open?: number;
+  high?: number;
 }
 
 export type GetCryptoDetailsRequest = {
@@ -68,13 +73,22 @@ export type GetCryptoHistoricalDataRequest = {
   currency: string;
   start_date: string;
   end_date: string;
+
+  /**
+   * Specifies if data should be in OHLC (Open High Low Close) format
+   */
+  ohlc_data: boolean;
 }
 
 export type GetCryptoHistoricalDataResponse = {
   status: string;
   data: {
     timestamp: number[];
-    price: number[];
+    price?: number[];
+    open?: number[];
+    high?: number[];
+    low?: number[];
+    close?: number[];
   };
   error_message: string;
   values_in_currency: string;
@@ -320,3 +334,21 @@ export type DxChartAdaptiveLayout = {
 }
 
 export type TimeFrame = DxTabsItem & { dateFrom?: Date, dateTo: Date };
+
+export type ChartType = {
+  text: string;
+  value: SeriesType;
+}
+
+export const availableChartTypes: ChartType[] = [
+  {
+    text: $localize`:@@stock-details.Candlestick:Candlestick`,
+    value: 'candlestick',
+  },
+  {
+    text: $localize`:@@stock-details.Spline:Spline`,
+    value: 'spline',
+  }
+];
+
+availableChartTypes.sort((a, b) => a.text.localeCompare(b.text));

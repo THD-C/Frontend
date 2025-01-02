@@ -1,9 +1,10 @@
 import { Component, OnInit, viewChild } from '@angular/core';
 import { DatePipe, DecimalPipe } from '@angular/common';
-import { CryptoDetails, CryptoPrice as CryptoHistorialDataEntry, greenCandleColor, redCandleColor, TimeFrame } from './stock-details.model';
+import { ActivatedRoute } from '@angular/router';
+import { availableChartTypes, ChartType, CryptoDetails, CryptoPrice as CryptoHistorialDataEntry, greenCandleColor, redCandleColor, TimeFrame } from './stock-details.model';
 import { appName, defaultCurrency, defaultDate, dxPallet } from '../../../../app.config';
 import { Currency } from '../../../profile/components/profile/profile-wallets/profile-wallets.config';
-import { defaultCrypto, defaultCryptoDetails, defaultTimeFrameIndex, dxChartButtonMenuOptions, stockQueryParamNames, timeFrames } from './stock-details.config';
+import { defaultChartType, defaultCrypto, defaultCryptoDetails, defaultTimeFrameIndex, dxChartButtonMenuOptions, stockQueryParamNames, timeFrames } from './stock-details.config';
 import { StockOrderComponent } from './stock-order/stock-order.component';
 import { GetOrdersRequest, Order, OrderSide, OrderSideString, OrderStatusString, OrderType } from './stock-order/stock-order.model';
 import { AuthService } from '../../../../services/auth/auth.service';
@@ -15,7 +16,7 @@ import { getOrderHistoryEntryCashQuantityPrefixLabel, getOrderHistoryEntrySideLa
 import { CurrenciesService } from '../../../../services/currencies/currencies.service';
 import { CurrencyType } from '../../../profile/components/profile/profile-wallets/profile-wallet-create/profile-wallet-create.model';
 import { CryptosService } from '../../../../services/cryptos/cryptos.service';
-import { ActivatedRoute } from '@angular/router';
+import { SeriesType } from 'devextreme/common/charts';
 
 @Component({
   selector: 'app-stock-details',
@@ -35,8 +36,14 @@ export class StockDetailsComponent implements OnInit {
   protected readonly defaultDate = defaultDate;
   protected readonly dxPallet = dxPallet;
   protected readonly dxChartButtonMenuOptions = dxChartButtonMenuOptions;
+  protected readonly availableCharTypes = availableChartTypes;
 
   stockOrderPopup = viewChild.required<StockOrderComponent>('stockOrderPopup');
+
+  chartType: ChartType = defaultChartType;
+  get isCandlestickChart(): boolean  {
+    return this.chartType.value === 'candlestick' as SeriesType;
+  }
 
   displayCurrency: Currency = defaultCurrency;
   displayCrypto: Currency = defaultCrypto;
@@ -110,6 +117,15 @@ export class StockDetailsComponent implements OnInit {
   }
 
   customizeTooltip(arg: any) {
+    if (this.isCandlestickChart) {
+      return {
+        text: `Open: ${arg.openValue} ${this.displayCurrency.currency_name}<br/>`
+                  + `Close: ${arg.closeValue} ${this.displayCurrency.currency_name}<br/>`
+                  + `High: ${arg.highValue} ${this.displayCurrency.currency_name}<br/>`
+                  + `Low: ${arg.lowValue} ${this.displayCurrency.currency_name}<br/>`,
+      };
+    }
+
     return {
       text: `
         ${this.datePipe.transform(arg.argument, 'yyyy-MM-dd HH:mm:ss')}<br/>
@@ -133,14 +149,14 @@ export class StockDetailsComponent implements OnInit {
 
   async onTimeFrameSelectionChanged(): Promise<void> {
     try {
-      await this.refreshCryptoHistoricalData();
+      await this.refreshCrypto();
     } catch(e) {
     }
   }
 
   async onDisplayCurrencySelectionChanged(): Promise<void> {
     try {
-      await this.refreshCryptoHistoricalData();
+      await this.refreshCrypto();
     } catch(e) {
       console.error(e);
     }
@@ -152,23 +168,33 @@ export class StockDetailsComponent implements OnInit {
       this.currentCryptoOrders = await this.ordersService.get({ wallet_id: cryptoWallet?.id } satisfies GetOrdersRequest);
       this.currentCryptoOrders.sort((a, b) => a.date_created < b.date_created ? 1 : -1);
 
-      await this.refreshCryptoHistoricalData();
+      await this.refreshCrypto();
     } catch(e) {
       console.error(e);
     }
   }
 
-  async refreshCryptoHistoricalData(): Promise<void> {
+  async refreshCrypto(): Promise<void> {
+    await this.refreshCryptoDetails();
+    await this.refreshCryptoHistoricalData();
+  }
+
+  async refreshCryptoDetails(): Promise<void> {
     this.displayCryptoDetails = await this.cryptosService.getDetails({
       coin_id: this.displayCrypto.currency_name,
       currency: this.displayCurrency.currency_name,
     });
+  }
+
+  async refreshCryptoHistoricalData(): Promise<void> {
+    const { dateFrom, dateTo } = this.timeFrames[this.selectedTimeFrameIndex];
 
     this.historicalData = await this.cryptosService.getHistoricalData({
       coin_id: this.displayCrypto.currency_name,
       currency: this.displayCurrency.currency_name,
-      start_date: this.datePipe.transform(this.timeFrames[this.selectedTimeFrameIndex].dateFrom, 'yyyy-MM-ddTHH:mm:ss.SSS')!,
-      end_date: this.datePipe.transform(this.timeFrames[this.selectedTimeFrameIndex].dateTo, 'yyyy-MM-ddTHH:mm:ss.SSS')!,
+      start_date: this.datePipe.transform(dateFrom, 'yyyy-MM-ddTHH:mm:ss.SSS')!,
+      end_date: this.datePipe.transform(dateTo, 'yyyy-MM-ddTHH:mm:ss.SSS')!,
+      ohlc_data: this.chartType.value === 'candlestick' as SeriesType
     });
   }
 
@@ -190,6 +216,13 @@ export class StockDetailsComponent implements OnInit {
 
   backToCoinsList(): void {
     this.router.navigate(['/stock/list']);
+  }
+
+  async onChartTypeChanged(): Promise<void> {
+    try {
+      await this.refreshCryptoHistoricalData();
+    } catch (e) {
+    }
   }
 
 }
