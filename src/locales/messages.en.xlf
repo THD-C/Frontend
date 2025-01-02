@@ -1499,7 +1499,7 @@
         <target state="final">Crypto stats</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-details/stock-details.component.html</context>
-          <context context-type="linenumber">203</context>
+          <context context-type="linenumber">206</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock.Current-price" datatype="html">
@@ -1507,7 +1507,7 @@
         <target state="final">Current price</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-details/stock-details.component.html</context>
-          <context context-type="linenumber">211</context>
+          <context context-type="linenumber">214</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock.Min-in-24h" datatype="html">
@@ -1515,7 +1515,7 @@
         <target state="final">Min in 24h</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-details/stock-details.component.html</context>
-          <context context-type="linenumber">215</context>
+          <context context-type="linenumber">218</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock.Max-in-24h" datatype="html">
@@ -1523,7 +1523,7 @@
         <target state="final">Max in 24h</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-details/stock-details.component.html</context>
-          <context context-type="linenumber">219</context>
+          <context context-type="linenumber">222</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock.Price-change-in-24h" datatype="html">
@@ -1531,7 +1531,7 @@
         <target state="final">Price change in 24h</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-details/stock-details.component.html</context>
-          <context context-type="linenumber">223</context>
+          <context context-type="linenumber">226</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock.Market-cap" datatype="html">
@@ -1539,7 +1539,7 @@
         <target state="final">Market cap</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-details/stock-details.component.html</context>
-          <context context-type="linenumber">236</context>
+          <context context-type="linenumber">239</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock.Total-volume" datatype="html">
@@ -1547,7 +1547,7 @@
         <target state="final">Total volume</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-details/stock-details.component.html</context>
-          <context context-type="linenumber">240</context>
+          <context context-type="linenumber">243</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock.Close-fullscreen" datatype="html">
@@ -1555,7 +1555,7 @@
         <target state="final">Close fullscreen</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-details/stock-details.component.ts</context>
-          <context context-type="linenumber">69</context>
+          <context context-type="linenumber">73</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock.Fullscreen" datatype="html">
@@ -1563,7 +1563,31 @@
         <target state="final">Fullscreen</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-details/stock-details.component.ts</context>
-          <context context-type="linenumber">69</context>
+          <context context-type="linenumber">73</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="stock-details.Are-you-sure-you-want-delete-the-order" datatype="html">
+        <source>Are you sure you want delete the order?</source>
+        <target state="final">Are you sure you want delete the order?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/stock/components/stock-details/stock-details.component.ts</context>
+          <context context-type="linenumber">236</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="stock-details.Caution" datatype="html">
+        <source>Caution!</source>
+        <target state="final">Caution!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/stock/components/stock-details/stock-details.component.ts</context>
+          <context context-type="linenumber">237</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="stock-details.Order-deleted-successfully" datatype="html">
+        <source>Order deleted successfully</source>
+        <target state="final">Order deleted successfully</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/stock/components/stock-details/stock-details.component.ts</context>
+          <context context-type="linenumber">248</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock-details.Candlestick" datatype="html">
@@ -2002,6 +2026,14 @@
           <context context-type="linenumber">4</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="orders-errors.Invalid-order-ID" datatype="html">
+        <source>Invalid order ID</source>
+        <target state="final">Invalid order ID</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/orders/orders.errors.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="payments-errors.Currency-not-supported" datatype="html">
         <source>Currency not supported</source>
         <target state="final">Currency not supported</target>
@@ -2214,8 +2246,16 @@
           <context context-type="linenumber">61</context>
         </context-group>
         <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallet-orders/profile-wallet-orders.component.ts</context>
+          <context context-type="linenumber">62</context>
+        </context-group>
+        <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallets.component.ts</context>
           <context context-type="linenumber">66</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/stock/components/stock-details/stock-details.component.ts</context>
+          <context context-type="linenumber">247</context>
         </context-group>
       </trans-unit>
       <trans-unit id="admin-user-change-type.User-type-updated-successfully" datatype="html">
@@ -2375,7 +2415,7 @@
         <target state="final"> Wallet orders</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallet-orders/profile-wallet-orders.component.ts</context>
-          <context context-type="linenumber">15</context>
+          <context context-type="linenumber">19</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-wallet-orders.wallet-orders" datatype="html">
@@ -2383,7 +2423,31 @@
         <target state="final">wallet orders</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallet-orders/profile-wallet-orders.component.ts</context>
-          <context context-type="linenumber">30</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile-wallet-orders.Are-you-sure-you-want-delete-the-order" datatype="html">
+        <source>Are you sure you want delete the order?</source>
+        <target state="final">Are you sure you want delete the order?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallet-orders/profile-wallet-orders.component.ts</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile-wallet-orders.Caution" datatype="html">
+        <source>Caution!</source>
+        <target state="final">Caution!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallet-orders/profile-wallet-orders.component.ts</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile-wallet-orders.Order-deleted-successfully" datatype="html">
+        <source>Order deleted successfully</source>
+        <target state="final">Order deleted successfully</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallet-orders/profile-wallet-orders.component.ts</context>
+          <context context-type="linenumber">63</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-wallet-orders.Unknown" datatype="html">
@@ -2391,7 +2455,7 @@
         <target state="final">Unknown</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallet-orders/profile-wallet-orders.component.ts</context>
-          <context context-type="linenumber">53</context>
+          <context context-type="linenumber">71</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-wallets.Add" datatype="html">
