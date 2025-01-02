@@ -204,7 +204,7 @@ export class StockDetailsComponent implements OnInit {
   }
 
   onOrderAdded(order: Order): void {
-    if (this.wallets.some(({ id }) => id === order.crypto_wallet_id)) {
+    if (this.wallets.some(({ id }) => id === order.crypto_wallet_id) === false) {
       return;
     }
 
