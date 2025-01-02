@@ -1,22 +1,25 @@
 import { Component, OnInit, viewChild } from '@angular/core';
 import { DatePipe, DecimalPipe } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
+import { confirm } from 'devextreme/ui/dialog';
 import { availableChartTypes, ChartType, CryptoDetails, CryptoPrice as CryptoHistorialDataEntry, greenCandleColor, redCandleColor, TimeFrame } from './stock-details.model';
 import { appName, defaultCurrency, defaultDate, dxPallet } from '../../../../app.config';
-import { Currency } from '../../../profile/components/profile/profile-wallets/profile-wallets.config';
 import { defaultChartType, defaultCrypto, defaultCryptoDetails, defaultTimeFrameIndex, dxChartButtonMenuOptions, stockQueryParamNames, timeFrames } from './stock-details.config';
 import { StockOrderComponent } from './stock-order/stock-order.component';
-import { GetOrdersRequest, Order, OrderSide, OrderSideString, OrderStatusString, OrderType } from './stock-order/stock-order.model';
+import { GetOrdersRequest, Order, OrderSide, OrderSideString, OrderStatusLongString, OrderStatusString, OrderType } from './stock-order/stock-order.model';
 import { AuthService } from '../../../../services/auth/auth.service';
 import { RouterExtendedService } from '../../../../services/router-extended/router-extended.service';
 import { OrdersService } from '../../../../services/orders/orders.service';
-import { Wallet } from '../../../profile/components/profile/profile-wallets/profile-wallets.model';
 import { WalletsService } from '../../../../services/wallets/wallets.service';
 import { getOrderHistoryEntryCashQuantityPrefixLabel, getOrderHistoryEntrySideLabel, getOrderHistoryEntryStatusLabel } from './stock-order/stock-order.config';
 import { CurrenciesService } from '../../../../services/currencies/currencies.service';
-import { CurrencyType } from '../../../profile/components/profile/profile-wallets/profile-wallet-create/profile-wallet-create.model';
 import { CryptosService } from '../../../../services/cryptos/cryptos.service';
 import { SeriesType } from 'devextreme/common/charts';
+import { Currency } from '../../../profile/components/profile/profile-wallets/profile-wallets.config';
+import { Wallet } from '../../../profile/components/profile/profile-wallets/profile-wallets.model';
+import { CurrencyType } from '../../../profile/components/profile/profile-wallets/profile-wallet-create/profile-wallet-create.model';
+import { BaseService } from '../../../../services/base/base.service';
+import { NotificationsService } from 'angular2-notifications';
 
 @Component({
   selector: 'app-stock-details',
@@ -30,6 +33,7 @@ export class StockDetailsComponent implements OnInit {
   protected readonly OrderSide = OrderSide;
   protected readonly OrderSideString = OrderSideString;
   protected readonly OrderStatusString = OrderStatusString;
+  protected readonly OrderStatusLongString = OrderStatusLongString;
   protected readonly greenCandleColor = greenCandleColor;
   protected readonly redCandleColor = redCandleColor;
   protected readonly appName = appName;
@@ -83,6 +87,7 @@ export class StockDetailsComponent implements OnInit {
     private readonly datePipe: DatePipe,
     private readonly decimalPipe: DecimalPipe,
     private readonly activatedRoute: ActivatedRoute,
+    private readonly notifications: NotificationsService,
   ) { }
 
   async ngOnInit(): Promise<void> {
@@ -199,7 +204,7 @@ export class StockDetailsComponent implements OnInit {
   }
 
   onOrderAdded(order: Order): void {
-    if (this.wallets.some(({ id }) => id === order.crypto_wallet_id)) {
+    if (this.wallets.some(({ id }) => id === order.crypto_wallet_id) === false) {
       return;
     }
 
@@ -221,6 +226,28 @@ export class StockDetailsComponent implements OnInit {
   async onChartTypeChanged(): Promise<void> {
     try {
       await this.refreshCryptoHistoricalData();
+    } catch (e) {
+    }
+  }
+
+  async deleteOrder(id: string): Promise<void> {
+    if (
+      await confirm(
+        $localize`:@@stock-details.Are-you-sure-you-want-delete-the-order:Are you sure you want delete the order?`,
+        $localize`:@@stock-details.Caution:Caution!`
+      ) === false
+    ) {
+      return;
+    }
+
+    try {
+      await this.ordersService.delete(id);
+      this.currentCryptoOrders = this.currentCryptoOrders.filter(o => o.id !== id);
+      this.notifications.success(
+        $localize`:@@notifications.Success:Success`,
+        $localize`:@@stock-details.Order-deleted-successfully:Order deleted successfully`,
+        BaseService.notificationOverride
+      );
     } catch (e) {
     }
   }

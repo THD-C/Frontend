@@ -53,4 +53,14 @@ export class OrdersService extends BaseService {
     return orders;
   }
 
+  async delete(order_id: string): Promise<void> {
+    const params = this.generateParams({ order_id });
+    const request = this.httpClient.delete(
+      `${this.config.apiUrl}/${this.baseOrdersPath}/`,
+      { params }
+    ).pipe(catchError(this.catchCustomError.bind(this)));
+
+    await firstValueFrom(request);
+  }
+
 }

@@ -170,6 +170,18 @@ export enum OrderStatusString {
   InProgress = 'IN_PROGRESS',
 }
 
+export enum OrderStatusLongString {
+  Undefined = 'ORDER_STATUS_UNDEFINED',
+  Accepted = 'ORDER_STATUS_ACCEPTED',
+  Rejected = 'ORDER_STATUS_REJECTED',
+  Pending = 'ORDER_STATUS_PENDING',
+  PartiallyCompleted = 'ORDER_STATUS_PARTIALLY_COMPLETED',
+  Completed = 'ORDER_STATUS_COMPLETED',
+  Cancelled = 'ORDER_STATUS_CANCELLED',
+  Expired = 'ORDER_STATUS_EXPIRED',
+  InProgress = 'ORDER_STATUS_IN_PROGRESS',
+}
+
 export const orderStatusesMap: Map<OrderStatus, string> = new Map([
   [OrderStatus.Undefined, OrderStatusString.Undefined],
   [OrderStatus.Accepted, OrderStatusString.Accepted],
