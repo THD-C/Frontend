@@ -43,7 +43,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="app.routes.privacy.policy.title" datatype="html">
-        <source>THD(C) privacy policy</source>
+        <source>Privacy policy | THD(C)</source>
         <target>Polityka prywatności THD(C)</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.routes.ts</context>
@@ -56,6 +56,14 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.routes.ts</context>
           <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="app.routes.admin.title" datatype="html">
+        <source>Admin panel | THD(C)</source>
+        <target>Panel administracyjny | THD(C)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.routes.ts</context>
+          <context context-type="linenumber">40</context>
         </context-group>
       </trans-unit>
       <trans-unit id="login.Welcome-back" datatype="html">
@@ -1743,7 +1751,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="home.Everyday-we-improve-our-app-so-you-can-educate-with-ease_We-support-common-cryptocurrencies" datatype="html">
-        <source>Everyday we improve our app so you can educate with ease. We support common cryptocurrencies like Bitcoin (BTC), Ethereum (ETH), Tether (USDT), Solana (SOL), USD Coin (USDC), Dogecoin (DOGE) and many more!</source>
+        <source> Everyday we improve our app so you can educate with ease. We support common cryptocurrencies like Bitcoin (BTC), Ethereum (ETH), Tether (USDT), Solana (SOL), USD Coin (USDC), Dogecoin (DOGE) and many more! </source>
         <target>Codziennie ulepszamy naszą aplikację, abyś mógł uczyć się z łatwością. Wspieramy popularne kryptowaluty, takie jak Bitcoin (BTC), Ethereum (ETH), Tether (USDT), Solana (SOL), USD Coin (USDC), Dogecoin (DOGE) i wiele innych!</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
@@ -1990,6 +1998,46 @@
           <context context-type="linenumber">11</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="Edit" datatype="html">
+        <source>Edit</source>
+        <target>Edytuj</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/directives/grid-edit-button/grid-edit-button.directive.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin-user-change-type.Update-user-type" datatype="html">
+        <source>Update user type</source>
+        <target>Zaktualizuj typ użytkownika</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/admin/components/admin/admin-user-change-type/admin-user-change-type.component.html</context>
+          <context context-type="linenumber">2,3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin-user-change-type.User-type" datatype="html">
+        <source>User type</source>
+        <target>Typ użytkownika</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/admin/components/admin/admin-user-change-type/admin-user-change-type.component.html</context>
+          <context context-type="linenumber">19,20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin-user-change-type.Cancel" datatype="html">
+        <source>Cancel</source>
+        <target>Anuluj</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/admin/components/admin/admin-user-change-type/admin-user-change-type.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin-user-change-type.Change" datatype="html">
+        <source>Change</source>
+        <target>Zmień</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/admin/components/admin/admin-user-change-type/admin-user-change-type.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="home.Crypto-trading-without-liabilities_" datatype="html">
         <source>Crypto trading <x id="START_TAG_SPAN_1" ctype="x-span_1" equiv-text="&lt;span class=&quot;text-primary&quot;>"/><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-decoration-underline&quot;>"/>without<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/> liabilities<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/>!</source>
         <target>Handel kryptowalutami <x id="START_TAG_SPAN_1" ctype="x-span_1" equiv-text="&lt;span class=&quot;text-primary&quot;>"/><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-decoration-underline&quot;>"/>bez<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/> zobowiązań<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/>!</target>
@@ -2114,6 +2162,10 @@
         <source>Success</source>
         <target>Sukces</target>
         <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/admin/components/admin/admin-user-change-type/admin-user-change-type.component.ts</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+        <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-details/profile-details.component.ts</context>
           <context context-type="linenumber">69</context>
         </context-group>
@@ -2136,6 +2188,54 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallets.component.ts</context>
           <context context-type="linenumber">66</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin-user-change-type.User-type-updated-successfully" datatype="html">
+        <source>User type updated successfully</source>
+        <target>Typ użytkownika został pomyślnie zaktualizowany</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/admin/components/admin/admin-user-change-type/admin-user-change-type.component.ts</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin-users.Action" datatype="html">
+        <source>Action</source>
+        <target>Akcja</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/admin/components/admin/admin-users/admin-users.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin-users.Username" datatype="html">
+        <source>Username</source>
+        <target>Nazwa użytkownika</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/admin/components/admin/admin-users/admin-users.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin-users.Are-you-sure-you-want-delete-user" datatype="html">
+        <source>Are you sure you want delete user?</source>
+        <target>Czy na pewno chcesz usunąć użytkownika?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/admin/components/admin/admin-users/admin-users.component.ts</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin-users.Caution" datatype="html">
+        <source>Caution!</source>
+        <target>Uwaga!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/admin/components/admin/admin-users/admin-users.component.ts</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.Users" datatype="html">
+        <source>Users</source>
+        <target>Użytkownicy</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/admin/components/admin/admin.config.ts</context>
+          <context context-type="linenumber">6</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-details.Profile-updated-successfully" datatype="html">
@@ -2486,6 +2586,14 @@
           <context context-type="linenumber">4</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="users-errors.Unauthorized-user-for-method" datatype="html">
+        <source>Unauthorized user for method</source>
+        <target>Nieautoryzowany użytkownik dla metody</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/users/users.errors.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="wallets-errors.Operation-failed-Please-try-again" datatype="html">
         <source>Operation failed. Please try again</source>
         <target>Operacja nie powiodła się. Spróbuj ponownie</target>
@@ -2646,12 +2754,20 @@
           <context context-type="linenumber">36</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="header.Admin" datatype="html">
+        <source>Admin</source>
+        <target>Administrator</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
+          <context context-type="linenumber">40,41</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="header.Log-out" datatype="html">
         <source>Log out</source>
         <target>Wyloguj sie</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
-          <context context-type="linenumber">43</context>
+          <context context-type="linenumber">47</context>
         </context-group>
       </trans-unit>
       <trans-unit id="home.Languages" datatype="html">
@@ -2659,7 +2775,7 @@
         <target>Język aplikacji</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
-          <context context-type="linenumber">50</context>
+          <context context-type="linenumber">53</context>
         </context-group>
       </trans-unit>
       <trans-unit id="home.Switch-to-light-dark-theme" datatype="html">
@@ -2667,7 +2783,7 @@
         <target>Zmień na motyw jasny/ciemny</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
-          <context context-type="linenumber">67,68</context>
+          <context context-type="linenumber">70</context>
         </context-group>
       </trans-unit>
       <trans-unit id="password-strength-validator.Password-must-be-at-least-12-characters-long" datatype="html">

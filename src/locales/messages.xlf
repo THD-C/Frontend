@@ -38,7 +38,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="app.routes.privacy.policy.title" datatype="html">
-        <source>THD(C) privacy policy</source>
+        <source>Privacy policy | THD(C)</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.routes.ts</context>
           <context context-type="linenumber">30</context>
@@ -51,11 +51,126 @@
           <context context-type="linenumber">35</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="app.routes.admin.title" datatype="html">
+        <source>Admin panel | THD(C)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.routes.ts</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="Delete" datatype="html">
         <source>Delete</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/directives/grid-delete-button/grid-delete-button.directive.ts</context>
           <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Edit" datatype="html">
+        <source>Edit</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/directives/grid-edit-button/grid-edit-button.directive.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin-user-change-type.Update-user-type" datatype="html">
+        <source>Update user type</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/admin/components/admin/admin-user-change-type/admin-user-change-type.component.html</context>
+          <context context-type="linenumber">2,3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin-user-change-type.User-type" datatype="html">
+        <source>User type</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/admin/components/admin/admin-user-change-type/admin-user-change-type.component.html</context>
+          <context context-type="linenumber">19,20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin-user-change-type.Cancel" datatype="html">
+        <source>Cancel</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/admin/components/admin/admin-user-change-type/admin-user-change-type.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin-user-change-type.Change" datatype="html">
+        <source>Change</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/admin/components/admin/admin-user-change-type/admin-user-change-type.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="notifications.Success" datatype="html">
+        <source>Success</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/admin/components/admin/admin-user-change-type/admin-user-change-type.component.ts</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-details/profile-details.component.ts</context>
+          <context context-type="linenumber">69</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-password/profile-password.component.ts</context>
+          <context context-type="linenumber">76</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-payments/profile-payments.component.ts</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallet-add-money/profile-wallet-add-money.component.ts</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallet-create/profile-wallet-create.component.ts</context>
+          <context context-type="linenumber">61</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallets.component.ts</context>
+          <context context-type="linenumber">66</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin-user-change-type.User-type-updated-successfully" datatype="html">
+        <source>User type updated successfully</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/admin/components/admin/admin-user-change-type/admin-user-change-type.component.ts</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin-users.Action" datatype="html">
+        <source>Action</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/admin/components/admin/admin-users/admin-users.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin-users.Username" datatype="html">
+        <source>Username</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/admin/components/admin/admin-users/admin-users.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin-users.Are-you-sure-you-want-delete-user" datatype="html">
+        <source>Are you sure you want delete user?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/admin/components/admin/admin-users/admin-users.component.ts</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin-users.Caution" datatype="html">
+        <source>Caution!</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/admin/components/admin/admin-users/admin-users.component.ts</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.Users" datatype="html">
+        <source>Users</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/admin/components/admin/admin.config.ts</context>
+          <context context-type="linenumber">6</context>
         </context-group>
       </trans-unit>
       <trans-unit id="home.Crypto-trading-without-liabilities_" datatype="html">
@@ -1297,33 +1412,6 @@
           <context context-type="linenumber">59</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="notifications.Success" datatype="html">
-        <source>Success</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-details/profile-details.component.ts</context>
-          <context context-type="linenumber">69</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-password/profile-password.component.ts</context>
-          <context context-type="linenumber">76</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-payments/profile-payments.component.ts</context>
-          <context context-type="linenumber">52</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallet-add-money/profile-wallet-add-money.component.ts</context>
-          <context context-type="linenumber">56</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallet-create/profile-wallet-create.component.ts</context>
-          <context context-type="linenumber">61</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-wallets/profile-wallets.component.ts</context>
-          <context context-type="linenumber">66</context>
-        </context-group>
-      </trans-unit>
       <trans-unit id="profile-details.Profile-updated-successfully" datatype="html">
         <source>Profile updated successfully</source>
         <context-group purpose="location">
@@ -2244,6 +2332,13 @@
           <context context-type="linenumber">4</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="users-errors.Unauthorized-user-for-method" datatype="html">
+        <source>Unauthorized user for method</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/users/users.errors.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="wallets-errors.Operation-failed-Please-try-again" datatype="html">
         <source>Operation failed. Please try again</source>
         <context-group purpose="location">
@@ -2382,28 +2477,35 @@
         <source>Profile</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
-          <context context-type="linenumber">36</context>
+          <context context-type="linenumber">36,37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="header.Admin" datatype="html">
+        <source>Admin</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
+          <context context-type="linenumber">40,41</context>
         </context-group>
       </trans-unit>
       <trans-unit id="header.Log-out" datatype="html">
         <source>Log out</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
-          <context context-type="linenumber">43</context>
+          <context context-type="linenumber">47,48</context>
         </context-group>
       </trans-unit>
       <trans-unit id="home.Languages" datatype="html">
         <source>Languages</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
-          <context context-type="linenumber">50</context>
+          <context context-type="linenumber">53</context>
         </context-group>
       </trans-unit>
       <trans-unit id="home.Switch-to-light-dark-theme" datatype="html">
         <source>Switch to light/dark theme</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
-          <context context-type="linenumber">67,68</context>
+          <context context-type="linenumber">70,71</context>
         </context-group>
       </trans-unit>
       <trans-unit id="password-strength-validator.Password-must-be-at-least-12-characters-long" datatype="html">
