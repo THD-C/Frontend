@@ -17,6 +17,7 @@
     <div class="d-flex align-items-center mb-4 w-100 justify-content-between">
       <div class="d-flex align-items-center">
         <dx-button
+          class="me-1"
           icon="arrowleft"
           type="normal"
           stylingMode="text"
@@ -26,6 +27,7 @@
         </dx-button>
         <h5 class="mb-0">{{ displayCryptoDetails.symbol }}&nbsp;({{ displayCryptoDetails.name }})</h5>
         <dx-button
+          class="mx-1"
           icon="info"
           type="normal"
           stylingMode="text"
@@ -33,6 +35,19 @@
           i18n-hint="@@stock.Display-stats"
           (onClick)="showStats()">
         </dx-button>
+        <span class="fs-5">
+          {{ displayCryptoDetails.market_data.current_price | number:'1.2-2' }}&nbsp;{{ displayCurrency.currency_name }}
+        </span>
+        <span 
+          [class.text-success]="displayCryptoDetails.market_data.price_change_24h_in_currency > 0"
+          [class.text-danger]="displayCryptoDetails.market_data.price_change_24h_in_currency < 0">
+          <i
+            class="dx-icon fs-6 lh-base"
+            [class.dx-icon-arrowup]="displayCryptoDetails.market_data.price_change_24h_in_currency > 0"
+            [class.dx-icon-arrowdown]="displayCryptoDetails.market_data.price_change_24h_in_currency < 0">
+          </i>
+          {{ displayCryptoDetails.market_data.price_change_24h_in_currency | number:'1.2-2' }}&nbsp;({{ displayCryptoDetails.market_data.price_change_percentage_24h_in_currency | number:'1.2-2' }}%)
+        </span>
       </div>
       <dx-tabs
         class="w-auto rounded overflow-hidden"
@@ -40,8 +55,21 @@
         (onSelectionChanged)="onTimeFrameSelectionChanged()"
         [dataSource]="timeFrames">
       </dx-tabs>
-      <div>
+      <div class="d-flex">
+        <dx-select-box
+          class="me-2"
+          [dataSource]="availableCharTypes"
+          [value]="chartType.value"
+          [(selectedItem)]="chartType"
+          (onSelectionChanged)="onChartTypeChanged()"
+          labelMode="floating"
+          label="Chart type"
+          i18n-label="@@stock-order.Chart-type:Chart type"
+          valueExpr="value"
+          displayExpr="text">
+        </dx-select-box>
         <dx-button
+          class="mt-2"
           stylingMode="text"
           type="normal"
           hint="Refresh"
@@ -50,6 +78,7 @@
           (onClick)="refreshCryptoHistoricalData()">
         </dx-button>
         <dx-button
+          class="mt-2"
           stylingMode="text"
           type="normal"
           [hint]="toggleFullScreenButtonHint"
@@ -66,10 +95,10 @@
       [palette]="dxPallet"
       [dataSource]="historicalData"
       [adjustOnZoom]="true">
-      <dxi-series valueField="price">
+      <dxi-series valueField="price" openValueField="open" closeValueField="close" lowValueField="low" highValueField="high">
         <dxo-point [visible]="false"></dxo-point>
       </dxi-series>
-      <dxo-common-series-settings argumentField="date" type="spline"></dxo-common-series-settings>
+      <dxo-common-series-settings argumentField="date" [type]="chartType.value"></dxo-common-series-settings>
       <dxo-legend [visible]="false"></dxo-legend>
       <dxi-value-axis [tickInterval]="1">
         <dxo-title [text]="displayCurrency.currency_name"></dxo-title>
@@ -180,7 +209,7 @@
   <div class="row gy-2 gx-0">
     <div class="col-12 d-flex justify-content-between">
       <span class="text-muted" i18n="@@stock.Current-price">Current price</span>
-      <span >{{ displayCryptoDetails.market_data.current_price | number:'1.2-2' }}</span>
+      <span>{{ displayCryptoDetails.market_data.current_price | number:'1.2-2' }}</span>
     </div>
     <div class="col-12 d-flex justify-content-between">
       <span class="text-muted" i18n="@@stock.Min-in-24h">Min in 24h</span>
@@ -192,7 +221,16 @@
     </div>
     <div class="col-12 d-flex justify-content-between">
       <span class="text-muted" i18n="@@stock.Price-change-in-24h">Price change in 24h</span>
-      <span [class.text-danger]="displayCryptoDetails.market_data.price_change_percentage_24h_in_currency < 0" [class.text-success]="displayCryptoDetails.market_data.price_change_percentage_24h_in_currency > 0">{{ displayCryptoDetails.market_data.price_change_24h_in_currency | number:'1.2-2' }} ({{ displayCryptoDetails.market_data.price_change_percentage_24h_in_currency | number:'1.2-2' }}%)</span>
+      <span
+        [class.text-danger]="displayCryptoDetails.market_data.price_change_percentage_24h_in_currency < 0"
+        [class.text-success]="displayCryptoDetails.market_data.price_change_percentage_24h_in_currency > 0">
+        <i
+          class="dx-icon fs-6 lh-base"
+          [class.dx-icon-arrowup]="displayCryptoDetails.market_data.price_change_24h_in_currency > 0"
+          [class.dx-icon-arrowdown]="displayCryptoDetails.market_data.price_change_24h_in_currency < 0">
+        </i>
+        {{ displayCryptoDetails.market_data.price_change_24h_in_currency | number:'1.2-2' }} ({{ displayCryptoDetails.market_data.price_change_percentage_24h_in_currency | number:'1.2-2' }}%)
+      </span>
     </div>
     <div class="col-12 d-flex justify-content-between">
       <span class="text-muted" i18n="@@stock.Market-cap">Market cap</span>
