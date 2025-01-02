@@ -19,7 +19,9 @@
   
     <dxi-column caption="Action" i18n-caption="@@admin-users.Action" cellTemplate="actionCellTemplate" width="93">
       <div *dxTemplate="let d of 'actionCellTemplate'">
-
+        @if (authService.payload?.id !== d.data.ID) {
+          <dx-button appGridDeleteButton (onClick)="deleteUser(d.data.ID)"></dx-button>
+        }
       </div>
     </dxi-column>
     <dxi-column caption="ID" dataField="ID"></dxi-column>

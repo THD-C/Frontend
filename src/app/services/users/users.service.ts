@@ -78,4 +78,20 @@ export class UsersService extends BaseService {
     return user_data;
   }
 
+  /**
+   * Makes a request call to the API to delete specific user.
+   * If `id` set to undefined then the API retrieves the ID
+   * from JWT's payload.
+   * @param id User's ID in the system
+   */
+  async delete(id : string): Promise<void> {
+    const params = this.generateParams({ user_id: id });
+    const request = this.httpClient.delete(
+      `${this.config.apiUrl}/${this.baseUsersPath}/`,
+      { params }
+    ).pipe(catchError(this.catchCustomError.bind(this)));
+
+    await firstValueFrom(request);
+  }
+
 }
