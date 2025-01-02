@@ -31,3 +31,26 @@ export type UserDetail = {
   postal_code: string;
   country: string;
 }
+
+/**
+ * List of user types in the system
+ */
+export enum UserType {
+  Unknown = 0,
+
+  /**
+   * Standard user register by himself
+   */
+  Standard = 1,
+
+  /**
+   * Can create, edit & delete blog posts
+   */
+  Blogger = 2,
+
+  /**
+   * Anything that {@link UserType.Blogger} can do
+   * & manages other users' priviliges - grants/dismisses
+   */
+  Admin = 3,
+}
