@@ -2,9 +2,9 @@ import { Component, OnInit, viewChild } from '@angular/core';
 import { DatePipe, DecimalPipe } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { confirm } from 'devextreme/ui/dialog';
-import { availableChartTypes, ChartType, CryptoDetails, CryptoPrice as CryptoHistorialDataEntry, greenCandleColor, redCandleColor, TimeFrame } from './stock-details.model';
+import { availableChartTypes, ChartType, CryptoDetails, CryptoPrice as CryptoHistorialDataEntry, greenCandleColor, redCandleColor, TimeFrame } from './stock-analyse.model';
 import { appName, defaultCurrency, defaultDate, dxPallet } from '../../../../app.config';
-import { defaultChartType, defaultCrypto, defaultCryptoDetails, defaultTimeFrameIndex, dxChartButtonMenuOptions, stockQueryParamNames, timeFrames } from './stock-details.config';
+import { defaultChartType, defaultCrypto, defaultCryptoDetails, defaultTimeFrameIndex, dxChartButtonMenuOptions, stockQueryParamNames, timeFrames } from './stock-analyse.config';
 import { StockOrderComponent } from './stock-order/stock-order.component';
 import { GetOrdersRequest, Order, OrderSide, OrderSideString, OrderStatusLongString, OrderStatusString, OrderType } from './stock-order/stock-order.model';
 import { AuthService } from '../../../../services/auth/auth.service';
@@ -22,12 +22,12 @@ import { BaseService } from '../../../../services/base/base.service';
 import { NotificationsService } from 'angular2-notifications';
 
 @Component({
-  selector: 'app-stock-details',
-  templateUrl: './stock-details.component.html',
-  styleUrl: './stock-details.component.scss',
+  selector: 'app-stock-analyse',
+  templateUrl: './stock-analyse.component.html',
+  styleUrl: './stock-analyse.component.scss',
   providers: [DatePipe, DecimalPipe],
 })
-export class StockDetailsComponent implements OnInit {
+export class StockAnalyseComponent implements OnInit {
   
   protected readonly OrderType = OrderType;
   protected readonly OrderSide = OrderSide;
@@ -233,8 +233,8 @@ export class StockDetailsComponent implements OnInit {
   async deleteOrder(id: string): Promise<void> {
     if (
       await confirm(
-        $localize`:@@stock-details.Are-you-sure-you-want-delete-the-order:Are you sure you want delete the order?`,
-        $localize`:@@stock-details.Caution:Caution!`
+        $localize`:@@stock-analyse.Are-you-sure-you-want-delete-the-order:Are you sure you want delete the order?`,
+        $localize`:@@stock-analyse.Caution:Caution!`
       ) === false
     ) {
       return;
@@ -245,7 +245,7 @@ export class StockDetailsComponent implements OnInit {
       this.currentCryptoOrders = this.currentCryptoOrders.filter(o => o.id !== id);
       this.notifications.success(
         $localize`:@@notifications.Success:Success`,
-        $localize`:@@stock-details.Order-deleted-successfully:Order deleted successfully`,
+        $localize`:@@stock-analyse.Order-deleted-successfully:Order deleted successfully`,
         BaseService.notificationOverride
       );
     } catch (e) {

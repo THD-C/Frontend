@@ -1,4 +1,4 @@
-import { CryptoDetails } from '../stock-details/stock-details.model';
+import { CryptoDetails } from '../stock-analyse/stock-analyse.model';
 
 export type GetCoinsRequest = {
   /**

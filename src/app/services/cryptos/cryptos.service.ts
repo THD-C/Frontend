@@ -4,7 +4,7 @@ import { catchError, firstValueFrom } from 'rxjs';
 import { NotificationsService } from 'angular2-notifications';
 import { BaseService } from '../base/base.service';
 import { errors } from './cryptos.errors';
-import { CryptoDetails, CryptoPrice, GetCryptoDetailsRequest, GetCryptoDetailsResponse, GetCryptoHistoricalDataRequest, GetCryptoHistoricalDataResponse } from '../../modules/stock/components/stock-details/stock-details.model';
+import { CryptoDetails, CryptoPrice, GetCryptoDetailsRequest, GetCryptoDetailsResponse, GetCryptoHistoricalDataRequest, GetCryptoHistoricalDataResponse } from '../../modules/stock/components/stock-analyse/stock-analyse.model';
 import { GetCoinsRequest, GetCoinsResponse } from '../../modules/stock/components/stocks-list/stocks-list.model';
 
 @Injectable({

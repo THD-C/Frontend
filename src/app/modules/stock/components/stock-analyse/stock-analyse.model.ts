@@ -342,11 +342,11 @@ export type ChartType = {
 
 export const availableChartTypes: ChartType[] = [
   {
-    text: $localize`:@@stock-details.Candlestick:Candlestick`,
+    text: $localize`:@@stock-analyse.Candlestick:Candlestick`,
     value: 'candlestick',
   },
   {
-    text: $localize`:@@stock-details.Spline:Spline`,
+    text: $localize`:@@stock-analyse.Spline:Spline`,
     value: 'spline',
   }
 ];

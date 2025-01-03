@@ -6,7 +6,7 @@ import { CurrencyType } from '../../../profile/components/profile/profile-wallet
 import { defaultCurrency } from '../../../../app.config';
 import { SelectionChangedEvent } from 'devextreme/ui/select_box';
 import { displayCurrencySelectBoxGridToolbar, getStockQueryParams } from './stocks-list.config';
-import { CryptoDetails } from '../stock-details/stock-details.model';
+import { CryptoDetails } from '../stock-analyse/stock-analyse.model';
 import { DxDataGridComponent } from 'devextreme-angular/ui/data-grid';
 import { ActivatedRoute } from '@angular/router';
 import { RouterExtendedService } from '../../../../services/router-extended/router-extended.service';

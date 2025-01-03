@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { appName, dxPallet } from '../../../../app.config';
 import { newsletterButtonOptions } from './home.config';
-import { CryptoInfo, CryptoStockPrice, greenCandleColor, redCandleColor, StockPrice } from '../../../stock/components/stock-details/stock-details.model';
+import { CryptoInfo, CryptoStockPrice, greenCandleColor, redCandleColor, StockPrice } from '../../../stock/components/stock-analyse/stock-analyse.model';
 import { cryptosInfo, cryptoStockPrices, stockPrices, UserGrowth, usersGrowth } from './home.model';
 
 @Component({

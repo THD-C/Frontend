@@ -1,5 +1,5 @@
 import { DxSelectBoxTypes } from 'devextreme-angular/ui/select-box';
-import { stockQueryParamNames } from '../stock-details/stock-details.config';
+import { stockQueryParamNames } from '../stock-analyse/stock-analyse.config';
 import { Params } from '@angular/router';
 
 export const displayCurrencySelectBoxGridToolbar: DxSelectBoxTypes.Properties = {
