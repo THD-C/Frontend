@@ -1,6 +1,6 @@
 import { DxButtonTypes } from 'devextreme-angular/ui/button';
 import { Currency } from '../../../profile/components/profile/profile-wallets/profile-wallets.config';
-import { ChartType, CryptoDetails, TimeFrame } from './stock-details.model';
+import { ChartType, CryptoDetails, TimeFrame } from './stock-analyse.model';
 
 export const defaultCrypto: Currency = {
   currency_name: 'bitcoin',
@@ -112,6 +112,12 @@ export const stockQueryParamNames = {
 };
 
 export const defaultChartType: ChartType = {
-  text: $localize`:@@stock-details.Candlestick:Candlestick`,
+  text: $localize`:@@stock-analyse.Candlestick:Candlestick`,
   value: 'candlestick',
 };
+
+
+// Based on DevExtreme styles.
+export const greenCandleColor: string = '#08aa54';
+// Based on DevExtreme styles.
+export const redCandleColor: string = '#f44336';

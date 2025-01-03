@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { confirm } from 'devextreme/ui/dialog';
 
 import { OrdersService } from '../../../../../../services/orders/orders.service';
-import { GetOrdersRequest, Order } from '../../../../../stock/components/stock-details/stock-order/stock-order.model';
+import { GetOrdersRequest, Order } from '../../../../../stock/components/stock-analyse/stock-order/stock-order.model';
 import { WalletsService } from '../../../../../../services/wallets/wallets.service';
 import { defaultWallet } from '../profile-wallet-add-money/profile-wallet-add-money.config';
 import { Wallet } from '../profile-wallets.model';

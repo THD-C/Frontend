@@ -13,8 +13,8 @@ import { BaseService } from '../../../../../services/base/base.service';
 import { defaultWallet } from '../../../../profile/components/profile/profile-wallets/profile-wallet-add-money/profile-wallet-add-money.config';
 import { CurrenciesService } from '../../../../../services/currencies/currencies.service';
 import { CurrencyType } from '../../../../profile/components/profile/profile-wallets/profile-wallet-create/profile-wallet-create.model';
-import { defaultCrypto, defaultCryptoDetails } from '../stock-details.config';
-import { CryptoDetails } from '../stock-details.model';
+import { defaultCrypto, defaultCryptoDetails } from '../stock-analyse.config';
+import { CryptoDetails } from '../stock-analyse.model';
 import { CryptosService } from '../../../../../services/cryptos/cryptos.service';
 
 @Component({

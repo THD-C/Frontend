@@ -1,11 +1,6 @@
 import { SeriesType } from 'devextreme/common/charts';
 import { Item as DxTabsItem } from 'devextreme/ui/tabs';
 
-// Based on DevExtreme styles.
-export const greenCandleColor: string = '#08aa54';
-// Based on DevExtreme styles.
-export const redCandleColor: string = '#f44336';
-
 export type StockPrice = {
   date: Date;
 
@@ -342,11 +337,11 @@ export type ChartType = {
 
 export const availableChartTypes: ChartType[] = [
   {
-    text: $localize`:@@stock-details.Candlestick:Candlestick`,
+    text: $localize`:@@stock-analyse.Candlestick:Candlestick`,
     value: 'candlestick',
   },
   {
-    text: $localize`:@@stock-details.Spline:Spline`,
+    text: $localize`:@@stock-analyse.Spline:Spline`,
     value: 'spline',
   }
 ];
