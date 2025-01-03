@@ -4,7 +4,7 @@ import { NotificationsService } from 'angular2-notifications';
 import { catchError, firstValueFrom } from 'rxjs';
 import { BaseService } from '../base/base.service';
 import { errors } from './orders.errors';
-import { ConfirmOrderRequest, GetOrdersRequest, GetOrdersResponse, Order } from '../../modules/stock/components/stock-analyse/stock-order/stock-order.model';
+import { ConfirmOrderRequest, GetOrdersRequest, GetOrdersResponse, Order } from '../../modules/stock/components/stock-analyse/stock-order-buy/stock-order-buy.model';
 
 @Injectable({
   providedIn: 'root'
