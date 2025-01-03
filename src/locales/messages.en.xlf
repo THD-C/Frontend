@@ -1202,7 +1202,7 @@
           <context context-type="linenumber">108</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="stock-order-buy.Amount-exceeded-Not-enough-funds-in-the wallet" datatype="html">
+      <trans-unit id="stock-order-buy.Amount-exceeded-Not-enough-funds-in-the-wallet" datatype="html">
         <source>Amount exceeded. Not enough funds in the wallet</source>
         <target state="final">Amount exceeded. Not enough funds in the wallet</target>
         <context-group purpose="location">

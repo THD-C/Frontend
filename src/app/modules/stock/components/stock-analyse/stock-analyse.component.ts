@@ -146,14 +146,16 @@ export class StockAnalyseComponent implements OnInit {
     };
   }
 
-  openStockOrderPopup(orderSide: OrderSide): void {
-    if (this.authService.isAuthenticated === false) {
-      this.router.navigateToLogin(this.router.previousUrl);
-      return;
-    }
+  openStockOrderSellPopup(): void {
+    alert("TODO");
+    // this.stockOrderDeletePopup()?.open(
+    //   this.displayCrypto,
+    //   this.displayCurrency,
+    // );
+  }
 
+  openStockOrderBuyPopup(): void {
     this.stockOrderBuyPopup()?.open(
-      orderSide,
       this.displayCrypto,
       this.displayCurrency,
     );

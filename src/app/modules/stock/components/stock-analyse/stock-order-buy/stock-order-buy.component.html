@@ -1,51 +1,17 @@
 <dx-popup
-  [title]="title"
+  title="Buy order"
+  i18n-title="@@stock-order-buy.Buy-order"
   [(visible)]="visible"
   (onHiding)="resetProperties()"
   [showCloseButton]="true"
   width="450px"
   height="auto"
+  (onHiding)="close()"
   contentTemplate="contentTemplatePopup">
   <div *dxTemplate="let d of 'contentTemplatePopup'" class="w-100 h-100">
     <div class="row g-4 gx-0">
       <h5 class="col-12 text-center" i18n="@@stock-order-buy.Current-price">Current price: {{ cryptoDetails.market_data.current_price | number:'1.2-2' }}&nbsp;{{ selectedWallet.currency }}</h5>
       <h6 class="col-12 text-center mt-0" i18n="@@stock-order-buy.Free-wallet-funds">Free wallet funds: {{ selectedWallet.value | number:'1.2-2' }} {{ selectedWallet.currency }}</h6>
-
-      @if (orderSide === OrderSide.Sell) {
-        <div class="col-6">
-          <dx-number-box
-            class="w-100"
-            label="Nominal"
-            labelMode="floating"
-            [min]="0"
-            [(value)]="nominal"
-            (onValueChanged)="onNominalChanged($event)"
-            validationMessageMode="always"
-            i18n-label="@@stock-order-buy.Nominal:Nominal">
-            <dx-validator>
-              <dxi-validation-rule type="required"></dxi-validation-rule>
-            </dx-validator>
-          </dx-number-box>
-        </div>
-        <div class="col-6">
-          <dx-select-box
-            class="w-100"
-            [dataSource]="cryptoCurrencies"
-            [value]="selectedCrypto.currency_name"
-            [(selectedItem)]="selectedCrypto"
-            (onSelectionChanged)="onCryptoSelectionChanged()"
-            label="Crypto"
-            labelMode="floating"
-            i18n-label="@@stock-order-buy.Crypto:Crypto"
-            valueExpr="currency_name"
-            validationMessageMode="always"
-            displayExpr="currency_name">
-            <dx-validator>
-              <dxi-validation-rule type="required"></dxi-validation-rule>
-            </dx-validator>
-          </dx-select-box>
-        </div>
-      }
 
       <div class="col-6">
         <dx-number-box
@@ -55,11 +21,13 @@
           [min]="0"
           [(value)]="amount"
           format="#0.##"
+          [showSpinButtons]="true"
+          [step]="0.01"
           (onValueChanged)="onAmountChanged($event)"
           validationMessageMode="always"
           i18n-label="@@stock-order-buy.Amount:Amount">
           <dx-validator>
-            <dxi-validation-rule type="custom" [validationCallback]="amountValidationCallback.bind(this)" message="Exceeded free wallet funds" i18n-message="@@stock-order-buy.Exceeded-free-wallet-funds"></dxi-validation-rule>
+            <dxi-validation-rule type="required" [min]="0" [max]="selectedWallet.value" type="range" message="Exceeded free wallet funds" i18n-message="@@stock-order-buy.Exceeded-free-wallet-funds"></dxi-validation-rule>
           </dx-validator>
         </dx-number-box>
       </div>
@@ -85,46 +53,47 @@
           </dx-validator>
         </dx-select-box>
       </div>
-      @if (orderSide === OrderSide.Buy) {
-        <div class="col-6">
-          <dx-number-box
-            class="w-100"
-            label="Nominal"
-            labelMode="floating"
-            [min]="0"
-            [(value)]="nominal"
-            (onValueChanged)="onNominalChanged($event)"
-            validationMessageMode="always"
-            i18n-label="@@stock-order-buy.Nominal:Nominal">
-            <dx-validator>
-              <dxi-validation-rule type="required"></dxi-validation-rule>
-            </dx-validator>
-          </dx-number-box>
-        </div>
-        <div class="col-6">
-          <dx-select-box
-            class="w-100"
-            [dataSource]="cryptoCurrencies"
-            [value]="selectedCrypto.currency_name"
-            [(selectedItem)]="selectedCrypto"
-            (onSelectionChanged)="onCryptoSelectionChanged()"
-            label="Crypto"
-            labelMode="floating"
-            i18n-label="@@stock-order-buy.Crypto:Crypto"
-            valueExpr="currency_name"
-            validationMessageMode="always"
-            displayExpr="currency_name">
-            <dx-validator>
-              <dxi-validation-rule type="required"></dxi-validation-rule>
-            </dx-validator>
-          </dx-select-box>
-        </div>
-      }
+
+      <div class="col-6">
+        <dx-number-box
+          class="w-100"
+          label="Nominal"
+          labelMode="floating"
+          [min]="0"
+          [(value)]="nominal"
+          [showSpinButtons]="true"
+          [hint]="nominal.toString()"
+          (onValueChanged)="onNominalChanged($event)"
+          validationMessageMode="always"
+          i18n-label="@@stock-order-buy.Nominal:Nominal">
+          <dx-validator>
+            <dxi-validation-rule type="required" [min]="0" type="numeric"></dxi-validation-rule>
+          </dx-validator>
+        </dx-number-box>
+      </div>
+      <div class="col-6">
+        <dx-select-box
+          class="w-100"
+          [dataSource]="cryptoCurrencies"
+          [value]="selectedCrypto.currency_name"
+          [(selectedItem)]="selectedCrypto"
+          (onSelectionChanged)="onCryptoSelectionChanged()"
+          label="Crypto"
+          labelMode="floating"
+          i18n-label="@@stock-order-buy.Crypto:Crypto"
+          valueExpr="currency_name"
+          validationMessageMode="always"
+          displayExpr="currency_name">
+          <dx-validator>
+            <dxi-validation-rule type="required"></dxi-validation-rule>
+          </dx-validator>
+        </dx-select-box>
+      </div>
 
       <div class="col-12">
         <dx-radio-group
           [dataSource]="orderAvailableTypes"
-          [(value)]="OrderType.Instant"
+          [(value)]="orderType"
           valueExpr="type"
           displayExpr="text"
           itemTemplate="orderTypeItemTemplate">
@@ -133,6 +102,27 @@
           </div>
         </dx-radio-group>
       </div>
+
+      @if (orderType === OrderType.Pending) {
+        <div class="col-12">
+          <dx-number-box
+            class="w-100"
+            label="Specific price"
+            labelMode="floating"
+            [min]="0"
+            format="#0.##"
+            [showSpinButtons]="true"
+            [step]="0.01"
+            [(value)]="specificPrice"
+            (onValueChanged)="onSpecificPriceChanged($event)"
+            validationMessageMode="always"
+            i18n-label="@@stock-order-buy.Specific-price:Specific price">
+            <dx-validator>
+              <dxi-validation-rule type="required" [min]="0" type="numeric"></dxi-validation-rule>
+            </dx-validator>
+          </dx-number-box>
+        </div>
+      }
   
       <div class="col-12">
         <div class="row g-4">

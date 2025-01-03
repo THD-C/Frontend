@@ -162,10 +162,10 @@
       </dx-select-box>
       
       <div class="col-6 p-0 ps-lg-0 p-lg-2 sticky-bottom z-0">
-        <dx-button class="w-100" type="danger" text="Sell" i18n-text="@@stock.Sell" (onClick)="openStockOrderPopup(OrderSide.Sell)"></dx-button>
+        <dx-button class="w-100" type="danger" text="Sell" i18n-text="@@stock.Sell" (onClick)="openStockOrderSellPopup()"></dx-button>
       </div>
       <div class="col-6 p-0 pe-lg-0 p-lg-2 sticky-bottom z-0">
-        <dx-button class="w-100" type="success" text="Buy" i18n-text="@@stock.Buy" (onClick)="openStockOrderPopup(OrderSide.Buy)"></dx-button>
+        <dx-button class="w-100" type="success" text="Buy" i18n-text="@@stock.Buy" (onClick)="openStockOrderBuyPopup()"></dx-button>
       </div>
 
       @if (currentCryptoOrders.length > 0) {
@@ -179,11 +179,12 @@
                     {{ getOrderHistoryEntrySideLabel(order.side) }}&nbsp;{{ displayCrypto.currency_name }}
                   </div>
                   <small
-                    [class.text-danger]="order.status === OrderStatusString.Cancelled"
-                    [class.bg-danger]="order.status === OrderStatusString.Cancelled"
-                    [class.text-success]="order.status === OrderStatusString.Completed"
-                    [class.bg-success]="order.status === OrderStatusString.Completed"
-                    [class.d-none]="order.status !== OrderStatusString.Cancelled && order.status !== OrderStatusString.Completed"
+                    [class.text-danger]="order.status === OrderStatusLongString.Cancelled"
+                    [class.bg-danger]="order.status === OrderStatusLongString.Cancelled"
+                    [class.text-success]="order.status === OrderStatusLongString.Completed"
+                    [class.bg-success]="order.status === OrderStatusLongString.Completed"
+                    [class.text-warning]="order.status === OrderStatusLongString.Pending"
+                    [class.bg-warning]="order.status === OrderStatusLongString.Pending"
                     class="col-auto bg-opacity-25 rounded p-1 ms-2">
                     {{ getOrderHistoryEntryStatusLabel(order.status) }}
                   </small>

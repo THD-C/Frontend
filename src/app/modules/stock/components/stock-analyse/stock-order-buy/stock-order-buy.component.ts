@@ -1,7 +1,8 @@
 import { Component, output } from '@angular/core';
-import { Order, OrderSide, orderSidesMap, OrderType, OrderTypeDetail, orderTypeStringMap } from './stock-order-buy.model';
+import { alert } from 'devextreme/ui/dialog';
+import { buyOrderAvailableTypes, Order, OrderSide, orderSidesMap, OrderType, OrderTypeDetail, orderTypeStringMap } from './stock-order-buy.model';
 import { Currency } from '../../../../profile/components/profile/profile-wallets/profile-wallets.config';
-import { getOrderAvailableTypes, getOrderButtonTypeType, getPopupTitle } from './stock-order-buy.config';
+import { defaultOrderType, getOrderButtonTypeType } from './stock-order-buy.config';
 import { defaultCurrency } from '../../../../../app.config';
 import { OrdersService } from '../../../../../services/orders/orders.service';
 import { WalletsService } from '../../../../../services/wallets/wallets.service';
@@ -17,7 +18,6 @@ import { defaultCrypto, defaultCryptoDetails } from '../stock-analyse.config';
 import { CryptoDetails } from '../stock-analyse.model';
 import { CryptosService } from '../../../../../services/cryptos/cryptos.service';
 import { RouterExtendedService } from '../../../../../services/router-extended/router-extended.service';
-import { alert } from 'devextreme/ui/dialog';
 
 @Component({
   selector: 'app-stock-order-buy',
@@ -28,31 +28,30 @@ export class StockOrderBuyComponent {
   
   protected readonly OrderSide = OrderSide;
   protected readonly OrderType = OrderType;
-
+  protected readonly orderAvailableTypes: OrderTypeDetail[] = buyOrderAvailableTypes;
+  protected readonly orderSide: OrderSide = OrderSide.Buy;
+  
   onAdded = output<Order>();
 
   get amountExceeded(): boolean {
     return this.amount > parseFloat(this.selectedWallet?.value);
   }
 
-  get confirmOrderButtonDisabled(): boolean {
-    return this.amountExceeded || !this.amount;
+  get isFormValid(): boolean {
+    return !this.amount || isNaN(this.amount) || !this.nominal || isNaN(this.nominal) || this.amountExceeded;
   }
-
-  title: string = $localize`:@@Execute-market-order:Execute market order`;
+  
   visible: boolean = false;
-
-  orderSide!: OrderSide;
-  orderType: OrderType = OrderType.Instant;
+  orderType: OrderType = defaultOrderType;
   selectedWallet: Wallet = defaultWallet;
   selectedCrypto: Currency = defaultCrypto;
   amount: number = 0;
   nominal: number = 0;
+  specificPrice: number = 0;
   wallets: Wallet[] = [];
   fiatCurrencies: Currency[] = [];
   cryptoCurrencies: Currency[] = [];
-
-  orderAvailableTypes: OrderTypeDetail[] = [];
+  
   cryptoDetails: CryptoDetails = defaultCryptoDetails;
 
   constructor(
@@ -67,7 +66,6 @@ export class StockOrderBuyComponent {
   getOrderButtonTypeType = getOrderButtonTypeType;
 
   async open(
-    orderSide: OrderSide,
     crypto: Currency,
     currency: Currency = defaultCurrency,
   ): Promise<void> {
@@ -83,9 +81,6 @@ export class StockOrderBuyComponent {
     }
 
     this.selectedWallet = this.wallets.find(w => w.currency.toLowerCase() === currency.currency_name) ?? this.wallets[0];
-    this.orderSide = orderSide;
-    this.orderAvailableTypes = getOrderAvailableTypes(orderSide);
-    this.title = getPopupTitle(orderSide);
     this.selectedCrypto = crypto;
 
     await this.refreshCryptoDetails();
@@ -100,9 +95,12 @@ export class StockOrderBuyComponent {
       coin_id: this.selectedCrypto.currency_name,
       currency: this.selectedWallet.currency.toLowerCase(),
     });
+
+    this.specificPrice = this.cryptoDetails.market_data.current_price;
   }
 
   close(): void {
+    this.resetProperties();
     this.visible = false;
   }
 
@@ -111,18 +109,14 @@ export class StockOrderBuyComponent {
     this.selectedCrypto = defaultCrypto;
     this.amount = 0;
     this.nominal = 0;
+    this.specificPrice = 0;
     this.cryptoDetails = defaultCryptoDetails;
     this.wallets = [];
+    this.orderType = defaultOrderType;
   }
 
   async confirmOrder(): Promise<void> {
-    if (this.amountExceeded) {
-      this.notifications.error(
-        $localize`:@@stock-order-buy.Error:Error`,
-        $localize`:@@stock-order-buy.Amount-exceeded-Not-enough-funds-in-the wallet:Amount exceeded. Not enough funds in the wallet`,
-        BaseService.notificationOverride,
-      );
-
+    if (this.isFormValid) {
       return;
     }
 
@@ -131,8 +125,8 @@ export class StockOrderBuyComponent {
         currency_used_wallet_id: this.selectedWallet.id,
         currency_target: this.selectedCrypto?.currency_name ?? '',
         nominal: this.nominal.toString(),
-        cash_quantity: this.amount.toString(),
-        price: this.cryptoDetails.market_data.current_price.toString(),
+        cash_quantity: this.amount.toFixed(2),
+        price: this.specificPrice.toFixed(2),
         type: orderTypeStringMap.get(this.orderType) ?? '',
         side: orderSidesMap.get(this.orderSide) ?? '',
       });
@@ -154,7 +148,7 @@ export class StockOrderBuyComponent {
    * @param event Event's data {@link ValueChangedEvent}
    */
   onAmountChanged(event: ValueChangedEvent): void {
-    this.nominal = event.value / this.cryptoDetails.market_data.current_price;
+    this.nominal = event.value / this.specificPrice;
   }
 
   /**
@@ -162,15 +156,16 @@ export class StockOrderBuyComponent {
    * @param event Event's data {@link ValueChangedEvent}
    */
   onNominalChanged(event: ValueChangedEvent): void {
-    this.amount = this.cryptoDetails.market_data.current_price * event.value;
+    this.amount = this.specificPrice * event.value;
   }
 
-  amountValidationCallback(callbackData: ValidationCallbackData): boolean {
-    if (callbackData.value > this.selectedWallet?.value) {
-      return false;
-    }
-
-    return true;
+  /**
+   * Recalculates {@link amount} based on proviced price in on the stock
+   * @param event Event's data {@link ValueChangedEvent}
+   */
+  onSpecificPriceChanged(event: ValueChangedEvent): void {
+    const specificPrice = event.value;
+    this.amount = this.specificPrice * this.nominal;
   }
 
   onWalletSelectionChanged(): void {

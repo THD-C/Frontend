@@ -99,7 +99,7 @@ export const buyOrderAvailableTypes: OrderTypeDetail[] = [
   },
   {
     text: $localize`:@@stock.model.Pending:Pending`,
-    type: OrderType.StopLoss,
+    type: OrderType.Pending,
     hint: $localize`:@@stock.model.Buy-if-it-rises-or-falls-to-specific-price:Buy if it rises or falls to specific price`,
   },
 ];
@@ -182,19 +182,19 @@ export enum OrderStatusLongString {
   InProgress = 'ORDER_STATUS_IN_PROGRESS',
 }
 
-export const orderStatusesMap: Map<OrderStatus, string> = new Map([
-  [OrderStatus.Undefined, OrderStatusString.Undefined],
-  [OrderStatus.Accepted, OrderStatusString.Accepted],
-  [OrderStatus.Rejected, OrderStatusString.Rejected],
-  [OrderStatus.Pending, OrderStatusString.Pending],
-  [OrderStatus.PartiallyCompleted, OrderStatusString.PartiallyCompleted],
-  [OrderStatus.Completed, OrderStatusString.Completed],
-  [OrderStatus.Cancelled, OrderStatusString.Cancelled],
-  [OrderStatus.Expired, OrderStatusString.Expired],
-  [OrderStatus.InProgress, OrderStatusString.InProgress],
+export const orderStatusesMap: Map<OrderStatus, OrderStatusLongString> = new Map([
+  [OrderStatus.Undefined, OrderStatusLongString.Undefined],
+  [OrderStatus.Accepted, OrderStatusLongString.Accepted],
+  [OrderStatus.Rejected, OrderStatusLongString.Rejected],
+  [OrderStatus.Pending, OrderStatusLongString.Pending],
+  [OrderStatus.PartiallyCompleted, OrderStatusLongString.PartiallyCompleted],
+  [OrderStatus.Completed, OrderStatusLongString.Completed],
+  [OrderStatus.Cancelled, OrderStatusLongString.Cancelled],
+  [OrderStatus.Expired, OrderStatusLongString.Expired],
+  [OrderStatus.InProgress, OrderStatusLongString.InProgress],
 ]);
 
-export const orderStatusesMapReverse: Map<string, OrderStatus> = new Map(
+export const orderStatusesMapReverse: Map<OrderStatusLongString, OrderStatus> = new Map(
   Array.from(orderStatusesMap, ([key, value]) => [value, key])
 );
 
