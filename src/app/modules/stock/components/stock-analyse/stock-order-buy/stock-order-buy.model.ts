@@ -128,8 +128,8 @@ export const orderAvailableTypes: Map<OrderSide, OrderTypeDetail[]> = new Map([
 ]);
 
 export const orderSideTitles: Map<OrderSide, string> = new Map([
-  [OrderSide.Buy, $localize`:@@stock-order.Buy-order:Buy order`],
-  [OrderSide.Sell, $localize`:@@stock-order.Sell-order:Sell order`],
+  [OrderSide.Buy, $localize`:@@stock-order-buy.Buy-order:Buy order`],
+  [OrderSide.Sell, $localize`:@@stock-order-buy.Sell-order:Sell order`],
 ]);
 
 export const orderSidesMap: Map<OrderSide, string> = new Map([

@@ -16,7 +16,7 @@ import { DxDataGridModule } from 'devextreme-angular/ui/data-grid';
 import { routes } from './stock.routes';
 import { HeaderComponent } from '../../shared/components/header/header.component';
 import { StockAnalyseComponent } from './components/stock-analyse/stock-analyse.component';
-import { StockOrderComponent } from './components/stock-analyse/stock-order/stock-order.component';
+import { StockOrderBuyComponent } from './components/stock-analyse/stock-order-buy/stock-order-buy.component';
 import { StocksListComponent } from './components/stocks-list/stocks-list.component';
 import { StockComponent } from './components/stock/stock.component';
 import { GridDeleteButtonDirective } from '../../directives/grid-delete-button/grid-delete-button.directive';
@@ -28,7 +28,7 @@ import { GridDeleteButtonDirective } from '../../directives/grid-delete-button/g
   ],
   declarations: [
     StockAnalyseComponent,
-    StockOrderComponent,
+    StockOrderBuyComponent,
     StocksListComponent,
     StockComponent,
   ],

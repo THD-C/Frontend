@@ -64,7 +64,7 @@
           (onSelectionChanged)="onChartTypeChanged()"
           labelMode="floating"
           label="Chart type"
-          i18n-label="@@stock-order.Chart-type:Chart type"
+          i18n-label="@@stock-order-buy.Chart-type:Chart type"
           valueExpr="value"
           displayExpr="text">
         </dx-select-box>
@@ -208,7 +208,8 @@
   </div>
 </div>
 
-<app-stock-order #stockOrderPopup (onAdded)="onOrderAdded($event)" />
+<app-stock-order-buy #stockOrderBuyPopup (onAdded)="onOrderAdded($event)" />
+
 <dx-popup
   title="Crypto stats"
   i18n-title="@@stock.Crypto-stats"

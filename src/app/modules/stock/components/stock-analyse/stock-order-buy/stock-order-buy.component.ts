@@ -1,7 +1,7 @@
 import { Component, output } from '@angular/core';
-import { Order, OrderSide, orderSidesMap, OrderType, OrderTypeDetail, orderTypeStringMap } from './stock-order.model';
+import { Order, OrderSide, orderSidesMap, OrderType, OrderTypeDetail, orderTypeStringMap } from './stock-order-buy.model';
 import { Currency } from '../../../../profile/components/profile/profile-wallets/profile-wallets.config';
-import { getOrderAvailableTypes, getOrderButtonTypeType, getPopupTitle } from './stock-order.config';
+import { getOrderAvailableTypes, getOrderButtonTypeType, getPopupTitle } from './stock-order-buy.config';
 import { defaultCurrency } from '../../../../../app.config';
 import { OrdersService } from '../../../../../services/orders/orders.service';
 import { WalletsService } from '../../../../../services/wallets/wallets.service';
@@ -18,11 +18,11 @@ import { CryptoDetails } from '../stock-analyse.model';
 import { CryptosService } from '../../../../../services/cryptos/cryptos.service';
 
 @Component({
-  selector: 'app-stock-order',
-  templateUrl: './stock-order.component.html',
-  styleUrl: './stock-order.component.scss'
+  selector: 'app-stock-order-buy',
+  templateUrl: './stock-order-buy.component.html',
+  styleUrl: './stock-order-buy.component.scss'
 })
-export class StockOrderComponent {
+export class StockOrderBuyComponent {
   
   protected readonly OrderSide = OrderSide;
   protected readonly OrderType = OrderType;
@@ -105,8 +105,8 @@ export class StockOrderComponent {
   async confirmOrder(): Promise<void> {
     if (this.amountExceeded) {
       this.notifications.error(
-        $localize`:@@stock-order.Error:Error`,
-        $localize`:@@stock-order.Amount-exceeded-Not-enough-funds-in-the wallet:Amount exceeded. Not enough funds in the wallet`,
+        $localize`:@@stock-order-buy.Error:Error`,
+        $localize`:@@stock-order-buy.Amount-exceeded-Not-enough-funds-in-the wallet:Amount exceeded. Not enough funds in the wallet`,
         BaseService.notificationOverride,
       );
 
@@ -125,8 +125,8 @@ export class StockOrderComponent {
       });
 
       this.notifications.success(
-        $localize`:@@stock-order.Success:Success`,
-        $localize`:@@stock-order.Order-created-successfully:Order created successfully`,
+        $localize`:@@stock-order-buy.Success:Success`,
+        $localize`:@@stock-order-buy.Order-created-successfully:Order created successfully`,
         BaseService.notificationOverride
       );
 

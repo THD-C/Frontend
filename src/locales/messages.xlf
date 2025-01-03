@@ -1900,7 +1900,7 @@
           <context context-type="linenumber">34,35</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="stock-order.Chart-type:Chart type" datatype="html">
+      <trans-unit id="stock-order-buy.Chart-type:Chart type" datatype="html">
         <source>Chart type</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-analyse.component.html</context>
@@ -2065,208 +2065,208 @@
           <context context-type="linenumber">344</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="stock-order.Current-price" datatype="html">
+      <trans-unit id="stock-order-buy.Current-price" datatype="html">
         <source>Current price: <x id="INTERPOLATION" equiv-text="{{ cryptoDetails.market_data.current_price | number:'1.2-2' }}"/> <x id="INTERPOLATION_1" equiv-text="{{ selectedWallet.currency }}"/></source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order/stock-order.component.html</context>
+          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-buy/stock-order-buy.component.html</context>
           <context context-type="linenumber">11,12</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="stock-order.Free-wallet-funds" datatype="html">
+      <trans-unit id="stock-order-buy.Free-wallet-funds" datatype="html">
         <source>Free wallet funds: <x id="INTERPOLATION" equiv-text="{{ selectedWallet.value | number:'1.2-2' }}"/> <x id="INTERPOLATION_1" equiv-text="{{ selectedWallet.currency }}"/></source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order/stock-order.component.html</context>
+          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-buy/stock-order-buy.component.html</context>
           <context context-type="linenumber">12,14</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="stock-order.Nominal:Nominal" datatype="html">
+      <trans-unit id="stock-order-buy.Nominal:Nominal" datatype="html">
         <source>Nominal</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order/stock-order.component.html</context>
+          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-buy/stock-order-buy.component.html</context>
           <context context-type="linenumber">18,20</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order/stock-order.component.html</context>
+          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-buy/stock-order-buy.component.html</context>
           <context context-type="linenumber">92,94</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="stock-order.Crypto:Crypto" datatype="html">
+      <trans-unit id="stock-order-buy.Crypto:Crypto" datatype="html">
         <source>Crypto</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order/stock-order.component.html</context>
+          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-buy/stock-order-buy.component.html</context>
           <context context-type="linenumber">38,39</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order/stock-order.component.html</context>
+          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-buy/stock-order-buy.component.html</context>
           <context context-type="linenumber">112,113</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="stock-order.Amount:Amount" datatype="html">
+      <trans-unit id="stock-order-buy.Amount:Amount" datatype="html">
         <source>Amount</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order/stock-order.component.html</context>
+          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-buy/stock-order-buy.component.html</context>
           <context context-type="linenumber">54,55</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="stock-order.Exceeded-free-wallet-funds" datatype="html">
+      <trans-unit id="stock-order-buy.Exceeded-free-wallet-funds" datatype="html">
         <source>Exceeded free wallet funds</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order/stock-order.component.html</context>
+          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-buy/stock-order-buy.component.html</context>
           <context context-type="linenumber">62</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="stock-order.Wallet:Wallet" datatype="html">
+      <trans-unit id="stock-order-buy.Wallet:Wallet" datatype="html">
         <source>Wallet</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order/stock-order.component.html</context>
+          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-buy/stock-order-buy.component.html</context>
           <context context-type="linenumber">74,75</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="stock-order.Cancel" datatype="html">
+      <trans-unit id="stock-order-buy.Cancel" datatype="html">
         <source>Cancel</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order/stock-order.component.html</context>
+          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-buy/stock-order-buy.component.html</context>
           <context context-type="linenumber">140</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="stock-order.Confirm-order" datatype="html">
+      <trans-unit id="stock-order-buy.Confirm-order" datatype="html">
         <source>Confirm order</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order/stock-order.component.html</context>
+          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-buy/stock-order-buy.component.html</context>
           <context context-type="linenumber">143</context>
         </context-group>
       </trans-unit>
       <trans-unit id="Execute-market-order" datatype="html">
         <source>Execute market order</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order/stock-order.component.ts</context>
+          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-buy/stock-order-buy.component.ts</context>
           <context context-type="linenumber">40</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="stock-order.Error" datatype="html">
+      <trans-unit id="stock-order-buy.Error" datatype="html">
         <source>Error</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order/stock-order.component.ts</context>
+          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-buy/stock-order-buy.component.ts</context>
           <context context-type="linenumber">108</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="stock-order.Amount-exceeded-Not-enough-funds-in-the wallet" datatype="html">
+      <trans-unit id="stock-order-buy.Amount-exceeded-Not-enough-funds-in-the wallet" datatype="html">
         <source>Amount exceeded. Not enough funds in the wallet</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order/stock-order.component.ts</context>
+          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-buy/stock-order-buy.component.ts</context>
           <context context-type="linenumber">109</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="stock-order.Success" datatype="html">
+      <trans-unit id="stock-order-buy.Success" datatype="html">
         <source>Success</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order/stock-order.component.ts</context>
+          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-buy/stock-order-buy.component.ts</context>
           <context context-type="linenumber">128</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="stock-order.Order-created-successfully" datatype="html">
+      <trans-unit id="stock-order-buy.Order-created-successfully" datatype="html">
         <source>Order created successfully</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order/stock-order.component.ts</context>
+          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-buy/stock-order-buy.component.ts</context>
           <context context-type="linenumber">129</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="stock-order-config.Execute-market-order" datatype="html">
+      <trans-unit id="stock-order-buy-config.Execute-market-order" datatype="html">
         <source>Execute market order</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order/stock-order.config.ts</context>
+          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-buy/stock-order-buy.config.ts</context>
           <context context-type="linenumber">15</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="stock-order-config.Unknown" datatype="html">
+      <trans-unit id="stock-order-buy-config.Unknown" datatype="html">
         <source>Unknown</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order/stock-order.config.ts</context>
+          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-buy/stock-order-buy.config.ts</context>
           <context context-type="linenumber">19</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order/stock-order.config.ts</context>
+          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-buy/stock-order-buy.config.ts</context>
           <context context-type="linenumber">23</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock.model.Instant" datatype="html">
         <source>Instant</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order/stock-order.model.ts</context>
+          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-buy/stock-order-buy.model.ts</context>
           <context context-type="linenumber">96</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order/stock-order.model.ts</context>
+          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-buy/stock-order-buy.model.ts</context>
           <context context-type="linenumber">109</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock.model.Buy-at-the-current-market-price" datatype="html">
         <source>Buy at the current market price</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order/stock-order.model.ts</context>
+          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-buy/stock-order-buy.model.ts</context>
           <context context-type="linenumber">98</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock.model.Pending" datatype="html">
         <source>Pending</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order/stock-order.model.ts</context>
+          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-buy/stock-order-buy.model.ts</context>
           <context context-type="linenumber">101</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock.model.Buy-if-it-rises-or-falls-to-specific-price" datatype="html">
         <source>Buy if it rises or falls to specific price</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order/stock-order.model.ts</context>
+          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-buy/stock-order-buy.model.ts</context>
           <context context-type="linenumber">103</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock.model.Sell-at-the-current-market-price" datatype="html">
         <source>Sell at the current market price</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order/stock-order.model.ts</context>
+          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-buy/stock-order-buy.model.ts</context>
           <context context-type="linenumber">111</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock.model.Take-profit" datatype="html">
         <source>Take profit</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order/stock-order.model.ts</context>
+          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-buy/stock-order-buy.model.ts</context>
           <context context-type="linenumber">114</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock.model.Sell-if-it-rises-to-higher-price" datatype="html">
         <source>Sell if it rises to higher price</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order/stock-order.model.ts</context>
+          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-buy/stock-order-buy.model.ts</context>
           <context context-type="linenumber">116</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock.model.Stop-loss" datatype="html">
         <source>Stop loss</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order/stock-order.model.ts</context>
+          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-buy/stock-order-buy.model.ts</context>
           <context context-type="linenumber">119</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock.model.Sell-if-it-falls-to-lower-price" datatype="html">
         <source>Sell if it falls to lower price</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order/stock-order.model.ts</context>
+          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-buy/stock-order-buy.model.ts</context>
           <context context-type="linenumber">121</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="stock-order.Buy-order" datatype="html">
+      <trans-unit id="stock-order-buy.Buy-order" datatype="html">
         <source>Buy order</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order/stock-order.model.ts</context>
+          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-buy/stock-order-buy.model.ts</context>
           <context context-type="linenumber">131</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="stock-order.Sell-order" datatype="html">
+      <trans-unit id="stock-order-buy.Sell-order" datatype="html">
         <source>Sell order</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order/stock-order.model.ts</context>
+          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-buy/stock-order-buy.model.ts</context>
           <context context-type="linenumber">132</context>
         </context-group>
       </trans-unit>

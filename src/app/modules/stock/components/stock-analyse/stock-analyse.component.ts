@@ -5,13 +5,13 @@ import { confirm } from 'devextreme/ui/dialog';
 import { availableChartTypes, ChartType, CryptoDetails, CryptoPrice as CryptoHistorialDataEntry, TimeFrame } from './stock-analyse.model';
 import { appName, defaultCurrency, defaultDate, dxPallet } from '../../../../app.config';
 import { defaultChartType, defaultCrypto, defaultCryptoDetails, defaultTimeFrameIndex, dxChartButtonMenuOptions, greenCandleColor, redCandleColor, stockQueryParamNames, timeFrames } from './stock-analyse.config';
-import { StockOrderComponent } from './stock-order/stock-order.component';
-import { GetOrdersRequest, Order, OrderSide, OrderSideString, OrderStatusLongString, OrderStatusString, OrderType } from './stock-order/stock-order.model';
+import { StockOrderBuyComponent } from './stock-order-buy/stock-order-buy.component';
+import { GetOrdersRequest, Order, OrderSide, OrderSideString, OrderStatusLongString, OrderStatusString, OrderType } from './stock-order-buy/stock-order-buy.model';
 import { AuthService } from '../../../../services/auth/auth.service';
 import { RouterExtendedService } from '../../../../services/router-extended/router-extended.service';
 import { OrdersService } from '../../../../services/orders/orders.service';
 import { WalletsService } from '../../../../services/wallets/wallets.service';
-import { getOrderHistoryEntryCashQuantityPrefixLabel, getOrderHistoryEntrySideLabel, getOrderHistoryEntryStatusLabel } from './stock-order/stock-order.config';
+import { getOrderHistoryEntryCashQuantityPrefixLabel, getOrderHistoryEntrySideLabel, getOrderHistoryEntryStatusLabel } from './stock-order-buy/stock-order-buy.config';
 import { CurrenciesService } from '../../../../services/currencies/currencies.service';
 import { CryptosService } from '../../../../services/cryptos/cryptos.service';
 import { SeriesType } from 'devextreme/common/charts';
@@ -49,7 +49,7 @@ export class StockAnalyseComponent implements OnInit {
     return this.displayCryptoDetails.market_data.price_change_24h_in_currency > 0 ? greenCandleColor : redCandleColor; 
   }
 
-  stockOrderPopup = viewChild.required<StockOrderComponent>('stockOrderPopup');
+  stockOrderPopup = viewChild.required<StockOrderBuyComponent>('stockOrderBuyPopup');
 
   chartType: ChartType = defaultChartType;
   get isCandlestickChart(): boolean  {
