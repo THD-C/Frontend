@@ -64,7 +64,7 @@ export class RouterExtendedService extends Router {
    * Opens up in a new tab a link ({@link url}).
    * @param url The link to open.
    */
-  openInNewTab(url: string): void {
-    window.open(url, '_blank', 'norefferer');
+  openInNewTab(url: string, features: string = 'norefferer'): void {
+    window.open(url, '_blank', features);
   }
 }

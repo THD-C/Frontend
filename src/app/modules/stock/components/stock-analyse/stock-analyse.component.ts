@@ -49,7 +49,7 @@ export class StockAnalyseComponent implements OnInit {
     return this.displayCryptoDetails.market_data.price_change_24h_in_currency > 0 ? greenCandleColor : redCandleColor; 
   }
 
-  stockOrderPopup = viewChild.required<StockOrderBuyComponent>('stockOrderBuyPopup');
+  stockOrderBuyPopup = viewChild.required<StockOrderBuyComponent>('stockOrderBuyPopup');
 
   chartType: ChartType = defaultChartType;
   get isCandlestickChart(): boolean  {
@@ -152,7 +152,7 @@ export class StockAnalyseComponent implements OnInit {
       return;
     }
 
-    this.stockOrderPopup()?.open(
+    this.stockOrderBuyPopup()?.open(
       orderSide,
       this.displayCrypto,
       this.displayCurrency,

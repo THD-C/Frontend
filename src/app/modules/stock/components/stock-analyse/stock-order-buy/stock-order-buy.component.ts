@@ -16,6 +16,8 @@ import { CurrencyType } from '../../../../profile/components/profile/profile-wal
 import { defaultCrypto, defaultCryptoDetails } from '../stock-analyse.config';
 import { CryptoDetails } from '../stock-analyse.model';
 import { CryptosService } from '../../../../../services/cryptos/cryptos.service';
+import { RouterExtendedService } from '../../../../../services/router-extended/router-extended.service';
+import { alert } from 'devextreme/ui/dialog';
 
 @Component({
   selector: 'app-stock-order-buy',
@@ -59,6 +61,7 @@ export class StockOrderBuyComponent {
     private readonly notifications: NotificationsService,
     private readonly currenciesService: CurrenciesService,
     private readonly cryptosService: CryptosService,
+    private readonly router: RouterExtendedService,
   ) {}
 
   getOrderButtonTypeType = getOrderButtonTypeType;
@@ -69,6 +72,16 @@ export class StockOrderBuyComponent {
     currency: Currency = defaultCurrency,
   ): Promise<void> {
     this.wallets = (await this.walletsService.get()).filter(({ is_crypto }) => is_crypto === false);
+    if (this.wallets.length === 0) {
+      await alert(
+        $localize`:@@stock-order-buy.You-can-not-create-an-order-because-you-do-not-have-any-wallets-Create-one-and-then-trade-You-will-be-redirected-to-your-profile-where-you-can-specify-a-new-wallet:You can not create an order<br/>because you do not have any wallets.<br/>Create one and then trade.<br/>You will be redirected to your profile<br/>where you can specify a new wallet`,
+        $localize`:@@stock-order-buy.Caution:Caution!`
+      )
+
+      this.router.openInNewTab('/profile/wallets', '');
+      return;
+    }
+
     this.selectedWallet = this.wallets.find(w => w.currency.toLowerCase() === currency.currency_name) ?? this.wallets[0];
     this.orderSide = orderSide;
     this.orderAvailableTypes = getOrderAvailableTypes(orderSide);
