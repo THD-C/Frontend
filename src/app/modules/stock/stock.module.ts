@@ -12,6 +12,7 @@ import { DxValidatorModule } from 'devextreme-angular/ui/validator';
 import { DxRadioGroupModule } from 'devextreme-angular/ui/radio-group';
 import { DxScrollViewModule } from 'devextreme-angular/ui/scroll-view';
 import { DxDataGridModule } from 'devextreme-angular/ui/data-grid';
+import { DxTextBoxModule } from 'devextreme-angular/ui/text-box';
 
 import { routes } from './stock.routes';
 import { HeaderComponent } from '../../shared/components/header/header.component';
@@ -51,6 +52,7 @@ import { GridDeleteButtonDirective } from '../../directives/grid-delete-button/g
     DxRadioGroupModule,
     DxScrollViewModule,
     DxDataGridModule,
+    DxTextBoxModule,
   ],
 })
 export class StockModule { }

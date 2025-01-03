@@ -1,4 +1,5 @@
 import { Component, output } from '@angular/core';
+import { DecimalPipe } from '@angular/common';
 import { alert } from 'devextreme/ui/dialog';
 import { ValueChangedEvent } from 'devextreme/ui/number_box';
 import { NotificationsService } from 'angular2-notifications';
@@ -21,7 +22,8 @@ import { RouterExtendedService } from '../../../../../services/router-extended/r
 @Component({
   selector: 'app-stock-order-buy',
   templateUrl: './stock-order-buy.component.html',
-  styleUrl: './stock-order-buy.component.scss'
+  styleUrl: './stock-order-buy.component.scss',
+  providers: [DecimalPipe],
 })
 export class StockOrderBuyComponent {
   
@@ -33,7 +35,7 @@ export class StockOrderBuyComponent {
   onAdded = output<Order>();
 
   get amountExceeded(): boolean {
-    return this.amount > parseFloat(this.selectedWallet?.value);
+    return this.amount > parseFloat(this.selectedFiatWallet?.value);
   }
 
   get isFormValid(): boolean {
@@ -42,7 +44,7 @@ export class StockOrderBuyComponent {
   
   visible: boolean = false;
   orderType: OrderType = defaultOrderType;
-  selectedWallet: Wallet = defaultWallet;
+  selectedFiatWallet: Wallet = defaultWallet;
   selectedCrypto: Currency = defaultCrypto;
   amount: number = 0;
   nominal: number = 0;
@@ -60,6 +62,7 @@ export class StockOrderBuyComponent {
     private readonly currenciesService: CurrenciesService,
     private readonly cryptosService: CryptosService,
     private readonly router: RouterExtendedService,
+    private readonly decimalPipe: DecimalPipe,
   ) {}
 
   async open(
@@ -77,7 +80,7 @@ export class StockOrderBuyComponent {
       return;
     }
 
-    this.selectedWallet = this.wallets.find(w => w.currency.toLowerCase() === currency.currency_name) ?? this.wallets[0];
+    this.selectedFiatWallet = this.wallets.find(w => w.currency.toLowerCase() === currency.currency_name) ?? this.wallets[0];
     this.selectedCrypto = crypto;
 
     await this.refreshCryptoDetails();
@@ -90,7 +93,7 @@ export class StockOrderBuyComponent {
   async refreshCryptoDetails(): Promise<void> {
     this.cryptoDetails = await this.cryptosService.getDetails({
       coin_id: this.selectedCrypto.currency_name,
-      currency: this.selectedWallet.currency.toLowerCase(),
+      currency: this.selectedFiatWallet.currency.toLowerCase(),
     });
 
     this.specificPrice = this.cryptoDetails.market_data.current_price;
@@ -102,7 +105,7 @@ export class StockOrderBuyComponent {
   }
 
   resetProperties(): void {
-    this.selectedWallet = defaultWallet;
+    this.selectedFiatWallet = defaultWallet;
     this.selectedCrypto = defaultCrypto;
     this.amount = 0;
     this.nominal = 0;
@@ -119,7 +122,7 @@ export class StockOrderBuyComponent {
 
     try {
       const newOrder = await this.ordersService.confirmOrder({
-        currency_used_wallet_id: this.selectedWallet.id,
+        currency_used_wallet_id: this.selectedFiatWallet.id,
         currency_target: this.selectedCrypto?.currency_name ?? '',
         nominal: this.nominal.toString(),
         cash_quantity: this.amount.toFixed(2),
@@ -165,12 +168,16 @@ export class StockOrderBuyComponent {
     this.amount = this.specificPrice * this.nominal;
   }
 
-  onWalletSelectionChanged(): void {
+  onFiatWalletSelectionChanged(): void {
     this.refreshCryptoDetails();
   }
 
   onCryptoSelectionChanged(): void {
     this.refreshCryptoDetails();
+  }
+
+  getFiatWalletFieldLabel(wallet: Wallet): string {
+    return `${wallet.currency} (${this.decimalPipe.transform(wallet.value, '1.2-2')})`;
   }
 
 }

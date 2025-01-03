@@ -35,7 +35,7 @@
           [dataSource]="cryptoWallets"
           [value]="selectedCryptoWallet.currency"
           [(selectedItem)]="selectedCryptoWallet"
-          (onSelectionChanged)="onCryptoSelectionChanged()"
+          (onSelectionChanged)="onCryptoWalletSelectionChanged()"
           [searchEnabled]="true"
           label="Crypto wallet"
           labelMode="floating"
@@ -49,7 +49,7 @@
             <span>{{ item?.currency }} ({{ item?.value }})</span>
           </div>
           <div *dxTemplate="let item of 'cryptoWalletFieldTemplate'">
-            <dx-text-box [value]="item.currency + ' (' + item.value + ')'"></dx-text-box>
+            <dx-text-box [value]="item?.currency + ' (' + item?.value + ')'"></dx-text-box>
           </div>
           <dx-validator>
             <dxi-validation-rule type="required"></dxi-validation-rule>
@@ -81,7 +81,7 @@
           [dataSource]="fiatWallets"
           [value]="selectedFiatWallet.id"
           [(selectedItem)]="selectedFiatWallet"
-          (onSelectionChanged)="onWalletSelectionChanged()"
+          (onSelectionChanged)="onFiatWalletSelectionChanged()"
           [searchEnabled]="true"
           label="Fiat wallet"
           labelMode="floating"
@@ -95,7 +95,7 @@
             <span>{{ item?.currency }} ({{ item?.value | number:'1.2-2' }})</span>
           </div>
           <div *dxTemplate="let item of 'fiatWalletFieldTemplate'">
-            <dx-text-box [value]="item.currency + ' (' + item.value + ')'"></dx-text-box>
+            <dx-text-box [value]="getFiatWalletFieldLabel(item)"></dx-text-box>
           </div>
           <dx-validator>
             <dxi-validation-rule type="required"></dxi-validation-rule>

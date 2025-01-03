@@ -1,4 +1,5 @@
 import { Component, output } from '@angular/core';
+import { DecimalPipe } from '@angular/common';
 import { alert } from 'devextreme/ui/dialog';
 import { Order, OrderSide, orderSidesMap, OrderType, OrderTypeDetail, orderTypeStringMap } from '../stock-order-buy/stock-order-buy.model';
 import { Currency } from '../../../../profile/components/profile/profile-wallets/profile-wallets.config';
@@ -16,11 +17,13 @@ import { CryptoDetails } from '../stock-analyse.model';
 import { CryptosService } from '../../../../../services/cryptos/cryptos.service';
 import { sellOrderAvailableTypes } from './stock-order-sell.model';
 import { RouterExtendedService } from '../../../../../services/router-extended/router-extended.service';
+import { getWalletFieldLabel } from '../stock-order-buy/stock-order-buy.config';
 
 @Component({
   selector: 'app-stock-order-sell',
   templateUrl: './stock-order-sell.component.html',
-  styleUrl: './stock-order-sell.component.scss'
+  styleUrl: './stock-order-sell.component.scss',
+  providers: [DecimalPipe],
 })
 export class StockOrderSellComponent {
   
@@ -56,7 +59,10 @@ export class StockOrderSellComponent {
     private readonly notifications: NotificationsService,
     private readonly cryptosService: CryptosService,
     private readonly router: RouterExtendedService,
+    private readonly decimalPipe: DecimalPipe,
   ) {}
+
+  getWalletFieldLabel = getWalletFieldLabel;
 
   async open(
     crypto: Currency,
@@ -163,12 +169,16 @@ export class StockOrderSellComponent {
     this.amount = this.specificPrice * this.nominal;
   }
 
-  onWalletSelectionChanged(): void {
+  onFiatWalletSelectionChanged(): void {
     this.refreshCryptoDetails();
   }
 
-  onCryptoSelectionChanged(): void {
+  onCryptoWalletSelectionChanged(): void {
     this.refreshCryptoDetails();
+  }
+
+  getFiatWalletFieldLabel(wallet: Wallet): string {
+    return `${wallet.currency} (${this.decimalPipe.transform(wallet.value, '1.2-2')})`;
   }
 
 }
