@@ -2,24 +2,24 @@ import { Component, OnInit, viewChild } from '@angular/core';
 import { DatePipe, DecimalPipe } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { confirm } from 'devextreme/ui/dialog';
+import { SeriesType } from 'devextreme/common/charts';
+import { NotificationsService } from 'angular2-notifications';
 import { availableChartTypes, ChartType, CryptoDetails, CryptoPrice as CryptoHistorialDataEntry, TimeFrame } from './stock-analyse.model';
 import { appName, defaultCurrency, defaultDate, dxPallet } from '../../../../app.config';
 import { defaultChartType, defaultCrypto, defaultCryptoDetails, defaultTimeFrameIndex, dxChartButtonMenuOptions, greenCandleColor, redCandleColor, stockQueryParamNames, timeFrames } from './stock-analyse.config';
 import { StockOrderBuyComponent } from './stock-order-buy/stock-order-buy.component';
 import { GetOrdersRequest, Order, OrderSide, OrderSideString, OrderStatusLongString, OrderStatusString, OrderType } from './stock-order-buy/stock-order-buy.model';
-import { AuthService } from '../../../../services/auth/auth.service';
 import { RouterExtendedService } from '../../../../services/router-extended/router-extended.service';
 import { OrdersService } from '../../../../services/orders/orders.service';
 import { WalletsService } from '../../../../services/wallets/wallets.service';
 import { getOrderHistoryEntryCashQuantityPrefixLabel, getOrderHistoryEntrySideLabel, getOrderHistoryEntryStatusLabel } from './stock-order-buy/stock-order-buy.config';
 import { CurrenciesService } from '../../../../services/currencies/currencies.service';
 import { CryptosService } from '../../../../services/cryptos/cryptos.service';
-import { SeriesType } from 'devextreme/common/charts';
 import { Currency } from '../../../profile/components/profile/profile-wallets/profile-wallets.config';
 import { Wallet } from '../../../profile/components/profile/profile-wallets/profile-wallets.model';
 import { CurrencyType } from '../../../profile/components/profile/profile-wallets/profile-wallet-create/profile-wallet-create.model';
 import { BaseService } from '../../../../services/base/base.service';
-import { NotificationsService } from 'angular2-notifications';
+import { StockOrderSellComponent } from './stock-order-sell/stock-order-sell.component';
 
 @Component({
   selector: 'app-stock-analyse',
@@ -50,6 +50,7 @@ export class StockAnalyseComponent implements OnInit {
   }
 
   stockOrderBuyPopup = viewChild.required<StockOrderBuyComponent>('stockOrderBuyPopup');
+  stockOrderSellPopup = viewChild.required<StockOrderSellComponent>('stockOrderSellPopup');
 
   chartType: ChartType = defaultChartType;
   get isCandlestickChart(): boolean  {
@@ -85,7 +86,6 @@ export class StockAnalyseComponent implements OnInit {
   }
 
   constructor(
-    private readonly authService: AuthService,
     private readonly router: RouterExtendedService,
     private readonly ordersService: OrdersService,
     private readonly walletsService: WalletsService,
@@ -147,11 +147,10 @@ export class StockAnalyseComponent implements OnInit {
   }
 
   openStockOrderSellPopup(): void {
-    alert("TODO");
-    // this.stockOrderDeletePopup()?.open(
-    //   this.displayCrypto,
-    //   this.displayCurrency,
-    // );
+    this.stockOrderSellPopup()?.open(
+      this.displayCrypto,
+      this.displayCurrency,
+    );
   }
 
   openStockOrderBuyPopup(): void {

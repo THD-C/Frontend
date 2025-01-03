@@ -1,9 +1,4 @@
-import { ButtonType } from 'devextreme/common';
 import { OrderSide, orderSidesMapReverse, orderSidesStringFiatWalletOperationPrefixMap, OrderStatus, orderStatusesMapReverse, OrderStatusLongString, OrderType } from './stock-order-buy.model';
-
-export const getOrderButtonTypeType = (orderType: OrderType, selectedOrderType: OrderType): ButtonType => {
-  return orderType === selectedOrderType ? 'default' : 'normal';
-}
 
 export const defaultOrderType: OrderType = OrderType.Instant;
 

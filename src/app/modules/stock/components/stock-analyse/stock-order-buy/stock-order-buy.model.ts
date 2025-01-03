@@ -104,29 +104,6 @@ export const buyOrderAvailableTypes: OrderTypeDetail[] = [
   },
 ];
 
-export const sellOrderAvailableTypes: OrderTypeDetail[] = [
-  {
-    text: $localize`:@@stock.model.Instant:Instant`,
-    type: OrderType.Instant,
-    hint: $localize`:@@stock.model.Sell-at-the-current-market-price:Sell at the current market price`,
-  },
-  {
-    text: $localize`:@@stock.model.Take-profit:Take profit`,
-    type: OrderType.TakeProfit,
-    hint: $localize`:@@stock.model.Sell-if-it-rises-to-higher-price:Sell if it rises to higher price`,
-  },
-  {
-    text: $localize`:@@stock.model.Stop-loss:Stop loss`,
-    type: OrderType.StopLoss,
-    hint: $localize`:@@stock.model.Sell-if-it-falls-to-lower-price:Sell if it falls to lower price`,
-  },
-];
-
-export const orderAvailableTypes: Map<OrderSide, OrderTypeDetail[]> = new Map([
-  [OrderSide.Buy, [...buyOrderAvailableTypes]],
-  [OrderSide.Sell, [...sellOrderAvailableTypes]],
-]);
-
 export const orderSideTitles: Map<OrderSide, string> = new Map([
   [OrderSide.Buy, $localize`:@@stock-order-buy.Buy-order:Buy order`],
   [OrderSide.Sell, $localize`:@@stock-order-buy.Sell-order:Sell order`],
