@@ -1443,7 +1443,7 @@
         <target>Wyświetl w walucie</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-analyse.component.html</context>
-          <context context-type="linenumber">138</context>
+          <context context-type="linenumber">145</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock.Analyse-crypto" datatype="html">
@@ -1451,7 +1451,7 @@
         <target>Analizowana kryptowaluta</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-analyse.component.html</context>
-          <context context-type="linenumber">150</context>
+          <context context-type="linenumber">157</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock.Sell" datatype="html">
@@ -1459,7 +1459,7 @@
         <target>Sprzedaj</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-analyse.component.html</context>
-          <context context-type="linenumber">158</context>
+          <context context-type="linenumber">165</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock.Buy" datatype="html">
@@ -1467,7 +1467,7 @@
         <target>Kup</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-analyse.component.html</context>
-          <context context-type="linenumber">161</context>
+          <context context-type="linenumber">168</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock.Orders" datatype="html">
@@ -1475,7 +1475,7 @@
         <target>Zlecenia</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-analyse.component.html</context>
-          <context context-type="linenumber">165</context>
+          <context context-type="linenumber">172</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock.Created-at" datatype="html">
@@ -1483,7 +1483,7 @@
         <target>Utworzono: <x id="INTERPOLATION" equiv-text="{{ order.date_created | date:'yyyy-MM-dd HH:mm:ss' }}"/></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-analyse.component.html</context>
-          <context context-type="linenumber">187</context>
+          <context context-type="linenumber">194</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock.Executed-at" datatype="html">
@@ -1491,7 +1491,7 @@
         <target>Zrealizowano: <x id="INTERPOLATION" equiv-text="{{ order.date_executed | date:'yyyy-MM-dd HH:mm:ss' }}"/></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-analyse.component.html</context>
-          <context context-type="linenumber">189</context>
+          <context context-type="linenumber">196</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock.Crypto-stats" datatype="html">
@@ -1499,7 +1499,7 @@
         <target>Statystyki kryptowaluty</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-analyse.component.html</context>
-          <context context-type="linenumber">206</context>
+          <context context-type="linenumber">213</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock.Current-price" datatype="html">
@@ -1507,7 +1507,7 @@
         <target>Aktualna cena</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-analyse.component.html</context>
-          <context context-type="linenumber">214</context>
+          <context context-type="linenumber">221</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock.Min-in-24h" datatype="html">
@@ -1515,7 +1515,7 @@
         <target>Min w przeciągu 24 godzin</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-analyse.component.html</context>
-          <context context-type="linenumber">218</context>
+          <context context-type="linenumber">225</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock.Max-in-24h" datatype="html">
@@ -1523,7 +1523,7 @@
         <target>Maks w przeciągu 24 godzin</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-analyse.component.html</context>
-          <context context-type="linenumber">222</context>
+          <context context-type="linenumber">229</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock.Price-change-in-24h" datatype="html">
@@ -1531,7 +1531,7 @@
         <target>Zmiana ceny w przeciągu 24 godzin</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-analyse.component.html</context>
-          <context context-type="linenumber">226</context>
+          <context context-type="linenumber">233</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock.Market-cap" datatype="html">
@@ -1539,7 +1539,7 @@
         <target>Kapitalizacja rynkowa</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-analyse.component.html</context>
-          <context context-type="linenumber">239</context>
+          <context context-type="linenumber">246</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock.Total-volume" datatype="html">
@@ -1547,7 +1547,7 @@
         <target>Suma obrotu</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-analyse.component.html</context>
-          <context context-type="linenumber">243</context>
+          <context context-type="linenumber">250</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock.Close-fullscreen" datatype="html">
@@ -1555,7 +1555,7 @@
         <target>Zamknij tryb pełnoekranowy</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-analyse.component.ts</context>
-          <context context-type="linenumber">73</context>
+          <context context-type="linenumber">80</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock.Fullscreen" datatype="html">
@@ -1563,7 +1563,7 @@
         <target>Tryb pełnoekranowy</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-analyse.component.ts</context>
-          <context context-type="linenumber">73</context>
+          <context context-type="linenumber">80</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock-analyse.Are-you-sure-you-want-delete-the-order" datatype="html">
@@ -1571,7 +1571,7 @@
         <target>Czy na pewno chcesz usunąć zamówienie?</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-analyse.component.ts</context>
-          <context context-type="linenumber">236</context>
+          <context context-type="linenumber">243</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock-analyse.Caution" datatype="html">
@@ -1579,7 +1579,7 @@
         <target>Uwaga!</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-analyse.component.ts</context>
-          <context context-type="linenumber">237</context>
+          <context context-type="linenumber">244</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock-analyse.Order-deleted-successfully" datatype="html">
@@ -1587,7 +1587,7 @@
         <target>Zamówienie zostało pomyślnie usunięte</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-analyse.component.ts</context>
-          <context context-type="linenumber">248</context>
+          <context context-type="linenumber">255</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock-analyse.Candlestick" datatype="html">
@@ -1599,7 +1599,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-analyse.model.ts</context>
-          <context context-type="linenumber">345</context>
+          <context context-type="linenumber">340</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock-analyse.Spline" datatype="html">
@@ -1607,7 +1607,7 @@
         <target>Liniowy</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-analyse.model.ts</context>
-          <context context-type="linenumber">349</context>
+          <context context-type="linenumber">344</context>
         </context-group>
       </trans-unit>
       <trans-unit id="register.Register" datatype="html">
@@ -2255,7 +2255,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-analyse.component.ts</context>
-          <context context-type="linenumber">247</context>
+          <context context-type="linenumber">254</context>
         </context-group>
       </trans-unit>
       <trans-unit id="admin-user-change-type.User-type-updated-successfully" datatype="html">
