@@ -10,8 +10,7 @@
   contentTemplate="contentTemplatePopup">
   <div *dxTemplate="let d of 'contentTemplatePopup'" class="w-100 h-100">
     <div class="row g-4 gx-0">
-      <h5 class="col-12 text-center" i18n="@@stock-order-sell.Current-price">Current price: {{ cryptoDetails.market_data.current_price | number:'1.2-2' }}&nbsp;{{ selectedFiatWallet.currency }}</h5>
-      <h6 class="col-12 text-center mt-0" i18n="@@stock-order-sell.Available-crypto-wallet-nominal">Available crypto wallet nominal: {{ selectedCryptoWallet.value }}</h6>
+      <h5 class="col-12 text-center" i18n="@@stock-order-sell.Current-price">Current {{ selectedCryptoWallet.currency }} price: {{ cryptoDetails.market_data.current_price | number:'1.2-2' }}&nbsp;{{ selectedFiatWallet.currency }}</h5>
 
       <div class="col-6">
         <dx-number-box
@@ -26,7 +25,7 @@
           validationMessageMode="always"
           i18n-label="@@stock-order-sell.Nominal:Nominal">
           <dx-validator>
-            <dxi-validation-rule type="required" [min]="0"></dxi-validation-rule>
+            <dxi-validation-rule type="required" [min]="0" [max]="selectedCryptoWallet.value" type="range" message="Exceeded available crypto wallet nominal" i18n-message="@@stock-order-buy.Exceeded-available-crypto-wallet-nominal"></dxi-validation-rule>
           </dx-validator>
         </dx-number-box>
       </div>
@@ -37,16 +36,20 @@
           [value]="selectedCryptoWallet.currency"
           [(selectedItem)]="selectedCryptoWallet"
           (onSelectionChanged)="onCryptoSelectionChanged()"
-          label="Crypto"
+          [searchEnabled]="true"
+          label="Crypto wallet"
           labelMode="floating"
-          i18n-label="@@stock-order-sell.Crypto:Crypto"
+          i18n-label="@@stock-order-sell.Crypto-wallet:Crypto wallet"
           valueExpr="currency"
           validationMessageMode="always"
           displayExpr="currency"
-          [hint]="selectedCryptoWallet.value"
-          itemTemplate="cryptoItemTemplate">
-          <div *dxTemplate="let item of 'cryptoItemTemplate'">
-            <span>{{ item?.value }}&nbsp;{{ item?.currency }}</span>
+          itemTemplate="cryptoWalletItemTemplate"
+          fieldTemplate="cryptoWalletFieldTemplate">
+          <div *dxTemplate="let item of 'cryptoWalletItemTemplate'">
+            <span>{{ item?.currency }} ({{ item?.value }})</span>
+          </div>
+          <div *dxTemplate="let item of 'cryptoWalletFieldTemplate'">
+            <dx-text-box [value]="item.currency + ' (' + item.value + ')'"></dx-text-box>
           </div>
           <dx-validator>
             <dxi-validation-rule type="required"></dxi-validation-rule>
@@ -79,16 +82,20 @@
           [value]="selectedFiatWallet.id"
           [(selectedItem)]="selectedFiatWallet"
           (onSelectionChanged)="onWalletSelectionChanged()"
+          [searchEnabled]="true"
           label="Fiat wallet"
           labelMode="floating"
           i18n-label="@@stock-order-sell.Fiat-wallet:Fiat wallet"
           valueExpr="id"
           validationMessageMode="always"
           displayExpr="currency"
-          itemTemplate="currencyItemTemplate"
-          [hint]="selectedFiatWallet.value">
-          <div *dxTemplate="let item of 'currencyItemTemplate'">
-            <span>{{ item?.value | number:'1.2-2' }}&nbsp;{{ item?.currency }}</span>
+          itemTemplate="fiatWalletItemTemplate"
+          fieldTemplate="fiatWalletFieldTemplate">
+          <div *dxTemplate="let item of 'fiatWalletItemTemplate'">
+            <span>{{ item?.currency }} ({{ item?.value | number:'1.2-2' }})</span>
+          </div>
+          <div *dxTemplate="let item of 'fiatWalletFieldTemplate'">
+            <dx-text-box [value]="item.currency + ' (' + item.value + ')'"></dx-text-box>
           </div>
           <dx-validator>
             <dxi-validation-rule type="required"></dxi-validation-rule>
