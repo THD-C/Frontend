@@ -2145,20 +2145,12 @@
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-buy/stock-order-buy.component.ts</context>
           <context context-type="linenumber">75</context>
         </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-sell/stock-order-sell.component.ts</context>
-          <context context-type="linenumber">74</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="stock-order-buy.Caution" datatype="html">
         <source>Caution!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-buy/stock-order-buy.component.ts</context>
           <context context-type="linenumber">76</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-sell/stock-order-sell.component.ts</context>
-          <context context-type="linenumber">75</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock-order-buy.Success" datatype="html">
@@ -2293,6 +2285,20 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-sell/stock-order-sell.component.html</context>
           <context context-type="linenumber">146</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="stock-order-sell.You-can-not-create-an-order-because-you-do-not-have-any-wallets-Create-one-and-then-trade-You-will-be-redirected-to-your-profile-where-you-can-specify-a-new-wallet" datatype="html">
+        <source>You can not create an order&lt;br/>because you do not have any wallets.&lt;br/>Create one and then trade.&lt;br/>You will be redirected to your profile&lt;br/>where you can specify a new wallet</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-sell/stock-order-sell.component.ts</context>
+          <context context-type="linenumber">74</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="stock-order-sell.Caution" datatype="html">
+        <source>Caution!</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-sell/stock-order-sell.component.ts</context>
+          <context context-type="linenumber">75</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock-order-sell.Success" datatype="html">

@@ -71,8 +71,8 @@ export class StockOrderSellComponent {
     const wallets = await this.walletsService.get();
     if (wallets.length === 0) {
       await alert(
-        $localize`:@@stock-order-buy.You-can-not-create-an-order-because-you-do-not-have-any-wallets-Create-one-and-then-trade-You-will-be-redirected-to-your-profile-where-you-can-specify-a-new-wallet:You can not create an order<br/>because you do not have any wallets.<br/>Create one and then trade.<br/>You will be redirected to your profile<br/>where you can specify a new wallet`,
-        $localize`:@@stock-order-buy.Caution:Caution!`
+        $localize`:@@stock-order-sell.You-can-not-create-an-order-because-you-do-not-have-any-wallets-Create-one-and-then-trade-You-will-be-redirected-to-your-profile-where-you-can-specify-a-new-wallet:You can not create an order<br/>because you do not have any wallets.<br/>Create one and then trade.<br/>You will be redirected to your profile<br/>where you can specify a new wallet`,
+        $localize`:@@stock-order-sell.Caution:Caution!`
       )
 
       this.router.openInNewTab('/profile/wallets', '');

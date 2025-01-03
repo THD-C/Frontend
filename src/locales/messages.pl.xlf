@@ -1179,15 +1179,11 @@
         </context-group>
       </trans-unit>
       <trans-unit id="stock-order-buy.You-can-not-create-an-order-because-you-do-not-have-any-wallets-Create-one-and-then-trade-You-will-be-redirected-to-your-profile-where-you-can-specify-a-new-wallet" datatype="html">
-        <source>You can not create an order<br/>because you do not have any wallets.<br/>Create one and then trade.<br/>You will be redirected to your profile<br/>where you can specify a new wallet</source>
-        <target>Nie możesz utworzyć zlecenia<br/>ponieważ nie masz żadnych portfeli.<br/>Utwórz jeden i następnie handluj.<br/>Zostaniesz przekierowany do swojego profilu<br/>gdzie możesz dodać nowy portfel</target>
+        <source>You can not create an order&lt;br/&gt;because you do not have any wallets.&lt;br/&gt;Create one and then trade.&lt;br/&gt;You will be redirected to your profile&lt;br/&gt;where you can specify a new wallet</source>
+        <target>Nie możesz utworzyć zlecenia&lt;br/&gt;ponieważ nie masz żadnych portfeli.&lt;br/&gt;Utwórz jeden i następnie handluj.&lt;br/&gt;Zostaniesz przekierowany do swojego profilu&lt;br/&gt;gdzie możesz dodać nowy portfel</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-buy/stock-order-buy.component.ts</context>
           <context context-type="linenumber">75</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-sell/stock-order-sell.component.ts</context>
-          <context context-type="linenumber">74</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock-order-buy.Caution" datatype="html">
@@ -1196,10 +1192,6 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-buy/stock-order-buy.component.ts</context>
           <context context-type="linenumber">76</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-sell/stock-order-sell.component.ts</context>
-          <context context-type="linenumber">75</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock-order-buy.Success" datatype="html">
@@ -1335,7 +1327,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="stock-order-sell.Current-price" datatype="html">
-        <source>Current <x id="INTERPOLATION" equiv-text="{{ selectedCryptoWallet.currency }}"/> price: <x id="INTERPOLATION_1" equiv-text="{{ cryptoDetails.market_data.current_price | number:'1.2-2' }}"/> <x id="INTERPOLATION_2" equiv-text="{{ selectedFiatWallet.currency }}"/></source>
+        <source>Current <x id="INTERPOLATION" equiv-text="{{ selectedCryptoWallet.currency }}"/> price: <x id="INTERPOLATION_1" equiv-text="{{ cryptoDetails.market_data.current_price | number:'1.2-2' }}"/> <x id="INTERPOLATION_2" equiv-text="{{ selectedFiatWallet.currency }}"/></source>
         <target>Aktualna cena <x id="INTERPOLATION" equiv-text="{{ selectedCryptoWallet.currency }}"/>: <x id="INTERPOLATION_1" equiv-text="{{ cryptoDetails.market_data.current_price | number:'1.2-2' }}"/> <x id="INTERPOLATION_2" equiv-text="{{ selectedFiatWallet.currency }}"/></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-sell/stock-order-sell.component.html</context>
@@ -1404,6 +1396,22 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-sell/stock-order-sell.component.html</context>
           <context context-type="linenumber">146</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="stock-order-sell.You-can-not-create-an-order-because-you-do-not-have-any-wallets-Create-one-and-then-trade-You-will-be-redirected-to-your-profile-where-you-can-specify-a-new-wallet" datatype="html">
+        <source>You can not create an order&lt;br/&gt;because you do not have any wallets.&lt;br/&gt;Create one and then trade.&lt;br/&gt;You will be redirected to your profile&lt;br/&gt;where you can specify a new wallet</source>
+        <target>Nie możesz utworzyć zlecenia&lt;br/&gt;ponieważ nie masz żadnych portfeli.&lt;br/&gt;Utwórz jeden i następnie handluj.&lt;br/&gt;Zostaniesz przekierowany do swojego profilu&lt;br/&gt;gdzie możesz dodać nowy portfel</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-sell/stock-order-sell.component.ts</context>
+          <context context-type="linenumber">74</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="stock-order-sell.Caution" datatype="html">
+        <source>Caution!</source>
+        <target state="new"/>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-sell/stock-order-sell.component.ts</context>
+          <context context-type="linenumber">75</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock-order-sell.Success" datatype="html">
@@ -1831,8 +1839,8 @@
         </context-group>
       </trans-unit>
       <trans-unit id="home.In-just-1-year-the-community-has-grown-to" datatype="html">
-        <source>In just 1 year the community has grown to <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary fw-bold&quot;>"/>100 000<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/> users whereas <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary fw-bold&quot;>"/>10 000<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/> of them uses the app daily.<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/>"/>So... Why don't you try it yourself for free!</source>
-        <target>W 1 rok do społeczności dołączyło <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary fw-bold&quot;>"/>100 000<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/> użytkowników gdzie <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary fw-bold&quot;>"/>10 000<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/> z nich używają ją codziennie.<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/>"/>Więc... Czemu i Ty nie wypróbujesz tego za darmo!</target>
+        <source>In just 1 year the community has grown to <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary fw-bold&quot;>"/>100 000<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/> users whereas <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary fw-bold&quot;>"/>10 000<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/> of them uses the app daily.<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/>So... Why don't you try it yourself for free!</source>
+        <target>W 1 rok do społeczności dołączyło <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary fw-bold&quot;>"/>100 000<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/> użytkowników gdzie <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary fw-bold&quot;>"/>10 000<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/> z nich używają ją codziennie.<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/>Więc... Czemu i Ty nie wypróbujesz tego za darmo!</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
           <context context-type="linenumber">90</context>
