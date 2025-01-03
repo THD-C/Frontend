@@ -1,11 +1,6 @@
 import { SeriesType } from 'devextreme/common/charts';
 import { Item as DxTabsItem } from 'devextreme/ui/tabs';
 
-// Based on DevExtreme styles.
-export const greenCandleColor: string = '#08aa54';
-// Based on DevExtreme styles.
-export const redCandleColor: string = '#f44336';
-
 export type StockPrice = {
   date: Date;
 

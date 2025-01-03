@@ -2,9 +2,9 @@ import { Component, OnInit, viewChild } from '@angular/core';
 import { DatePipe, DecimalPipe } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { confirm } from 'devextreme/ui/dialog';
-import { availableChartTypes, ChartType, CryptoDetails, CryptoPrice as CryptoHistorialDataEntry, greenCandleColor, redCandleColor, TimeFrame } from './stock-analyse.model';
+import { availableChartTypes, ChartType, CryptoDetails, CryptoPrice as CryptoHistorialDataEntry, TimeFrame } from './stock-analyse.model';
 import { appName, defaultCurrency, defaultDate, dxPallet } from '../../../../app.config';
-import { defaultChartType, defaultCrypto, defaultCryptoDetails, defaultTimeFrameIndex, dxChartButtonMenuOptions, stockQueryParamNames, timeFrames } from './stock-analyse.config';
+import { defaultChartType, defaultCrypto, defaultCryptoDetails, defaultTimeFrameIndex, dxChartButtonMenuOptions, greenCandleColor, redCandleColor, stockQueryParamNames, timeFrames } from './stock-analyse.config';
 import { StockOrderComponent } from './stock-order/stock-order.component';
 import { GetOrdersRequest, Order, OrderSide, OrderSideString, OrderStatusLongString, OrderStatusString, OrderType } from './stock-order/stock-order.model';
 import { AuthService } from '../../../../services/auth/auth.service';
@@ -34,13 +34,20 @@ export class StockAnalyseComponent implements OnInit {
   protected readonly OrderSideString = OrderSideString;
   protected readonly OrderStatusString = OrderStatusString;
   protected readonly OrderStatusLongString = OrderStatusLongString;
-  protected readonly greenCandleColor = greenCandleColor;
-  protected readonly redCandleColor = redCandleColor;
   protected readonly appName = appName;
   protected readonly defaultDate = defaultDate;
-  protected readonly dxPallet = dxPallet;
   protected readonly dxChartButtonMenuOptions = dxChartButtonMenuOptions;
   protected readonly availableCharTypes = availableChartTypes;
+  protected readonly greenCandleColor = greenCandleColor;
+  protected readonly redCandleColor = redCandleColor;
+  protected readonly dxPallet = dxPallet;
+  get seriesColor(): string {
+    if (this.isCandlestickChart) {
+      return greenCandleColor;
+    }
+
+    return this.displayCryptoDetails.market_data.price_change_24h_in_currency > 0 ? greenCandleColor : redCandleColor; 
+  }
 
   stockOrderPopup = viewChild.required<StockOrderComponent>('stockOrderPopup');
 

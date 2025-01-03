@@ -115,3 +115,9 @@ export const defaultChartType: ChartType = {
   text: $localize`:@@stock-analyse.Candlestick:Candlestick`,
   value: 'candlestick',
 };
+
+
+// Based on DevExtreme styles.
+export const greenCandleColor: string = '#08aa54';
+// Based on DevExtreme styles.
+export const redCandleColor: string = '#f44336';

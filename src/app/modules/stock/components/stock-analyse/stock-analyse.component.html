@@ -95,8 +95,15 @@
       [palette]="dxPallet"
       [dataSource]="historicalData"
       [adjustOnZoom]="true">
-      <dxi-series valueField="price" openValueField="open" closeValueField="close" lowValueField="low" highValueField="high">
+      <dxi-series
+        valueField="price"
+        openValueField="open"
+        closeValueField="close"
+        lowValueField="low"
+        highValueField="high"
+        [color]="seriesColor">
         <dxo-point [visible]="false"></dxo-point>
+        <dxo-reduction [color]="redCandleColor"></dxo-reduction>
       </dxi-series>
       <dxo-common-series-settings argumentField="date" [type]="chartType.value"></dxo-common-series-settings>
       <dxo-legend [visible]="false"></dxo-legend>
