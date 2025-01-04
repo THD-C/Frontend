@@ -66,6 +66,14 @@
           <context context-type="linenumber">40</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="app.routes.blog.title" datatype="html">
+        <source>Blog - read crypto based articles &amp; expand knowledge | THD(C)</source>
+        <target>Blog - czytaj artykuły oparte na kryptowalutach i poszerzaj wiedzę | THD(C)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.routes.ts</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="login.Welcome-back" datatype="html">
         <source>Welcome back!</source>
         <target>Witaj ponownie!</target>
@@ -1179,8 +1187,8 @@
         </context-group>
       </trans-unit>
       <trans-unit id="stock-order-buy.You-can-not-create-an-order-because-you-do-not-have-any-wallets-Create-one-and-then-trade-You-will-be-redirected-to-your-profile-where-you-can-specify-a-new-wallet" datatype="html">
-        <source>You can not create an order&lt;br/&gt;because you do not have any wallets.&lt;br/&gt;Create one and then trade.&lt;br/&gt;You will be redirected to your profile&lt;br/&gt;where you can specify a new wallet</source>
-        <target>Nie możesz utworzyć zlecenia&lt;br/&gt;ponieważ nie masz żadnych portfeli.&lt;br/&gt;Utwórz jeden i następnie handluj.&lt;br/&gt;Zostaniesz przekierowany do swojego profilu&lt;br/&gt;gdzie możesz dodać nowy portfel</target>
+        <source>You can not create an order&lt;br/>because you do not have any wallets.&lt;br/>Create one and then trade.&lt;br/>You will be redirected to your profile&lt;br/>where you can specify a new wallet</source>
+        <target>Nie możesz utworzyć zlecenia&lt;br/>ponieważ nie masz żadnych portfeli.&lt;br/>Utwórz jeden i następnie handluj.&lt;br/>Zostaniesz przekierowany do swojego profilu&lt;br/>gdzie możesz dodać nowy portfel</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-buy/stock-order-buy.component.ts</context>
           <context context-type="linenumber">75</context>
@@ -1399,8 +1407,8 @@
         </context-group>
       </trans-unit>
       <trans-unit id="stock-order-sell.You-can-not-create-an-order-because-you-do-not-have-any-wallets-Create-one-and-then-trade-You-will-be-redirected-to-your-profile-where-you-can-specify-a-new-wallet" datatype="html">
-        <source>You can not create an order&lt;br/&gt;because you do not have any wallets.&lt;br/&gt;Create one and then trade.&lt;br/&gt;You will be redirected to your profile&lt;br/&gt;where you can specify a new wallet</source>
-        <target>Nie możesz utworzyć zlecenia&lt;br/&gt;ponieważ nie masz żadnych portfeli.&lt;br/&gt;Utwórz jeden i następnie handluj.&lt;br/&gt;Zostaniesz przekierowany do swojego profilu&lt;br/&gt;gdzie możesz dodać nowy portfel</target>
+        <source>You can not create an order&lt;br/>because you do not have any wallets.&lt;br/>Create one and then trade.&lt;br/>You will be redirected to your profile&lt;br/>where you can specify a new wallet</source>
+        <target>Nie możesz utworzyć zlecenia&lt;br/>ponieważ nie masz żadnych portfeli.&lt;br/>Utwórz jeden i następnie handluj.&lt;br/>Zostaniesz przekierowany do swojego profilu&lt;br/>gdzie możesz dodać nowy portfel</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-sell/stock-order-sell.component.ts</context>
           <context context-type="linenumber">74</context>
@@ -1408,7 +1416,7 @@
       </trans-unit>
       <trans-unit id="stock-order-sell.Caution" datatype="html">
         <source>Caution!</source>
-        <target state="new"/>
+        <target>Uwaga!</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-sell/stock-order-sell.component.ts</context>
           <context context-type="linenumber">75</context>
@@ -1839,8 +1847,8 @@
         </context-group>
       </trans-unit>
       <trans-unit id="home.In-just-1-year-the-community-has-grown-to" datatype="html">
-        <source>In just 1 year the community has grown to <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary fw-bold&quot;>"/>100 000<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/> users whereas <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary fw-bold&quot;>"/>10 000<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/> of them uses the app daily.<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/>So... Why don't you try it yourself for free!</source>
-        <target>W 1 rok do społeczności dołączyło <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary fw-bold&quot;>"/>100 000<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/> użytkowników gdzie <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary fw-bold&quot;>"/>10 000<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/> z nich używają ją codziennie.<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/>Więc... Czemu i Ty nie wypróbujesz tego za darmo!</target>
+        <source>In just 1 year the community has grown to <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary fw-bold&quot;>"/>100 000<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/> users whereas <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary fw-bold&quot;>"/>10 000<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/> of them uses the app daily.<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/>"/>So... Why don't you try it yourself for free!</source>
+        <target>W 1 rok do społeczności dołączyło <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary fw-bold&quot;>"/>100 000<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/> użytkowników gdzie <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;text-primary fw-bold&quot;>"/>10 000<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span>"/> z nich używają ją codziennie.<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/>"/>Więc... Czemu i Ty nie wypróbujesz tego za darmo!</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
           <context context-type="linenumber">90</context>
@@ -2086,6 +2094,22 @@
           <context context-type="linenumber">6</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="blogs-errors.Operation-failed-Please-try-again" datatype="html">
+        <source>Operation failed. Please try again</source>
+        <target>Operacja nieudana. Proszę spróbuj ponownie</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/blogs/blogs.errors.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="blogs-errors.User-does-not-have-enought-priviliges" datatype="html">
+        <source>User does not have enought priviliges</source>
+        <target>Użytkownik nie ma wystarczających uprawnień</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/blogs/blogs.errors.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="cryptos-errors.Operation-failed-Please-try-again" datatype="html">
         <source>Operation failed. Please try again</source>
         <target>Operacja nie powiodła się. Spróbuj ponownie</target>
@@ -2318,6 +2342,18 @@
           <context context-type="linenumber">43</context>
         </context-group>
         <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/blog/components/blog-post-edit/blog-post-edit.component.ts</context>
+          <context context-type="linenumber">106</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/blog/components/blog-post-read/blog-post-read.component.ts</context>
+          <context context-type="linenumber">96</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/blog/components/blog-posts/blog-posts.component.ts</context>
+          <context context-type="linenumber">104</context>
+        </context-group>
+        <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-details/profile-details.component.ts</context>
           <context context-type="linenumber">69</context>
         </context-group>
@@ -2396,6 +2432,118 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/admin/components/admin/admin.config.ts</context>
           <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="blog-post-edit.Written-in" datatype="html">
+        <source>Written in</source>
+        <target>Napisane w</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/blog/components/blog-post-edit/blog-post-edit.component.html</context>
+          <context context-type="linenumber">11,12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="blog-post-edit.Title" datatype="html">
+        <source>Title</source>
+        <target>Tytuł</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/blog/components/blog-post-edit/blog-post-edit.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="blog-post-edit.Save" datatype="html">
+        <source>Save</source>
+        <target>Zapisz</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/blog/components/blog-post-edit/blog-post-edit.component.html</context>
+          <context context-type="linenumber">114</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="blog-post-edit.Blog-post-saved-successfully" datatype="html">
+        <source>Blog post saved successfully</source>
+        <target>Post na blogu został pomyślnie zapisany</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/blog/components/blog-post-edit/blog-post-edit.component.ts</context>
+          <context context-type="linenumber">107</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="blog-posts.Are-you-sure-you-want-delete-blog-post" datatype="html">
+        <source>Are you sure you want delete blog post?</source>
+        <target>Czy na pewno chcesz usunąć post na blogu?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/blog/components/blog-post-read/blog-post-read.component.ts</context>
+          <context context-type="linenumber">82</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/blog/components/blog-posts/blog-posts.component.ts</context>
+          <context context-type="linenumber">89</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="blog-posts.Caution" datatype="html">
+        <source>Caution!</source>
+        <target>Uwaga!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/blog/components/blog-post-read/blog-post-read.component.ts</context>
+          <context context-type="linenumber">83</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/blog/components/blog-posts/blog-posts.component.ts</context>
+          <context context-type="linenumber">90</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="blog-posts.Blog-post-deleted-successfully" datatype="html">
+        <source>Blog post deleted successfully</source>
+        <target>Post na blogu został pomyślnie usunięty</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/blog/components/blog-post-read/blog-post-read.component.ts</context>
+          <context context-type="linenumber">97</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/blog/components/blog-posts/blog-posts.component.ts</context>
+          <context context-type="linenumber">105</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="blog-post-read.Loading" datatype="html">
+        <source>Loading...</source>
+        <target>Ładowanie...</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/blog/components/blog-post-read/blog-post-read.config.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/blog/components/blog-post-read/blog-post-read.config.ts</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="blog-posts.Language" datatype="html">
+        <source>Language</source>
+        <target>Język</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/blog/components/blog-posts/blog-posts.component.html</context>
+          <context context-type="linenumber">11,12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="blog-posts.Title" datatype="html">
+        <source>Title</source>
+        <target>Tytuł</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/blog/components/blog-posts/blog-posts.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="blog-posts.Filter" datatype="html">
+        <source>Filter</source>
+        <target>Filtr</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/blog/components/blog-posts/blog-posts.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="blog-posts.Your-searched-blog-posts-are-not-here-Try-different-filters" datatype="html">
+        <source>Your searched blog posts are not here. Try different filters</source>
+        <target>Twoje wyszukiwane posty na blogu nie są tutaj. Spróbuj innych filtrów</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/blog/components/blog-posts/blog-posts.component.html</context>
+          <context context-type="linenumber">56,59</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-details.Profile-updated-successfully" datatype="html">
