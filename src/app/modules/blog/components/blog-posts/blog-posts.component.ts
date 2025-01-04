@@ -1,7 +1,7 @@
 import { Component, Inject, LOCALE_ID, OnInit } from '@angular/core';
 import { BlogsService } from '../../../../services/blogs/blogs.service';
 import { availableLanguages, defaultLanguage } from '../../../../app.config';
-import { BlogPost, GetBlogPostRequest } from '../blog-post-edit/blog-post-edit.model';
+import { BlogPost, GetBlogPostsRequest } from '../blog-post-edit/blog-post-edit.model';
 
 @Component({
   selector: 'app-blog-posts',
@@ -13,7 +13,7 @@ export class BlogPostsComponent implements OnInit {
   protected readonly availableLanguages = availableLanguages;
 
   titleFilterTimeout?: NodeJS.Timeout = undefined;
-  getBlogPostsRequest: GetBlogPostRequest = {
+  getBlogPostsRequest: GetBlogPostsRequest = {
     title: '',
     path: '',
     language: defaultLanguage.code,

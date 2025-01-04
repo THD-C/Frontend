@@ -3,6 +3,7 @@ import { bloggerGuard } from '../../guards/blogger/blogger.guard';
 import { blogPathParamNames } from './blog.model';
 import { BlogPostEditComponent } from './components/blog-post-edit/blog-post-edit.component';
 import { BlogPostsComponent } from './components/blog-posts/blog-posts.component';
+import { BlogPostReadComponent } from './components/blog-post-read/blog-post-read.component';
 
 export const routes: Routes = [
   {
@@ -28,6 +29,11 @@ export const routes: Routes = [
         path: `edit/:${blogPathParamNames.language}/:${blogPathParamNames.path}`,
         component: BlogPostEditComponent,
         canActivate: [bloggerGuard],
+      },
+
+      {
+        path: `read/:${blogPathParamNames.language}/:${blogPathParamNames.path}`,
+        component: BlogPostReadComponent,
       },
 
       {

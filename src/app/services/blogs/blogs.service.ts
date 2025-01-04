@@ -5,7 +5,7 @@ import { NotificationsService } from 'angular2-notifications';
 
 import { BaseService } from '../base/base.service';
 import { errors } from './blogs.errors';
-import { BlogPost, CreateBlogPostRequest, GetBlogPostRequest, GetBlogPostResponse, UpdateBlogPostRequest } from '../../modules/blog/components/blog-post-edit/blog-post-edit.model';
+import { BlogPost, CreateBlogPostRequest, GetBlogPostRequest, GetBlogPostsRequest, GetBlogPostsResponse, UpdateBlogPostRequest } from '../../modules/blog/components/blog-post-edit/blog-post-edit.model';
 import { defaultEditBlogPost } from '../../modules/blog/components/blog-post-edit/blog-post-edit.config';
 
 @Injectable({
@@ -44,18 +44,18 @@ export class BlogsService extends BaseService {
     return await firstValueFrom(request) as BlogPost;
   }
 
-  async get(filters: GetBlogPostRequest): Promise<BlogPost[]> {
+  async get(filters: GetBlogPostsRequest): Promise<BlogPost[]> {
     const params = this.generateParams(filters);
-    const request = this.httpClient.get<GetBlogPostResponse>(
+    const request = this.httpClient.get<GetBlogPostsResponse>(
       `${this.config.apiUrl}/${this.baseBlogsPath}/`,
       { params }
     ).pipe(catchError(this.catchCustomError.bind(this)));
 
-    const { Blogs } = await firstValueFrom(request) as GetBlogPostResponse || { Blogs: [] };
+    const { Blogs } = await firstValueFrom(request) as GetBlogPostsResponse || { Blogs: [] };
     return Blogs;
   }
 
-  async getSingle(language: string, path: string): Promise<BlogPost> {
+  async getSingle({ language, path }: GetBlogPostRequest): Promise<BlogPost> {
     if (language.length === 0 || path.length === 0) {
       return defaultEditBlogPost;
     }

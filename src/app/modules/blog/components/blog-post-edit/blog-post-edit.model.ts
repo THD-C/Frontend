@@ -28,14 +28,19 @@ export type UpdateBlogPostRequest = {
   path: string;
 }
 
-export type GetBlogPostRequest = {
+export type GetBlogPostsRequest = {
   title: string;
   language: string;
   path: string;
 }
 
-export type GetBlogPostResponse = {
+export type GetBlogPostsResponse = {
   Blogs: BlogPost[];
+}
+
+export type GetBlogPostRequest = {
+  language: string;
+  path: string;
 }
 
 /**

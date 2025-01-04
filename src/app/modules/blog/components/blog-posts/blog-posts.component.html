@@ -28,7 +28,7 @@
     <div class="px-4 col-12">
       @for (post of blogPosts; track post) {
         <div class="row gy-3 mt-4 rounded border px-2">
-          <a class="col-12" [routerLink]="['/blog/edit/', post.language, post.path]">
+          <a class="col-12" [routerLink]="['/blog/read/', post.language, post.path]">
             <h6 class="mb-0">{{ post.title }}</h6>
           </a>
           <div class="text-truncate col-12" [innerHTML]="post.content | safeHtml"></div>

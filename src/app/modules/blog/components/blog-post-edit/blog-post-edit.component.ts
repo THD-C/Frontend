@@ -67,10 +67,7 @@ export class BlogPostEditComponent implements OnInit, OnDestroy {
    */
   async getBlogPost(): Promise<void> {
     try {
-      this.editBlogPost = await this.blogsService.getSingle(
-        this.editBlogPost.language,
-        this.editBlogPost.path
-      );
+      this.editBlogPost = await this.blogsService.getSingle(this.editBlogPost);
     } catch (e) {
     }
   }
@@ -100,7 +97,6 @@ export class BlogPostEditComponent implements OnInit, OnDestroy {
       const newRoutePath = currentRoutePath?.replace(`:${blogPathParamNames.path}`, this.editBlogPost.path)
         .replace(`:${blogPathParamNames.language}`, this.editBlogPost.language);
 
-      console.log(this.activatedRoute.parent);
       this.router.navigate([newRoutePath], {
         relativeTo: this.activatedRoute.parent, // Parent points to '/blog'
         replaceUrl: true,

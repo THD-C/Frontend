@@ -14,6 +14,7 @@ import { DxLoadPanelModule } from 'devextreme-angular/ui/load-panel';
 import { routes } from './blog.routes';
 import { BlogPostEditComponent } from './components/blog-post-edit/blog-post-edit.component';
 import { BlogPostsComponent } from './components/blog-posts/blog-posts.component';
+import { BlogPostReadComponent } from './components/blog-post-read/blog-post-read.component';
 import { HeaderComponent } from '../../shared/components/header/header.component';
 import { SafeHtmlPipe } from '../../pipes/safe-html/safe-html.pipe';
 
@@ -25,6 +26,7 @@ import { SafeHtmlPipe } from '../../pipes/safe-html/safe-html.pipe';
   declarations: [
     BlogPostEditComponent,
     BlogPostsComponent,
+    BlogPostReadComponent,
   ],
   imports: [
     CommonModule,

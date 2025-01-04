@@ -1,0 +1,6 @@
+<app-header position="relative" />
+
+<dx-scroll-view class="p-3 container mt-5" height="75vh" [useNative]="false" [scrollByContent]="true" [scrollByThumb]="true">
+  <h1 class="fw-bold fs-1">{{ blogPost.title }}</h1>
+  <div [innerHTML]="blogPost.content | safeHtml"></div>
+</dx-scroll-view>
