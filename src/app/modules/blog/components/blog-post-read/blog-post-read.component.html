@@ -1,6 +1,13 @@
 <app-header position="relative" />
 
-<dx-scroll-view class="p-3 container mt-5" height="75vh" [useNative]="false" [scrollByContent]="true" [scrollByThumb]="true">
+<dx-scroll-view class="p-3 container mt-5 position-relative" height="75vh" [useNative]="false" [scrollByContent]="true" [scrollByThumb]="true">
+  @if (authService.payload?.user_type === UserType.Blogger || authService.payload?.user_type === UserType.Admin) {
+    <div class="position-absolute end-0 top-0 w-auto">
+      <dx-button appGridEditButton (onClick)="edit()"></dx-button>
+      <dx-button appGridDeleteButton (onClick)="delete()"></dx-button>
+    </div>
+  }
+
   <h1 class="fw-bold fs-1">{{ blogPost.title }}</h1>
   <div [innerHTML]="blogPost.content | safeHtml"></div>
 </dx-scroll-view>

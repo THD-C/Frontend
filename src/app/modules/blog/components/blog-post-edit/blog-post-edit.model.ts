@@ -47,3 +47,8 @@ export type GetBlogPostRequest = {
  * Shared type for creating and updating a blog post.
  */
 export type EditBlogPostRequest = UpdateBlogPostRequest;
+
+export type DeleteBlogPostRequest = {
+  language: string;
+  path: string;
+}

@@ -17,6 +17,8 @@ import { BlogPostsComponent } from './components/blog-posts/blog-posts.component
 import { BlogPostReadComponent } from './components/blog-post-read/blog-post-read.component';
 import { HeaderComponent } from '../../shared/components/header/header.component';
 import { SafeHtmlPipe } from '../../pipes/safe-html/safe-html.pipe';
+import { GridEditButtonDirective } from '../../directives/grid-edit-button/grid-edit-button.directive';
+import { GridDeleteButtonDirective } from '../../directives/grid-delete-button/grid-delete-button.directive';
 
 
 @NgModule({
@@ -31,6 +33,7 @@ import { SafeHtmlPipe } from '../../pipes/safe-html/safe-html.pipe';
   imports: [
     CommonModule,
     RouterLink,
+
     DxSelectBoxModule,
     DxButtonModule,
     DxHtmlEditorModule,
@@ -38,9 +41,13 @@ import { SafeHtmlPipe } from '../../pipes/safe-html/safe-html.pipe';
     DxValidatorModule,
     DxTextBoxModule,
     DxScrollViewModule,
+    DxLoadPanelModule,
+
+    GridEditButtonDirective,
+    GridDeleteButtonDirective,
+    
     HeaderComponent,
     SafeHtmlPipe,
-    DxLoadPanelModule,
   ],
 })
 export class BlogModule { }

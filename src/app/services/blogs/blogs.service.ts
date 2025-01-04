@@ -5,7 +5,7 @@ import { NotificationsService } from 'angular2-notifications';
 
 import { BaseService } from '../base/base.service';
 import { errors } from './blogs.errors';
-import { BlogPost, CreateBlogPostRequest, GetBlogPostRequest, GetBlogPostsRequest, GetBlogPostsResponse, UpdateBlogPostRequest } from '../../modules/blog/components/blog-post-edit/blog-post-edit.model';
+import { BlogPost, CreateBlogPostRequest, DeleteBlogPostRequest, GetBlogPostRequest, GetBlogPostsRequest, GetBlogPostsResponse, UpdateBlogPostRequest } from '../../modules/blog/components/blog-post-edit/blog-post-edit.model';
 import { defaultEditBlogPost } from '../../modules/blog/components/blog-post-edit/blog-post-edit.config';
 
 @Injectable({
@@ -67,6 +67,16 @@ export class BlogsService extends BaseService {
     });
 
     return blogs[0] ?? defaultEditBlogPost;
+  }
+
+  async delete(data: DeleteBlogPostRequest): Promise<void> {
+    const params = this.generateParams({ ...data });
+    const request = this.httpClient.delete(
+      `${this.config.apiUrl}/${this.baseBlogsPath}/`,
+      { params }
+    ).pipe(catchError(this.catchCustomError.bind(this)));
+
+    await firstValueFrom(request);
   }
 
 }

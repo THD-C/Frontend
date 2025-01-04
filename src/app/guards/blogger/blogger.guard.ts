@@ -7,17 +7,17 @@ import { RouterExtendedService } from '../../services/router-extended/router-ext
 import { UserType } from '../../shared/models/user.model';
 
 export const bloggerGuard: CanActivateFn = (route, state) => {
-  return handleblogger(route, state);
+  return handleBlogger(route, state);
 };
 
-function handleblogger(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+function handleBlogger(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
   const auth = inject(AuthService);
-  const routerExtended = inject(RouterExtendedService);
+  const router = inject(RouterExtendedService);
 
   if (auth.isAuthenticated && (auth.payload?.user_type === UserType.Blogger || auth.payload?.user_type === UserType.Admin)) {
     return true;
   }
 
-  routerExtended.navigateToHome();
+  router.navigate(['/blog/posts']);
   return false;
 }
