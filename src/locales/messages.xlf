@@ -58,6 +58,13 @@
           <context context-type="linenumber">40</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="app.routes.blog.title" datatype="html">
+        <source>Blog - read crypto based articles &amp; expand knowledge | THD(C)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.routes.ts</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="Delete" datatype="html">
         <source>Delete</source>
         <context-group purpose="location">
@@ -104,7 +111,19 @@
         <source>Success</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/admin/components/admin/admin-user-change-type/admin-user-change-type.component.ts</context>
-          <context context-type="linenumber">43</context>
+          <context context-type="linenumber">46</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/blog/components/blog-post-edit/blog-post-edit.component.ts</context>
+          <context context-type="linenumber">106</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/blog/components/blog-post-read/blog-post-read.component.ts</context>
+          <context context-type="linenumber">96</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/blog/components/blog-posts/blog-posts.component.ts</context>
+          <context context-type="linenumber">104</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-details/profile-details.component.ts</context>
@@ -143,7 +162,7 @@
         <source>User type updated successfully</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/admin/components/admin/admin-user-change-type/admin-user-change-type.component.ts</context>
-          <context context-type="linenumber">44</context>
+          <context context-type="linenumber">47</context>
         </context-group>
       </trans-unit>
       <trans-unit id="admin-users.Action" datatype="html">
@@ -160,18 +179,25 @@
           <context context-type="linenumber">29</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="admin-users.Type" datatype="html">
+        <source>Type</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/admin/components/admin/admin-users/admin-users.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="admin-users.Are-you-sure-you-want-delete-user" datatype="html">
         <source>Are you sure you want delete user?</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/admin/components/admin/admin-users/admin-users.component.ts</context>
-          <context context-type="linenumber">43</context>
+          <context context-type="linenumber">44</context>
         </context-group>
       </trans-unit>
       <trans-unit id="admin-users.Caution" datatype="html">
         <source>Caution!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/admin/components/admin/admin-users/admin-users.component.ts</context>
-          <context context-type="linenumber">44</context>
+          <context context-type="linenumber">45</context>
         </context-group>
       </trans-unit>
       <trans-unit id="admin.Users" datatype="html">
@@ -179,6 +205,106 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/admin/components/admin/admin.config.ts</context>
           <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="blog-post-edit.Written-in" datatype="html">
+        <source>Written in</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/blog/components/blog-post-edit/blog-post-edit.component.html</context>
+          <context context-type="linenumber">11,12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="blog-post-edit.Title" datatype="html">
+        <source>Title</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/blog/components/blog-post-edit/blog-post-edit.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="blog-post-edit.Save" datatype="html">
+        <source>Save</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/blog/components/blog-post-edit/blog-post-edit.component.html</context>
+          <context context-type="linenumber">114</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="blog-post-edit.Blog-post-saved-successfully" datatype="html">
+        <source>Blog post saved successfully</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/blog/components/blog-post-edit/blog-post-edit.component.ts</context>
+          <context context-type="linenumber">107</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="blog-posts.Are-you-sure-you-want-delete-blog-post" datatype="html">
+        <source>Are you sure you want delete blog post?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/blog/components/blog-post-read/blog-post-read.component.ts</context>
+          <context context-type="linenumber">82</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/blog/components/blog-posts/blog-posts.component.ts</context>
+          <context context-type="linenumber">89</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="blog-posts.Caution" datatype="html">
+        <source>Caution!</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/blog/components/blog-post-read/blog-post-read.component.ts</context>
+          <context context-type="linenumber">83</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/blog/components/blog-posts/blog-posts.component.ts</context>
+          <context context-type="linenumber">90</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="blog-posts.Blog-post-deleted-successfully" datatype="html">
+        <source>Blog post deleted successfully</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/blog/components/blog-post-read/blog-post-read.component.ts</context>
+          <context context-type="linenumber">97</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/blog/components/blog-posts/blog-posts.component.ts</context>
+          <context context-type="linenumber">105</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="blog-post-read.Loading" datatype="html">
+        <source>Loading...</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/blog/components/blog-post-read/blog-post-read.config.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/blog/components/blog-post-read/blog-post-read.config.ts</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="blog-posts.Language" datatype="html">
+        <source>Language</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/blog/components/blog-posts/blog-posts.component.html</context>
+          <context context-type="linenumber">11,12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="blog-posts.Title" datatype="html">
+        <source>Title</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/blog/components/blog-posts/blog-posts.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="blog-posts.Filter" datatype="html">
+        <source>Filter</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/blog/components/blog-posts/blog-posts.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="blog-posts.Your-searched-blog-posts-are-not-here-Try-different-filters" datatype="html">
+        <source>Your searched blog posts are not here. Try different filters</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/blog/components/blog-posts/blog-posts.component.html</context>
+          <context context-type="linenumber">56,59</context>
         </context-group>
       </trans-unit>
       <trans-unit id="home.Crypto-trading-without-liabilities_" datatype="html">
@@ -2436,6 +2562,20 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/services/auth/auth.errors.ts</context>
           <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="blogs-errors.Operation-failed-Please-try-again" datatype="html">
+        <source>Operation failed. Please try again</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/blogs/blogs.errors.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="blogs-errors.User-does-not-have-enought-priviliges" datatype="html">
+        <source>User does not have enought priviliges</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/blogs/blogs.errors.ts</context>
+          <context context-type="linenumber">5</context>
         </context-group>
       </trans-unit>
       <trans-unit id="cryptos-errors.Operation-failed-Please-try-again" datatype="html">

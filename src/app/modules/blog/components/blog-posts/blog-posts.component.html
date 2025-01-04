@@ -1,0 +1,74 @@
+<app-header position="relative" />
+
+<dx-scroll-view id="blogPosts" class="container position-relative" height="75vh" [useNative]="false" [scrollByContent]="true" [scrollByThumb]="true">
+  <div class="row g-4 mt-5">
+    <div class="col-auto">
+      <dx-select-box
+        [dataSource]="availableLanguages"
+        [(value)]="getBlogPostsRequest.language"
+        displayExpr="name"
+        valueExpr="code"
+        label="Language"
+        i18n-label="@@blog-posts.Language"
+        labelMode="floating">
+      </dx-select-box>
+    </div>
+  
+    <div class="col">
+      <dx-text-box
+        [(value)]="getBlogPostsRequest.title"
+        label="Title"
+        i18n-label="@@blog-posts.Title"
+        labelMode="floating"
+        [showClearButton]="true">
+      </dx-text-box>
+    </div>
+  
+    <div class="col-auto">
+      <dx-button
+        class="h-100"
+        type="default"
+        text="Filter"
+        i18n-text="@@blog-posts.Filter"
+        (onClick)="refreshBlogPosts()">
+      </dx-button>
+    </div>
+  
+    <div class="px-4 col-12">
+      @for (post of blogPosts; track post) {
+        <div class="row gy-3 mt-4 rounded border px-2 position-relative">
+          <a class="col-12" [routerLink]="['/blog/read/', post.language, post.path]">
+            <h6 class="mb-0">{{ post.title }}</h6>
+          </a>
+          <div class="text-truncate col-12" [innerHTML]="truncateContent(post) | safeHtml"></div>
+
+          @if (authService.payload?.user_type === UserType.Blogger || authService.payload?.user_type === UserType.Admin) {
+            <div class="position-absolute end-0 top-0 w-auto">
+              <dx-button appGridEditButton (onClick)="edit(post)"></dx-button>
+              <dx-button appGridDeleteButton (onClick)="delete(post)"></dx-button>
+            </div>
+          }
+        </div>
+      }
+
+      @if (blogPosts.length === 0) {
+        <div class="text-center opacity-25 position-absolute top-50 start-50 translate-middle">
+          <h6 i18n="@@blog-posts.Your-searched-blog-posts-are-not-here-Try-different-filters">Your searched blog posts are not here. Try different filters</h6>
+          <i class="dx-icon dx-icon-search fs-1"></i>
+        </div>
+      }
+    </div>
+  </div>
+</dx-scroll-view>
+
+<dx-load-panel
+  class="rounded"
+  #loadPanel
+  shadingColor="rgba(0, 0, 0, 0.05)"
+  [position]="{ of: '#blogPosts' }"
+  [(visible)]="loadingVisible"
+  [showIndicator]="true"
+  [showPane]="true"
+  [shading]="true"
+  [hideOnOutsideClick]="false">
+</dx-load-panel>

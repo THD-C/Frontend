@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, output } from '@angular/core';
 import { NotificationsService } from 'angular2-notifications';
 import { UsersService } from '../../../../../services/users/users.service';
-import { UserType, UserTypes, userTypesMapReverse, UserTypeString } from '../../../../../shared/models/user.model';
+import { UserType, UserTypes, userTypesLongMapReverse, UserTypeStringLong } from '../../../../../shared/models/user.model';
 import { BaseService } from '../../../../../services/base/base.service';
+import { UserTypeChanged } from './admin-user-change.model';
 
 @Component({
   selector: 'app-admin-user-change-type',
@@ -12,6 +13,8 @@ import { BaseService } from '../../../../../services/base/base.service';
 export class AdminUserChangeTypeComponent {
 
   protected readonly UserTypes = UserTypes;
+
+  onChanged = output<UserTypeChanged>();
 
   visible = false;
 
@@ -24,10 +27,10 @@ export class AdminUserChangeTypeComponent {
     private readonly notifications: NotificationsService,
   ) { }
 
-  open(id: string, current_user_type: UserTypeString): void {
+  open(id: string, current_user_type: UserTypeStringLong): void {
     this.visible = true;
     this.user_id = id;
-    this.user_type = userTypesMapReverse.get(current_user_type) ?? UserType.Standard;
+    this.user_type = userTypesLongMapReverse.get(current_user_type) ?? UserType.Standard;
   }
 
   close(): void {
@@ -44,6 +47,11 @@ export class AdminUserChangeTypeComponent {
         $localize`:@@admin-user-change-type.User-type-updated-successfully:User type updated successfully`,
         BaseService.notificationOverride
       );
+
+      this.onChanged.emit({
+        user_type: this.user_type,
+        user_id: this.user_id,
+      });
       this.close();
     } catch (e) {
     }
