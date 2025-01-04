@@ -111,7 +111,7 @@
         <source>Success</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/admin/components/admin/admin-user-change-type/admin-user-change-type.component.ts</context>
-          <context context-type="linenumber">43</context>
+          <context context-type="linenumber">46</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/blog/components/blog-post-edit/blog-post-edit.component.ts</context>
@@ -162,7 +162,7 @@
         <source>User type updated successfully</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/admin/components/admin/admin-user-change-type/admin-user-change-type.component.ts</context>
-          <context context-type="linenumber">44</context>
+          <context context-type="linenumber">47</context>
         </context-group>
       </trans-unit>
       <trans-unit id="admin-users.Action" datatype="html">
@@ -179,18 +179,25 @@
           <context context-type="linenumber">29</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="admin-users.Type" datatype="html">
+        <source>Type</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/admin/components/admin/admin-users/admin-users.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="admin-users.Are-you-sure-you-want-delete-user" datatype="html">
         <source>Are you sure you want delete user?</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/admin/components/admin/admin-users/admin-users.component.ts</context>
-          <context context-type="linenumber">43</context>
+          <context context-type="linenumber">44</context>
         </context-group>
       </trans-unit>
       <trans-unit id="admin-users.Caution" datatype="html">
         <source>Caution!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/admin/components/admin/admin-users/admin-users.component.ts</context>
-          <context context-type="linenumber">44</context>
+          <context context-type="linenumber">45</context>
         </context-group>
       </trans-unit>
       <trans-unit id="admin.Users" datatype="html">
