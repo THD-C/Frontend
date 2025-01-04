@@ -28,6 +28,16 @@ export type UpdateBlogPostRequest = {
   path: string;
 }
 
+export type GetBlogPostRequest = {
+  title: string;
+  language: string;
+  path: string;
+}
+
+export type GetBlogPostResponse = {
+  Blogs: BlogPost[];
+}
+
 /**
  * Shared type for creating and updating a blog post.
  */

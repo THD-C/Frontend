@@ -10,16 +10,21 @@ export const routes: Routes = [
       {
         path: `edit`,
         pathMatch: 'full',
-        redirectTo: 'edit/',
+        redirectTo: `edit/`,
       },
       {
-        path: `edit/:${blogPathParamNames.path}`,
+        path: `edit/:${blogPathParamNames.language}`,
         component: BlogPostEditComponent,
-        canActivate: [bloggerGuard]
+        canActivate: [bloggerGuard],
+      },
+      {
+        path: `edit/:${blogPathParamNames.language}/:${blogPathParamNames.path}`,
+        component: BlogPostEditComponent,
+        canActivate: [bloggerGuard],
       },
       {
         path: '**',
-        redirectTo: ''
+        redirectTo: '',
       }
     ]
   }

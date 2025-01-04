@@ -2,7 +2,7 @@ import { Component, Inject, LOCALE_ID, OnDestroy, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { BlogsService } from '../../../../services/blogs/blogs.service';
-import { CreateBlogPostRequest, EditBlogPostRequest, UpdateBlogPostRequest } from './blog-post-edit.model';
+import { BlogPost, CreateBlogPostRequest, EditBlogPostRequest, UpdateBlogPostRequest } from './blog-post-edit.model';
 import { defaultEditBlogPost } from './blog-post-edit.config';
 import { blogPathParamNames } from '../../blog.model';
 import { availableLanguages, defaultLanguage } from '../../../../app.config';
@@ -43,6 +43,7 @@ export class BlogPostEditComponent implements OnInit, OnDestroy {
 
   async ngOnInit(): Promise<void> {
     this.applyPathParams();
+    await this.getBlogPost();
   }
 
   ngOnDestroy(): void {
@@ -55,9 +56,25 @@ export class BlogPostEditComponent implements OnInit, OnDestroy {
     this.subscriptions.push(
       this.activatedRoute.paramMap.subscribe(params => {
         this.editBlogPost.path = params.get(blogPathParamNames.path) ?? defaultEditBlogPost.path;
-        this.editBlogPost.language = availableLanguages.find(l => l.isoCode === this.locale)?.code ?? defaultLanguage.code;
+        this.editBlogPost.language = params.get(blogPathParamNames.language) // Entering edit view on existing blog post
+          ?? availableLanguages.find(l => l.isoCode === this.locale)?.code // Entering edit view on new (creating) blog post
+          ?? defaultLanguage.code;
       })
     );
+  }
+  
+  /**
+   * Make sure this method is called
+   * after {@link applyPathParams} call!
+   */
+  async getBlogPost(): Promise<void> {
+    try {
+      this.editBlogPost = await this.blogsService.getSingle(
+        this.editBlogPost.language,
+        this.editBlogPost.path
+      );
+    } catch (e) {
+    }
   }
 
   async save(): Promise<void> {
@@ -66,30 +83,26 @@ export class BlogPostEditComponent implements OnInit, OnDestroy {
     }
 
     try {
-      let updatedPath: string = '';
       if (this.isNew) {
-        const { path } = await this.blogsService.create({
+        this.editBlogPost = await this.blogsService.create({
           title: this.editBlogPost.title,
           content: this.editBlogPost.content,
           language: this.editBlogPost.language,
         } satisfies CreateBlogPostRequest);
-
-        updatedPath = path;
       } else {
-        const { path } = await this.blogsService.update({
+        this.editBlogPost = await this.blogsService.update({
           title: this.editBlogPost.title,
           content: this.editBlogPost.content,
           language: this.editBlogPost.language,
           path: this.editBlogPost.path,
         } satisfies UpdateBlogPostRequest);
-
-        updatedPath = path;
       }
 
       const currentRoutePath = this.activatedRoute.snapshot.routeConfig?.path;
-      const newRoutePath = currentRoutePath?.replace(`:${blogPathParamNames.path}`, updatedPath);
+      const newRoutePath = currentRoutePath?.replace(`:${blogPathParamNames.path}`, this.editBlogPost.path)
+        .replace(`:${blogPathParamNames.language}`, this.editBlogPost.language);
 
-      this.editBlogPost.path = updatedPath;
+      console.log(this.activatedRoute.parent);
       this.router.navigate([newRoutePath], {
         relativeTo: this.activatedRoute.parent, // Parent points to '/blog'
         replaceUrl: true,
