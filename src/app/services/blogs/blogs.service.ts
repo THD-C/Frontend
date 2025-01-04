@@ -5,7 +5,7 @@ import { NotificationsService } from 'angular2-notifications';
 
 import { BaseService } from '../base/base.service';
 import { errors } from './blogs.errors';
-import { BlogPost, CreateBlogPostRequest } from '../../modules/blog/components/blog-post-edit/blog-post-edit.model';
+import { BlogPost, CreateBlogPostRequest, UpdateBlogPostRequest } from '../../modules/blog/components/blog-post-edit/blog-post-edit.model';
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +27,15 @@ export class BlogsService extends BaseService {
   
   async create(data: CreateBlogPostRequest): Promise<BlogPost> {
     const request = this.httpClient.post<BlogPost>(
+      `${this.config.apiUrl}/${this.baseBlogsPath}/`,
+      { ...data }
+    ).pipe(catchError(this.catchCustomError.bind(this)));
+
+    return await firstValueFrom(request) as BlogPost;
+  }
+  
+  async update(data: UpdateBlogPostRequest): Promise<BlogPost> {
+    const request = this.httpClient.put<BlogPost>(
       `${this.config.apiUrl}/${this.baseBlogsPath}/`,
       { ...data }
     ).pipe(catchError(this.catchCustomError.bind(this)));

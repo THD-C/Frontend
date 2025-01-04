@@ -2,7 +2,7 @@ import { Component, Inject, LOCALE_ID, OnDestroy, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { BlogsService } from '../../../../services/blogs/blogs.service';
-import { CreateBlogPostRequest, EditBlogPostRequest } from './blog-post-edit.model';
+import { CreateBlogPostRequest, EditBlogPostRequest, UpdateBlogPostRequest } from './blog-post-edit.model';
 import { defaultEditBlogPost } from './blog-post-edit.config';
 import { blogPathParamNames } from '../../blog.model';
 import { availableLanguages, defaultLanguage } from '../../../../app.config';
@@ -66,6 +66,7 @@ export class BlogPostEditComponent implements OnInit, OnDestroy {
     }
 
     try {
+      let updatedPath: string = '';
       if (this.isNew) {
         const { path } = await this.blogsService.create({
           title: this.editBlogPost.title,
@@ -73,15 +74,26 @@ export class BlogPostEditComponent implements OnInit, OnDestroy {
           language: this.editBlogPost.language,
         } satisfies CreateBlogPostRequest);
 
-        const currentRoutePath = this.activatedRoute.snapshot.routeConfig?.path;
-        const newRoutePath = currentRoutePath?.replace(`:${blogPathParamNames.path}`, path);
+        updatedPath = path;
+      } else {
+        const { path } = await this.blogsService.update({
+          title: this.editBlogPost.title,
+          content: this.editBlogPost.content,
+          language: this.editBlogPost.language,
+          path: this.editBlogPost.path,
+        } satisfies UpdateBlogPostRequest);
 
-        this.editBlogPost.path = path;
-        this.router.navigate([newRoutePath], {
-          relativeTo: this.activatedRoute.parent, // Parent points to '/blog'
-          replaceUrl: true,
-        });
+        updatedPath = path;
       }
+
+      const currentRoutePath = this.activatedRoute.snapshot.routeConfig?.path;
+      const newRoutePath = currentRoutePath?.replace(`:${blogPathParamNames.path}`, updatedPath);
+
+      this.editBlogPost.path = updatedPath;
+      this.router.navigate([newRoutePath], {
+        relativeTo: this.activatedRoute.parent, // Parent points to '/blog'
+        replaceUrl: true,
+      });
 
       this.notifications.success(
         $localize`:@@notifications.Success:Success`,
