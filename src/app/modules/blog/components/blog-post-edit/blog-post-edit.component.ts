@@ -1,8 +1,7 @@
 import { Component, Inject, LOCALE_ID, OnDestroy, OnInit } from '@angular/core';
-import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { BlogsService } from '../../../../services/blogs/blogs.service';
-import { BlogPost, CreateBlogPostRequest, EditBlogPostRequest, UpdateBlogPostRequest } from './blog-post-edit.model';
+import { CreateBlogPostRequest, EditBlogPostRequest, UpdateBlogPostRequest } from './blog-post-edit.model';
 import { defaultEditBlogPost } from './blog-post-edit.config';
 import { blogPathParamNames } from '../../blog.model';
 import { availableLanguages, defaultLanguage } from '../../../../app.config';
@@ -37,7 +36,6 @@ export class BlogPostEditComponent implements OnInit, OnDestroy {
     private readonly activatedRoute: ActivatedRoute,
     private readonly router: RouterExtendedService,
     @Inject(LOCALE_ID) private readonly locale: string,
-    private readonly location: Location,
     private readonly notifications: NotificationsService,
   ) { }
 
