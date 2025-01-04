@@ -70,6 +70,23 @@ export enum UserTypeString {
   Admin = 'ADMIN_USER',
 }
 
+export enum UserTypeStringLong {
+  /**
+   * {@link UserType.Standard}
+   */
+  Standard = 'USER_TYPE_STANDARD_USER',
+
+  /**
+   * {@link UserType.Blogger}
+   */
+  Blogger = 'USER_TYPE_BLOGGER_USER',
+
+  /**
+   * {@link UserType.Admin}
+   */
+  Admin = 'USER_TYPE_ADMIN_USER',
+}
+
 export type AvailableUserType = {
   value: UserType;
   text: UserTypeString;
@@ -83,6 +100,16 @@ export const userTypesMap: Map<UserType, UserTypeString> = new Map([
 
 export const userTypesMapReverse: Map<UserTypeString, UserType> = new Map(
   Array.from(userTypesMap, ([key, value]) => [value, key])
+);
+
+export const userTypesLongMap: Map<UserType, UserTypeStringLong> = new Map([
+  [UserType.Standard, UserTypeStringLong.Standard],
+  [UserType.Blogger, UserTypeStringLong.Blogger],
+  [UserType.Admin, UserTypeStringLong.Admin],
+]);
+
+export const userTypesLongMapReverse: Map<UserTypeStringLong, UserType> = new Map(
+  Array.from(userTypesLongMap, ([key, value]) => [value, key])
 );
 
 export const UserTypes: AvailableUserType[] = Array.from(userTypesMap, ([key, value]) => ({ value: key, text: value }));

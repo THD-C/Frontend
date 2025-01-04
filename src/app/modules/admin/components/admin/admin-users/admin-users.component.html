@@ -28,7 +28,8 @@
     <dxi-column caption="ID" dataField="ID"></dxi-column>
     <dxi-column caption="Username" i18n-caption="@@admin-users.Username" dataField="username"></dxi-column>
     <dxi-column caption="E-mail" dataField="email"></dxi-column>
+    <dxi-column caption="Type" i18n-caption="@@admin-users.Type" dataField="user_type"></dxi-column>
   </dx-data-grid>
 </dx-scroll-view>
 
-<app-admin-user-change-type #adminUserEdit />
+<app-admin-user-change-type #adminUserEdit (onChanged)="onUserTypeChanged($event)" />

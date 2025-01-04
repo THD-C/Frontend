@@ -5,8 +5,9 @@ import { confirm } from 'devextreme/ui/dialog';
 import { UsersService } from '../../../../../services/users/users.service';
 import { User as User } from './admin-users.model';
 import { AuthService } from '../../../../../services/auth/auth.service';
-import { UserType, UserTypeString } from '../../../../../shared/models/user.model';
+import { UserType, userTypesLongMap, UserTypeString, UserTypeStringLong } from '../../../../../shared/models/user.model';
 import { AdminUserChangeTypeComponent } from '../admin-user-change-type/admin-user-change-type.component';
+import { UserTypeChanged } from '../admin-user-change-type/admin-user-change.model';
 
 @Component({
   selector: 'app-admin-users',
@@ -55,7 +56,14 @@ export class AdminUsersComponent implements OnInit {
   }
 
   openEditUser(user: User): void {
-    this.adminUserEdit()?.open(user.ID, user.user_type as UserTypeString);
+    this.adminUserEdit()?.open(user.ID, user.user_type as UserTypeStringLong);
+  }
+
+  onUserTypeChanged(event: UserTypeChanged): void {
+    const index = this.users.findIndex(u => u.ID === event.user_id);
+    if (index !== -1) {
+      this.users[index].user_type = userTypesLongMap.get(event.user_type)!;
+    }
   }
 
 }
