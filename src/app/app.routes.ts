@@ -42,6 +42,11 @@ export const routes: Routes = [
     loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule),
   },
   {
+    title: $localize`:@@app.routes.blog.title:Blog - read crypto based articles & expand knowledge | THD(C)`,
+    path: 'blog',
+    loadChildren: () => import('./modules/blog/blog.module').then(m => m.BlogModule),
+  },
+  {
     path: '**',
     redirectTo: 'home',
   },

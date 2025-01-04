@@ -34,12 +34,14 @@ export const appConfig: ApplicationConfig = {
 
 export const appName: string = 'THD(C)';
 
+export const defaultLanguage: Language = {
+  code: 'en',
+  name: 'EN',
+  isoCode: 'en-US',
+};
+
 export const availableLanguages: Language[] = [
-  {
-    code: 'en',
-    name: 'EN',
-    isoCode: 'en-US',
-  },
+  { ...defaultLanguage },
   {
     code: 'pl',
     name: "PL",
