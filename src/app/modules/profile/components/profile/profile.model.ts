@@ -3,6 +3,7 @@ export enum TabId {
   Wallets = 1,
   Password = 2,
   Payments = 3,
+  Statistics = 4,
 }
 
 export const tabsRouterMap: Map<number, string[]> = new Map([
@@ -10,6 +11,7 @@ export const tabsRouterMap: Map<number, string[]> = new Map([
   [TabId.Wallets, ['wallets']],
   [TabId.Password, ['password']],
   [TabId.Payments, ['payments']],
+  [TabId.Statistics, ['statisticts']],
 ]);
 
 export const activatedRouteTabsMap: Map<string, TabId> = new Map([
@@ -17,4 +19,5 @@ export const activatedRouteTabsMap: Map<string, TabId> = new Map([
   ['/profile/wallets', TabId.Wallets],
   ['/profile/password', TabId.Password],
   ['/profile/payments', TabId.Payments],
+  ['/profile/statisticts', TabId.Payments],
 ]);

@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+import { NotificationsService } from 'angular2-notifications';
 import { catchError } from 'rxjs/operators';
 import { firstValueFrom } from 'rxjs';
 import { BaseService } from '../base/base.service';
-import { NotificationsService } from 'angular2-notifications';
 import { errors } from './statistics.errors';
+import { CryptoEstimationRequest, CryptoWalletStatistics, PortfolioDiversityRequest, PortfolioDiversityResponse } from '../../modules/profile/components/profile/profile-statisticts/profile-statisticts.model';
 
 @Injectable({
   providedIn: 'root'
@@ -24,25 +25,25 @@ export class StatisticsService extends BaseService {
     this.errors = { ...this.errors, ...errors };
   }
 
-  async getPortfolioDiversity(userId?: string, currency: string = 'usd'): Promise<unknown> {
-    const params = this.generateParams({ user_id: userId, currency });
+  async getPortfolioDiversity(filters: PortfolioDiversityRequest): Promise<PortfolioDiversityResponse> {
+    const params = this.generateParams({ ...filters });
 
-    const response = this.httpClient.get<unknown>(
+    const request = this.httpClient.get<PortfolioDiversityResponse>(
       `${this.config.apiUrl}/${this.baseStatisticsPath}/portfolio-diversity`,
       { params }
     ).pipe(catchError(this.catchCustomError.bind(this)));
 
-    return await firstValueFrom(response);
+    return await firstValueFrom(request) as PortfolioDiversityResponse;
   }
 
-  async getCryptoEstimation(userId?: string, currency: string = 'usd', walletId?: string): Promise<unknown> {
-    const params = this.generateParams({ user_id: userId, currency, wallet_id: walletId });
+  async getCryptoEstimation(filters: CryptoEstimationRequest): Promise<CryptoWalletStatistics> {
+    const params = this.generateParams({ ...filters });
 
-    const response = this.httpClient.get<unknown>(
+    const request = this.httpClient.get<CryptoWalletStatistics>(
       `${this.config.apiUrl}/${this.baseStatisticsPath}/crypto-estimation`,
       { params }
     ).pipe(catchError(this.catchCustomError.bind(this)));
 
-    return await firstValueFrom(response);
+    return await firstValueFrom(request) as CryptoWalletStatistics;
   }
 }
