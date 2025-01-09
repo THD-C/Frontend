@@ -50,7 +50,7 @@
             <span>{{ item?.currency }} ({{ item?.value | number:'1.2-2' }})</span>
           </div>
           <div *dxTemplate="let item of 'fiatWalletFieldTemplate'">
-            <dx-text-box [value]="getFiatWalletFieldLabel(item)"></dx-text-box>
+            <dx-text-box [value]="getFiatWalletFieldLabel(selectedFiatWallet)"></dx-text-box>
           </div>
           <dx-validator>
             <dxi-validation-rule type="required"></dxi-validation-rule>
