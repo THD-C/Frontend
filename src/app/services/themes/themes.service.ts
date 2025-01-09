@@ -2,7 +2,7 @@ import { DOCUMENT } from '@angular/common';
 import { Inject, Injectable } from '@angular/core';
 
 import themes from 'devextreme/ui/themes';
-import { AvailableBootstrapThemes, AvailableDevExtremeThemes, devextremeBootstrapThemesMap, devextremeThemesSwitchMap } from './themes.model';
+import { AvailableDevExtremeThemes, devextremeBootstrapThemesMap, devextremeThemesSwitchMap } from './themes.model';
 
 @Injectable({
   providedIn: 'root'
