@@ -1,1 +1,33 @@
-<p>profile-statisticts works!</p>
+<dx-scroll-view class="card shadow p-3 border-primary container" [useNative]="false" [scrollByContent]="true" [scrollByThumb]="true">
+
+  <div class="row g-4">
+    <div class="col-auto">
+      <dx-select-box
+        class="col-12"
+        [dataSource]="fiatCurrencies"
+        [value]="displayCurrency.currency_name"
+        [(selectedItem)]="displayCurrency"
+        (onSelectionChanged)="onDisplayCurrencySelectionChanged()"
+        label="Display in currency"
+        labelMode="floating"
+        i18n-label="@@profile-statisticts.Display-in-currency"
+        valueExpr="currency_name"
+        displayExpr="currency_name">
+      </dx-select-box>
+    </div>
+    <dx-pie-chart
+      class="col-12"
+      title="Portfolio diversity"
+      i18n-title="@@profile-statistics.Portfolio-diversity"
+      palette="bright"
+      [dataSource]="cryptoWalletsStatistics">
+      <dxi-series argumentField="cryptocurrency" valueField="fiat_value">
+        <dxo-label [visible]="true" displayFormat="{valueText}{{displayCurrency.currency_name}} ({percentText})">
+          <dxo-connector [visible]="true" [width]="1"></dxo-connector>
+        </dxo-label>
+      </dxi-series>
+      <dxo-export [enabled]="true"></dxo-export>
+    </dx-pie-chart>
+  </div>
+
+</dx-scroll-view>

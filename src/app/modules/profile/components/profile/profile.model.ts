@@ -19,5 +19,5 @@ export const activatedRouteTabsMap: Map<string, TabId> = new Map([
   ['/profile/wallets', TabId.Wallets],
   ['/profile/password', TabId.Password],
   ['/profile/payments', TabId.Payments],
-  ['/profile/statisticts', TabId.Payments],
+  ['/profile/statisticts', TabId.Statistics],
 ]);

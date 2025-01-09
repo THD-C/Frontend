@@ -7,6 +7,7 @@ import { ProfileDetailsComponent } from './components/profile/profile-details/pr
 import { ProfileWalletsComponent } from './components/profile/profile-wallets/profile-wallets.component';
 import { ProfilePasswordComponent } from './components/profile/profile-password/profile-password.component';
 import { ProfilePaymentsComponent } from './components/profile/profile-payments/profile-payments.component';
+import { ProfileStatistictsComponent } from './components/profile/profile-statisticts/profile-statisticts.component';
 
 export const routes: Routes = [
   {
@@ -29,6 +30,10 @@ export const routes: Routes = [
       {
         path: 'payments',
         component: ProfilePaymentsComponent,
+      },
+      {
+        path: 'statisticts',
+        component: ProfileStatistictsComponent,
       },
       {
         path: '**',
