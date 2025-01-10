@@ -11,11 +11,13 @@ import { CurrenciesService } from '../../../../../services/currencies/currencies
 import { CurrencyType } from '../profile-wallets/profile-wallet-create/profile-wallet-create.model';
 import { Wallet } from '../profile-wallets/profile-wallets.model';
 import { WalletsService } from '../../../../../services/wallets/wallets.service';
+import { DatePipe, DecimalPipe } from '@angular/common';
 
 @Component({
   selector: 'app-profile-statisticts',
   templateUrl: './profile-statisticts.component.html',
-  styleUrl: './profile-statisticts.component.scss'
+  styleUrl: './profile-statisticts.component.scss',
+  providers: [DecimalPipe],
 })
 export class ProfileStatistictsComponent implements OnInit {
 
@@ -33,6 +35,7 @@ export class ProfileStatistictsComponent implements OnInit {
     private readonly authService: AuthService,
     private readonly currenciesService: CurrenciesService,
     private readonly walletsService: WalletsService,
+    private readonly decimalPipe: DecimalPipe,
   ) { }
 
   async ngOnInit(): Promise<void> {

@@ -26,9 +26,20 @@
       palette="bright"
       [dataSource]="cryptoWalletsStatistics"
       (onPointClick)="pointClickHandler($event)">
+      <dxo-legend
+        orientation="horizontal"
+        itemTextPosition="right"
+        horizontalAlignment="center"
+        verticalAlignment="bottom"
+        [columnCount]="4"
+      ></dxo-legend>
       <dxi-series argumentField="cryptocurrency" valueField="fiat_value">
-        <dxo-label [visible]="true" displayFormat="{valueText}{{displayCurrency.currency_name}} ({percentText})">
+        <dxo-label
+          [visible]="true"
+          displayFormat="{valueText} ({percentText})"
+          position="columns">
           <dxo-connector [visible]="true" [width]="1"></dxo-connector>
+          <dxo-format type="fixedPoint" precision="2"></dxo-format>
         </dxo-label>
       </dxi-series>
       <dxo-export [enabled]="true"></dxo-export>
