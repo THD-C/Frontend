@@ -60,26 +60,6 @@ export class ProfileStatistictsComponent implements OnInit {
       });
       
       this.cryptoWalletsStatistics = crypto_wallets_statistics;
-      // this.cryptoWalletsStatistics = [
-      //   {
-      //     cryptocurrency: 'BITCOIN',
-      //     fiat_value: 4898400,
-      //     current_price: 97968,
-      //     share_in_portfolio: 96.43
-      //   },
-      //   {
-      //     cryptocurrency: 'ETHEREUM',
-      //     fiat_value: 181562,
-      //     current_price: 3631.24,
-      //     share_in_portfolio: 3.57
-      //   },
-      //   {
-      //     cryptocurrency: 'RIPPLE',
-      //     fiat_value: 23.80,
-      //     current_price: 2.38,
-      //     share_in_portfolio: 0
-      //   }
-      // ];
     } catch (e) {
     }
   }
