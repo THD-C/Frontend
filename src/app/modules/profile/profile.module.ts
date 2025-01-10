@@ -12,6 +12,7 @@ import { DxPopupModule } from 'devextreme-angular/ui/popup';
 import { DxSelectBoxModule } from 'devextreme-angular/ui/select-box';
 import { DxNumberBoxModule } from 'devextreme-angular/ui/number-box';
 import { DxCheckBoxModule } from 'devextreme-angular/ui/check-box';
+import { DxPieChartModule } from 'devextreme-angular/ui/pie-chart';
 
 import { routes } from './profile.routes';
 import { GridEditButtonDirective } from '../../directives/grid-edit-button/grid-edit-button.directive';
@@ -25,6 +26,7 @@ import { ProfilePasswordComponent } from './components/profile/profile-password/
 import { ProfileWalletAddMoneyComponent } from './components/profile/profile-wallets/profile-wallet-add-money/profile-wallet-add-money.component';
 import { ProfilePaymentsComponent } from './components/profile/profile-payments/profile-payments.component';
 import { ProfileWalletOrdersComponent } from './components/profile/profile-wallets/profile-wallet-orders/profile-wallet-orders.component';
+import { ProfileStatistictsComponent } from './components/profile/profile-statisticts/profile-statisticts.component';
 
 
 @NgModule({
@@ -40,6 +42,7 @@ import { ProfileWalletOrdersComponent } from './components/profile/profile-walle
     ProfileWalletAddMoneyComponent,
     ProfilePaymentsComponent,
     ProfileWalletOrdersComponent,
+    ProfileStatistictsComponent,
   ],
   imports: [
     CommonModule,
@@ -56,6 +59,7 @@ import { ProfileWalletOrdersComponent } from './components/profile/profile-walle
     DxSelectBoxModule,
     DxNumberBoxModule,
     DxCheckBoxModule,
+    DxPieChartModule,
 
     GridEditButtonDirective,
     GridDeleteButtonDirective,

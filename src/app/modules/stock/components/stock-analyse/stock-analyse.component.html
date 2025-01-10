@@ -130,12 +130,7 @@
   </div>
   
   <div class="bg-body rounded shadow p-4 col-lg-2 col-12 p-0">
-    <div class="row gy-4 gx-0">
-      <h4 class="col-12 text-center mt-5 mb-3">{{ cryptoOrdersTotal | number:'1.2-2' }}&nbsp;{{ displayCurrency.currency_name }}</h4>
-      <span class="col-12 text-center mt-0" [class.text-danger]="currentProfit < 0" [class.text-success]="currentProfit > 0">
-        {{ currentProfit | number:'1.2-2' }}&nbsp;<i class="dx-icon custom-dx-icon-arrow" [class.dx-icon-arrowup]="currentProfit > 0" [class.dx-icon-arrowdown]="currentProfit < 0"></i>{{ currentProfitInPercentage | number:'1.2-2' }}%
-      </span>
-      
+    <div class="row gy-4 gx-0">      
       <dx-select-box
         class="col-12"
         [dataSource]="fiatCurrencies"

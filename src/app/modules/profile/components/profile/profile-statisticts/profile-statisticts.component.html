@@ -1,0 +1,68 @@
+<dx-scroll-view class="card shadow p-3 border-primary container" [useNative]="false" [scrollByContent]="true" [scrollByThumb]="true">
+
+  <div class="row g-4">
+    <div class="col-12">
+      <div class="row">
+        <div class="col-auto">
+          <dx-select-box
+            [dataSource]="fiatCurrencies"
+            [value]="displayCurrency.currency_name"
+            [(selectedItem)]="displayCurrency"
+            (onSelectionChanged)="onDisplayCurrencySelectionChanged()"
+            label="Display/calculate in currency"
+            labelMode="floating"
+            i18n-label="@@profile-statisticts.Display-calculate-in-currency"
+            valueExpr="currency_name"
+            displayExpr="currency_name">
+          </dx-select-box>
+        </div>
+      </div>
+    </div>
+    <dx-pie-chart
+      [class.col-6]="selectedCryptoWallet"
+      [class.col-12]="!selectedCryptoWallet"
+      title="Portfolio diversity"
+      i18n-title="@@profile-statistics.Portfolio-diversity"
+      palette="bright"
+      [dataSource]="cryptoWalletsStatistics"
+      (onPointClick)="pointClickHandler($event)">
+      <dxo-legend
+        orientation="horizontal"
+        itemTextPosition="right"
+        horizontalAlignment="center"
+        verticalAlignment="bottom"
+        [columnCount]="4"
+      ></dxo-legend>
+      <dxi-series argumentField="cryptocurrency" valueField="fiat_value">
+        <dxo-label
+          [visible]="true"
+          displayFormat="{valueText} ({percentText})"
+          position="columns">
+          <dxo-connector [visible]="true" [width]="1"></dxo-connector>
+          <dxo-format type="fixedPoint" precision="2"></dxo-format>
+        </dxo-label>
+      </dxi-series>
+      <dxo-export [enabled]="true"></dxo-export>
+    </dx-pie-chart>
+    @if (selectedCryptoWallet) {
+      <dx-data-grid
+        class="col-6"
+        [dataSource]="cryptoEstimations"
+        [remoteOperations]="false">
+        <dxo-paging [pageSize]="10"></dxo-paging>
+        <dxo-pager
+          [visible]="true"
+          [showPageSizeSelector]="true"
+          [allowedPageSizes]="[10, 25, 50, 100]"
+        ></dxo-pager>
+        <dxo-load-panel [enabled]="true"></dxo-load-panel>
+
+        <dxi-column caption="Amount" i18n-caption="@@profile-statisticts.Amount" dataField="amount"></dxi-column>
+        <dxi-column caption="Estimated fiat value" i18n-caption="@@profile-statisticts.Estimated-fiat-value" dataField="estimated_fiat_value">
+          <dxo-format type="fixedPoint" [precision]="2"></dxo-format>
+        </dxi-column>
+      </dx-data-grid>
+    }
+  </div>
+
+</dx-scroll-view>

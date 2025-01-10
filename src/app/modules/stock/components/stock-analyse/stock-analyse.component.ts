@@ -65,9 +65,6 @@ export class StockAnalyseComponent implements OnInit {
   selectedTimeFrameIndex: number = defaultTimeFrameIndex;
   timeFrames: TimeFrame[] = timeFrames;
 
-  cryptoOrdersTotal: number = 55_352.98;
-  currentProfit: number = 235.32;
-
   currentCryptoOrders: Order[] = [];
   wallets: Wallet[] = [];
   fiatCurrencies: Currency[] = [];
@@ -79,10 +76,6 @@ export class StockAnalyseComponent implements OnInit {
   }
   get toggleFullScreenButtonHint(): string {
     return this.fullscreen ? $localize`:@@stock.Close-fullscreen:Close fullscreen` : $localize`:@@stock.Fullscreen:Fullscreen`;
-  }
-
-  get currentProfitInPercentage(): number {
-    return (this.cryptoOrdersTotal + this.currentProfit) / this.cryptoOrdersTotal;
   }
 
   constructor(

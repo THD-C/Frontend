@@ -18,6 +18,10 @@ export const tabs: DxTabsItem[] = [
     text: $localize`:@@profile.Payments:Payments`,
     icon: 'money',
   },
+  {
+    text: $localize`:@@profile.Statistics:Statistics`,
+    icon: 'chart',
+  },
 ];
 
 export const selectedTabIndex: TabId = TabId.Details;

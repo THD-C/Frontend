@@ -24,23 +24,23 @@ export const defaultCryptoDetails: CryptoDetails = {
 export const defaultTimeFrameIndex: number = 0;
 
 const now = new Date();
-const startDate = new Date();
-startDate.setHours(startDate.getHours() - 1);
+const startDate = new Date(now);
+startDate.setHours(now.getHours() - 1);
 
-const endDate = new Date();
-endDate.setHours(endDate.getHours() - 1);
+const endDate = new Date(now);
+endDate.setHours(now.getHours() - 1);
 
 const oneDayDateFrom = new Date(startDate);
-oneDayDateFrom.setDate(now.getDate() - 1);
+oneDayDateFrom.setDate(startDate.getDate() - 1);
 
 const oneWeekDateFrom = new Date(startDate);
-oneWeekDateFrom.setDate(now.getDate() - 7);
+oneWeekDateFrom.setDate(startDate.getDate() - 7);
 
 const oneMonthDateFrom = new Date(startDate);
-oneMonthDateFrom.setDate(now.getDate() - 30);
+oneMonthDateFrom.setDate(startDate.getDate() - 30);
 
 const sixMonthsDateFrom = new Date(startDate)
-sixMonthsDateFrom.setDate(now.getDate() - 180);
+sixMonthsDateFrom.setDate(startDate.getDate() - 180);
 
 const yearTodayMonthsDateFrom = new Date(startDate);
 yearTodayMonthsDateFrom.setDate(1);
@@ -51,7 +51,7 @@ yearTodayMonthsDateFrom.setSeconds(0);
 yearTodayMonthsDateFrom.setMilliseconds(0);
 
 const oneYearMonthsDateFrom = new Date(startDate);
-oneYearMonthsDateFrom.setDate(now.getDate() - 365);
+oneYearMonthsDateFrom.setDate(startDate.getDate() - 365);
 
 // const fiveYearMonthsDateFrom = new Date(startDate);
 // fiveYearMonthsDateFrom.setFullYear(fiveYearMonthsDateFrom.getFullYear() -  5);
@@ -77,11 +77,11 @@ export const timeFrames: TimeFrame[] = [
     dateFrom: sixMonthsDateFrom,
     dateTo: new Date(endDate),
   },
-  {
-    badge: 'YTD',
-    dateFrom: yearTodayMonthsDateFrom,
-    dateTo: new Date(endDate),
-  },
+  // {
+  //   badge: 'YTD',
+  //   dateFrom: yearTodayMonthsDateFrom,
+  //   dateTo: new Date(endDate),
+  // },
   {
     badge: '1Y',
     dateFrom: oneYearMonthsDateFrom,
