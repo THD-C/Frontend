@@ -77,11 +77,11 @@ export const timeFrames: TimeFrame[] = [
     dateFrom: sixMonthsDateFrom,
     dateTo: new Date(endDate),
   },
-  {
-    badge: 'YTD',
-    dateFrom: yearTodayMonthsDateFrom,
-    dateTo: new Date(endDate),
-  },
+  // {
+  //   badge: 'YTD',
+  //   dateFrom: yearTodayMonthsDateFrom,
+  //   dateTo: new Date(endDate),
+  // },
   {
     badge: '1Y',
     dateFrom: oneYearMonthsDateFrom,
