@@ -83,7 +83,7 @@ export class StockOrderSellComponent {
     this.fiatWallets = wallets.filter(({ is_crypto }) => is_crypto === false);
 
     this.selectedCryptoWallet = wallets.find(w => w.currency.toLowerCase() === crypto.currency_name) ?? defaultWallet;
-    this.selectedFiatWallet = wallets.find(w => w.currency.toLowerCase() === currency.currency_name) ?? defaultWallet;
+    this.selectedFiatWallet = wallets.find(w => w.currency.toLowerCase() === currency.currency_name) ?? this.fiatWallets[0];
 
     await this.refreshCryptoDetails();
 

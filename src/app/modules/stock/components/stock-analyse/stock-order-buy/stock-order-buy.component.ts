@@ -49,7 +49,7 @@ export class StockOrderBuyComponent {
   amount: number = 0;
   nominal: number = 0;
   specificPrice: number = 0;
-  wallets: Wallet[] = [];
+  fiatWallets: Wallet[] = [];
   fiatCurrencies: Currency[] = [];
   cryptoCurrencies: Currency[] = [];
   
@@ -69,8 +69,8 @@ export class StockOrderBuyComponent {
     crypto: Currency,
     currency: Currency = defaultCurrency,
   ): Promise<void> {
-    this.wallets = (await this.walletsService.get()).filter(({ is_crypto }) => is_crypto === false);
-    if (this.wallets.length === 0) {
+    this.fiatWallets = (await this.walletsService.get()).filter(({ is_crypto }) => is_crypto === false);
+    if (this.fiatWallets.length === 0) {
       await alert(
         $localize`:@@stock-order-buy.You-can-not-create-an-order-because-you-do-not-have-any-wallets-Create-one-and-then-trade-You-will-be-redirected-to-your-profile-where-you-can-specify-a-new-wallet:You can not create an order<br/>because you do not have any wallets.<br/>Create one and then trade.<br/>You will be redirected to your profile<br/>where you can specify a new wallet`,
         $localize`:@@stock-order-buy.Caution:Caution!`
@@ -80,7 +80,7 @@ export class StockOrderBuyComponent {
       return;
     }
 
-    this.selectedFiatWallet = this.wallets.find(w => w.currency.toLowerCase() === currency.currency_name) ?? this.wallets[0];
+    this.selectedFiatWallet = this.fiatWallets.find(w => w.currency.toLowerCase() === currency.currency_name) ?? this.fiatWallets[0];
     this.selectedCrypto = crypto;
 
     await this.refreshCryptoDetails();
@@ -111,7 +111,7 @@ export class StockOrderBuyComponent {
     this.nominal = 0;
     this.specificPrice = 0;
     this.cryptoDetails = defaultCryptoDetails;
-    this.wallets = [];
+    this.fiatWallets = [];
     this.orderType = defaultOrderType;
   }
 
