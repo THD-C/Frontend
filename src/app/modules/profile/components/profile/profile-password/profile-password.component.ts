@@ -11,8 +11,6 @@ import { UpdateUserPasswordRequest } from './profile-password.model';
 import { passwordButtonOptions } from './profile-password.config';
 import { BaseService } from '../../../../../services/base/base.service';
 import { AuthService } from '../../../../../services/auth/auth.service';
-import { RouterExtendedService } from '../../../../../services/router-extended/router-extended.service';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-profile-password',
@@ -56,8 +54,6 @@ export class ProfilePasswordComponent {
     private readonly notifications: NotificationsService,
     private readonly usersService: UsersService,
     private readonly authService: AuthService,
-    private readonly router: RouterExtendedService,
-    private readonly activatedRoute: ActivatedRoute,
   ) { }
 
   protected validateNewPassword(callbackData: ValidationCallbackData): boolean {
