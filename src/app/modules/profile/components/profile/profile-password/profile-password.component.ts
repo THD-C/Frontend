@@ -10,6 +10,9 @@ import { validatePassword } from '../../../../../shared/validators/password-stre
 import { UpdateUserPasswordRequest } from './profile-password.model';
 import { passwordButtonOptions } from './profile-password.config';
 import { BaseService } from '../../../../../services/base/base.service';
+import { AuthService } from '../../../../../services/auth/auth.service';
+import { RouterExtendedService } from '../../../../../services/router-extended/router-extended.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-profile-password',
@@ -52,6 +55,9 @@ export class ProfilePasswordComponent {
   constructor(
     private readonly notifications: NotificationsService,
     private readonly usersService: UsersService,
+    private readonly authService: AuthService,
+    private readonly router: RouterExtendedService,
+    private readonly activatedRoute: ActivatedRoute,
   ) { }
 
   protected validateNewPassword(callbackData: ValidationCallbackData): boolean {
@@ -74,9 +80,11 @@ export class ProfilePasswordComponent {
       await this.usersService.updatePassword(this.userPassword);
       this.notifications.success(
         $localize`:@@notifications.Success:Success`,
-        $localize`:@@profile-password.Password-changed-successfully:Password changed successfully`,
+        $localize`:@@profile-password.Password-changed-successfully-Please-login-again:Password changed successfully. Please login again`,
         BaseService.notificationOverride
       );
+
+      this.authService.logout(true);
     } catch(e) {
     }
   }

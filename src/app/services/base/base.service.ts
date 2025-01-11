@@ -19,7 +19,7 @@ export class BaseService {
   errors: ApiError = errors;
 
   static readonly notificationOverride = {
-    timeOut: 9000,
+    timeOut: 12_000,
   };
 
   readonly defaultError = {
