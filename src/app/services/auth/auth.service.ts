@@ -137,9 +137,13 @@ export class AuthService extends BaseService {
   /**
    * Signs out user. Removes all session related data.
    */
-  logout(): void {
+  logout(redirectToLogin: boolean = false): void {
     this.clearSession();
-    this.routerExtended.navigateToHome();
+    if (redirectToLogin) {
+      this.routerExtended.navigateToLogin(this.routerExtended.previousUrl);
+    } else {
+      this.routerExtended.navigateToHome();
+    }
   }
 
   /**
