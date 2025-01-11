@@ -2599,6 +2599,20 @@
           <context context-type="linenumber">6</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="auth-errors.It-looks-like-the-password-you've-entered-is-very-common-and-could-be-easily-guessed-by-attackers-For-your-security-please-choose-a-more-unique-and-complex-password-that-includes-a-mix-of-letters-numbers-and-special-characters" datatype="html">
+        <source>It looks like the password you've entered is very common and could be easily guessed by attackers. For your security, please choose a more unique and complex password that includes a mix of letters, numbers, and special characters</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/auth/auth.errors.ts</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="auth-errors.Password-is-too-short-12-chars-required" datatype="html">
+        <source>Password is too short. 12 chars required</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/auth/auth.errors.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="blogs-errors.Operation-failed-Please-try-again" datatype="html">
         <source>Operation failed. Please try again</source>
         <context-group purpose="location">
