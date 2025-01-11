@@ -131,7 +131,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-password/profile-password.component.ts</context>
-          <context context-type="linenumber">76</context>
+          <context context-type="linenumber">78</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-payments/profile-payments.component.ts</context>
@@ -1585,21 +1585,21 @@
         <source>Error</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-password/profile-password.component.ts</context>
-          <context context-type="linenumber">65</context>
+          <context context-type="linenumber">67</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-password.Can-not-change-password-Missing-data-Check-the-form-and-try-again" datatype="html">
         <source>Can not change password. Missing data. Check the form and try again</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-password/profile-password.component.ts</context>
-          <context context-type="linenumber">66</context>
+          <context context-type="linenumber">68</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="profile-password.Password-changed-successfully" datatype="html">
-        <source>Password changed successfully</source>
+      <trans-unit id="profile-password.Password-changed-successfully-Please-login-again" datatype="html">
+        <source>Password changed successfully. Please login again</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-password/profile-password.component.ts</context>
-          <context context-type="linenumber">77</context>
+          <context context-type="linenumber">79</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-payments.Action" datatype="html">
@@ -2283,7 +2283,7 @@
         <source>Specific price</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-buy/stock-order-buy.component.html</context>
-          <context context-type="linenumber">115,118</context>
+          <context context-type="linenumber">115,117</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock-order-buy.Cancel" datatype="html">
@@ -2389,63 +2389,63 @@
         <source>Current <x id="INTERPOLATION" equiv-text="{{ selectedCryptoWallet.currency }}"/> price: <x id="INTERPOLATION_1" equiv-text="{{ cryptoDetails.market_data.current_price | number:'1.2-2' }}"/> <x id="INTERPOLATION_2" equiv-text="{{ selectedFiatWallet.currency }}"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-sell/stock-order-sell.component.html</context>
-          <context context-type="linenumber">13,15</context>
+          <context context-type="linenumber">14,16</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock-order-sell.Nominal:Nominal" datatype="html">
         <source>Nominal</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-sell/stock-order-sell.component.html</context>
-          <context context-type="linenumber">18,20</context>
+          <context context-type="linenumber">19,21</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock-order-buy.Exceeded-available-crypto-wallet-nominal" datatype="html">
         <source>Exceeded available crypto wallet nominal</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-sell/stock-order-sell.component.html</context>
-          <context context-type="linenumber">28</context>
+          <context context-type="linenumber">29</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock-order-sell.Crypto-wallet:Crypto wallet" datatype="html">
         <source>Crypto wallet</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-sell/stock-order-sell.component.html</context>
-          <context context-type="linenumber">40,42</context>
+          <context context-type="linenumber">41,43</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock-order-sell.Amount:Amount" datatype="html">
         <source>Amount</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-sell/stock-order-sell.component.html</context>
-          <context context-type="linenumber">64,65</context>
+          <context context-type="linenumber">65,66</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock-order-sell.Fiat-wallet:Fiat wallet" datatype="html">
         <source>Fiat wallet</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-sell/stock-order-sell.component.html</context>
-          <context context-type="linenumber">86,88</context>
+          <context context-type="linenumber">87,89</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock-order-sell.Specific-price:Specific price" datatype="html">
         <source>Specific price</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-sell/stock-order-sell.component.html</context>
-          <context context-type="linenumber">123,126</context>
+          <context context-type="linenumber">124,126</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock-order-sell.Cancel" datatype="html">
         <source>Cancel</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-sell/stock-order-sell.component.html</context>
-          <context context-type="linenumber">143</context>
+          <context context-type="linenumber">144</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock-order-sell.Confirm-order" datatype="html">
         <source>Confirm order</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-order-sell/stock-order-sell.component.html</context>
-          <context context-type="linenumber">146</context>
+          <context context-type="linenumber">147</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock-order-sell.You-can-not-create-an-order-because-you-do-not-have-any-wallets-Create-one-and-then-trade-You-will-be-redirected-to-your-profile-where-you-can-specify-a-new-wallet" datatype="html">
