@@ -198,7 +198,7 @@ export class StockAnalyseComponent implements OnInit, OnDestroy {
 
   async onDisplayCryptoSelectionChanged(): Promise<void> {
     this.updateQueryParams();
-    
+
     try {
       const cryptoWallet = this.wallets.find(({ currency }) => currency.toLowerCase() === this.displayCrypto?.currency_name.toLowerCase());
       if (cryptoWallet) {
@@ -240,10 +240,6 @@ export class StockAnalyseComponent implements OnInit, OnDestroy {
   }
 
   onOrderAdded(order: Order): void {
-    if (this.wallets.some(({ id }) => id === order.crypto_wallet_id) === false) {
-      return;
-    }
-
     this.currentCryptoOrders.unshift(order);
   }
 

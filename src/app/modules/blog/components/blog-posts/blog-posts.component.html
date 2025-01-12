@@ -34,6 +34,18 @@
       </dx-button>
     </div>
   
+    @if (authService.canManageBlog) {
+      <div class="col-auto">
+        <dx-button
+          [routerLink]="['/blog/edit']"
+          class="h-100"
+          type="success"
+          text="Add"
+          i18n-text="@@blog-posts.Add">
+        </dx-button>
+      </div>
+    }
+  
     <div class="px-4 col-12">
       @for (post of blogPosts; track post) {
         <div class="row gy-3 mt-4 rounded border px-2 position-relative">
@@ -42,7 +54,7 @@
           </a>
           <div class="text-truncate col-12" [innerHTML]="truncateContent(post) | safeHtml"></div>
 
-          @if (authService.payload?.user_type === UserType.Blogger || authService.payload?.user_type === UserType.Admin) {
+          @if (authService.canManageBlog) {
             <div class="position-absolute end-0 top-0 w-auto">
               <dx-button appGridEditButton (onClick)="edit(post)"></dx-button>
               <dx-button appGridDeleteButton (onClick)="delete(post)"></dx-button>

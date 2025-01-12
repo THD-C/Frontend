@@ -73,6 +73,10 @@ export class AuthService extends BaseService {
     return this.jwtHelperService.decodeToken(this.session?.accessToken ?? '');
   }
 
+  get canManageBlog(): boolean {
+    return this.payload?.user_type === UserType.Blogger || this.payload?.user_type === UserType.Admin;
+  }
+
   constructor(
     protected override readonly httpClient: HttpClient,
     protected override readonly notificationsService: NotificationsService,
