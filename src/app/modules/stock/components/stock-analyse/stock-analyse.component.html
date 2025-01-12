@@ -141,7 +141,8 @@
         labelMode="floating"
         i18n-label="@@stock.Display-in-currency"
         valueExpr="currency_name"
-        displayExpr="currency_name">
+        displayExpr="currency_name"
+        [searchEnabled]="true">
       </dx-select-box>
       <dx-select-box
         class="col-12"
@@ -153,7 +154,8 @@
         labelMode="floating"
         i18n-label="@@stock.Analyse-crypto"
         valueExpr="currency_name"
-        displayExpr="currency_name">
+        displayExpr="currency_name"
+        [searchEnabled]="true">
       </dx-select-box>
       
       <div class="col-6 p-0 ps-lg-0 p-lg-2 sticky-bottom z-0">
@@ -184,9 +186,14 @@
                     {{ getOrderHistoryEntryStatusLabel(order.status) }}
                   </small>
                   <div class="rounded col fw-bold fs-6 lh-base text-end">
-                    {{ getOrderHistoryEntryCashQuantityPrefixLabel(order.side) }}{{ order.cash_quantity | number:'1.2-2' }}&nbsp;{{ getOrderHistoryEntryFiatWalletLabel(order.fiat_wallet_id) }}
+                    {{ getOrderHistoryEntryCashQuantityPrefixLabel(order.side) }}{{ order.cash_quantity | number:'1.2-2' }}&nbsp;
+                    @if (order.side === OrderSideString.Buy) {
+                      {{ getOrderHistoryEntryWalletLabel(order.fiat_wallet_id) }}
+                    } @else {
+                      {{ getOrderHistoryEntryWalletLabel(order.crypto_wallet_id) }}
+                    }
                   </div>
-                  <div class="col-12 text-muted">{{ order.nominal }}&nbsp;·&nbsp;{{ order.price | number:'1.2-2' }}&nbsp;{{ getOrderHistoryEntryFiatWalletLabel(order.fiat_wallet_id) }}</div>
+                  <div class="col-12 text-muted">{{ order.nominal }}&nbsp;·&nbsp;{{ order.price | number:'1.2-2' }}&nbsp;{{ getOrderHistoryEntryWalletLabel(order.fiat_wallet_id) }}</div>
                   <div class="col-12 text-muted" i18n="@@stock.Created-at">Created at: {{ order.date_created | date:'yyyy-MM-dd HH:mm:ss' }}</div>
                   @if (order.date_executed !== defaultDate) {
                     <div class="col-12 text-muted" i18n="@@stock.Executed-at">Executed at: {{ order.date_executed | date:'yyyy-MM-dd HH:mm:ss' }}</div>

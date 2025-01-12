@@ -165,8 +165,7 @@ export class StockOrderSellComponent {
    * @param event Event's data {@link ValueChangedEvent}
    */
   onSpecificPriceChanged(event: ValueChangedEvent): void {
-    const specificPrice = event.value;
-    this.amount = this.specificPrice * this.nominal;
+    this.amount = this.specificPrice * event.value;
   }
 
   onFiatWalletSelectionChanged(): void {

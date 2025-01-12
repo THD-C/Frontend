@@ -1,4 +1,4 @@
-import { Component, OnInit, viewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit, viewChild } from '@angular/core';
 import { DatePipe, DecimalPipe } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { confirm } from 'devextreme/ui/dialog';
@@ -20,6 +20,7 @@ import { Wallet } from '../../../profile/components/profile/profile-wallets/prof
 import { CurrencyType } from '../../../profile/components/profile/profile-wallets/profile-wallet-create/profile-wallet-create.model';
 import { BaseService } from '../../../../services/base/base.service';
 import { StockOrderSellComponent } from './stock-order-sell/stock-order-sell.component';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-stock-analyse',
@@ -27,7 +28,7 @@ import { StockOrderSellComponent } from './stock-order-sell/stock-order-sell.com
   styleUrl: './stock-analyse.component.scss',
   providers: [DatePipe, DecimalPipe],
 })
-export class StockAnalyseComponent implements OnInit {
+export class StockAnalyseComponent implements OnInit, OnDestroy {
   
   protected readonly OrderType = OrderType;
   protected readonly OrderSide = OrderSide;
@@ -77,6 +78,7 @@ export class StockAnalyseComponent implements OnInit {
   get toggleFullScreenButtonHint(): string {
     return this.fullscreen ? $localize`:@@stock.Close-fullscreen:Close fullscreen` : $localize`:@@stock.Fullscreen:Fullscreen`;
   }
+  subscriptions: Subscription[] = [];
 
   constructor(
     private readonly router: RouterExtendedService,
@@ -91,9 +93,15 @@ export class StockAnalyseComponent implements OnInit {
   ) { }
 
   async ngOnInit(): Promise<void> {
+    await this.getWallets();
     this.applyQueryParams();
     await this.getCurrencies();
-    await this.getWallets();
+  }
+
+  ngOnDestroy(): void {
+    while (this.subscriptions.length > 0) {
+      this.subscriptions.pop();
+    }
   }
 
   getOrderHistoryEntrySideLabel = getOrderHistoryEntrySideLabel;
@@ -101,15 +109,17 @@ export class StockAnalyseComponent implements OnInit {
   getOrderHistoryEntryCashQuantityPrefixLabel = getOrderHistoryEntryCashQuantityPrefixLabel;
 
   applyQueryParams(): void {
-    this.activatedRoute.queryParamMap.subscribe(queryParams => {
-      this.displayCrypto = { currency_name: queryParams.get(stockQueryParamNames.coin_id) ?? defaultCrypto.currency_name };
-      this.displayCurrency = { currency_name: queryParams.get(stockQueryParamNames.currency) ?? defaultCurrency.currency_name };
-    });
+    this.subscriptions.push(
+      this.activatedRoute.queryParamMap.subscribe(queryParams => {
+        this.displayCrypto = { currency_name: queryParams.get(stockQueryParamNames.coin_id) ?? defaultCrypto.currency_name };
+        this.displayCurrency = { currency_name: queryParams.get(stockQueryParamNames.currency) ?? defaultCurrency.currency_name };
+      })
+    );
   }
 
-  getOrderHistoryEntryFiatWalletLabel(fiat_wallet_id: string): string {
-    const fiatWallet = this.wallets.find(({ id }) => id === fiat_wallet_id);
-    return fiatWallet?.currency ?? '';
+  getOrderHistoryEntryWalletLabel(wallet_id: string): string {
+    const wallet = this.wallets.find(({ id }) => id === wallet_id);
+    return wallet?.currency ?? '';
   }
 
   async getWallets(): Promise<void> {
@@ -161,6 +171,8 @@ export class StockAnalyseComponent implements OnInit {
   }
 
   async onDisplayCurrencySelectionChanged(): Promise<void> {
+    this.updateQueryParams();
+
     try {
       await this.refreshCrypto();
     } catch(e) {
@@ -168,10 +180,33 @@ export class StockAnalyseComponent implements OnInit {
     }
   }
 
+  updateQueryParams(): void {
+    const queryParams = {
+      [stockQueryParamNames.coin_id]: this.displayCrypto.currency_name,
+      [stockQueryParamNames.currency]: this.displayCurrency.currency_name
+    }
+
+    this.router.navigate(
+      [], 
+      {
+        relativeTo: this.activatedRoute,
+        queryParams, 
+        queryParamsHandling: 'merge', // remove to replace all query params by provided
+      }
+    );
+  }
+
   async onDisplayCryptoSelectionChanged(): Promise<void> {
+    this.updateQueryParams();
+
     try {
-      const cryptoWallet = this.wallets.find(({ currency }) => currency === this.displayCrypto?.currency_name);
-      this.currentCryptoOrders = await this.ordersService.get({ wallet_id: cryptoWallet?.id } satisfies GetOrdersRequest);
+      const cryptoWallet = this.wallets.find(({ currency }) => currency.toLowerCase() === this.displayCrypto?.currency_name.toLowerCase());
+      if (cryptoWallet) {
+        this.currentCryptoOrders = await this.ordersService.get({ wallet_id: cryptoWallet.id } satisfies GetOrdersRequest);
+      } else {
+        this.currentCryptoOrders = []
+      }
+
       this.currentCryptoOrders.sort((a, b) => a.date_created < b.date_created ? 1 : -1);
 
       await this.refreshCrypto();
@@ -205,10 +240,6 @@ export class StockAnalyseComponent implements OnInit {
   }
 
   onOrderAdded(order: Order): void {
-    if (this.wallets.some(({ id }) => id === order.crypto_wallet_id) === false) {
-      return;
-    }
-
     this.currentCryptoOrders.unshift(order);
   }
 
