@@ -91,9 +91,9 @@ export class StockAnalyseComponent implements OnInit {
   ) { }
 
   async ngOnInit(): Promise<void> {
+    await this.getWallets();
     this.applyQueryParams();
     await this.getCurrencies();
-    await this.getWallets();
   }
 
   getOrderHistoryEntrySideLabel = getOrderHistoryEntrySideLabel;
@@ -170,8 +170,13 @@ export class StockAnalyseComponent implements OnInit {
 
   async onDisplayCryptoSelectionChanged(): Promise<void> {
     try {
-      const cryptoWallet = this.wallets.find(({ currency }) => currency === this.displayCrypto?.currency_name);
-      this.currentCryptoOrders = await this.ordersService.get({ wallet_id: cryptoWallet?.id } satisfies GetOrdersRequest);
+      const cryptoWallet = this.wallets.find(({ currency }) => currency.toLowerCase() === this.displayCrypto?.currency_name.toLowerCase());
+      if (cryptoWallet) {
+        this.currentCryptoOrders = await this.ordersService.get({ wallet_id: cryptoWallet.id } satisfies GetOrdersRequest);
+      } else {
+        this.currentCryptoOrders = []
+      }
+
       this.currentCryptoOrders.sort((a, b) => a.date_created < b.date_created ? 1 : -1);
 
       await this.refreshCrypto();
