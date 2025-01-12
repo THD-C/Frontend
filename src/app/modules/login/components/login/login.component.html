@@ -1,31 +1,31 @@
 <div class="d-flex justify-content-center align-items-center flex-column vw-100 vh-100 bg-light">
-  <div class="card shadow-lg p-3 pb-0 border-primary" style="max-width: 350px">
-    <a [routerLink]="['/']" routerLinkActive="active" class="d-flex justify-content-center">
-      <img class="rounded-circle my-4" src="assets/icons/icon-192x192.png" [alt]="appName">
-    </a>
-    <h4 class="card-header fw-bold border-0 text-center fs-4 bg-body" i18n="@@login.Welcome-back">Welcome back!</h4>
-    <form class="card-body row gy-4 gx-0" (submit)="$event.preventDefault(); $event.stopImmediatePropagation()">
-      <dx-text-box [(value)]="loginRequest.login" label="E-mail or username" i18n-label="@@login.E-mail-or-username" labelMode="floating" #txtEmail validationMessageMode="always">
-        <dx-validator>
-          <dxi-validation-rule type="required">
-          </dxi-validation-rule>
-        </dx-validator>
-      </dx-text-box>
-      <dx-text-box [mode]="passwordMode" [(value)]="loginRequest.password" label="Password" i18n-label="@@login.Password" labelMode="floating" validationMessageMode="always">
-        <dx-validator>
-          <dxi-validation-rule type="required">
-          </dxi-validation-rule>
-        </dx-validator>
-        
-        <dxi-button name="password" [options]="passwordButtonOptions"></dxi-button>
-      </dx-text-box>
+    <div class="card shadow-lg p-3 pb-0 border-primary" style="max-width: 350px">
+        <a [routerLink]="['/']" routerLinkActive="active" class="d-flex justify-content-center">
+            <img class="rounded-circle my-4" src="assets/icons/icon-192x192.png" [alt]="appName">
+        </a>
+        <h4 class="card-header fw-bold border-0 text-center fs-4 bg-body" i18n="@@login.Welcome-back">Welcome back!</h4>
+        <form class="card-body row gy-4 gx-0" (submit)="$event.preventDefault(); $event.stopImmediatePropagation()" (keyup.enter)="login()">
+            <dx-text-box [(value)]="loginRequest.login" label="E-mail or username" i18n-label="@@login.E-mail-or-username" labelMode="floating" #txtEmail validationMessageMode="always">
+                <dx-validator>
+                    <dxi-validation-rule type="required">
+                    </dxi-validation-rule>
+                </dx-validator>
+            </dx-text-box>
+            <dx-text-box [mode]="passwordMode" [(value)]="loginRequest.password" label="Password" i18n-label="@@login.Password" labelMode="floating" validationMessageMode="always">
+                <dx-validator>
+                    <dxi-validation-rule type="required">
+                    </dxi-validation-rule>
+                </dx-validator>
 
-      <dx-button class="col-lg" type="default" [useSubmitBehavior]="true" (onClick)="login()" text="Log in" i18n-text="@@login.Log-in"></dx-button>
-      <div i18n="@@login.or" class="text-center fs-6 text-muted">- or -</div>
-      <asl-google-signin-button type="standard" size="large" text="continue_with" theme="filled_blue" [width]="285"></asl-google-signin-button>
-    </form>
-  </div>
-  <div class="mt-2" i18n="@@login.Dont-have-account">
-    Don't have account? <a [routerLink]="['/register']" routerLinkActive="active">Register</a>
-  </div>
+                <dxi-button name="password" [options]="passwordButtonOptions"></dxi-button>
+            </dx-text-box>
+
+            <dx-button class="col-lg" type="default" [useSubmitBehavior]="true" (onClick)="login()" text="Log in" i18n-text="@@login.Log-in"></dx-button>
+            <div i18n="@@login.or" class="text-center fs-6 text-muted">- or -</div>
+            <asl-google-signin-button type="standard" size="large" text="continue_with" theme="filled_blue" [width]="285"></asl-google-signin-button>
+        </form>
+    </div>
+    <div class="mt-2" i18n="@@login.Dont-have-account">
+        Don't have account? <a [routerLink]="['/register']" routerLinkActive="active">Register</a>
+    </div>
 </div>
