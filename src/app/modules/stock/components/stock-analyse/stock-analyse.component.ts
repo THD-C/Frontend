@@ -107,9 +107,9 @@ export class StockAnalyseComponent implements OnInit {
     });
   }
 
-  getOrderHistoryEntryFiatWalletLabel(fiat_wallet_id: string): string {
-    const fiatWallet = this.wallets.find(({ id }) => id === fiat_wallet_id);
-    return fiatWallet?.currency ?? '';
+  getOrderHistoryEntryWalletLabel(wallet_id: string): string {
+    const wallet = this.wallets.find(({ id }) => id === wallet_id);
+    return wallet?.currency ?? '';
   }
 
   async getWallets(): Promise<void> {

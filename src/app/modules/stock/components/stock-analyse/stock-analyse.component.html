@@ -184,9 +184,14 @@
                     {{ getOrderHistoryEntryStatusLabel(order.status) }}
                   </small>
                   <div class="rounded col fw-bold fs-6 lh-base text-end">
-                    {{ getOrderHistoryEntryCashQuantityPrefixLabel(order.side) }}{{ order.cash_quantity | number:'1.2-2' }}&nbsp;{{ getOrderHistoryEntryFiatWalletLabel(order.fiat_wallet_id) }}
+                    {{ getOrderHistoryEntryCashQuantityPrefixLabel(order.side) }}{{ order.cash_quantity | number:'1.2-2' }}&nbsp;
+                    @if (order.side === OrderSideString.Buy) {
+                      {{ getOrderHistoryEntryWalletLabel(order.fiat_wallet_id) }}
+                    } @else {
+                      {{ getOrderHistoryEntryWalletLabel(order.crypto_wallet_id) }}
+                    }
                   </div>
-                  <div class="col-12 text-muted">{{ order.nominal }}&nbsp;·&nbsp;{{ order.price | number:'1.2-2' }}&nbsp;{{ getOrderHistoryEntryFiatWalletLabel(order.fiat_wallet_id) }}</div>
+                  <div class="col-12 text-muted">{{ order.nominal }}&nbsp;·&nbsp;{{ order.price | number:'1.2-2' }}&nbsp;{{ getOrderHistoryEntryWalletLabel(order.fiat_wallet_id) }}</div>
                   <div class="col-12 text-muted" i18n="@@stock.Created-at">Created at: {{ order.date_created | date:'yyyy-MM-dd HH:mm:ss' }}</div>
                   @if (order.date_executed !== defaultDate) {
                     <div class="col-12 text-muted" i18n="@@stock.Executed-at">Executed at: {{ order.date_executed | date:'yyyy-MM-dd HH:mm:ss' }}</div>
