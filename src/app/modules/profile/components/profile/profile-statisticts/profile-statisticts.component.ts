@@ -95,6 +95,7 @@ export class ProfileStatistictsComponent implements OnInit {
   pointClickHandler(e: PointClickEvent): void {
     const statisticts = e.target.data as CryptoWalletStatistics;
     this.selectedCryptoWallet = this.wallets.find(w => w.currency.toLowerCase() === statisticts.cryptocurrency.toLowerCase());
+    this.getSelectedCryptoEstimations();
   }
 
 }
