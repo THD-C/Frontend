@@ -93,7 +93,6 @@ export class BlogPostEditComponent implements OnInit, OnDestroy {
         } satisfies UpdateBlogPostRequest);
       }
 
-      this.activatedRoute.snapshot.url;
       const currentRoutePath = this.activatedRoute.snapshot.routeConfig?.path;
       if (currentRoutePath?.includes(`:${blogPathParamNames.path}`) === false) {
         this.router.navigate([this.editBlogPost.path], {
