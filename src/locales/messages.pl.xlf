@@ -2736,7 +2736,7 @@
       </trans-unit>
       <trans-unit id="login.Check-Privacy-policy" datatype="html">
         <source>Check <x id="START_LINK" ctype="x-a" equiv-text="&lt;a routerLink=&quot;/privacy-policy&quot; target=&quot;_blank&quot; rel=&quot;external nofollow noopener&quot;>"/>privacy policy<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a>"/> before Google login</source>
-        <target state="new"/>
+        <target>Sprawdź <x id="START_LINK" ctype="x-a" equiv-text="&lt;a routerLink=&quot;/privacy-policy&quot; target=&quot;_blank&quot; rel=&quot;external nofollow noopener&quot;>"/>politykę prywatności<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a>"/> przed zalogowaniem się poprzez Google</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/login/components/login/login.component.html</context>
           <context context-type="linenumber">26,27</context>
@@ -2888,7 +2888,7 @@
       </trans-unit>
       <trans-unit id="profile-statisticts.Nominal" datatype="html">
         <source>Nominal</source>
-        <target state="new"/>
+        <target>Ilość</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-statisticts/profile-statisticts.component.html</context>
           <context context-type="linenumber">59</context>
@@ -3232,7 +3232,7 @@
       </trans-unit>
       <trans-unit id="home.Privacy-policy" datatype="html">
         <source>Privacy policy</source>
-        <target state="new"/>
+        <target>Polityka prywatności</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
           <context context-type="linenumber">139,142</context>
