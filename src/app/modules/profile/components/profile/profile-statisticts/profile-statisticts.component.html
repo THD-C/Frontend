@@ -1,4 +1,4 @@
-<dx-scroll-view class="card shadow p-3 border-primary container" [useNative]="false" [scrollByContent]="true" [scrollByThumb]="true">
+<dx-scroll-view id="profileStatisticts" class="card shadow p-3 border-primary container" [useNative]="false" [scrollByContent]="true" [scrollByThumb]="true">
 
   <div class="row g-4">
     <div class="col-12">
@@ -20,13 +20,11 @@
       </div>
     </div>
     <dx-pie-chart
-      [class.col-6]="selectedCryptoWallet"
-      [class.col-12]="!selectedCryptoWallet"
+      class="col-6"
       title="Portfolio diversity"
       i18n-title="@@profile-statistics.Portfolio-diversity"
       palette="bright"
-      [dataSource]="cryptoWalletsStatistics"
-      (onPointClick)="pointClickHandler($event)">
+      [dataSource]="cryptoWalletsStatistics">
       <dxo-legend
         orientation="horizontal"
         itemTextPosition="right"
@@ -45,25 +43,24 @@
       </dxi-series>
       <dxo-export [enabled]="true"></dxo-export>
     </dx-pie-chart>
-    @if (selectedCryptoWallet) {
-      <dx-data-grid
-        class="col-6"
-        [dataSource]="cryptoEstimations"
-        [remoteOperations]="false">
-        <dxo-paging [pageSize]="10"></dxo-paging>
-        <dxo-pager
-          [visible]="true"
-          [showPageSizeSelector]="true"
-          [allowedPageSizes]="[10, 25, 50, 100]"
-        ></dxo-pager>
-        <dxo-load-panel [enabled]="true"></dxo-load-panel>
 
-        <dxi-column caption="Amount" i18n-caption="@@profile-statisticts.Amount" dataField="amount"></dxi-column>
-        <dxi-column caption="Estimated fiat value" i18n-caption="@@profile-statisticts.Estimated-fiat-value" dataField="estimated_fiat_value">
-          <dxo-format type="fixedPoint" [precision]="2"></dxo-format>
-        </dxi-column>
-      </dx-data-grid>
-    }
+    <dx-data-grid
+      class="col-6"
+      [dataSource]="cryptoEstimations"
+      [remoteOperations]="false">
+    <dxo-paging [pageSize]="10"></dxo-paging>
+    <dxo-pager
+        [visible]="true"
+        [showPageSizeSelector]="true"
+        [allowedPageSizes]="[10, 25, 50, 100]"
+    ></dxo-pager>
+    <dxo-load-panel [enabled]="true"></dxo-load-panel>
+
+    <dxi-column caption="Nominal" i18n-caption="@@profile-statisticts.Nominal" dataField="amount"></dxi-column>
+    <dxi-column caption="Estimated fiat value" i18n-caption="@@profile-statisticts.Estimated-fiat-value" dataField="estimated_fiat_value">
+        <dxo-format type="fixedPoint" [precision]="2"></dxo-format>
+    </dxi-column>
+    </dx-data-grid>
   </div>
 
 </dx-scroll-view>

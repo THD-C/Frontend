@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-import { PointClickEvent } from 'devextreme/viz/pie_chart';
+import { DecimalPipe } from '@angular/common';
 
 import { defaultCurrency, dxPallet } from '../../../../../app.config';
 import { StatisticsService } from '../../../../../services/statistics/statistics.service';
@@ -11,7 +10,6 @@ import { CurrenciesService } from '../../../../../services/currencies/currencies
 import { CurrencyType } from '../profile-wallets/profile-wallet-create/profile-wallet-create.model';
 import { Wallet } from '../profile-wallets/profile-wallets.model';
 import { WalletsService } from '../../../../../services/wallets/wallets.service';
-import { DatePipe, DecimalPipe } from '@angular/common';
 
 @Component({
   selector: 'app-profile-statisticts',
@@ -27,7 +25,6 @@ export class ProfileStatistictsComponent implements OnInit {
   fiatCurrencies: Currency[] = [];
   displayCurrency: Currency = defaultCurrency;
   wallets: Wallet[] = [];
-  selectedCryptoWallet?: Wallet = undefined;
   cryptoEstimations: Estimation[] = [];
 
   constructor(
@@ -55,47 +52,40 @@ export class ProfileStatistictsComponent implements OnInit {
     this.fiatCurrencies = await this.currenciesService.get({ currency_type: CurrencyType.FIAT });
   }
 
-  async refreshPortfolioDiversity(): Promise<void> {
+  async refreshStatistics(): Promise<void> {
     try {
-      const { crypto_wallets_statistics } = await this.statistictsService.getPortfolioDiversity({
-        user_id: this.authService.payload?.id ?? '',
-        currency: this.displayCurrency.currency_name,
-      });
-      
-      this.cryptoWalletsStatistics = crypto_wallets_statistics;
+      this.refreshPortfolioDiversity();
+      this.refreshEstimations();
     } catch (e) {
     }
   }
 
-  async getSelectedCryptoEstimations(): Promise<void> {
-    if (!this.selectedCryptoWallet) {
-      return;
-    }
+  async refreshPortfolioDiversity(): Promise<void> {
+    const { crypto_wallets_statistics } = await this.statistictsService.getPortfolioDiversity({
+      user_id: this.authService.payload?.id ?? '',
+      currency: this.displayCurrency.currency_name,
+    });
+    
+    this.cryptoWalletsStatistics = crypto_wallets_statistics;
+  }
 
-    try {
+  async refreshEstimations(): Promise<void> {
+    this.cryptoEstimations = [];
+    
+    const cryptoWallets = this.wallets.filter(({ is_crypto }) => is_crypto);
+    for (const cryptoWallet of cryptoWallets) {
       const { estimations } = await this.statistictsService.getCryptoEstimations({
         user_id: this.authService.payload?.id ?? '0',
         currency: this.displayCurrency.currency_name,
-        wallet_id: this.selectedCryptoWallet.id,
+        wallet_id: cryptoWallet.id,
       });
 
-      this.cryptoEstimations = estimations;
-    } catch (e) {
+      this.cryptoEstimations.push(...estimations);
     }
   }
 
   async onDisplayCurrencySelectionChanged(): Promise<void> {
-    try {
-      await this.getSelectedCryptoEstimations();
-    } catch(e) {
-      console.error(e);
-    }
-  }
-
-  pointClickHandler(e: PointClickEvent): void {
-    const statisticts = e.target.data as CryptoWalletStatistics;
-    this.selectedCryptoWallet = this.wallets.find(w => w.currency.toLowerCase() === statisticts.cryptocurrency.toLowerCase());
-    this.getSelectedCryptoEstimations();
+    await this.refreshStatistics();
   }
 
 }
