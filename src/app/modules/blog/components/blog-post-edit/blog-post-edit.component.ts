@@ -93,14 +93,14 @@ export class BlogPostEditComponent implements OnInit, OnDestroy {
         } satisfies UpdateBlogPostRequest);
       }
 
+      this.activatedRoute.snapshot.url;
       const currentRoutePath = this.activatedRoute.snapshot.routeConfig?.path;
-      const newRoutePath = currentRoutePath?.replace(`:${blogPathParamNames.path}`, this.editBlogPost.path)
-        .replace(`:${blogPathParamNames.language}`, this.editBlogPost.language);
-
-      this.router.navigate([newRoutePath], {
-        relativeTo: this.activatedRoute.parent, // Parent points to '/blog'
-        replaceUrl: true,
-      });
+      if (currentRoutePath?.includes(`:${blogPathParamNames.path}`) === false) {
+        this.router.navigate([this.editBlogPost.path], {
+          relativeTo: this.activatedRoute,
+          replaceUrl: true,
+        });
+      }
 
       this.notifications.success(
         $localize`:@@notifications.Success:Success`,
