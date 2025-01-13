@@ -48,7 +48,7 @@ export class LoginComponent implements AfterViewInit {
     this.txtEmail()?.instance.focus();
     this.socialAuthService.authState.subscribe(async user => {
       if (user.provider.toLowerCase() === 'google') {
-        await this.authService.loginWithGoogle(user.idToken)
+        await this.authService.googleLogin(user.idToken)
       }
     });
   }
