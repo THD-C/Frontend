@@ -6,6 +6,7 @@
       <dx-select-box
         [dataSource]="availableLanguages"
         [(value)]="editBlogPost.language"
+        [disabled]="editBlogPost.path.length > 0"
         displayExpr="name"
         valueExpr="code"
         label="Written in"
@@ -98,7 +99,7 @@
           <dxi-item name="deleteColumn"></dxi-item>
         </dxo-toolbar>
         <dxo-media-resizing [enabled]="true"> </dxo-media-resizing>
-        <dxo-image-upload [tabs]="['file', 'web']" fileUploadMode="base64">
+        <dxo-image-upload [tabs]="['file', 'url']" fileUploadMode="base64">
         </dxo-image-upload>
       </dx-html-editor>
     </div>
