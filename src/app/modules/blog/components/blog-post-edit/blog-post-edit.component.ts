@@ -93,12 +93,8 @@ export class BlogPostEditComponent implements OnInit, OnDestroy {
         } satisfies UpdateBlogPostRequest);
       }
 
-      const currentRoutePath = this.activatedRoute.snapshot.routeConfig?.path;
-      const newRoutePath = currentRoutePath?.replace(`:${blogPathParamNames.path}`, this.editBlogPost.path)
-        .replace(`:${blogPathParamNames.language}`, this.editBlogPost.language);
-
-      this.router.navigate([newRoutePath], {
-        relativeTo: this.activatedRoute.parent, // Parent points to '/blog'
+      this.router.navigate(['/blog', 'edit', this.editBlogPost.language, this.editBlogPost.path], {
+        relativeTo: this.activatedRoute,
         replaceUrl: true,
       });
 

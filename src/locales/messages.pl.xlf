@@ -87,7 +87,7 @@
         <target> Nie masz konta? <x id="START_LINK" ctype="x-a" equiv-text="&lt;a [routerLink]=&quot;['/register']&quot; routerLinkActive=&quot;active&quot;>"/>Zarejestruj się<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a>"/></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/login/components/login/login.component.html</context>
-          <context context-type="linenumber">29</context>
+          <context context-type="linenumber">30</context>
         </context-group>
       </trans-unit>
       <trans-unit id="payment-fail.Payment-completed-successfully" datatype="html">
@@ -450,44 +450,12 @@
           <context context-type="linenumber">93,94</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="privacy-policy.facebook" datatype="html">
-        <source>Facebook</source>
-        <target>Facebook</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">94,95</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="privacy-policy.instagram" datatype="html">
-        <source>Instagram</source>
-        <target>Instagram</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">95,96</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="privacy-policy.twitter" datatype="html">
-        <source>Twitter</source>
-        <target>Twitter</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">96,97</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="privacy-policy.linkedin" datatype="html">
-        <source>LinkedIn</source>
-        <target>LinkedIn</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">97,100</context>
-        </context-group>
-      </trans-unit>
       <trans-unit id="privacy-policy.socialMediaData" datatype="html">
         <source>If You decide to register through or otherwise grant us access to a Third-Party Social Media Service, We may collect Personal data that is already associated with Your Third-Party Social Media Service's account, such as Your name, Your email address, Your activities or Your contact list associated with that account.</source>
         <target>Jeśli zdecydujesz się zarejestrować lub w inny sposób udzielić nam dostępu do Usługi Mediów Społecznościowych Strony Trzeciej, możemy zbierać dane osobowe, które są już powiązane z Twoim kontem w tej usłudze, takie jak Twoje imię i nazwisko, adres e-mail, Twoje działania lub lista kontaktów powiązane z tym kontem.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">100,101</context>
+          <context context-type="linenumber">96</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.additionalSocialMediaData" datatype="html">
@@ -495,7 +463,7 @@
         <target>Możesz również mieć możliwość udostępnienia Firmie dodatkowych informacji za pośrednictwem konta w Usłudze Mediów Społecznościowych Strony Trzeciej. Jeśli zdecydujesz się na podanie takich informacji i danych osobowych, podczas rejestracji lub w inny sposób, udzielasz Firmie zgody na ich użycie, udostępnianie i przechowywanie w sposób zgodny z niniejszą Polityką Prywatności.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">101,103</context>
+          <context context-type="linenumber">97</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.trackingCookies" datatype="html">
@@ -503,7 +471,7 @@
         <target>Technologie śledzenia i pliki cookie</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">103,104</context>
+          <context context-type="linenumber">99</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.cookieDescription" datatype="html">
@@ -511,7 +479,7 @@
         <target>Używamy plików cookie i podobnych technologii śledzenia do śledzenia aktywności w naszej usłudze i przechowywania określonych informacji. Technologie śledzenia używane to sygnalizatory, tagi i skrypty do zbierania i śledzenia informacji oraz poprawy i analizy naszej usługi. Technologie, których używamy, mogą obejmować:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">104,107</context>
+          <context context-type="linenumber">100</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.cookiesBrowserCookies" datatype="html">
@@ -519,7 +487,7 @@
         <target><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Pliki cookie lub pliki cookie przeglądarki.<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> Plik cookie to mały plik umieszczony na Twoim urządzeniu. Możesz nakazać swojej przeglądarce odrzucenie wszystkich plików cookie lub wskazanie, kiedy plik cookie jest wysyłany. Jednakże, jeśli nie zaakceptujesz plików cookie, możesz nie być w stanie korzystać z niektórych części naszej usługi. O ile nie dostosowałeś ustawień przeglądarki tak, aby odrzucała pliki cookie, nasza usługa może używać plików cookie.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">107,108</context>
+          <context context-type="linenumber">103</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.webBeacons" datatype="html">
@@ -527,7 +495,7 @@
         <target><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Sygnalizatory sieciowe.<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> Niektóre sekcje naszej usługi i nasze e-maile mogą zawierać małe pliki elektroniczne, znane jako sygnalizatory sieciowe (znane również jako przejrzyste gify, tagi pikseli i jedno-pikselowe gify), które umożliwiają Firmie, na przykład, liczenie użytkowników, którzy odwiedzili te strony lub otworzyli e-mail, oraz zbieranie statystyk dotyczących strony internetowej (na przykład rejestrowanie popularności danej sekcji i weryfikowanie integralności systemu i serwera).</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">108,110</context>
+          <context context-type="linenumber">104</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.cookiesTypesDescription" datatype="html">
@@ -535,7 +503,7 @@
         <target>Pliki cookie mogą być "trwałe" lub "sesyjne". Trwałe pliki cookie pozostają na Twoim komputerze osobistym lub urządzeniu mobilnym, gdy jesteś offline, podczas gdy pliki cookie sesji są usuwane, gdy tylko zamkniesz przeglądarkę internetową. Dowiedz się więcej o plikach cookie na stronie artykułu <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://www.freeprivacypolicy.com/blog/sample-privacy-policy-template/#Use_Of_Cookies_And_Tracking&quot; target=&quot;_blank&quot; rel=&quot;external nofollow noopener&quot;>"/>Bezpłatna polityka prywatności<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a>"/>.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">111,112</context>
+          <context context-type="linenumber">107</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.sessionPersistentCookies" datatype="html">
@@ -543,7 +511,7 @@
         <target>Używamy zarówno sesyjnych, jak i trwałych plików cookie w celach określonych poniżej:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">112,116</context>
+          <context context-type="linenumber">108</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.necessaryEssentialCookiesTitle" datatype="html">
@@ -551,7 +519,7 @@
         <target><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Niezbędne / podstawowe pliki cookie<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">116,117</context>
+          <context context-type="linenumber">112</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.necessaryEssentialCookiesType" datatype="html">
@@ -559,7 +527,7 @@
         <target>Rodzaj: pliki cookie sesji</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">117,118</context>
+          <context context-type="linenumber">113</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.necessaryEssentialCookiesAdministeredBy" datatype="html">
@@ -567,7 +535,7 @@
         <target>Administrowane przez: Nas</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">118,119</context>
+          <context context-type="linenumber">114</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.necessaryEssentialCookiesPurpose" datatype="html">
@@ -575,7 +543,7 @@
         <target>Cel: Te pliki cookie są niezbędne do świadczenia usług dostępnych przez Stronę internetową i umożliwiają korzystanie z niektórych jej funkcji. Pomagają uwierzytelniać użytkowników i zapobiegać oszustwom związanym z kontami użytkowników. Bez tych plików cookie, usługi, o które prosisz, nie mogą być świadczone, i używamy tych plików cookie wyłącznie do świadczenia tych usług.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">119,122</context>
+          <context context-type="linenumber">115</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.cookiesPolicyNoticeAcceptanceCookiesTitle" datatype="html">
@@ -583,7 +551,7 @@
         <target><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Polityka plików cookie / Pliki cookie akceptacji powiadomienia<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">122,123</context>
+          <context context-type="linenumber">118</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.cookiesPolicyNoticeAcceptanceCookiesType" datatype="html">
@@ -591,7 +559,7 @@
         <target>Rodzaj: trwałe pliki cookie</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">123,124</context>
+          <context context-type="linenumber">119</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.cookiesPolicyNoticeAcceptanceCookiesAdministeredBy" datatype="html">
@@ -599,7 +567,7 @@
         <target>Administrowane przez: Nas</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">124,125</context>
+          <context context-type="linenumber">120</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.cookiesPolicyNoticeAcceptanceCookiesPurpose" datatype="html">
@@ -607,7 +575,7 @@
         <target>Cel: Te pliki cookie identyfikują, czy użytkownicy zaakceptowali użycie plików cookie na Stronie internetowej.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">125,128</context>
+          <context context-type="linenumber">121</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.functionalityCookiesTitle" datatype="html">
@@ -615,7 +583,7 @@
         <target><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Funkcjonalne pliki cookie<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">128,129</context>
+          <context context-type="linenumber">124</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.functionalityCookiesType" datatype="html">
@@ -623,7 +591,7 @@
         <target>Rodzaj: trwałe pliki cookie</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">129,130</context>
+          <context context-type="linenumber">125</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.functionalityCookiesAdministeredBy" datatype="html">
@@ -631,7 +599,7 @@
         <target>Administrowane przez: Nas</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">130,131</context>
+          <context context-type="linenumber">126</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.functionalityCookiesPurpose" datatype="html">
@@ -639,7 +607,7 @@
         <target>Cel: Te pliki cookie pozwalają nam zapamiętywać wybory, które dokonujesz podczas korzystania ze Strony internetowej, takie jak zapamiętywanie Twoich danych logowania lub preferencji językowych. Celem tych plików cookie jest zapewnienie Ci bardziej spersonalizowanego doświadczenia i uniknięcie konieczności ponownego wprowadzania swoich preferencji przy każdym korzystaniu ze Strony internetowej.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">131,135</context>
+          <context context-type="linenumber">127</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.cookiesPolicyMoreInformation" datatype="html">
@@ -647,7 +615,7 @@
         <target>Aby uzyskać więcej informacji na temat używanych przez nas plików cookie i Twoich wyborów dotyczących plików cookie, odwiedź naszą Politykę plików cookie lub sekcję Pliki cookie w naszej Polityce prywatności.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">135,137</context>
+          <context context-type="linenumber">131</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.useOfPersonalData" datatype="html">
@@ -655,7 +623,7 @@
         <target>Wykorzystanie Twoich danych osobowych</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">137,138</context>
+          <context context-type="linenumber">133</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.useOfPersonalDataDescription" datatype="html">
@@ -663,7 +631,7 @@
         <target>Firma może wykorzystywać dane osobowe w następujących celach:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">138,141</context>
+          <context context-type="linenumber">134</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.provideMaintainService" datatype="html">
@@ -671,7 +639,7 @@
         <target><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Aby świadczyć i utrzymywać naszą Usługę<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/>, w tym monitorować korzystanie z naszej Usługi.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">141,142</context>
+          <context context-type="linenumber">137</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.manageAccount" datatype="html">
@@ -679,7 +647,7 @@
         <target><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Aby zarządzać Twoim kontem:<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> aby zarządzać Twoją rejestracją jako użytkownika Usługi. Dane osobowe, które podajesz, mogą dać Ci dostęp do różnych funkcji Usługi, które są dostępne dla Ciebie jako zarejestrowanego użytkownika.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">142,143</context>
+          <context context-type="linenumber">138</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.performanceContract" datatype="html">
@@ -687,7 +655,7 @@
         <target><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Dla realizacji umowy:<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> opracowanie, zgodność i realizacja umowy zakupu produktów, przedmiotów lub usług, które zakupiłeś, lub jakiejkolwiek innej umowy z nami za pośrednictwem Usługi.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">143,144</context>
+          <context context-type="linenumber">139</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.contactYou" datatype="html">
@@ -695,7 +663,7 @@
         <target><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Aby skontaktować się z Tobą:<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> Aby skontaktować się z Tobą za pomocą e-maila, rozmów telefonicznych, SMS-ów lub innych równoważnych form komunikacji elektronicznej, takich jak powiadomienia push z aplikacji mobilnej dotyczące aktualizacji lub komunikatów informacyjnych związanych z funkcjonalnościami, produktami lub zakontraktowanymi usługami, w tym aktualizacjami zabezpieczeń, gdy jest to konieczne lub rozsądne dla ich wdrożenia.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">144,145</context>
+          <context context-type="linenumber">140</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.newsOffersInfo" datatype="html">
@@ -703,7 +671,7 @@
         <target><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Aby dostarczyć Ci<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> wiadomości, specjalne oferty i ogólne informacje o innych towarach, usługach i wydarzeniach, które oferujemy i które są podobne do tych, które już zakupiłeś lub o które pytałeś, chyba że zdecydowałeś się nie otrzymywać takich informacji.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">145,146</context>
+          <context context-type="linenumber">141</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.manageRequests" datatype="html">
@@ -711,7 +679,7 @@
         <target><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Aby zarządzać Twoimi prośbami:<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> Aby obsłużyć i zarządzać Twoimi prośbami skierowanymi do Nas.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">146,147</context>
+          <context context-type="linenumber">142</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.businessTransfers" datatype="html">
@@ -719,7 +687,7 @@
         <target><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Na potrzeby transferów biznesowych:<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> Możemy wykorzystać Twoje informacje do oceny lub przeprowadzenia fuzji, sprzedaży aktywów, restrukturyzacji, reorganizacji, rozwiązania lub innej sprzedaży lub transferu części lub całości Naszych aktywów, jako działającego przedsiębiorstwa lub jako części postępowania upadłościowego, likwidacyjnego lub podobnego postępowania, w którym Dane Osobowe przechowywane przez Nas o użytkownikach Naszych usług są wśród przenoszonych aktywów.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">147,148</context>
+          <context context-type="linenumber">143</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.otherPurposes" datatype="html">
@@ -727,7 +695,7 @@
         <target><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Dla innych celów<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/>: Możemy wykorzystać Twoje informacje do innych celów, takich jak analiza danych, identyfikowanie trendów użytkowania, określanie skuteczności naszych kampanii promocyjnych oraz ocena i poprawa naszych Usług, produktów, usług, marketingu i Twoich doświadczeń.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">148,150</context>
+          <context context-type="linenumber">144</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.sharePersonalData" datatype="html">
@@ -735,7 +703,7 @@
         <target>Możemy udostępniać Twoje dane osobowe w następujących sytuacjach:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">151,154</context>
+          <context context-type="linenumber">147</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.shareWithServiceProviders" datatype="html">
@@ -743,7 +711,7 @@
         <target><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Z dostawcami usług:<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> Możemy udostępniać Twoje dane osobowe dostawcom usług w celu monitorowania i analizy korzystania z naszych Usług, aby skontaktować się z Tobą.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">154,155</context>
+          <context context-type="linenumber">150</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.shareForBusinessTransfers" datatype="html">
@@ -751,7 +719,7 @@
         <target><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Na potrzeby transferów biznesowych:<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> Możemy udostępniać lub przekazywać Twoje dane osobowe w związku z, lub w trakcie negocjacji, jakiejkolwiek fuzji, sprzedaży aktywów Firmy, finansowania lub przejęcia całości lub części Naszego biznesu przez inną firmę.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">155,156</context>
+          <context context-type="linenumber">151</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.shareWithAffiliates" datatype="html">
@@ -759,7 +727,7 @@
         <target><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Z podmiotami powiązanymi:<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> Możemy udostępniać Twoje informacje naszym podmiotom powiązanym, w takim przypadku będziemy wymagać od tych podmiotów poszanowania niniejszej Polityki Prywatności. Podmioty powiązane obejmują naszą spółkę macierzystą i wszelkie inne spółki zależne, partnerów w joint venture lub inne firmy, które kontrolujemy lub które są pod wspólną kontrolą z Nami.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">156,157</context>
+          <context context-type="linenumber">152</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.shareWithBusinessPartners" datatype="html">
@@ -767,7 +735,7 @@
         <target><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Z partnerami biznesowymi:<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> Możemy udostępniać Twoje informacje naszym partnerom biznesowym, aby zaoferować Ci określone produkty, usługi lub promocje.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">157,158</context>
+          <context context-type="linenumber">153</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.shareWithOtherUsers" datatype="html">
@@ -775,7 +743,7 @@
         <target><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Z innymi użytkownikami:<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> kiedy udostępniasz dane osobowe lub w inny sposób wchodzisz w interakcję w obszarach publicznych z innymi użytkownikami, takie informacje mogą być widoczne dla wszystkich użytkowników i mogą być publicznie rozpowszechniane na zewnątrz. Jeśli wchodzisz w interakcje z innymi użytkownikami lub rejestrujesz się za pośrednictwem zewnętrznej usługi mediów społecznościowych, Twoje kontakty w tej usłudze mogą zobaczyć Twoje imię, profil, zdjęcia i opis Twojej aktywności. Podobnie inni użytkownicy będą mogli zobaczyć opisy Twojej aktywności, komunikować się z Tobą i przeglądać Twój profil.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">158,159</context>
+          <context context-type="linenumber">154</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.shareWithConsent" datatype="html">
@@ -783,7 +751,7 @@
         <target><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Za Twoją zgodą<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/>: Możemy ujawnić Twoje dane osobowe w dowolnym innym celu za Twoją zgodą.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">159,160</context>
+          <context context-type="linenumber">155</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.retentionOfPersonalData" datatype="html">
@@ -791,7 +759,7 @@
         <target>Przechowywanie Twoich danych osobowych</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">162,163</context>
+          <context context-type="linenumber">158</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.retentionDescription" datatype="html">
@@ -799,7 +767,7 @@
         <target>Firma będzie przechowywać Twoje dane osobowe tylko tak długo, jak będzie to konieczne do celów określonych w niniejszej Polityce Prywatności. Będziemy przechowywać i wykorzystywać Twoje dane osobowe w zakresie niezbędnym do spełnienia naszych obowiązków prawnych (na przykład, jeśli jesteśmy zobowiązani do przechowywania Twoich danych w celu przestrzegania obowiązujących przepisów prawa), rozstrzygania sporów i egzekwowania naszych umów prawnych oraz polityk.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">163,164</context>
+          <context context-type="linenumber">159</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.usageDataRetention" datatype="html">
@@ -807,7 +775,7 @@
         <target>Firma będzie również przechowywać dane użytkowania do celów analizy wewnętrznej. Dane użytkowania są zazwyczaj przechowywane przez krótszy okres czasu, z wyjątkiem sytuacji, gdy dane te są wykorzystywane do wzmocnienia bezpieczeństwa lub poprawy funkcjonalności naszej Usługi, lub jesteśmy prawnie zobowiązani do przechowywania tych danych przez dłuższe okresy.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">164,166</context>
+          <context context-type="linenumber">160</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.transferOfPersonalData" datatype="html">
@@ -815,7 +783,7 @@
         <target>Przekazywanie Twoich danych osobowych</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">166,167</context>
+          <context context-type="linenumber">162</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.transferDescription" datatype="html">
@@ -823,7 +791,7 @@
         <target>Twoje informacje, w tym dane osobowe, są przetwarzane w biurach operacyjnych firmy oraz w innych miejscach, gdzie znajdują się strony zaangażowane w przetwarzanie. Oznacza to, że te informacje mogą być przekazywane i przechowywane na komputerach znajdujących się poza Twoim stanem, prowincją, krajem lub inną jurysdykcją rządową, gdzie przepisy ochrony danych mogą różnić się od tych obowiązujących w Twojej jurysdykcji.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">167,168</context>
+          <context context-type="linenumber">163</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.consentForTransfer" datatype="html">
@@ -831,7 +799,7 @@
         <target>Twoja zgoda na tę Politykę Prywatności, a następnie przesłanie takich informacji, oznacza Twoją zgodę na ten transfer.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">168,169</context>
+          <context context-type="linenumber">164</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.dataTransferSecurity" datatype="html">
@@ -839,7 +807,7 @@
         <target>Firma podejmie wszelkie kroki uzasadnione koniecznością, aby zapewnić, że Twoje dane są traktowane bezpiecznie i zgodnie z niniejszą Polityką Prywatności, i żaden transfer Twoich danych osobowych nie będzie miał miejsca do organizacji lub kraju, chyba że istnieją odpowiednie zabezpieczenia, w tym bezpieczeństwo Twoich danych i innych informacji osobowych.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">169,171</context>
+          <context context-type="linenumber">165</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.deletePersonalData" datatype="html">
@@ -847,7 +815,7 @@
         <target>Usuń swoje dane osobowe</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">171,172</context>
+          <context context-type="linenumber">167</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.deleteDescription" datatype="html">
@@ -855,7 +823,7 @@
         <target>Masz prawo do usunięcia lub żądania pomocy w usunięciu Danych Osobowych, które zebraliśmy na Twój temat.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">172,173</context>
+          <context context-type="linenumber">168</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.deleteServiceAbility" datatype="html">
@@ -863,7 +831,7 @@
         <target>Nasza Usługa może dać Ci możliwość usunięcia pewnych informacji o Tobie z poziomu Usługi.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">173,174</context>
+          <context context-type="linenumber">169</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.updateAmendDelete" datatype="html">
@@ -871,7 +839,7 @@
         <target>Możesz aktualizować, zmieniać lub usuwać swoje informacje w dowolnym momencie, logując się do swojego konta, jeśli je posiadasz, i odwiedzając sekcję ustawień konta, która umożliwia zarządzanie danymi osobowymi. Możesz również skontaktować się z Nami, aby poprosić o dostęp do, poprawienie lub usunięcie wszelkich danych osobowych, które Nam przekazałeś.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">174,175</context>
+          <context context-type="linenumber">170</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.retentionLegalObligation" datatype="html">
@@ -879,7 +847,7 @@
         <target>Należy jednak pamiętać, że możemy potrzebować zachować pewne informacje, gdy mamy do tego prawny obowiązek lub podstawę prawną.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">175,177</context>
+          <context context-type="linenumber">171</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.disclosurePersonalData" datatype="html">
@@ -887,7 +855,7 @@
         <target>Ujawnienie Twoich danych osobowych</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">177,178</context>
+          <context context-type="linenumber">173</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.businessTransactions" datatype="html">
@@ -895,7 +863,7 @@
         <target>Transakcje biznesowe</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">178,179</context>
+          <context context-type="linenumber">174</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.businessTransactionsDescription" datatype="html">
@@ -903,7 +871,7 @@
         <target>W przypadku fuzji, przejęcia lub sprzedaży aktywów przez firmę, Twoje dane osobowe mogą zostać przekazane. Poinformujemy Cię, zanim Twoje dane osobowe zostaną przekazane i będą podlegać innej Polityce Prywatności.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">179,181</context>
+          <context context-type="linenumber">175</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.lawEnforcement" datatype="html">
@@ -911,7 +879,7 @@
         <target>Organy ścigania</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">181,182</context>
+          <context context-type="linenumber">177</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.lawEnforcementDescription" datatype="html">
@@ -919,7 +887,7 @@
         <target>W pewnych okolicznościach firma może być zobowiązana do ujawnienia Twoich danych osobowych, jeśli jest to wymagane przez prawo lub w odpowiedzi na ważne żądania organów publicznych (np. sądu lub agencji rządowej).</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">182,184</context>
+          <context context-type="linenumber">178</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.otherLegalRequirements" datatype="html">
@@ -927,7 +895,7 @@
         <target>Inne wymogi prawne</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">184,185</context>
+          <context context-type="linenumber">180</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.otherLegalRequirementsDescription" datatype="html">
@@ -935,7 +903,7 @@
         <target>Firma może ujawnić Twoje dane osobowe w dobrej wierze, uznając, że taka czynność jest konieczna do:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">185,188</context>
+          <context context-type="linenumber">181</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.complyLegalObligation" datatype="html">
@@ -943,7 +911,7 @@
         <target>Wypełnienia obowiązku prawnego</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">188,189</context>
+          <context context-type="linenumber">184</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.protectRightsProperty" datatype="html">
@@ -951,7 +919,7 @@
         <target>Ochrony i obrony praw lub własności firmy</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">189,190</context>
+          <context context-type="linenumber">185</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.preventWrongdoing" datatype="html">
@@ -959,7 +927,7 @@
         <target>Zapobiegania lub badania ewentualnych wykroczeń związanych z usługą</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">190,191</context>
+          <context context-type="linenumber">186</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.protectPersonalSafety" datatype="html">
@@ -967,7 +935,7 @@
         <target>Ochrony osobistego bezpieczeństwa użytkowników usługi lub społeczeństwa</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">191,192</context>
+          <context context-type="linenumber">187</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.protectAgainstLiability" datatype="html">
@@ -975,7 +943,7 @@
         <target>Ochrony przed odpowiedzialnością prawną</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">192,195</context>
+          <context context-type="linenumber">188</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.securityPersonalData" datatype="html">
@@ -983,7 +951,7 @@
         <target>Bezpieczeństwo Twoich danych osobowych</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">195,196</context>
+          <context context-type="linenumber">191</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.securityDescription" datatype="html">
@@ -991,7 +959,7 @@
         <target>Bezpieczeństwo Twoich danych osobowych jest dla nas ważne, ale pamiętaj, że żadna metoda transmisji przez Internet ani metoda przechowywania elektronicznego nie jest w 100% bezpieczna. Choć staramy się stosować komercyjnie akceptowane środki do ochrony Twoich danych osobowych, nie możemy zagwarantować ich całkowitego bezpieczeństwa.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">196,198</context>
+          <context context-type="linenumber">192</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.childrensPrivacy" datatype="html">
@@ -999,7 +967,7 @@
         <target>Prywatność dzieci</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">198,199</context>
+          <context context-type="linenumber">194</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.childrenPrivacyDescription" datatype="html">
@@ -1007,7 +975,7 @@
         <target>Nasza Usługa nie jest przeznaczona dla osób poniżej 13 roku życia. Nie zbieramy świadomie danych osobowych od osób poniżej 13 roku życia. Jeśli jesteś rodzicem lub opiekunem i zdajesz sobie sprawę, że Twoje dziecko przekazało nam dane osobowe, prosimy o kontakt z Nami. Jeśli stwierdzimy, że zebraliśmy dane osobowe od osoby poniżej 13 roku życia bez weryfikacji zgody rodziców, podejmiemy kroki w celu usunięcia tych informacji z naszych serwerów.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">199,200</context>
+          <context context-type="linenumber">195</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.parentalConsent" datatype="html">
@@ -1015,7 +983,7 @@
         <target>Jeśli musimy polegać na zgodzie jako podstawie prawnej przetwarzania Twoich informacji, a Twoje państwo wymaga zgody rodzica, możemy wymagać zgody Twojego rodzica przed zebraniem i wykorzystaniem tych informacji.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">200,202</context>
+          <context context-type="linenumber">196</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.linksToOtherWebsites" datatype="html">
@@ -1023,7 +991,7 @@
         <target>Linki do innych stron internetowych</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">202,203</context>
+          <context context-type="linenumber">198</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.linksToOtherWebsitesDescription" datatype="html">
@@ -1031,7 +999,7 @@
         <target>Nasza Usługa może zawierać linki do innych stron internetowych, które nie są przez Nas obsługiwane. Jeśli klikniesz link strony trzeciej, zostaniesz przekierowany na stronę tej strony trzeciej. Zalecamy dokładne zapoznanie się z Polityką Prywatności każdej odwiedzanej strony.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">203,204</context>
+          <context context-type="linenumber">199</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.noControlOverContent" datatype="html">
@@ -1039,7 +1007,7 @@
         <target>Nie mamy kontroli ani nie ponosimy odpowiedzialności za treści, polityki prywatności ani praktyki jakichkolwiek stron trzecich lub usług.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">204,206</context>
+          <context context-type="linenumber">200</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.changesToPrivacyPolicy" datatype="html">
@@ -1047,7 +1015,7 @@
         <target>Zmiany w niniejszej Polityce Prywatności</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">206,207</context>
+          <context context-type="linenumber">202</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.changesToPrivacyPolicyDescription" datatype="html">
@@ -1055,7 +1023,7 @@
         <target>Możemy aktualizować naszą Politykę Prywatności od czasu do czasu. Powiadomimy Cię o wszelkich zmianach, publikując nową Politykę Prywatności na tej stronie.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">207,208</context>
+          <context context-type="linenumber">203</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.notifyChanges" datatype="html">
@@ -1063,7 +1031,7 @@
         <target>Poinformujemy Cię za pośrednictwem e-maila i/lub wyraźnego powiadomienia w Naszej Usłudze, przed wejściem zmiany w życie i zaktualizujemy datę "Ostatnia aktualizacja" na górze niniejszej Polityki Prywatności.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">208,209</context>
+          <context context-type="linenumber">204</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.reviewPrivacyPolicy" datatype="html">
@@ -1071,7 +1039,7 @@
         <target>Zaleca się okresowe przeglądanie niniejszej Polityki Prywatności pod kątem wszelkich zmian. Zmiany w niniejszej Polityce Prywatności są skuteczne, gdy zostaną opublikowane na tej stronie.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">209,211</context>
+          <context context-type="linenumber">205</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.contactUs" datatype="html">
@@ -1079,7 +1047,7 @@
         <target>Skontaktuj się z nami</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">211,212</context>
+          <context context-type="linenumber">207</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.contactUsDescription" datatype="html">
@@ -1087,7 +1055,7 @@
         <target>Jeśli masz jakiekolwiek pytania dotyczące niniejszej Polityki Prywatności, możesz się z nami skontaktować:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">212,215</context>
+          <context context-type="linenumber">208</context>
         </context-group>
       </trans-unit>
       <trans-unit id="privacy-policy.contactEmail" datatype="html">
@@ -1095,7 +1063,7 @@
         <target>Poprzez email: <x id="INTERPOLATION" equiv-text="{{ supportEmail }}"/></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/privacy-policy/components/privacy-policy/privacy-policy.component.html</context>
-          <context context-type="linenumber">215,216</context>
+          <context context-type="linenumber">211</context>
         </context-group>
       </trans-unit>
       <trans-unit id="register.If-you-already-have-account-log-in-instead" datatype="html">
@@ -1103,7 +1071,7 @@
         <target> Jeśli masz już konto <x id="START_LINK" ctype="x-a" equiv-text="&lt;a [routerLink]=&quot;['/login']&quot; routerLinkActive=&quot;active&quot;>"/>zaloguj się<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a>"/> </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/register/components/register/register.component.html</context>
-          <context context-type="linenumber">56</context>
+          <context context-type="linenumber">55</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock.Back to coins list" datatype="html">
@@ -1111,7 +1079,7 @@
         <target>Powrót do listy monet</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-analyse.component.html</context>
-          <context context-type="linenumber">24</context>
+          <context context-type="linenumber">8</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock-order-buy.Current-price" datatype="html">
@@ -1519,7 +1487,7 @@
         <target>Pokaż statystyki</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-analyse.component.html</context>
-          <context context-type="linenumber">34</context>
+          <context context-type="linenumber">11</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock-order-buy.Chart-type:Chart type" datatype="html">
@@ -1527,7 +1495,7 @@
         <target>Typ wykresu</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-analyse.component.html</context>
-          <context context-type="linenumber">66,67</context>
+          <context context-type="linenumber">28</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock.Refresh" datatype="html">
@@ -1535,7 +1503,7 @@
         <target>Odśwież</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-analyse.component.html</context>
-          <context context-type="linenumber">75</context>
+          <context context-type="linenumber">31</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock.Display-in-currency" datatype="html">
@@ -1543,7 +1511,7 @@
         <target>Wyświetl w walucie</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-analyse.component.html</context>
-          <context context-type="linenumber">140</context>
+          <context context-type="linenumber">62</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock.Analyse-crypto" datatype="html">
@@ -1551,7 +1519,7 @@
         <target>Analizowana kryptowaluta</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-analyse.component.html</context>
-          <context context-type="linenumber">153</context>
+          <context context-type="linenumber">65</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock.Sell" datatype="html">
@@ -1559,7 +1527,7 @@
         <target>Sprzedaj</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-analyse.component.html</context>
-          <context context-type="linenumber">162</context>
+          <context context-type="linenumber">70</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock.Buy" datatype="html">
@@ -1567,7 +1535,7 @@
         <target>Kup</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-analyse.component.html</context>
-          <context context-type="linenumber">165</context>
+          <context context-type="linenumber">73</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock.Orders" datatype="html">
@@ -1575,7 +1543,7 @@
         <target>Zlecenia</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-analyse.component.html</context>
-          <context context-type="linenumber">169</context>
+          <context context-type="linenumber">77</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock.Created-at" datatype="html">
@@ -1583,7 +1551,7 @@
         <target>Utworzono: <x id="INTERPOLATION" equiv-text="{{ order.date_created | date:'yyyy-MM-dd HH:mm:ss' }}"/></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-analyse.component.html</context>
-          <context context-type="linenumber">197</context>
+          <context context-type="linenumber">94</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock.Executed-at" datatype="html">
@@ -1591,7 +1559,7 @@
         <target>Zrealizowano: <x id="INTERPOLATION" equiv-text="{{ order.date_executed | date:'yyyy-MM-dd HH:mm:ss' }}"/></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-analyse.component.html</context>
-          <context context-type="linenumber">199</context>
+          <context context-type="linenumber">96</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock.Crypto-stats" datatype="html">
@@ -1599,7 +1567,7 @@
         <target>Statystyki kryptowaluty</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-analyse.component.html</context>
-          <context context-type="linenumber">218</context>
+          <context context-type="linenumber">113</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock.Current-price" datatype="html">
@@ -1607,7 +1575,7 @@
         <target>Aktualna cena</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-analyse.component.html</context>
-          <context context-type="linenumber">226</context>
+          <context context-type="linenumber">116</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock.Min-in-24h" datatype="html">
@@ -1615,7 +1583,7 @@
         <target>Min w przeciągu 24 godzin</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-analyse.component.html</context>
-          <context context-type="linenumber">230</context>
+          <context context-type="linenumber">120</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock.Max-in-24h" datatype="html">
@@ -1623,7 +1591,7 @@
         <target>Maks w przeciągu 24 godzin</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-analyse.component.html</context>
-          <context context-type="linenumber">234</context>
+          <context context-type="linenumber">124</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock.Price-change-in-24h" datatype="html">
@@ -1631,7 +1599,7 @@
         <target>Zmiana ceny w przeciągu 24 godzin</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-analyse.component.html</context>
-          <context context-type="linenumber">238</context>
+          <context context-type="linenumber">128</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock.Market-cap" datatype="html">
@@ -1639,7 +1607,7 @@
         <target>Kapitalizacja rynkowa</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-analyse.component.html</context>
-          <context context-type="linenumber">251</context>
+          <context context-type="linenumber">139</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock.Total-volume" datatype="html">
@@ -1647,7 +1615,7 @@
         <target>Suma obrotu</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/stock/components/stock-analyse/stock-analyse.component.html</context>
-          <context context-type="linenumber">255</context>
+          <context context-type="linenumber">143</context>
         </context-group>
       </trans-unit>
       <trans-unit id="stock.Close-fullscreen" datatype="html">
@@ -1715,7 +1683,7 @@
         <target>Zarejestruj się</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/register/components/register/register.component.html</context>
-          <context context-type="linenumber">52</context>
+          <context context-type="linenumber">51</context>
         </context-group>
       </trans-unit>
       <trans-unit id="register.Try-for-free-now-step-1-of-3" datatype="html">
@@ -1755,7 +1723,7 @@
         <target>Zaakceptuj naszą politykę prywatności</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/register/components/register/register.component.html</context>
-          <context context-type="linenumber">46</context>
+          <context context-type="linenumber">45</context>
         </context-group>
       </trans-unit>
       <trans-unit id="home.Improve-trading-skills-explore-crypto-stocks-expand-your-knowledge-and-beyond-that" datatype="html">
@@ -2059,7 +2027,7 @@
         <target>Szczegóły</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile.config.ts</context>
-          <context context-type="linenumber">6</context>
+          <context context-type="linenumber">5</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.Wallets" datatype="html">
@@ -2367,7 +2335,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/blog/components/blog-post-edit/blog-post-edit.component.ts</context>
-          <context context-type="linenumber">106</context>
+          <context context-type="linenumber">102</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/blog/components/blog-post-read/blog-post-read.component.ts</context>
@@ -2471,7 +2439,7 @@
         <target>Napisane w</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/blog/components/blog-post-edit/blog-post-edit.component.html</context>
-          <context context-type="linenumber">11,12</context>
+          <context context-type="linenumber">12</context>
         </context-group>
       </trans-unit>
       <trans-unit id="blog-post-edit.Title" datatype="html">
@@ -2479,7 +2447,7 @@
         <target>Tytuł</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/blog/components/blog-post-edit/blog-post-edit.component.html</context>
-          <context context-type="linenumber">24</context>
+          <context context-type="linenumber">25</context>
         </context-group>
       </trans-unit>
       <trans-unit id="blog-post-edit.Save" datatype="html">
@@ -2487,7 +2455,7 @@
         <target>Zapisz</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/blog/components/blog-post-edit/blog-post-edit.component.html</context>
-          <context context-type="linenumber">114</context>
+          <context context-type="linenumber">115</context>
         </context-group>
       </trans-unit>
       <trans-unit id="blog-post-edit.Blog-post-saved-successfully" datatype="html">
@@ -2495,7 +2463,7 @@
         <target>Post na blogu został pomyślnie zapisany</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/blog/components/blog-post-edit/blog-post-edit.component.ts</context>
-          <context context-type="linenumber">107</context>
+          <context context-type="linenumber">103</context>
         </context-group>
       </trans-unit>
       <trans-unit id="blog-posts.Are-you-sure-you-want-delete-blog-post" datatype="html">
@@ -2766,6 +2734,14 @@
           <context context-type="linenumber">24</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="login.Check-Privacy-policy" datatype="html">
+        <source>Check <x id="START_LINK" ctype="x-a" equiv-text="&lt;a routerLink=&quot;/privacy-policy&quot; target=&quot;_blank&quot; rel=&quot;external nofollow noopener&quot;>"/>privacy policy<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a>"/> before Google login</source>
+        <target>Sprawdź <x id="START_LINK" ctype="x-a" equiv-text="&lt;a routerLink=&quot;/privacy-policy&quot; target=&quot;_blank&quot; rel=&quot;external nofollow noopener&quot;>"/>politykę prywatności<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a>"/> przed zalogowaniem się poprzez Google</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/login/components/login/login.component.html</context>
+          <context context-type="linenumber">26,27</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="profile-password.Password" datatype="html">
         <source>Password</source>
         <target>Hasło</target>
@@ -2907,15 +2883,15 @@
         <target>Dywersyfikacja portfela</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-statisticts/profile-statisticts.component.html</context>
-          <context context-type="linenumber">25</context>
+          <context context-type="linenumber">24</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="profile-statisticts.Amount" datatype="html">
-        <source>Amount</source>
+      <trans-unit id="profile-statisticts.Nominal" datatype="html">
+        <source>Nominal</source>
         <target>Ilość</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-statisticts/profile-statisticts.component.html</context>
-          <context context-type="linenumber">61</context>
+          <context context-type="linenumber">59</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-statisticts.Estimated-fiat-value" datatype="html">
@@ -2923,7 +2899,7 @@
         <target>Szacowana wartość w walucie fiducjarnej</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile-statisticts/profile-statisticts.component.html</context>
-          <context context-type="linenumber">62</context>
+          <context context-type="linenumber">60</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-wallet-add-money.Amount_min-1_:Amount (min 1)" datatype="html">
@@ -2971,7 +2947,7 @@
         <target>Hasło</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile.config.ts</context>
-          <context context-type="linenumber">14</context>
+          <context context-type="linenumber">25</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.Payments" datatype="html">
@@ -2979,7 +2955,7 @@
         <target>Płatności</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile.config.ts</context>
-          <context context-type="linenumber">18</context>
+          <context context-type="linenumber">15</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile.Statistics" datatype="html">
@@ -2987,7 +2963,7 @@
         <target>Statystyki</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/components/profile/profile.config.ts</context>
-          <context context-type="linenumber">22</context>
+          <context context-type="linenumber">20</context>
         </context-group>
       </trans-unit>
       <trans-unit id="users-errors.Invalid-old-password" datatype="html">
@@ -3126,20 +3102,12 @@
           <context context-type="linenumber">22,23</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="header.FAQs" datatype="html">
-        <source>FAQs</source>
-        <target>FAQs</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
-          <context context-type="linenumber">24,26</context>
-        </context-group>
-      </trans-unit>
       <trans-unit id="header.Log-in" datatype="html">
         <source>Log in</source>
         <target>Zaloguj się</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
-          <context context-type="linenumber">28</context>
+          <context context-type="linenumber">26</context>
         </context-group>
       </trans-unit>
       <trans-unit id="header.Try-for-free" datatype="html">
@@ -3147,7 +3115,7 @@
         <target>Wypróbuj za darmo</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
-          <context context-type="linenumber">29</context>
+          <context context-type="linenumber">27</context>
         </context-group>
       </trans-unit>
       <trans-unit id="home.Profile" datatype="html">
@@ -3155,7 +3123,7 @@
         <target>Profil</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
-          <context context-type="linenumber">32</context>
+          <context context-type="linenumber">30</context>
         </context-group>
       </trans-unit>
       <trans-unit id="header.Profile" datatype="html">
@@ -3163,7 +3131,7 @@
         <target>Profil</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
-          <context context-type="linenumber">36</context>
+          <context context-type="linenumber">34</context>
         </context-group>
       </trans-unit>
       <trans-unit id="header.Admin" datatype="html">
@@ -3171,7 +3139,7 @@
         <target>Administrator</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
-          <context context-type="linenumber">40,41</context>
+          <context context-type="linenumber">38</context>
         </context-group>
       </trans-unit>
       <trans-unit id="header.Log-out" datatype="html">
@@ -3179,7 +3147,7 @@
         <target>Wyloguj sie</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
-          <context context-type="linenumber">47</context>
+          <context context-type="linenumber">45</context>
         </context-group>
       </trans-unit>
       <trans-unit id="home.Languages" datatype="html">
@@ -3187,7 +3155,7 @@
         <target>Język aplikacji</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
-          <context context-type="linenumber">53</context>
+          <context context-type="linenumber">51</context>
         </context-group>
       </trans-unit>
       <trans-unit id="home.Switch-to-light-dark-theme" datatype="html">
@@ -3195,7 +3163,7 @@
         <target>Zmień na motyw jasny/ciemny</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
-          <context context-type="linenumber">70</context>
+          <context context-type="linenumber">68</context>
         </context-group>
       </trans-unit>
       <trans-unit id="password-strength-validator.Password-must-be-at-least-12-characters-long" datatype="html">
@@ -3262,20 +3230,12 @@
           <context context-type="linenumber">138</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="home.Cookies" datatype="html">
-        <source>Cookies</source>
-        <target>Polityka ciasteczek</target>
+      <trans-unit id="home.Privacy-policy" datatype="html">
+        <source>Privacy policy</source>
+        <target>Polityka prywatności</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
-          <context context-type="linenumber">139</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="home.FAQs" datatype="html">
-        <source>FAQs</source>
-        <target>FAQs</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/home/components/home/home.component.html</context>
-          <context context-type="linenumber">140</context>
+          <context context-type="linenumber">139,142</context>
         </context-group>
       </trans-unit>
     </body>

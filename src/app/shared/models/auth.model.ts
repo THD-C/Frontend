@@ -1,4 +1,4 @@
-import { UserType } from "./user.model";
+import { UserType } from './user.model';
 
 export type AuthScheme = 'Bearer';
 
@@ -7,6 +7,11 @@ export type Session = {
   authScheme: AuthScheme;
   email: string;
   username: string;
+
+  /**
+   * Determines whether user logged via external login system i.e. Google, Meta etc.
+   */
+  oauthLogin?: boolean;
 }
 
 export type JwtPayload = {
