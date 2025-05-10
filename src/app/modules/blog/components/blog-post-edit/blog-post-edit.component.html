@@ -6,7 +6,7 @@
       <dx-select-box
         [dataSource]="availableLanguages"
         [(value)]="editBlogPost.language"
-        [disabled]="editBlogPost.path.length > 0"
+        [disabled]="isNew === false"
         displayExpr="name"
         valueExpr="code"
         label="Written in"
