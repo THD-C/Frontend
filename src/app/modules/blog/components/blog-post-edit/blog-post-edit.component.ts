@@ -27,7 +27,7 @@ export class BlogPostEditComponent implements OnInit, OnDestroy {
     return this.editBlogPost.path.length === 0;
   }
 
-  editBlogPost: EditBlogPostRequest = defaultEditBlogPost;
+  editBlogPost: EditBlogPostRequest = { ...defaultEditBlogPost };
 
   subscriptions: Subscription[] = [];
 
@@ -40,7 +40,6 @@ export class BlogPostEditComponent implements OnInit, OnDestroy {
   ) { }
 
   async ngOnInit(): Promise<void> {
-    this.editBlogPost = defaultEditBlogPost
     this.applyPathParams();
     await this.getBlogPost();
   }
