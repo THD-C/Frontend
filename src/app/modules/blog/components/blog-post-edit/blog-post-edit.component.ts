@@ -40,6 +40,7 @@ export class BlogPostEditComponent implements OnInit, OnDestroy {
   ) { }
 
   async ngOnInit(): Promise<void> {
+    this.editBlogPost = { ...defaultEditBlogPost };
     this.applyPathParams();
     await this.getBlogPost();
   }
